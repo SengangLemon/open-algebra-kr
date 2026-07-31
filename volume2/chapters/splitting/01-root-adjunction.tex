@@ -1,0 +1,75 @@
+\section{근을 첨가하는 방법}
+\label{sec:root-adjunction}
+
+\begin{learninggoal}
+기약다항식의 한 근을 포함하는 체확장을 몫환으로 구성하고, 서로 다른 근을 첨가해 얻은 단순확장이 기준체 위에서 동형임을 설명한다.
+\end{learninggoal}
+
+\subsection{기약다항식에서 새로운 체 만들기}
+
+체 $K$와 기약다항식 $f\in K[X]$를 생각하자. $(f)$는 $K[X]$의 극대아이디얼이므로
+\[
+  K[X]/(f)
+\]
+는 체이다. $\alpha=X+(f)$라 놓으면 $f(\alpha)=0$이고, 자연스러운 포함
+\[
+  K\hookrightarrow K[X]/(f)
+\]
+을 통해 이 몫체를 $K$의 확장으로 볼 수 있다.
+
+\begin{theorem}[근의 첨가]
+$f\in K[X]$가 기약이면 $f$의 한 근 $\alpha$를 포함하는 체확장 $K(\alpha)/K$가 존재하며
+\[
+  K(\alpha)\cong K[X]/(f),
+  \qquad [K(\alpha):K]=\deg f.
+\]
+\end{theorem}
+
+\begin{proof}
+$K[X]/(f)$에서 $\alpha=X+(f)$라 두면 $f(\alpha)=0$이다. 또한 모든 원소는 $\alpha$의 다항식으로 표현되므로 이 체는 $K(\alpha)$이다. 몫환에서
+\[
+  1,\alpha,\dots,\alpha^{n-1}
+\]
+이 기저를 이루며 $n=\deg f$이므로 차수 공식이 따른다.
+\end{proof}
+
+\begin{example}
+$X^2-2$는 $\Q[X]$에서 기약이다. 따라서
+\[
+  \Q[X]/(X^2-2)\cong\Q(\sqrt2).
+\]
+몫체에서 $\alpha^2=2$이고 모든 원소는 $a+b\alpha$의 꼴로 유일하게 표현된다.
+\end{example}
+
+\subsection{근 하나의 선택은 본질적이지 않다}
+
+\begin{theorem}[근을 보내는 동형]
+$f\in K[X]$가 기약이고, 어떤 두 체확장 안의 원소 $\alpha,\beta$가 모두 $f$의 근이라 하자. 그러면 유일한 $K$-동형
+\[
+  \varphi:K(\alpha)\longrightarrow K(\beta)
+\]
+가 존재하여 $\varphi(\alpha)=\beta$를 만족한다.
+\end{theorem}
+
+\begin{proof}
+두 평가 준동형
+\[
+  K[X]\to K(\alpha),\quad g\mapsto g(\alpha),
+\]
+\[
+  K[X]\to K(\beta),\quad g\mapsto g(\beta)
+\]
+의 핵은 모두 $(f)$이다. 따라서 제1동형정리에 의해 두 체는 모두 $K[X]/(f)$와 $K$-동형이다. 이 동형들을 합성하면 원하는 사상을 얻는다. 생성원 $\alpha$의 상이 정해지면 모든 $g(\alpha)$의 상은 $g(\beta)$로 정해지므로 유일하다.
+\end{proof}
+
+\begin{keyidea}
+기약다항식의 서로 다른 근들은 서로 다른 ``이름''을 가질 수 있지만, 그 근 하나가 생성하는 단순확장의 대수적 구조는 같다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Q[X]/(X^2+1)$의 표준기저와 곱셈 규칙을 적어라.
+  \item $X^3-2$의 두 복소근 $\alpha$와 $\omega\alpha$가 생성하는 $\Q$-확장이 동형임을 설명하라.
+  \item $K[X]/(f)$가 체가 되기 위해 $f$에 어떤 조건이 필요한가?
+\end{enumerate}
+\end{checkpoint}
