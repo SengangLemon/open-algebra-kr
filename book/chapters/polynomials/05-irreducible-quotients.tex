@@ -1,0 +1,101 @@
+\section{기약다항식과 새로운 수의 구성}
+\label{sec:irreducible-quotients}
+
+\begin{learninggoal}
+기약다항식의 의미를 이해하고, $K[X]/(f)$가 언제 체가 되는지 판정한다. 몫환을 이용해 다항식의 근을 인위적으로 첨가하는 방법을 익힌다.
+\end{learninggoal}
+
+\begin{definition}
+체 $K$와 차수가 양수인 $f\in K[X]$에 대해, $f=gh$이면 항상 $g$ 또는 $h$가 상수다항식일 때 $f$를 $K[X]$에서 \emph{기약}이라 한다. 그렇지 않으면 \emph{가약}이라 한다.
+\end{definition}
+
+상수배는 단위원이므로 기약성에 영향을 주지 않는다. 따라서 필요하면 최고차항계수로 나누어 일계수다항식만 생각할 수 있다.
+
+\begin{proposition}[낮은 차수의 근 판정]
+$f\in K[X]$의 차수가 $2$ 또는 $3$이면 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $f$는 가약이다.
+  \item $f$는 $K$에 근을 갖는다.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+근이 있으면 인수정리에 의해 선형인수를 갖는다. 반대로 차수 $2$ 또는 $3$인 다항식이 가약이면 양의 차수인 두 인수 중 하나의 차수가 반드시 $1$이다. 선형인수는 $X-a$의 상수배이므로 $a\in K$가 근이다.
+\end{proof}
+
+\begin{pitfall}
+차수가 $4$ 이상이면 근이 없다는 사실만으로 기약성을 결론낼 수 없다. 예를 들어
+\[
+  X^4+5X^2+6=(X^2+2)(X^2+3)
+\]
+은 $\Q$에서 근이 없지만 가약이다.
+\end{pitfall}
+
+\begin{theorem}[기약성과 몫체]
+체 $K$와 비상수 다항식 $f\in K[X]$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $f$는 $K[X]$에서 기약이다.
+  \item $(f)$는 $K[X]$의 극대아이디얼이다.
+  \item $K[X]/(f)$는 체이다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+$K[X]$는 PID이므로 영이 아닌 비단위원 $f$에 대해 기약, 소원소, $(f)$의 극대성이 동치이다. 극대아이디얼에 의한 몫환이 체라는 환론의 결과를 적용한다.
+\end{proof}
+
+\subsection{근을 첨가하는 크로네커 구성}
+
+$f\in K[X]$가 기약이고
+\[
+  L=K[X]/(f),\qquad \alpha=X+(f)
+\]
+라 하자. $f=\sum_i a_iX^i$이면 몫환에서
+\[
+  f(\alpha)=\sum_i a_i\alpha^i
+  =f(X)+(f)=0.
+\]
+즉 $K$에는 없던 $f$의 근을 몫체 안에 만들어 냈다.
+
+\begin{proposition}
+$f$가 차수 $n$인 일계수 기약다항식이면 $L=K[X]/(f)$의 모든 원소는 유일하게
+\[
+  a_0+a_1\alpha+\cdots+a_{n-1}\alpha^{n-1}
+\]
+의 꼴로 표현된다. 따라서 $L$은 $K$-벡터공간으로 차원 $n$이고
+\[
+  1,\alpha,\dots,\alpha^{n-1}
+\]
+가 기저이다.
+\end{proposition}
+
+\begin{proof}
+나눗셈 알고리즘에 의해 모든 $g\in K[X]$는 $g=qf+r$, $\deg r<n$으로 유일하게 표현된다. 몫환에서 $g+(f)=r+(f)$이다. 두 나머지가 같은 잉여류를 나타내면 그 차이가 $(f)$에 속하지만 차수가 $n$보다 작으므로 차이는 $0$이다.
+\end{proof}
+
+\begin{example}
+$X^2+1$은 $\R[X]$에서 기약이다. 따라서
+\[
+  \R[X]/(X^2+1)
+\]
+은 체이다. $i=X+(X^2+1)$라 쓰면 $i^2=-1$이고 모든 원소가 $a+bi$로 유일하게 표현되므로
+\[
+  \R[X]/(X^2+1)\cong\C.
+\]
+\end{example}
+
+\begin{example}
+$f=X^2+X+1\in\F_2[X]$는 $0,1$을 근으로 갖지 않으므로 기약이다. 따라서
+\[
+  \F_4:=\F_2[X]/(X^2+X+1)
+\]
+은 네 원소를 갖는 체이다. $\alpha=X+(f)$라 하면
+\[
+  \alpha^2=\alpha+1
+\]
+이고 원소는 $0,1,\alpha,\alpha+1$이다.
+\end{example}
+
+\begin{keyidea}
+기약다항식은 더 이상 낮은 차수의 방정식으로 분해되지 않는 식인 동시에, 새로운 체를 만드는 청사진이다. $K[X]/(f)$에서는 변수 $X$의 잉여류가 실제로 $f$의 근이 된다.
+\end{keyidea}
