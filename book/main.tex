@@ -28,7 +28,7 @@
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{정의}
 \newtheorem{example}[theorem]{예제}
-\newtheorem{exercise}[theorem]{연습문제}
+\newtheorem{exercise}{연습문제}[chapter]
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{설명}
 
@@ -46,6 +46,53 @@
   breakable
 }
 
+\newtcolorbox{keyidea}{
+  colback=green!3,
+  colframe=green!45!black,
+  title=핵심 아이디어,
+  breakable
+}
+
+\newtcolorbox{proofidea}{
+  colback=yellow!5,
+  colframe=orange!65!black,
+  title=증명 전략,
+  breakable
+}
+
+\newtcolorbox{checkpoint}{
+  colback=violet!3,
+  colframe=violet!45!black,
+  title=이해 점검,
+  breakable
+}
+
+\newtcolorbox{chapterreview}{
+  colback=black!2,
+  colframe=black!60,
+  title=장 요약,
+  breakable
+}
+
+\renewcommand{\proofname}{증명}
+\newenvironment{solution}{\begin{proof}[풀이]}{\end{proof}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\lcm}{\operatorname{lcm}}
+
 \title{\Huge Open Algebra KR\\[8pt]\Large 갈루아 이론으로 배우는 현대대수학\\[18pt]\large Volume 1: 군, 환, 다항식}
 \author{Sunghyun Park}
 \date{Draft 0.1}
@@ -58,6 +105,7 @@
 
 \mainmatter
 \part{방정식에서 구조로}
+\setcounter{chapter}{-1}
 \input{chapters/00-motivation}
 
 \part{군과 대칭}
