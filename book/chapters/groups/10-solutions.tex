@@ -9,18 +9,20 @@ $15$와 서로소인 나머지는
   \overline1,\overline2,\overline4,\overline7,
   \overline8,\overline{11},\overline{13},\overline{14}
 \]
-이다. 역원은
+이다. 각 원소의 역원은
 \[
 \begin{aligned}
 &\overline1^{-1}=\overline1,
 &&\overline2^{-1}=\overline8,
 &&\overline4^{-1}=\overline4,
 &&\overline7^{-1}=\overline{13},\\
-&\overline{11}^{-1}=\overline{11},
-&&\overline{14}^{-1}=\overline{14}
+&\overline8^{-1}=\overline2,
+&&\overline{11}^{-1}=\overline{11},
+&&\overline{13}^{-1}=\overline7,
+&&\overline{14}^{-1}=\overline{14}.
 \end{aligned}
 \]
-이며 나머지는 대칭적으로 정해진다. 각 원소의 위수를 계산하면
+각 원소의 위수를 계산하면
 \[
 \begin{array}{c|cccccccc}
  a&1&2&4&7&8&11&13&14\\
@@ -169,7 +171,7 @@ $C_n=\langle g\rangle$라 하자. 자동동형은 생성원 $g$의 상에 의해
 \begin{solution}
 $\Phi$는 덧셈을 보존하는 준동형이다. $\Phi(\overline x)=(\overline0,\overline0)$일 필요충분조건은 $m\mid x$와 $n\mid x$가 동시에 성립하는 것이다. $\gcd(m,n)=1$이면 이는 $mn\mid x$와 동치이므로 핵은 자명하다. 정의역과 공역의 원소 개수가 모두 $mn$이므로 $\Phi$는 전단사이다.
 
-반대로 $d=\gcd(m,n)>1$이면 $\lcm(m,n)=mn/d<mn$이다. $x=\lcm(m,n)$은 $m,n$의 공배수이므로 $\Phi(\overline x)=0$이지만 $\overline x\ne\overline0$ in $\Z/mn\Z$이다. 따라서 $\Phi$는 단사가 아니다.
+반대로 $d=\gcd(m,n)>1$이면 $\lcm(m,n)=mn/d<mn$이다. $x=\lcm(m,n)$은 $m,n$의 공배수이므로 $\Phi(\overline x)=0$이지만 $\Z/mn\Z$에서 $\overline x\ne\overline0$이다. 따라서 $\Phi$는 단사가 아니다.
 \end{solution}
 
 \subsection*{문제 \thechapter.28: 제2동형정리 계산}

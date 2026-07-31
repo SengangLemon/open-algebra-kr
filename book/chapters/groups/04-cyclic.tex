@@ -69,7 +69,7 @@ $\ord(g)=n<\infty$이면 모든 정수 $k$에 대해
   \ord(g^k)=\frac{n}{\gcd(n,k)}.
 \]
 
-a fortiori, $g^k$가 $\langle g\rangle$의 생성원일 필요충분조건은 $\gcd(n,k)=1$이다.
+특히 $g^k$가 $\langle g\rangle$의 생성원일 필요충분조건은 $\gcd(n,k)=1$이다.
 \end{proposition}
 
 \begin{proof}
@@ -132,5 +132,13 @@ $\Z/12\Z$의 부분군은 $12$의 약수에 대응한다.
 \end{proposition}
 
 \begin{proof}
-$(a,b)\in C_m\times C_n$의 위수는 $\lcm(\ord(a),\ord(b))$이므로 최대 $\lcm(m,n)$이다. 직접곱이 위수 $mn$인 순환군이 되려면 $\lcm(m,n)=mn$, 즉 $\gcd(m,n)=1$이어야 한다. 반대로 서로소이면 각 군의 생성원 $x,y$에 대해 $(x,y)$의 위수가 $\lcm(m,n)=mn$이므로 전체 직접곱을 생성한다.
+유한 위수의 원소 $a\in C_m$, $b\in C_n$와 양의 정수 $t$에 대해
+\[
+  (a,b)^t=(e,e)
+\]
+일 필요충분조건은 $\ord(a)\mid t$와 $\ord(b)\mid t$가 동시에 성립하는 것이다. 따라서
+\[
+  \ord(a,b)=\lcm(\ord(a),\ord(b)).
+\]
+그러므로 $C_m\times C_n$의 원소 위수는 최대 $\lcm(m,n)$이다. 직접곱이 위수 $mn$인 순환군이 되려면 $\lcm(m,n)=mn$, 즉 $\gcd(m,n)=1$이어야 한다. 반대로 서로소이면 각 군의 생성원 $x,y$에 대해 $(x,y)$의 위수가 $\lcm(m,n)=mn$이므로 전체 직접곱을 생성한다.
 \end{proof}
