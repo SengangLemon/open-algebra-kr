@@ -1,0 +1,145 @@
+\section{유클리드 정역과 주아이디얼정역}
+\label{sec:ring-euclidean-pid}
+
+\begin{learninggoal}
+유클리드 정역의 정의를 이해하고, 유클리드 정역이 주아이디얼정역임을 증명한다. 유클리드 알고리즘과 베주 항등식이 아이디얼과 어떻게 연결되는지 설명한다.
+\end{learninggoal}
+
+\subsection{나눗셈 알고리즘을 추상화하기}
+
+정수에서는 나눗셈을 하면 나머지가 절댓값 기준으로 작아진다. 체 위의 다항식에서는 나머지의 차수가 작아진다. 이 두 상황의 공통점은 ``크기''를 측정하는 함수가 있고, 나눌 때마다 그 값이 감소한다는 것이다.
+
+\begin{definition}[유클리드 정역]
+정역 $R$에 함수
+\[
+  \delta:R\setminus\{0\}\to\N
+\]
+가 주어져서 모든 $a,b\in R$, $b\ne0$에 대해
+\[
+  a=qb+r
+\]
+인 $q,r\in R$가 존재하고, $r=0$이거나 $\delta(r)<\delta(b)$가 성립하면 $R$을 \emph{유클리드 정역}(Euclidean domain)이라 한다. $\delta$를 유클리드 함수라 한다.
+\end{definition}
+
+\begin{example}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Z$는 $\delta(n)=|n|$에 대해 유클리드 정역이다.
+  \item 체 $K$ 위의 $K[X]$는 $\delta(f)=\deg f$에 대해 유클리드 정역이다.
+  \item 가우스 정수환 $\Z[i]$는 $\delta(a+bi)=a^2+b^2$에 대해 유클리드 정역이다.
+\end{enumerate}
+\end{example}
+
+\begin{theorem}
+모든 유클리드 정역은 주아이디얼정역이다.
+\end{theorem}
+
+\begin{proofidea}
+영이 아닌 아이디얼 $I$에서 유클리드 함수값이 가장 작은 원소 $d$를 택한다. 임의의 $a\in I$를 $d$로 나누면 나머지도 $I$에 속한다. 최소성 때문에 그 나머지는 $0$이어야 하므로 모든 $a$가 $d$의 배수이다.
+\end{proofidea}
+
+\begin{proof}
+$0\ne I\trianglelefteq R$라 하자. 자연수의 정렬성에 의해 $I\setminus\{0\}$에서 $\delta$값이 최소인 원소 $d$가 존재한다. 임의의 $a\in I$에 대해 유클리드 나눗셈을 적용하면
+\[
+  a=qd+r,\qquad r=0\text{ 또는 }\delta(r)<\delta(d)
+\]
+이다. 그런데 $r=a-qd\in I$이다. $d$의 최소성 때문에 $r\ne0$일 수 없으므로 $r=0$이다. 따라서 $a\in(d)$이고 $I\subseteq(d)$. 반대 포함은 $d\in I$에서 명백하다. 따라서 $I=(d)$이다.
+\end{proof}
+
+\begin{corollary}
+\[
+  \Z,\qquad K[X],\qquad \Z[i]
+\]
+는 모두 PID이다.
+\end{corollary}
+
+\subsection{유클리드 알고리즘}
+
+$a,b\in R$, $b\ne0$에 대해 반복적으로
+\[
+\begin{aligned}
+ a&=q_0b+r_1,\\
+ b&=q_1r_1+r_2,\\
+ r_1&=q_2r_2+r_3,\\
+ &\ \vdots
+\end{aligned}
+\]
+와 같이 나눈다. 유클리드 함수값이 엄격히 감소하므로 과정은 유한 번 만에 끝난다. 마지막 영이 아닌 나머지가 $a,b$의 최대공약수이다.
+
+\begin{theorem}[유클리드 알고리즘과 베주 항등식]
+유클리드 정역 $R$의 $a,b$가 둘 다 $0$이 아니라고 하자. 유클리드 알고리즘의 마지막 영이 아닌 나머지 $d$는 $a,b$의 최대공약수이며
+\[
+  d=xa+yb
+\]
+인 $x,y\in R$가 존재한다. 특히
+\[
+  (a,b)=(d).
+\]
+\end{theorem}
+
+\begin{proofidea}
+각 나머지는 앞의 두 나머지의 선형결합이다. 마지막 식부터 거꾸로 대입하면 $d$가 $a,b$의 선형결합으로 표현된다. 동시에 모든 공약수는 나머지들을 차례로 나누므로 마지막 나머지를 나눈다.
+\end{proofidea}
+
+\begin{example}
+$252$와 $198$에 유클리드 알고리즘을 적용하면
+\[
+\begin{aligned}
+252&=1\cdot198+54,\\
+198&=3\cdot54+36,\\
+54&=1\cdot36+18,\\
+36&=2\cdot18.
+\end{aligned}
+\]
+따라서 $\gcd(252,198)=18$이다. 거꾸로 대입하면
+\[
+  18=54-36=54-(198-3\cdot54)=4\cdot54-198
+\]
+이고 $54=252-198$이므로
+\[
+  18=4\cdot252-5\cdot198.
+\]
+아이디얼로 쓰면 $(252,198)=(18)$이다.
+\end{example}
+
+\subsection{ED, PID, UFD}
+
+이후 인수분해 장에서 다음 함의를 증명한다.
+\[
+  \text{유클리드 정역}
+  \Longrightarrow
+  \text{주아이디얼정역}
+  \Longrightarrow
+  \text{유일인수분해정역}.
+\]
+역방향은 일반적으로 거짓이다. 예를 들어 $\Z[X]$는 유일인수분해정역이지만 PID가 아니다. 앞서 $(2,X)$가 주아이디얼이 아님을 확인했다.
+
+\begin{definition}[기약원소와 소원소]
+정역 $R$의 영이 아닌 비단위원 $p$에 대해 다음과 같이 정의한다.
+\begin{enumerate}[label=(\roman*)]
+  \item $p=ab$이면 $a$ 또는 $b$가 단위원일 때 $p$를 \emph{기약원소}라 한다.
+  \item $p\mid ab$이면 $p\mid a$ 또는 $p\mid b$일 때 $p$를 \emph{소원소}라 한다.
+\end{enumerate}
+\end{definition}
+
+소원소는 항상 기약원소이지만 일반 정역에서는 역이 성립하지 않을 수 있다. PID에서는 두 개념이 일치한다.
+
+\begin{proposition}
+PID $R$에서 영이 아닌 비단위원 $p$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $p$는 기약원소이다.
+  \item $(p)$는 극대아이디얼이다.
+  \item $p$는 소원소이다.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$p$가 기약이고 $(p)\subseteq(a)\subseteq R$라 하자. $p\in(a)$이므로 $p=ab$인 $b$가 있다. 기약성 때문에 $a$ 또는 $b$가 단위원이다. $a$가 단위원이면 $(a)=R$, $b$가 단위원이면 $(a)=(p)$이다. 따라서 $(p)$는 극대이다. 극대아이디얼은 소아이디얼이므로 $p$는 소원소이다. 소원소가 기약이라는 것은 $p=ab$일 때 $p\mid a$ 또는 $p\mid b$를 이용하여 소거하면 된다.
+\end{proof}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $K[X]$에서 $X^4-1$과 $X^3-1$의 최대공약수를 유클리드 알고리즘으로 구하라.
+  \item $\Z[i]$에서 노름 $N(a+bi)=a^2+b^2$가 곱셈적임을 보이라.
+  \item 왜 체는 자명하게 유클리드 정역인지 설명하라.
+\end{enumerate}
+\end{checkpoint}
