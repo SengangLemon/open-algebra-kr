@@ -1,0 +1,59 @@
+\section{대수적으로 닫힌 체와 대수적 폐포}
+\label{sec:algebraic-closure}
+
+\begin{learninggoal}
+대수적으로 닫힌 체와 대수적 폐포를 구별하고, 분해체가 대수적 폐포 안에서 어떻게 실현되는지 이해한다.
+\end{learninggoal}
+
+\begin{definition}[대수적으로 닫힌 체]
+체 $\Omega$가 \emph{대수적으로 닫혀 있다}고 함은 모든 비상수 다항식 $f\in\Omega[X]$가 $\Omega$ 안에 근을 갖는다는 뜻이다. 이는 모든 비상수 다항식이 $\Omega[X]$에서 일차인수의 곱으로 분해된다는 것과 동치이다.
+\end{definition}
+
+\begin{example}
+대수학의 기본정리에 의해 $\C$는 대수적으로 닫혀 있다. 반면 $\R$은 $X^2+1$의 근을 포함하지 않으므로 대수적으로 닫혀 있지 않다. 유한체도 대수적으로 닫혀 있지 않다.
+\end{example}
+
+\begin{definition}[대수적 폐포]
+체 $K$의 \emph{대수적 폐포}(algebraic closure)는 다음 두 조건을 만족하는 확장 $\overline K/K$이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $\overline K$는 $K$ 위에서 대수적이다.
+  \item $\overline K$는 대수적으로 닫혀 있다.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[대수적 폐포의 존재와 유일성]
+모든 체 $K$는 대수적 폐포를 가지며, 두 대수적 폐포는 $K$를 고정하는 체동형에 대해 서로 동형이다.
+\end{theorem}
+
+\begin{remark}
+존재 증명은 한 번의 근 첨가만으로 끝나지 않는다. 모든 다항식의 근을 동시에 수용하도록 충분히 큰 대수적 확장을 만든 뒤, 그 안에서 다시 생기는 다항식들의 근도 반복해서 첨가해야 한다. 완전한 증명에는 초른의 보조정리 또는 이에 준하는 집합론적 도구가 사용된다. 이 교재에서는 존재 정리를 표준 정리로 받아들이고, 이후 장에서 필요한 구체적인 분해체 계산에 집중한다.
+\end{remark}
+
+대수적 폐포 $\overline K$를 하나 고정하면, $K[X]$의 모든 다항식의 근을 같은 공간 안에서 비교할 수 있다. 특히 $f\in K[X]$의 분해체는 $\overline K$ 안에서 $f$의 모든 근이 생성하는 부분체
+\[
+  K(\alpha_1,\dots,\alpha_r)
+\]
+로 실현된다.
+
+\begin{proposition}
+$\overline K$가 $K$의 대수적 폐포이고 $E$가 $K\subseteq E\subseteq\overline K$인 중간체이면, $\overline K$는 $E$의 대수적 폐포이기도 하다.
+\end{proposition}
+
+\begin{proof}
+$\overline K$는 이미 대수적으로 닫혀 있다. 또한 모든 $\alpha\in\overline K$는 $K$ 위에서 대수적이므로, 같은 소거다항식을 $E[X]$의 다항식으로 보아도 $E$ 위에서 대수적이다.
+\end{proof}
+
+\begin{keyidea}
+분해체는 하나의 다항식에 필요한 최소 세계이고, 대수적 폐포는 기준체 위의 모든 대수방정식을 풀 수 있는 공통의 큰 세계이다.
+\end{keyidea}
+
+\begin{chapterreview}
+\begin{itemize}
+  \item 기약다항식 $f$의 근은 $K[X]/(f)$를 통해 첨가할 수 있다.
+  \item 분해체는 다항식이 완전히 분해되는, 모든 근으로 생성된 최소 체이다.
+  \item 분해체는 존재하며 기준체를 고정하는 동형까지 유일하다.
+  \item 차수 $n$ 다항식의 분해체 차수는 $n!$ 이하이다.
+  \item 대수적 폐포는 $K$ 위에서 대수적이고 대수적으로 닫힌 확장이다.
+  \item 대수적 폐포를 고정하면 모든 분해체를 그 안의 부분체로 비교할 수 있다.
+\end{itemize}
+\end{chapterreview}
