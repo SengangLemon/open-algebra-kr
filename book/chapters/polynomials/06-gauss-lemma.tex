@@ -1,0 +1,83 @@
+\section{내용, 원시다항식과 가우스 보조정리}
+\label{sec:gauss-lemma}
+
+\begin{learninggoal}
+정수계수 다항식의 공통인수를 분리하고, $\Z[X]$에서의 인수분해와 $\Q[X]$에서의 인수분해가 어떻게 연결되는지 이해한다.
+\end{learninggoal}
+
+이 절에서는 $R$을 UFD, $K=Q(R)$를 그 분수체라 한다.
+
+\begin{definition}
+영이 아닌 다항식
+\[
+  f=a_0+a_1X+\cdots+a_nX^n\in R[X]
+\]
+의 계수들의 최대공약수를 $f$의 \emph{내용}이라 하고 $\operatorname{cont}(f)$로 쓴다. 단위원배의 차이는 허용한다. 내용이 단위원이면 $f$를 \emph{원시다항식}이라 한다.
+\end{definition}
+
+예를 들어 $6X^3-9X+3$의 내용은 $3$이고
+\[
+  6X^3-9X+3=3(2X^3-3X+1)
+\]
+에서 괄호 안의 다항식은 원시다항식이다.
+
+\begin{lemma}[가우스 보조정리]
+원시다항식 두 개의 곱은 원시다항식이다. 더 일반적으로
+\[
+  \operatorname{cont}(fg)\sim
+  \operatorname{cont}(f)\operatorname{cont}(g),
+\]
+여기서 $\sim$는 단위원배를 제외하고 같다는 뜻이다.
+\end{lemma}
+
+\begin{proofidea}
+곱의 모든 계수가 어떤 소원소 $p$로 나누어진다고 가정한다. 계수를 $p$로 줄이면 두 원시다항식은 모두 영이 아닌 다항식이지만 그 곱은 영다항식이 된다. 그러나 $(R/(p))[X]$는 정역이므로 모순이다.
+\end{proofidea}
+
+\begin{proof}
+원시인 $f,g$의 곱이 원시가 아니라고 하자. 어떤 소원소 $p$가 $fg$의 모든 계수를 나눈다. 계수를 $(p)$로 줄이는 준동형
+\[
+  R[X]\to(R/(p))[X]
+\]
+을 생각하면 $f,g$의 상은 각각 영이 아니다. $p$는 소원소이므로 $R/(p)$는 정역이고, 따라서 그 다항식환도 정역이다. 그런데 $fg$의 상은 영이므로 모순이다. 일반식은 각 다항식에서 내용을 먼저 분리하면 얻어진다.
+\end{proof}
+
+\begin{theorem}[가우스의 기약성 정리]
+원시다항식 $f\in R[X]$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $f$는 $R[X]$에서 기약이다.
+  \item $f$는 $K[X]$에서 기약이다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proofidea}
+$R[X]$에서의 인수분해는 당연히 $K[X]$에서도 인수분해이다. 반대 방향에서는 $K[X]$의 분모를 모두 없앤 뒤 각 인수의 내용을 분리한다. 가우스 보조정리에 의해 남은 상수는 단위원이어야 하므로 $R[X]$의 진정한 인수분해가 얻어진다.
+\end{proofidea}
+
+\begin{proof}
+$f=gh$가 $K[X]$에서 양의 차수 인수분해라고 하자. 적당한 상수 $a,b\in K^\times$를 곱하여 $g_0=ag$, $h_0=bh$를 $R[X]$의 원시다항식으로 만들 수 있다. 그러면
+\[
+  f=cg_0h_0
+\]
+인 $c\in K^\times$가 존재한다. $f$와 $g_0h_0$가 모두 원시이고 내용이 곱에 대해 곱셈적이므로 $c$는 $R$의 단위원이다. 따라서 $f$는 $R[X]$에서도 양의 차수 인수분해를 갖는다.
+\end{proof}
+
+\begin{corollary}
+$R$이 UFD이면 $R[X]$도 UFD이다. 귀납적으로
+\[
+  R[X_1,\dots,X_n]
+\]
+도 UFD이다.
+\end{corollary}
+
+\begin{example}
+$f=2X^3+3X+1\in\Z[X]$는 원시다항식이다. 따라서 $f$가 $\Q[X]$에서 기약인지 조사할 때 정수계수 인수분해만 고려해도 충분하다. 분수계수 인수가 갑자기 새롭게 나타나는 일은 없다.
+\end{example}
+
+\begin{pitfall}
+가우스 정리는 ``$\Z[X]$에서 기약이면 모든 더 큰 체에서도 기약''이라는 뜻이 아니다. 예를 들어 $X^2+1$은 $\Q[X]$에서 기약이지만 $\C[X]$에서는 분해된다. 정리는 UFD $R$과 바로 그 분수체 $Q(R)$ 사이를 비교한다.
+\end{pitfall}
+
+\begin{keyidea}
+내용은 계수에 숨어 있는 상수 인수이고, 원시 부분은 다항식 자체의 인수분해 구조를 담는다. 가우스 보조정리는 이 두 층이 서로 간섭하지 않음을 말한다.
+\end{keyidea}
