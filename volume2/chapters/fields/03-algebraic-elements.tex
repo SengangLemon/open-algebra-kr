@@ -1,0 +1,130 @@
+\section{대수적 원소와 최소다항식}
+\label{sec:algebraic-elements}
+
+\begin{learninggoal}
+대수적 원소와 초월원소를 평가 준동형의 핵으로 구별하고, 최소다항식의 존재·유일성·기약성을 증명한다.
+\end{learninggoal}
+
+\subsection{평가 준동형이 기록하는 관계}
+
+체확장 $L/K$와 원소 $\alpha\in L$가 주어지면 평가 준동형
+\[
+  \operatorname{ev}_\alpha:K[X]\longrightarrow L,
+  \qquad
+  f\longmapsto f(\alpha)
+\]
+를 생각할 수 있다. 이 준동형의 핵은 $\alpha$가 $K$의 계수로 만족하는 모든 다항식 관계의 집합이다.
+
+\begin{definition}
+$\alpha\in L$가 어떤 영이 아닌 $f\in K[X]$에 대해 $f(\alpha)=0$을 만족하면 $\alpha$를 $K$ 위에서 \emph{대수적}(algebraic)이라 한다. 그런 다항식이 없으면 $\alpha$를 $K$ 위에서 \emph{초월적}(transcendental)이라 한다.
+
+확장 $L/K$의 모든 원소가 $K$ 위에서 대수적이면 $L/K$를 \emph{대수적 확장}이라 한다.
+\end{definition}
+
+즉
+\[
+  \alpha\text{가 }K\text{ 위에서 대수적}
+  \quad\Longleftrightarrow\quad
+  \ker(\operatorname{ev}_\alpha)\ne(0).
+\]
+
+\begin{example}
+\begin{enumerate}[label=(\alph*)]
+  \item $\sqrt[n]{q}$는 $X^n-q$의 근이므로 $\Q$ 위에서 대수적이다.
+  \item 모든 단위근은 $X^n-1$의 근이므로 $\Q$ 위에서 대수적이다.
+  \item 변수 $t$는 유리함수체 $K(t)$에서 $K$ 위 초월적이다. 그렇지 않다면 어떤 영이 아닌 $f\in K[X]$에 대해 $f(t)=0$이어야 하는데, 이는 형식적 변수의 정의에 모순이다.
+\end{enumerate}
+\end{example}
+
+\subsection{가장 낮은 차수의 관계}
+
+\begin{theorem}[최소다항식]
+$\alpha\in L$가 $K$ 위에서 대수적이면 다음을 만족하는 유일한 일계수다항식 $m_{\alpha,K}\in K[X]$가 존재한다.
+\begin{enumerate}[label=(\roman*)]
+  \item $m_{\alpha,K}(\alpha)=0$이다.
+  \item $m_{\alpha,K}$는 이 성질을 갖는 영이 아닌 다항식 가운데 차수가 가장 작다.
+\end{enumerate}
+또한 $m_{\alpha,K}$는 기약이고
+\[
+  \ker(\operatorname{ev}_\alpha)=(m_{\alpha,K})
+\]
+이다. 이를 $\alpha$의 $K$ 위 \emph{최소다항식}(minimal polynomial)이라 한다.
+\end{theorem}
+
+\begin{proof}
+$K[X]$는 PID이고 $\alpha$가 대수적이므로 평가 준동형의 핵은 영이 아닌 주아이디얼이다. 그 일계수 생성원을 $m$이라 하자. 그러면 핵의 모든 영이 아닌 원소 가운데 $m$의 차수가 최소이며, 일계수 조건으로 생성원이 유일하다.
+
+$m=gh$가 양의 차수인 두 다항식의 곱이라고 하자. 그러면
+\[
+  0=m(\alpha)=g(\alpha)h(\alpha).
+\]
+$L$은 체이므로 $g(\alpha)=0$ 또는 $h(\alpha)=0$이다. 이는 $m$보다 낮은 차수의 영이 아닌 다항식이 $\alpha$를 근으로 갖는다는 뜻이므로 최소성에 모순이다. 따라서 $m$은 기약이다.
+\end{proof}
+
+\begin{corollary}[나눗셈 판정]
+$f\in K[X]$에 대해
+\[
+  f(\alpha)=0
+  \quad\Longleftrightarrow\quad
+  m_{\alpha,K}\mid f.
+\]
+\end{corollary}
+
+\begin{proof}
+핵이 $(m_{\alpha,K})$이므로 바로 따른다. 또는 $f$를 최소다항식으로 나눈 뒤 나머지를 $\alpha$에 대입하면 된다.
+\end{proof}
+
+\begin{example}
+\[
+  m_{\sqrt2,\Q}=X^2-2,
+  \qquad
+  m_{i,\R}=X^2+1.
+\]
+두 다항식은 각각 해당 체에서 기약이고 지정한 원소를 근으로 갖는다.
+\end{example}
+
+\begin{example}[계수체가 바뀌면 최소다항식도 바뀐다]
+$\sqrt2$의 $\Q$ 위 최소다항식은 $X^2-2$이지만, $\Q(\sqrt2)$ 위에서는
+\[
+  m_{\sqrt2,\Q(\sqrt2)}=X-\sqrt2
+\]
+이다. 최소다항식은 원소 자체만이 아니라 기준이 되는 체에도 의존한다.
+\end{example}
+
+\begin{pitfall}
+어떤 다항식이 $\alpha$를 근으로 갖는다고 해서 곧바로 최소다항식인 것은 아니다. 반드시 일계수이고, 계수체 위에서 기약이며, $\alpha$를 근으로 가져야 한다.
+\end{pitfall}
+
+\subsection{유한확장은 대수적이다}
+
+\begin{theorem}
+유한확장 $L/K$는 대수적 확장이다.
+\end{theorem}
+
+\begin{proof}
+$n=[L:K]$라 하고 $\alpha\in L$를 택하자. $n+1$개의 원소
+\[
+  1,\alpha,\alpha^2,\dots,\alpha^n
+\]
+는 $n$차원 $K$-벡터공간 $L$에서 선형종속이다. 따라서 모두 $0$은 아닌 $c_0,\dots,c_n\in K$가 존재하여
+\[
+  c_0+c_1\alpha+\cdots+c_n\alpha^n=0.
+\]
+즉 $\alpha$는 $K$ 위에서 대수적이다.
+\end{proof}
+
+\begin{corollary}
+$\alpha\in L$가 $K$ 위에서 대수적이면
+\[
+  \deg m_{\alpha,K}\le [L:K]
+\]
+이다.
+\end{corollary}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $1+\sqrt2$가 만족하는 이차다항식을 구하고 최소다항식임을 보여라.
+  \item $i$의 $\Q$ 위 최소다항식과 $\C$ 위 최소다항식을 각각 구하라.
+  \item 최소다항식이 모든 소거다항식을 나눈다는 사실을 나눗셈 알고리즘으로 다시 증명하라.
+\end{enumerate}
+\end{checkpoint}
