@@ -26,8 +26,8 @@
 5. 연습문제와 해설의 답이 일치하는가?
 
 - [ ] Chapter 0 동기와 역사 서술
-- [ ] Chapter 1 군론 정의·정리
-- [ ] Chapter 1 예제·문제·풀이
+- [x] Chapter 1 군론 정의·정리 — [Pass 1 기록](qa/chapter-01-math-audit.md)
+- [x] Chapter 1 예제·문제·풀이 — [Pass 1 기록](qa/chapter-01-math-audit.md)
 - [ ] Chapter 2 환론 정의·정리
 - [ ] Chapter 2 예제·문제·풀이
 - [ ] Chapter 3 다항식론 정의·정리
