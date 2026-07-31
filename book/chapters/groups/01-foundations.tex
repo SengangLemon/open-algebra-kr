@@ -1,0 +1,330 @@
+\begin{learninggoal}
+이 장을 마치면 다음을 할 수 있어야 한다.
+\begin{enumerate}[label=\arabic*.]
+  \item 군의 공리를 단순히 외우지 않고, 각각이 왜 필요한지 설명한다.
+  \item 정수의 덧셈, 합동류, 가역행렬, 순열, 도형의 대칭을 군으로 해석한다.
+  \item 부분군과 생성부분군을 판정하고, 순환군과 원소의 위수를 계산한다.
+  \item 군 준동형의 핵과 상을 구하고, 동형정리를 이용해 군의 구조를 단순화한다.
+  \item 잉여류와 라그랑주 정리를 이용해 유한군의 가능한 부분군과 원소의 위수를 제한한다.
+  \item 정규부분군이 왜 몫군을 만들기 위한 정확한 조건인지 설명한다.
+  \item 군론의 언어가 갈루아 이론에서 방정식의 근의 대칭을 어떻게 기록하는지 예고한다.
+\end{enumerate}
+\end{learninggoal}
+
+\section{군은 무엇을 기록하는가}
+
+현대대수학을 처음 배우면 군의 정의는 지나치게 추상적으로 보인다. 집합 하나와 연산 하나를 놓고 결합법칙, 항등원, 역원을 요구하는 것이 왜 중요한지 알기 어렵기 때문이다. 그러나 군은 임의로 만든 공리 체계가 아니다. 군은 다음 상황에서 반복해서 나타나는 공통 구조를 추출한 것이다.
+
+\begin{itemize}
+  \item 정수에 어떤 수를 더했다가 같은 수를 빼면 원래 정수로 돌아온다.
+  \item 가역행렬을 곱한 뒤 역행렬을 곱하면 원래 벡터가 복원된다.
+  \item 정사각형을 회전하거나 반사한 뒤 적절한 대칭을 적용하면 원래 위치로 돌아간다.
+  \item 다항방정식의 근들을 서로 바꾸는 변환을 합성할 수 있고, 그 변환을 되돌릴 수 있다.
+\end{itemize}
+
+이 예들의 공통점은 \emph{변환을 합성할 수 있고, 모든 변환이 가역적이라는 것}이다. 군론은 바로 이 ``가역적 합성''의 수학이다.
+
+\begin{keyidea}
+군을 공부할 때 원소를 고정된 물체로만 생각하지 말자. 원소를 ``어떤 상태를 다른 상태로 옮기는 가역적 행동''으로 생각하면 군의 공리가 자연스러워진다. 갈루아군의 원소도 수가 아니라 체의 구조를 보존하는 가역적 변환이다.
+\end{keyidea}
+
+\subsection{근을 바꾸어도 식이 변하지 않는 경우}
+
+가장 간단한 예로 방정식
+\[
+  x^2-2=0
+\]
+을 생각하자. 두 근은 $\sqrt2$와 $-\sqrt2$이다. 두 근을 그대로 두는 변환과 서로 맞바꾸는 변환을 생각할 수 있다. 맞바꾸기를 두 번 하면 다시 원래 상태로 돌아온다. 따라서 변환을 $e$와 $s$라고 쓰면
+\[
+  s^2=e
+\]
+이다. 이 두 변환은 가장 작은 비자명 군을 이룬다.
+
+아직 갈루아군을 엄밀히 정의할 준비는 되지 않았지만, 이 예는 중요한 방향을 보여 준다. 방정식의 해를 직접 공식으로 표현하는 대신, \emph{해들 사이에 허용되는 대칭}을 연구할 수 있다. 군은 그 대칭을 계산 가능한 대상으로 바꾸는 언어이다.
+
+\section{이항연산과 군의 공리}
+\label{sec:group-axioms}
+
+\subsection{이항연산}
+
+\begin{definition}[이항연산]
+집합 $G$ 위의 \emph{이항연산}은 함수
+\[
+  \ast:G\times G\longrightarrow G
+\]
+이다. $(a,b)$의 함숫값을 보통 $a\ast b$라고 쓴다.
+\end{definition}
+
+정의에서 공역이 다시 $G$라는 점이 중요하다. $a,b\in G$를 연산한 결과가 반드시 $G$ 안에 머물러야 한다. 이를 \emph{닫힘성}이라고 부르지만, 엄밀히는 이항연산이라는 말 자체에 이미 포함되어 있다.
+
+\begin{example}
+정수의 덧셈
+\[
+  +:\Z\times\Z\to\Z,\qquad (a,b)\mapsto a+b
+\]
+은 이항연산이다. 반면 자연수에서의 뺄셈은 $2-5=-3\notin\N$이므로 $\N$ 위의 이항연산이 아니다.
+\end{example}
+
+\begin{definition}[결합법칙과 교환법칙]
+이항연산 $\ast$가 모든 $a,b,c\in G$에 대하여
+\[
+  (a\ast b)\ast c=a\ast(b\ast c)
+\]
+를 만족하면 \emph{결합적}이라고 한다. 모든 $a,b\in G$에 대하여
+\[
+  a\ast b=b\ast a
+\]
+를 만족하면 \emph{교환적}이라고 한다.
+\end{definition}
+
+결합법칙은 괄호의 위치를 바꾸어도 결과가 같다는 뜻이다. 결합법칙이 성립하면 $a_1a_2\cdots a_n$에서 괄호를 생략할 수 있다. 반면 교환법칙은 원소의 순서를 바꾸어도 된다는 더 강한 성질이며, 모든 군에서 성립하지는 않는다.
+
+\begin{pitfall}
+결합법칙과 교환법칙을 혼동하지 말자. 행렬곱과 함수의 합성은 결합적이지만 일반적으로 교환적이지 않다. 군의 정의에는 결합법칙이 필요하지만 교환법칙은 필요하지 않다.
+\end{pitfall}
+
+\subsection{항등원과 역원}
+
+\begin{definition}[항등원]
+이항연산이 주어진 집합 $G$에서 원소 $e\in G$가 모든 $a\in G$에 대해
+\[
+  ea=a=ae
+\]
+를 만족하면 $e$를 \emph{항등원}이라고 한다.
+\end{definition}
+
+\begin{definition}[역원]
+항등원 $e$가 있는 집합에서 $a\in G$에 대해
+\[
+  ab=e=ba
+\]
+를 만족하는 $b\in G$가 존재하면 $b$를 $a$의 \emph{역원}이라고 한다.
+\end{definition}
+
+\begin{definition}[군]
+집합 $G$와 이항연산 $G\times G\to G$가 다음 조건을 만족하면 $G$를 \emph{군}이라고 한다.
+\begin{enumerate}[label=(G\arabic*)]
+  \item \textbf{결합법칙}: $(ab)c=a(bc)$.
+  \item \textbf{항등원}: 어떤 $e\in G$가 존재하여 $ea=a=ae$.
+  \item \textbf{역원}: 각 $a\in G$에 대하여 $aa^{-1}=e=a^{-1}a$인 $a^{-1}\in G$가 존재한다.
+\end{enumerate}
+연산이 교환적이면 $G$를 \emph{아벨군} 또는 \emph{가환군}이라고 한다.
+\end{definition}
+
+군의 세 공리는 각각 역할이 다르다. 결합법칙은 여러 변환을 모호함 없이 합성하게 하고, 항등원은 ``아무것도 하지 않는 변환''을 제공하며, 역원은 모든 행동을 되돌릴 수 있게 한다.
+
+\subsection{항등원과 역원의 유일성}
+
+정의에서는 항등원과 역원이 ``존재한다''고만 요구했다. 그러나 실제로는 각각 유일하다.
+
+\begin{proposition}
+군 $G$의 항등원은 유일하다. 또한 각 $a\in G$의 역원은 유일하다.
+\end{proposition}
+
+\begin{proofidea}
+유일성을 보일 때는 후보 두 개를 놓고 서로의 정의를 동시에 사용한다. 항등원 두 개 $e,f$가 있다면 $e=ef=f$이고, 역원 두 개 $b,c$가 있다면 $b=be=b(ac)=(ba)c=ec=c$이다.
+\end{proofidea}
+
+\begin{proof}
+$e$와 $f$가 모두 항등원이라고 하자. $f$가 오른쪽 항등원이므로 $e=ef$이고, $e$가 왼쪽 항등원이므로 $ef=f$이다. 따라서 $e=f$이다.
+
+이제 $b$와 $c$가 모두 $a$의 역원이라고 하자. 결합법칙을 사용하면
+\[
+  b=be=b(ac)=(ba)c=ec=c
+\]
+이므로 $b=c$이다.
+\end{proof}
+
+따라서 항등원을 보통 $e$ 또는 $1$로 쓰고, $a$의 유일한 역원을 $a^{-1}$로 쓸 수 있다.
+
+\begin{proposition}[소거법칙]
+군 $G$에서
+\[
+  ax=ay\implies x=y,\qquad xa=ya\implies x=y
+\]
+가 성립한다.
+\end{proposition}
+
+\begin{proof}
+$ax=ay$의 양변 왼쪽에 $a^{-1}$을 곱하면
+\[
+  a^{-1}(ax)=a^{-1}(ay)
+\]
+이고 결합법칙에 의해 $x=y$이다. 오른쪽 소거도 같다.
+\end{proof}
+
+\begin{corollary}
+군에서 방정식 $ax=b$와 $ya=b$는 각각 유일한 해
+\[
+  x=a^{-1}b,\qquad y=ba^{-1}
+\]
+를 갖는다.
+\end{corollary}
+
+\subsection{거듭제곱 법칙}
+
+곱셈 표기를 쓰는 군에서 $n>0$일 때 $a^n$은 $a$를 $n$번 곱한 것이고, $a^0=e$, $a^{-n}=(a^{-1})^n$으로 정의한다. 모든 $m,n\in\Z$에 대해
+\[
+  a^ma^n=a^{m+n},\qquad (a^m)^n=a^{mn}
+\]
+이 성립한다. 또한
+\[
+  (ab)^{-1}=b^{-1}a^{-1}
+\]
+이다. 마지막 식에서 순서가 뒤집힌다는 점이 중요하다.
+
+\begin{pitfall}
+일반 군에서는 $(ab)^n=a^nb^n$이 성립하지 않는다. 이 식은 $a$와 $b$가 서로 교환할 때에만 안전하게 사용할 수 있다. 예를 들어 $(ab)^2=abab$이며, 이를 $aabb$로 바꾸려면 $ba=ab$가 필요하다.
+\end{pitfall}
+
+\subsection{덧셈 표기}
+
+아벨군은 흔히 덧셈 표기를 사용한다. 이때 항등원은 $0$, 역원은 $-a$, 거듭제곱 $a^n$에 해당하는 것은 정수배 $na$이다. 예를 들어
+\[
+  n a=\underbrace{a+\cdots+a}_{n\text{개}},\qquad (-n)a=-(na).
+\]
+어떤 표기를 쓰더라도 구조는 동일하다. 중요한 것은 기호가 아니라 연산의 성질이다.
+
+\begin{checkpoint}
+\begin{enumerate}[label=\arabic*.]
+  \item $G$의 연산이 결합적이라는 사실은 왜 괄호 생략과 관련되는가?
+  \item $(ab)^{-1}$이 $a^{-1}b^{-1}$이 아니라 $b^{-1}a^{-1}$인 이유를 직접 계산하라.
+  \item 군의 소거법칙에서 역원의 존재가 어디에 사용되는가?
+\end{enumerate}
+\end{checkpoint}
+
+\section{대표적인 군과 반례}
+\label{sec:group-examples}
+
+군론의 정의는 예제를 통해 익혀야 한다. 서로 매우 달라 보이는 대상들이 같은 공리를 만족한다는 사실이 군론의 힘이다.
+
+\subsection{수의 덧셈군}
+
+\begin{example}
+$(\Z,+)$, $(\Q,+)$, $(\R,+)$, $(\C,+)$는 모두 아벨군이다. 항등원은 $0$이고 $a$의 역원은 $-a$이다.
+\end{example}
+
+자연수 $\N$은 덧셈에 대해 결합법칙과 항등원 $0$을 갖지만, $1$의 덧셈 역원 $-1$이 $\N$에 없으므로 군이 아니다. 이런 구조를 \emph{모노이드}라고 한다.
+
+\subsection{합동류의 덧셈군}
+
+양의 정수 $n$에 대해 $\Z/n\Z$는 정수를 $n$으로 나눈 나머지에 따라 묶은 집합이다. 원소를 $\overline a$로 쓰고
+\[
+  \overline a+\overline b=\overline{a+b}
+\]
+로 정의하면 아벨군이 된다. 항등원은 $\overline0$이고 $\overline a$의 역원은 $\overline{-a}$이다.
+
+\begin{example}
+$\Z/6\Z$에서
+\[
+  \overline4+\overline5=\overline9=\overline3,
+  \qquad -\overline4=\overline2
+\]
+이다.
+\end{example}
+
+\subsection{가역원군}
+
+정수의 곱셈 전체는 군을 이루지 않는다. 예를 들어 $2$의 곱셈 역원 $1/2$는 정수가 아니다. 그러나 환에서 곱셈 역원을 가진 원소들만 모으면 군이 된다.
+
+\begin{example}
+$\Z/n\Z$에서 곱셈 역원을 갖는 원소들의 집합을
+\[
+  (\Z/n\Z)^\times
+  =\{\overline a:\gcd(a,n)=1\}
+\]
+로 쓴다. 이는 곱셈에 관한 아벨군이다. 예를 들어
+\[
+  (\Z/10\Z)^\times=\{\overline1,\overline3,\overline7,\overline9\}.
+\]
+$\overline3^{-1}=\overline7$인데, $3\cdot7\equiv1\pmod{10}$이기 때문이다.
+\end{example}
+
+\subsection{행렬군}
+
+체 $K$ 위의 $n\times n$ 가역행렬 전체를
+\[
+  \GL_n(K)=\{A\in M_n(K):\det A\ne0\}
+\]
+로 쓴다. 행렬곱에 대해 군을 이루며, 항등원은 단위행렬 $I_n$, 역원은 평소의 역행렬이다.
+
+\begin{example}[행렬곱은 일반적으로 비가환]
+\[
+ A=\begin{pmatrix}1&1\\0&1\end{pmatrix},\qquad
+ B=\begin{pmatrix}1&0\\1&1\end{pmatrix}
+\]
+라 하자. 그러면
+\[
+ AB=\begin{pmatrix}2&1\\1&1\end{pmatrix},\qquad
+ BA=\begin{pmatrix}1&1\\1&2\end{pmatrix}
+\]
+이므로 $AB\ne BA$이다. 따라서 $\GL_2(\R)$은 아벨군이 아니다.
+\end{example}
+
+행렬식이 $1$인 가역행렬의 집합
+\[
+  \SL_n(K)=\{A\in\GL_n(K):\det A=1\}
+\]
+도 군을 이룬다. 뒤에서 이는 행렬식 준동형의 핵으로 해석될 것이다.
+
+\subsection{순열군}
+
+집합 $X$에서 자기 자신으로 가는 전단사 함수 전체를 $\Sym(X)$라고 하자. 함수 합성을 연산으로 사용하면 $\Sym(X)$는 군이다. $X=\{1,\dots,n\}$이면 이를 대칭군 $S_n$이라고 쓴다.
+
+이 책에서는 순열의 곱 $\sigma\tau$를 합성 $\sigma\circ\tau$로 정의한다. 따라서 $\tau$를 먼저 적용하고 $\sigma$를 나중에 적용한다.
+
+\begin{example}[$S_3$의 비가환성]
+$\sigma=(12)$, $\tau=(23)$라 하자. 직접 계산하면
+\[
+  \sigma\tau=(123),\qquad \tau\sigma=(132)
+\]
+이므로 $\sigma\tau\ne\tau\sigma$이다. $S_3$는 가장 작은 비가환군이다.
+\end{example}
+
+\begin{pitfall}
+순열의 곱셈 순서는 교재마다 표기 관습이 다를 수 있다. 이 책에서는 함수 합성과 같이 오른쪽 순열을 먼저 적용한다. 계산을 시작하기 전에 반드시 관습을 확인하자.
+\end{pitfall}
+
+\subsection{정사각형의 대칭군}
+
+정사각형을 자기 자신으로 옮기는 회전과 반사를 생각하자. $90^\circ$ 반시계 회전을 $r$, 한 축에 대한 반사를 $s$라고 하면
+\[
+  r^4=e,\qquad s^2=e,\qquad srs=r^{-1}
+\]
+이다. 가능한 대칭은
+\[
+  e,r,r^2,r^3,s,sr,sr^2,sr^3
+\]
+의 여덟 개이며, 이 군을 정사각형의 이면체군 $D_4$라고 한다. 관계식 $srs=r^{-1}$은 반사와 회전의 순서가 중요함을 보여 준다.
+
+\subsection{직접곱과 함수군}
+
+군 $G,H$에 대해 데카르트곱 $G\times H$에
+\[
+  (g_1,h_1)(g_2,h_2)=(g_1g_2,h_1h_2)
+\]
+를 정의하면 군이 된다. 이를 \emph{직접곱}이라고 한다.
+
+또한 집합 $X$와 군 $G$가 주어졌을 때 모든 함수 $f:X\to G$의 집합에 점별 연산
+\[
+  (fg)(x)=f(x)g(x)
+\]
+를 정의하면 군이 된다. 함수 공간 자체가 군이 되는 이 관점은 이후 해석학과 표현론에서도 반복된다.
+
+\subsection{군이 아닌 예}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+집합과 연산 & 실패하는 조건 & 이유 \\
+\midrule
+$(\N,+)$ & 역원 & $1$의 역원 $-1$이 없음 \\
+$(\Z,\times)$ & 역원 & $2^{-1}\notin\Z$ \\
+홀수 정수와 덧셈 & 닫힘성 & 홀수+홀수=짝수 \\
+모든 $n\times n$ 행렬과 곱셈 & 역원 & 특이행렬은 역행렬이 없음 \\
+$\R\setminus\{0\}$와 덧셈 & 닫힘성 & $1+(-1)=0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+군인지 판정할 때는 공리를 무작정 세 개 모두 계산하기 전에 가장 쉽게 실패하는 조건을 찾는 것이 효율적이다.
