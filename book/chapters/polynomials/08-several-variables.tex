@@ -1,0 +1,105 @@
+\section{여러 변수 다항식}
+\label{sec:several-variables}
+
+\begin{learninggoal}
+여러 변수 다항식환의 기본 구조, 전체차수, 대입의 보편 성질을 이해한다. 한 변수 이론과 달라지는 점을 구별한다.
+\end{learninggoal}
+
+한 변수 다항식환을 반복하여
+\[
+  R[X_1,\dots,X_n]
+  \cong R[X_1,\dots,X_{n-1}][X_n]
+\]
+을 정의할 수 있다. 원소는 유한합
+\[
+  f=\sum_{\alpha\in\N^n}a_\alpha X^\alpha,
+  \qquad
+  X^\alpha=X_1^{\alpha_1}\cdots X_n^{\alpha_n}
+\]
+로 표현된다.
+
+\begin{definition}
+다중지수 $\alpha=(\alpha_1,\dots,\alpha_n)$에 대해
+\[
+  |\alpha|=\alpha_1+\cdots+\alpha_n
+\]
+를 단항식 $X^\alpha$의 전체차수라 한다. 영이 아닌 $f=\sum a_\alpha X^\alpha$의 전체차수는
+\[
+  \deg f=\max\{|\alpha|:a_\alpha\ne0\}
+\]
+이다.
+\end{definition}
+
+\begin{example}
+\[
+ f=X^3Y^2+X^2Y^2Z+7Z^4+1
+\]
+에서 각 비상수 항의 전체차수는 $5,5,4$이므로 $\deg f=5$이다.
+\end{example}
+
+\begin{definition}
+모든 비영 항의 전체차수가 같은 다항식을 \emph{동차다항식}이라 한다. 예를 들어
+\[
+  X^2+3XY+Y^2
+\]
+는 차수 $2$의 동차다항식이다.
+\end{definition}
+
+\begin{proposition}
+$R$이 정역이면 $R[X_1,\dots,X_n]$도 정역이고
+\[
+ \deg(fg)=\deg f+\deg g
+\]
+가 성립한다. 또한
+\[
+ R[X_1,\dots,X_n]^\times=R^\times.
+\]
+\end{proposition}
+
+\begin{proof}
+한 변수 결과를
+\[
+ R[X_1,\dots,X_n]
+ =R[X_1,\dots,X_{n-1}][X_n]
+\]
+에 귀납적으로 적용한다. 전체차수 공식은 최고차 동차부분들의 곱이 정역에서 영이 되지 않는다는 사실로도 직접 보일 수 있다.
+\end{proof}
+
+\begin{theorem}[여러 변수 보편 성질]
+환 준동형 $\varphi:R\to S$와 $s_1,\dots,s_n\in S$가 주어지면
+\[
+  \Phi:R[X_1,\dots,X_n]\to S
+\]
+중 $\Phi|_R=\varphi$와 $\Phi(X_i)=s_i$를 만족하는 것은 정확히 하나 존재한다.
+\end{theorem}
+
+그 준동형은
+\[
+ \Phi\left(\sum_\alpha a_\alpha X^\alpha\right)
+ =\sum_\alpha\varphi(a_\alpha)s_1^{\alpha_1}\cdots s_n^{\alpha_n}
+\]
+로 주어진다.
+
+\begin{corollary}
+$R$이 UFD이면 $R[X_1,\dots,X_n]$도 UFD이다.
+\end{corollary}
+
+\begin{proof}
+가우스 정리를 변수 수에 대해 반복 적용한다.
+\end{proof}
+
+\subsection{한 변수와 달라지는 점}
+
+체 $K$에 대해 $K[X]$는 유클리드 정역이자 PID이지만, $K[X,Y]$는 PID가 아니다. 실제로 아이디얼
+\[
+  (X,Y)
+\]
+가 주아이디얼이라고 가정하자. 생성원 $d$는 $X$와 $Y$를 모두 나누므로 UFD에서 $d$는 단위원이어야 한다. 그러면 $(X,Y)=K[X,Y]$여야 하지만 $1\notin(X,Y)$이므로 모순이다.
+
+\begin{pitfall}
+$K[X,Y]$도 UFD이지만 PID는 아니다. ``유일인수분해가 된다''와 ``모든 아이디얼이 한 원소로 생성된다''는 서로 다른 성질이다.
+\end{pitfall}
+
+\begin{keyidea}
+한 변수 다항식은 유클리드 나눗셈 덕분에 매우 강한 구조를 갖는다. 여러 변수에서는 인수분해의 유일성은 남지만 단순한 나눗셈과 PID 구조는 사라진다. 이 차이가 가환대수와 대수기하학의 출발점이다.
+\end{keyidea}
