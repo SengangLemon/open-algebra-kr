@@ -1,0 +1,92 @@
+\section{장 정리: 환론의 지도}
+\label{sec:ring-review}
+
+\begin{chapterreview}
+\textbf{1. 환}\quad 환은 덧셈 아벨군과 곱셈 모노이드가 분배법칙으로 연결된 구조이다. 이 책에서는 환과 환 준동형이 곱셈 항등원을 보존한다고 가정한다.
+
+\medskip
+\textbf{2. 원소의 종류}\quad 단위원은 곱셈 역원을 가지며 $R^\times$라는 군을 이룬다. 영인수는 영이 아닌 다른 원소와 곱해 $0$이 되는 원소이다. 체에서는 모든 영이 아닌 원소가 단위원이고, 정역에는 영이 아닌 영인수가 없다.
+
+\medskip
+\textbf{3. 아이디얼}\quad 아이디얼은 덧셈부분군이면서 환 전체의 곱셈을 흡수한다. 아이디얼은 몫환을 만들 수 있는 정확한 종류의 부분집합이며, 군론의 정규부분군과 같은 역할을 한다.
+
+\medskip
+\textbf{4. 몫환}\quad $I\trianglelefteq R$이면 $R/I$에서 $I$의 모든 원소는 $0$이 된다. 환 준동형 $\varphi:R\to S$는 핵을 통해
+\[
+  R/\ker\varphi\cong\im\varphi
+\]
+로 인수분해된다.
+
+\medskip
+\textbf{5. 소·극대아이디얼}\quad
+\[
+  I\text{가 소아이디얼}\Longleftrightarrow R/I\text{가 정역},
+\]
+\[
+  I\text{가 극대아이디얼}\Longleftrightarrow R/I\text{가 체}.
+\]
+따라서 모든 극대아이디얼은 소아이디얼이다.
+
+\medskip
+\textbf{6. 중국인의 나머지 정리}\quad 쌍마다 서로소인 아이디얼 $I_i$에 대해
+\[
+  R/(I_1\cdots I_n)\cong\prod_iR/I_i.
+\]
+이 정리는 합동식의 동시 해법과 환의 직접곱 분해를 하나의 명제로 통합한다.
+
+\medskip
+\textbf{7. 나눗셈 구조}\quad
+\[
+  \mathrm{ED}\Longrightarrow\mathrm{PID}\Longrightarrow\mathrm{UFD}.
+\]
+유클리드 알고리즘은 최대공약수를 계산할 뿐 아니라 베주 항등식을 제공하고, 이는 생성아이디얼과 중국인의 나머지 정리를 계산하는 도구가 된다.
+
+\medskip
+\textbf{8. 갈루아 이론으로의 연결}\quad 기약다항식 $f\in K[X]$에 대해
+\[
+  K[X]/(f)
+\]
+는 $f$의 형식적인 근 $X+(f)$를 포함하는 체이다. 체확장은 이렇게 만들어지며, 이후 그 체의 대칭인 자동동형을 조사한다.
+\end{chapterreview}
+
+\subsection*{개념 연결도}
+
+\[
+\begin{array}{ccccc}
+\text{환 준동형}&\longrightarrow&\text{핵}&\longrightarrow&\text{아이디얼}\\
+&&\downarrow&&\downarrow\\
+&&\text{제1동형정리}&\longleftarrow&\text{몫환}\\[4pt]
+&&&&\downarrow\\
+&&&&\begin{array}{c}
+R/I\text{ 정역}\leftrightarrow I\text{ 소}\vphantom{\Large A}\\
+R/I\text{ 체}\leftrightarrow I\text{ 극대}
+\end{array}
+\end{array}
+\]
+
+\subsection*{필수 증명 체크리스트}
+
+이 장을 마칠 때 다음 증명을 빈 종이에서 재구성할 수 있어야 한다.
+\begin{enumerate}
+  \item 환에서 $0a=0$과 $(-a)b=-(ab)$.
+  \item 유한 정역은 체.
+  \item $\Z$의 모든 아이디얼은 주아이디얼.
+  \item 몫환의 곱셈이 잘 정의됨.
+  \item 환의 제1동형정리.
+  \item 소·극대아이디얼의 몫환 판정법.
+  \item 서로소 아이디얼에 대한 중국인의 나머지 정리.
+  \item 유클리드 정역은 PID.
+\end{enumerate}
+
+\subsection*{Anki용 핵심 문답}
+
+\begin{description}[style=nextline,leftmargin=0pt]
+  \item[Q. 정역의 정의는?] 영환이 아니고 영이 아닌 영인수가 없는 가환환.
+  \item[Q. 아이디얼과 부분환의 핵심 차이는?] 아이디얼은 환 전체의 곱셈을 흡수하며, 진아이디얼은 $1$을 포함하지 않는다.
+  \item[Q. $R/I$가 체일 필요충분조건은?] $I$가 극대아이디얼인 것.
+  \item[Q. $R/I$가 정역일 필요충분조건은?] $I$가 소아이디얼인 것.
+  \item[Q. 제1동형정리는?] $R/\ker\varphi\cong\im\varphi$.
+  \item[Q. $\overline a\in\Z/n\Z$가 단위원일 조건은?] $\gcd(a,n)=1$.
+  \item[Q. 유한 정역이 체인 이유는?] 영이 아닌 원소의 곱셈 사상이 단사이고 유한성이 전사를 강제하기 때문.
+  \item[Q. $K[X]/(f)$가 체일 조건은?] $f$가 $K[X]$에서 기약인 것.
+\end{description}
