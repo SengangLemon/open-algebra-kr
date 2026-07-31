@@ -1,15 +1,17 @@
-name: Build PDF
+name: Build PDFs
 
 on:
   push:
     branches: [main]
     paths:
       - 'book/**'
+      - 'volume2/**'
       - '.github/workflows/build-pdf.yml'
   pull_request:
     branches: [main]
     paths:
       - 'book/**'
+      - 'volume2/**'
       - '.github/workflows/build-pdf.yml'
   workflow_dispatch:
 
@@ -18,26 +20,40 @@ permissions:
 
 jobs:
   build:
+    name: Build ${{ matrix.label }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - label: Volume 1
+            working_directory: book
+            output_name: Open-Algebra-KR-Volume-1-Draft.pdf
+            artifact_name: open-algebra-kr-volume-1
+          - label: Volume 2
+            working_directory: volume2
+            output_name: Open-Algebra-KR-Volume-2-Draft.pdf
+            artifact_name: open-algebra-kr-volume-2
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Compile Volume 1 with XeLaTeX
+      - name: Compile with XeLaTeX
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
-          working_directory: book
+          working_directory: ${{ matrix.working_directory }}
           latexmk_use_xelatex: true
           args: -file-line-error -halt-on-error -interaction=nonstopmode
 
       - name: Rename PDF
-        run: cp book/main.pdf Open-Algebra-KR-Volume-1-Draft.pdf
+        run: cp "${{ matrix.working_directory }}/main.pdf" "${{ matrix.output_name }}"
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
-          name: open-algebra-kr-volume-1
-          path: Open-Algebra-KR-Volume-1-Draft.pdf
+          name: ${{ matrix.artifact_name }}
+          path: ${{ matrix.output_name }}
           if-no-files-found: error
           retention-days: 30
