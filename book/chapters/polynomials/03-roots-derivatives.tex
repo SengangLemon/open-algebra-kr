@@ -65,7 +65,13 @@ $m=1$이면 $f'(\alpha)=g(\alpha)\ne0$이고, $m\ge2$이면 두 항 모두 $X-\a
 \end{corollary}
 
 \begin{proof}
-$f$의 분해체 $L$에서 생각하자. $\gcd(f,f')\ne1$이면 두 다항식은 양의 차수인 공통인수를 갖고, 그 공통인수는 $L$에서 어떤 근 $\alpha$를 갖는다. 그러면 $f(\alpha)=f'(\alpha)=0$이므로 $\alpha$는 중근이다. 반대로 $f$가 어떤 확대체에서 중근 $\alpha$를 가지면 $X-\alpha$가 그 확대체의 다항식환에서 $f$와 $f'$를 모두 나눈다. 따라서 $K[X]$에서의 $\gcd(f,f')$도 상수가 될 수 없다.
+$d=\gcd(f,f')$라 하자. $\deg d>0$이면 $d$는 어떤 분해체에서 근 $\alpha$를 갖는다. 그러면 $f(\alpha)=f'(\alpha)=0$이므로 중근 판정에 의해 $\alpha$는 $f$의 중근이다.
+
+반대로 어떤 확대체 $L/K$에서 $\alpha$가 $f$의 중근이라고 하자. 그러면 $f(\alpha)=f'(\alpha)=0$이다. 만약 $\gcd(f,f')=1$이면 베주 항등식으로
+\[
+  af+bf'=1
+\]
+인 $a,b\in K[X]$가 존재한다. 이 식을 $L$에서 $\alpha$에 대입하면 $0=1$이라는 모순을 얻는다. 따라서 $\gcd(f,f')\ne1$이다.
 \end{proof}
 
 \begin{example}
