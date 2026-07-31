@@ -1,0 +1,224 @@
+\section{동형정리}
+\label{sec:isomorphism-theorems}
+
+준동형은 군의 정보를 다른 군으로 보내지만, 핵에 속하는 원소들을 서로 구별하지 못한다. 동형정리는 ``준동형이 잃어버린 정보는 정확히 핵이며, 핵을 몫내면 상과 같은 군이 된다''는 사실을 정식화한다.
+
+\subsection{몫군의 보편성}
+
+\begin{theorem}[몫군의 보편성]
+$N\trianglelefteq G$이고 $\varphi:G\to H$가 $N\subseteq\ker\varphi$를 만족하는 준동형이라고 하자. 그러면 유일한 준동형
+\[
+  \overline\varphi:G/N\to H
+\]
+가 존재하여
+\[
+  \overline\varphi(gN)=\varphi(g)
+\]
+를 만족한다. 즉 $\varphi=\overline\varphi\circ\pi$이다.
+\end{theorem}
+
+\begin{proofidea}
+$N$의 원소는 $\varphi$ 아래에서 모두 항등원으로 가므로, 같은 $N$-잉여류에 속한 원소들은 같은 상을 갖는다. 따라서 $\varphi$는 잉여류 위의 함수로 내려간다.
+\end{proofidea}
+
+\begin{proof}
+$gN=hN$이면 $h^{-1}g\in N\subseteq\ker\varphi$이므로
+\[
+  \varphi(h)^{-1}\varphi(g)=\varphi(h^{-1}g)=e_H.
+\]
+따라서 $\varphi(g)=\varphi(h)$이고
+\[
+  \overline\varphi(gN)=\varphi(g)
+\]
+는 잘 정의된다. 또한
+\[
+  \overline\varphi((gN)(hN))
+  =\overline\varphi(ghN)
+  =\varphi(gh)
+  =\varphi(g)\varphi(h)
+\]
+이므로 준동형이다. 표준사영이 전사이므로 $\varphi=\overline\varphi\circ\pi$를 만족하는 함수는 이 식으로 유일하게 결정된다.
+\end{proof}
+
+\subsection{제1동형정리}
+
+\begin{theorem}[제1동형정리]
+군 준동형 $\varphi:G\to H$에 대하여
+\[
+  G/\ker\varphi\cong\im\varphi.
+\]
+구체적인 동형은
+\[
+  g\ker\varphi\longmapsto\varphi(g)
+\]
+이다.
+\end{theorem}
+
+\begin{proof}
+$N=\ker\varphi$로 놓고 몫군의 보편성을 적용하면
+\[
+  \overline\varphi:G/N\to H,
+  \qquad gN\mapsto\varphi(g)
+\]
+를 얻는다. 그 상은 $\im\varphi$이다. 또한
+\[
+  \overline\varphi(gN)=e_H
+  \Longleftrightarrow
+  \varphi(g)=e_H
+  \Longleftrightarrow
+  g\in N
+  \Longleftrightarrow
+  gN=N
+\]
+이므로 $\ker\overline\varphi$는 자명하다. 따라서 $\overline\varphi$는 $\im\varphi$로의 전단사 준동형이다.
+\end{proof}
+
+\begin{example}[합동류]
+전사 준동형
+\[
+  \varphi:\Z\to\Z/n\Z,
+  \qquad k\mapsto\overline k
+\]
+의 핵은 $n\Z$이다. 제1동형정리는
+\[
+  \Z/n\Z\cong\im\varphi=\Z/n\Z
+\]
+를 주며, 우리가 사용해 온 합동류 구성이 정확히 핵에 의한 몫임을 설명한다.
+\end{example}
+
+\begin{example}[행렬식과 특수선형군]
+행렬식 준동형
+\[
+  \det:\GL_n(K)\to K^\times
+\]
+은 전사이다. 예를 들어 $a\in K^\times$는 대각행렬 $\operatorname{diag}(a,1,\dots,1)$의 행렬식이다. 핵이 $\SL_n(K)$이므로
+\[
+  \GL_n(K)/\SL_n(K)\cong K^\times.
+\]
+즉 가역행렬군에서 행렬식이 $1$인 변환들을 무시하면 남는 정보는 정확히 행렬식이다.
+\end{example}
+
+\begin{example}[부호 준동형]
+순열의 짝홀성을 기록하는 부호 준동형
+\[
+  \operatorname{sgn}:S_n\to\{\pm1\}
+\]
+의 핵은 교대군 $A_n$이다. 따라서
+\[
+  S_n/A_n\cong\{\pm1\}\cong\Z/2\Z.
+\]
+부호 준동형의 엄밀한 구성은 순열을 자세히 공부할 때 다룬다.
+\end{example}
+
+\subsection{제2동형정리}
+
+\begin{theorem}[제2동형정리]
+$H\le G$이고 $N\trianglelefteq G$이면 $HN=\{hn:h\in H,n\in N\}$은 $G$의 부분군이고
+\[
+  H\cap N\trianglelefteq H,
+  \qquad
+  H/(H\cap N)\cong HN/N.
+\]
+\end{theorem}
+
+\begin{proof}
+$h_1n_1,h_2n_2\in HN$이라 하자. $N$의 정규성을 이용하면
+\[
+  (h_1n_1)(h_2n_2)^{-1}
+  =h_1n_1n_2^{-1}h_2^{-1}
+  =h_1h_2^{-1}\bigl(h_2n_1n_2^{-1}h_2^{-1}\bigr)\in HN,
+\]
+이므로 부분군 판정법에 의해 $HN\le G$이다.
+
+준동형
+\[
+  \psi:H\to HN/N,
+  \qquad h\mapsto hN
+\]
+를 생각하자. 이는 전사이고
+\[
+  \ker\psi=H\cap N
+\]
+이다. 따라서 제1동형정리에 의해
+\[
+  H/(H\cap N)\cong HN/N.
+\]
+핵은 정규부분군이므로 $H\cap N\trianglelefteq H$도 따른다.
+\end{proof}
+
+제2동형정리는 $H$가 $N$과 겹치는 부분을 제거한 뒤의 구조가 $HN$을 $N$으로 몫낸 구조와 같다는 말이다.
+
+\subsection{제3동형정리}
+
+\begin{theorem}[제3동형정리]
+$N\trianglelefteq H\trianglelefteq G$이면 $H/N\trianglelefteq G/N$이고
+\[
+  (G/N)/(H/N)\cong G/H.
+\]
+\end{theorem}
+
+\begin{proof}
+함수
+\[
+  \Phi:G/N\to G/H,
+  \qquad gN\mapsto gH
+\]
+를 정의하자. $gN=g'N$이면 $g^{-1}g'\in N\subseteq H$이므로 $gH=g'H$이고, 따라서 잘 정의된다. $\Phi$는 전사 준동형이며
+\[
+  \ker\Phi=H/N.
+\]
+제1동형정리를 적용하면 원하는 동형을 얻는다.
+\end{proof}
+
+제3동형정리는 ``먼저 $N$을 없애고, 그다음 남은 $H/N$을 없애는 것''과 ``처음부터 $H$를 없애는 것''이 같다고 말한다.
+
+\subsection{대응정리}
+
+\begin{theorem}[부분군 대응정리]
+$N\trianglelefteq G$라 하자. $G$에서 $N$을 포함하는 부분군들과 $G/N$의 부분군들 사이에는
+\[
+  H\longmapsto H/N,
+  \qquad
+  K\longmapsto\pi^{-1}(K)
+\]
+로 주어지는 일대일 대응이 있다. 이 대응은 포함관계와 지표를 보존하며,
+\[
+  H\trianglelefteq G
+  \quad\Longleftrightarrow\quad
+  H/N\trianglelefteq G/N
+\]
+이다.
+\end{theorem}
+
+\begin{proofidea}
+몫군의 부분군을 표준사영으로 역상시키면 자동으로 $N$을 포함하는 부분군을 얻는다. 반대로 $N\subseteq H$이면 $H$의 상은 정확히 $H/N$이다. 두 과정을 연달아 적용하면 원래 부분군으로 돌아온다.
+\end{proofidea}
+
+\begin{proof}
+$N\subseteq H\le G$이면 $\pi(H)=H/N\le G/N$이다. 반대로 $K\le G/N$이면 $\pi^{-1}(K)\le G$이고 $N=\ker\pi\subseteq\pi^{-1}(K)$이다. 전사성으로
+\[
+  \pi^{-1}(\pi(H))=H,
+  \qquad
+  \pi(\pi^{-1}(K))=K
+\]
+이므로 두 대응은 서로 역이다.
+
+포함관계가 보존되는 것은 정의에서 즉시 보인다. 정규성에 관한 명제는 켤레 조건을 표준사영에 적용하면 얻는다. 지표 보존은 잉여류 $gH$와 $(gN)(H/N)$의 자연스러운 대응에서 따른다.
+\end{proof}
+
+\begin{example}
+$G=\Z$, $N=12\Z$라 하자. $12\Z$를 포함하는 $\Z$의 부분군은 $d\Z$ 중 $d\mid12$인 것들이다. 이들은 $\Z/12\Z$의 부분군들과 대응한다. 예를 들어
+\[
+  4\Z/12\Z=\{\overline0,\overline4,\overline8\}
+\]
+는 위수 $3$인 부분군이다.
+\end{example}
+
+\begin{checkpoint}
+\begin{enumerate}[label=\arabic*.]
+  \item 제1동형정리에서 $G/\ker\varphi$가 $H$ 전체가 아니라 $\im\varphi$와 동형인 이유는 무엇인가?
+  \item $\R^\times$의 양의 실수 부분군 $\R_{>0}$에 대해 $\R^\times/\R_{>0}$를 구하라.
+  \item $N\trianglelefteq H\trianglelefteq G$에서 제3동형정리를 ``정보를 단계적으로 지우는 과정''으로 설명하라.
+  \item 대응정리를 이용하여 순환군의 부분군을 몫군의 부분군과 연결해 보라.
+\end{enumerate}
+\end{checkpoint}
