@@ -27,7 +27,7 @@
 \[
   \deg f=\max\{|\alpha|:a_\alpha\ne0\}
 \]
-이다.
+이다. 영다항식의 차수는 $-\infty$로 둔다.
 \end{definition}
 
 \begin{example}
@@ -38,35 +38,53 @@
 \end{example}
 
 \begin{definition}
-모든 비영 항의 전체차수가 같은 다항식을 \emph{동차다항식}이라 한다. 예를 들어
+영이 아닌 다항식의 모든 비영 항의 전체차수가 같으면 이를 \emph{동차다항식}이라 한다. 예를 들어
 \[
   X^2+3XY+Y^2
 \]
-는 차수 $2$의 동차다항식이다.
+는 차수 $2$의 동차다항식이다. 영다항식은 필요에 따라 모든 차수의 동차다항식으로 간주한다.
 \end{definition}
 
+모든 다항식 $f$는 차수별 동차부분의 합
+\[
+  f=f_0+f_1+\cdots+f_m
+\]
+으로 유일하게 표현된다. 여기서 $f_d$는 전체차수 $d$인 항들의 합이다.
+
 \begin{proposition}
-$R$이 정역이면 $R[X_1,\dots,X_n]$도 정역이고
+$R$이 정역이면 $R[X_1,\dots,X_n]$도 정역이다. 또한 영이 아닌 $f,g$에 대해
 \[
  \deg(fg)=\deg f+\deg g
 \]
-가 성립한다. 또한
+가 성립하고
 \[
- R[X_1,\dots,X_n]^\times=R^\times.
+ R[X_1,\dots,X_n]^\times=R^\times
 \]
+이다.
 \end{proposition}
 
 \begin{proof}
-한 변수 결과를
+정역성은
 \[
  R[X_1,\dots,X_n]
  =R[X_1,\dots,X_{n-1}][X_n]
 \]
-에 귀납적으로 적용한다. 전체차수 공식은 최고차 동차부분들의 곱이 정역에서 영이 되지 않는다는 사실로도 직접 보일 수 있다.
+에 한 변수 결과를 귀납적으로 적용하면 얻어진다.
+
+이제 $m=\deg f$, $n=\deg g$라 하고 최고차 동차부분을 각각 $f_m,g_n$이라 하자. 곱 $fg$의 전체차수 $m+n$인 동차부분은 정확히 $f_mg_n$이다. 다항식환이 정역이고 $f_m,g_n\ne0$이므로 $f_mg_n\ne0$이다. 따라서
+\[
+  \deg(fg)=m+n.
+\]
+
+마지막으로 $fh=1$이면 차수 공식에서
+\[
+  \deg f+\deg h=0
+\]
+이므로 $f,h$는 모두 상수다항식이고 $R$에서 서로 역원이다. 반대 포함은 명백하다.
 \end{proof}
 
 \begin{theorem}[여러 변수 보편 성질]
-환 준동형 $\varphi:R\to S$와 $s_1,\dots,s_n\in S$가 주어지면
+가환환 사이의 환 준동형 $\varphi:R\to S$와 $s_1,\dots,s_n\in S$가 주어지면
 \[
   \Phi:R[X_1,\dots,X_n]\to S
 \]
@@ -78,7 +96,7 @@ $R$이 정역이면 $R[X_1,\dots,X_n]$도 정역이고
  \Phi\left(\sum_\alpha a_\alpha X^\alpha\right)
  =\sum_\alpha\varphi(a_\alpha)s_1^{\alpha_1}\cdots s_n^{\alpha_n}
 \]
-로 주어진다.
+로 주어진다. 존재성과 유일성은 한 변수 보편 성질을 반복 적용하거나 위 공식을 직접 확인하여 얻는다.
 
 \begin{corollary}
 $R$이 UFD이면 $R[X_1,\dots,X_n]$도 UFD이다.
@@ -94,7 +112,7 @@ $R$이 UFD이면 $R[X_1,\dots,X_n]$도 UFD이다.
 \[
   (X,Y)
 \]
-가 주아이디얼이라고 가정하자. 생성원 $d$는 $X$와 $Y$를 모두 나누므로 UFD에서 $d$는 단위원이어야 한다. 그러면 $(X,Y)=K[X,Y]$여야 하지만 $1\notin(X,Y)$이므로 모순이다.
+가 주아이디얼 $(d)$라고 가정하자. 그러면 $d$는 $X$와 $Y$를 모두 나눈다. $X,Y$는 서로 동반이 아닌 기약원소이므로 UFD에서 공약수 $d$는 단위원이어야 한다. 그러면 $(X,Y)=K[X,Y]$여야 하지만 $(X,Y)$의 모든 원소는 상수항이 $0$이어서 $1\notin(X,Y)$이다. 모순이다.
 
 \begin{pitfall}
 $K[X,Y]$도 UFD이지만 PID는 아니다. ``유일인수분해가 된다''와 ``모든 아이디얼이 한 원소로 생성된다''는 서로 다른 성질이다.
