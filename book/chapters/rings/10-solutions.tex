@@ -130,9 +130,13 @@ $J$가 소이고 $ab\in\varphi^{-1}(J)$이면
 \[
   \varphi(a)\varphi(b)=\varphi(ab)\in J.
 \]
-소아이디얼의 정의에 의해 $\varphi(a)\in J$ 또는 $\varphi(b)\in J$이므로 $a$ 또는 $b$가 역상에 속한다.
+소아이디얼의 정의에 의해 $\varphi(a)\in J$ 또는 $\varphi(b)\in J$이므로 $a$ 또는 $b$가 역상에 속한다. 또한 $1_S\notin J$이고 $\varphi(1_R)=1_S$이므로 $1_R\notin\varphi^{-1}(J)$이다. 따라서 역상은 진아이디얼이며 소아이디얼이다.
 
-마지막으로 $\varphi$가 전사이고 $J$가 극대라 하자. 제1동형정리를 연속해서 적용하면
+마지막으로 $\varphi$가 전사이고 $J$가 극대라 하자. 합성
+\[
+  R\xrightarrow{\varphi}S\twoheadrightarrow S/J
+\]
+은 전사이고 그 핵은 $\varphi^{-1}(J)$이다. 따라서 제1동형정리에 의해
 \[
   R/\varphi^{-1}(J)\cong S/J.
 \]
@@ -142,22 +146,24 @@ $J$가 소이고 $ab\in\varphi^{-1}(J)$이면
 \subsection*{문제 \thechapter.16: 제2동형정리}
 
 \begin{solution}
-사상
+먼저 $1\in S\subseteq S+J$이고, 차와 곱에 대한 닫힘성을 직접 확인하면 $S+J$가 $R$의 부분환임을 알 수 있다. 또한 $S\cap J$는 $S$의 덧셈부분군이며 $s\in S$, $x\in S\cap J$이면 $sx\in S\cap J$이므로 $S$의 아이디얼이다.
+
+이제 사상
 \[
-  \psi:I\to(I+J)/J,
-  \qquad a\mapsto a+J
+  \psi:S\to(S+J)/J,
+  \qquad s\mapsto s+J
 \]
-를 생각하자. 임의의 $(a+b)+J$에서 $b\in J$이므로
+를 생각하자. 임의의 $(s+j)+J$에서 $j\in J$이므로
 \[
-  (a+b)+J=a+J
+  (s+j)+J=s+J
 \]
-이고 $a\in I$이므로 $\psi$는 전사이다. 또한
+이고, 따라서 $\psi$는 전사이다. 또한
 \[
-  \ker\psi=I\cap J.
+  \ker\psi=S\cap J.
 \]
 제1동형정리에 의해
 \[
-  I/(I\cap J)\cong(I+J)/J
+  S/(S\cap J)\cong(S+J)/J
 \]
 이다.
 \end{solution}
@@ -184,9 +190,9 @@ $I+J=R$이므로 $x\in I$, $y\in J$ 중 $x+y=1$인 것이 있다. 이항정리�
 \subsection*{문제 \thechapter.20: 체의 세 가지 특징}
 
 \begin{solution}
-$R$은 영환이 아니라고 가정한다. $R$이 체이면 준동형 $\varphi:R\to S$의 핵은 $R$의 아이디얼이다. $S\ne0$이므로 $\varphi(1)=1\ne0$이고 핵은 $R$ 전체가 아니다. 체의 유일한 진아이디얼은 $(0)$이므로 $\varphi$는 단사이다.
+$R\ne0$라 하자. $R$이 체이면 준동형 $\varphi:R\to S$의 핵은 $R$의 아이디얼이다. $S\ne0$이므로 $\varphi(1)=1\ne0$이고 핵은 $R$ 전체가 아니다. 체의 유일한 진아이디얼은 $(0)$이므로 $\varphi$는 단사이다.
 
-(ii)를 가정하고 몫사상 $R\to R/I$를 생각하자. $I$가 진아이디얼이면 $R/I\ne0$이므로 몫사상은 단사이다. 그 핵이 $I$이므로 $I=(0)$이다. 따라서 아이디얼은 $(0)$과 $R$뿐이다.
+(ii)를 가정하고 몫사상 $R\to R/I$를 생각하자. $I$가 진아이디얼이면 $R/I\ne0$이므로 몫사상은 단사이다. 그 핵이 $I$이므로 $I=(0)$이다. 따라서 아이디얼은 서로 다른 두 아이디얼 $(0)$과 $R$뿐이다.
 
 (iii)을 가정하자. $0\ne a\in R$이면 $(a)$는 영아이디얼이 아니므로 $(a)=R$이다. 따라서 $1\in(a)$이고 어떤 $b\in R$에 대해 $ab=1$이다. 모든 영이 아닌 원소가 단위원이므로 $R$은 체이다.
 \end{solution}
@@ -270,18 +276,63 @@ $(a,b)=(d)$이면 $a,b\in(d)$이므로 $d\mid a$, $d\mid b$이다. 한편 $d\in(
 실제로 $(X,Y)$의 모든 다항식은 상수항이 $0$이므로 $1\notin(X,Y)$이다.
 \end{solution}
 
-\subsection*{문제 \thechapter.29: 모든 소아이디얼이 극대인 경우}
+\subsection*{문제 \thechapter.28: 가우스 정수의 몫환}
 
 \begin{solution}
-모든 정역에서 $(0)$은 소아이디얼이다. 만약 모든 소아이디얼이 극대라면 $(0)$도 극대이고
+직접 곱하면
+\[
+  (2+i)(2-i)=4-i^2=5
+\]
+이다. 가우스 노름 $N(a+bi)=a^2+b^2$는 곱셈적이다. 단위원 $u$는
+\[
+  1=N(1)=N(u)N(u^{-1})
+\]
+을 만족하므로 $N(u)=1$이어야 한다. 그런데 $N(2+i)=5$이므로 $2+i$는 단위원이 아니다.
+
+이제 환 준동형
+\[
+  \varphi:\Z[i]\to\F_5,
+  \qquad a+bi\mapsto\overline{a+3b}
+\]
+를 정의하자. $3^2=9\equiv-1\pmod5$이므로 곱셈을 보존하며, 정수들의 상만으로도 $\F_5$ 전체에 도달하므로 전사이다. 또한
+\[
+  \varphi(2+i)=\overline{2+3}=0
+\]
+이어서 $(2+i)\subseteq\ker\varphi$이다.
+
+반대로 $a+bi\in\ker\varphi$이면 $a+3b\equiv0\pmod5$, 즉 $a\equiv2b\pmod5$이다. 따라서
+\[
+  5\mid(2a+b),\qquad 5\mid(2b-a),
+\]
+이고
+\[
+  a+bi=(2+i)\left(\frac{2a+b}{5}+\frac{2b-a}{5}i\right).
+\]
+괄호 안은 다시 가우스 정수이므로 $a+bi\in(2+i)$이다. 따라서 $\ker\varphi=(2+i)$이고 제1동형정리에 의해
+\[
+  \Z[i]/(2+i)\cong\F_5.
+\]
+이 동형 아래에서 $i$는 $\overline3=\overline{-2}$에 대응하며
+\[
+  \overline3^{\,2}=\overline9=\overline4=\overline{-1}
+\]
+이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.29: 소아이디얼과 극대아이디얼}
+
+\begin{solution}
+(a) 모든 정역에서 $(0)$은 소아이디얼이다. 만약 모든 소아이디얼이 극대라면 $(0)$도 극대이고
 \[
   R/(0)\cong R
 \]
-가 체가 된다. 따라서 가정은 사실상 $R$이 체임을 강제한다.
+가 체가 된다.
 
-한편 PID에서는 모든 \emph{영이 아닌} 소아이디얼이 극대이다. 이는 $(p)$가 소아이디얼이면 $p$가 소원소이고, PID에서 소원소는 기약원소이며 $(p)$가 극대가 되기 때문이다. $\Z$에서는 $(p)$들이 극대지만 $(0)$은 극대가 아니다. 실제로
+(b) $R$이 PID이고 $(p)\ne(0)$가 소아이디얼이라고 하자. 그러면 $p$는 소원소이고 따라서 기약원소이다. PID에서는 기약원소가 생성하는 아이디얼이 극대이므로 $(p)$는 극대아이디얼이다.
+
+(c) $\Z$는 PID이므로 모든 영이 아닌 소아이디얼 $(p)$가 극대이다. 그러나 $(0)$도 소아이디얼이면서 극대는 아니다. 실제로
 \[
   (0)\subsetneq(2)\subsetneq\Z.
 \]
-따라서 $\Z$는 ``모든 소아이디얼이 극대''라는 강한 가정을 만족하지 않는다.
+따라서 $\Z$는 (b)의 결론은 만족하지만 ``모든 소아이디얼이 극대''라는 (a)의 가정은 만족하지 않는다.
 \end{solution}
