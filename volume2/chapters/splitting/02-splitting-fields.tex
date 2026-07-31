@@ -1,0 +1,88 @@
+\section{분해체}
+\label{sec:splitting-fields}
+
+\begin{learninggoal}
+분해체를 정의하고 존재성과 기준체 위 유일성을 증명한다. 구체적인 다항식의 분해체와 확장차수를 계산한다.
+\end{learninggoal}
+
+\begin{definition}[분해체]
+$f\in K[X]$라 하자. 체확장 $L/K$가 다음을 만족하면 $L$을 $f$의 \emph{분해체}(splitting field)라 한다.
+\begin{enumerate}[label=(\roman*)]
+  \item $f$가 $L[X]$에서 일차인수의 곱으로 분해된다.
+  \item $f$의 모든 근을 $\alpha_1,\dots,\alpha_r$라 할 때
+  \[
+    L=K(\alpha_1,\dots,\alpha_r)
+  \]
+  이다.
+\end{enumerate}
+\end{definition}
+
+두 번째 조건은 단순히 $f$가 $L$에서 분해된다는 것보다 강하다. 예를 들어 $X^2-2$는 $\C$에서 분해되지만, $\C$는 $\Q$ 위의 분해체가 아니다. 필요한 최소의 체는 $\Q(\sqrt2)$이다.
+
+\begin{theorem}[분해체의 존재]
+모든 $f\in K[X]$는 어떤 체확장 안에서 분해체를 갖는다.
+\end{theorem}
+
+\begin{proof}
+$\deg f$에 대한 귀납법을 쓴다. 상수다항식은 자명하다. $\deg f>0$이라 하고, $f$의 기약인수 $p$를 택한다. 근의 첨가 정리에 의해 $p$의 한 근 $\alpha$를 포함하는 유한확장 $K_1=K(\alpha)$가 존재한다. 그러면 $K_1[X]$에서
+\[
+  f=(X-\alpha)g
+\]
+로 쓸 수 있고 $\deg g<\deg f$이다. 귀납가정으로 $g$는 어떤 $K_1$-확장 $L$에서 분해체를 갖는다. 그러면 $f$도 $L$에서 완전히 분해된다. $L$ 대신 $K$와 $f$의 모든 근이 생성하는 부분체를 취하면 최소성 조건도 만족한다.
+\end{proof}
+
+\begin{lemma}[동형의 근으로의 연장]
+$\sigma:K\to K'$가 체동형이고 $f\in K[X]$라 하자. 계수에 $\sigma$를 적용한 다항식을 $\sigma f\in K'[X]$라 하자. $\alpha$가 $f$의 근이고 $\beta$가 $\sigma f$의 근이며 두 원소의 최소다항식이 서로 대응하면, $\sigma$는
+\[
+  K(\alpha)\longrightarrow K'(\beta)
+\]
+인 동형으로 유일하게 연장된다.
+\end{lemma}
+
+\begin{proof}
+$f$ 자체가 아니라 $\alpha$의 최소다항식 $m$을 사용한다. $K(\alpha)\cong K[X]/(m)$이고 $K'(\beta)\cong K'[X]/(\sigma m)$이므로, 계수에 $\sigma$를 적용하는 사상이 몫을 통해 내려간다. 생성원은 $\alpha\mapsto\beta$로 보내지고 유일성은 생성성에서 따른다.
+\end{proof}
+
+\begin{theorem}[분해체의 유일성]
+$f\in K[X]$의 두 분해체 $L$과 $M$은 $K$를 고정하는 체동형에 대해 서로 동형이다.
+\end{theorem}
+
+\begin{proof}
+$[L:K]$에 대한 귀납법을 쓴다. $f$의 한 근 $\alpha\in L$을 택하고 그 최소다항식을 $m$이라 하자. $M$은 $f$의 분해체이므로 $m$의 어떤 근 $\beta\in M$을 포함한다. 앞의 정리에 의해 $K(\alpha)\cong K(\beta)$인 $K$-동형이 존재한다. 이 동형 아래에서 남은 인수들의 분해체를 비교하고 귀납가정을 적용하면 전체 동형으로 연장된다.
+\end{proof}
+
+\begin{example}[이차다항식]
+$X^2-d\in\Q[X]$에서 $d$가 제곱수가 아니면 분해체는 $\Q(\sqrt d)$이고 차수는 $2$이다.
+\end{example}
+
+\begin{example}[세제곱근과 단위근]
+$\alpha=\sqrt[3]{2}$, $\omega^2+\omega+1=0$, $\omega\ne1$이라 하자. $X^3-2$의 근은
+\[
+  \alpha,\ \omega\alpha,\ \omega^2\alpha
+\]
+이므로 분해체는 $L=\Q(\alpha,\omega)$이다. $[\Q(\alpha):\Q]=3$이고 $\Q(\alpha)\subset\R$인 반면 $\omega\notin\R$이므로
+\[
+  [L:\Q(\alpha)]=2.
+\]
+따라서 탑 법칙으로 $[L:\Q]=6$이다.
+\end{example}
+
+\begin{example}[이미 한 근이 있으면]
+$f=X^3-3X+2=(X-1)^2(X+2)$는 이미 $\Q[X]$에서 완전히 분해된다. 따라서 분해체는 $\Q$ 자체이다. 중근의 존재는 분해체의 정의를 바꾸지 않는다.
+\end{example}
+
+\begin{proposition}
+$f\in K[X]$의 차수가 $n$이면 그 분해체 $L$은 유한확장이며
+\[
+  [L:K]\le n!
+\]
+이다.
+\end{proposition}
+
+\begin{proof}
+근을 하나씩 첨가한다. 첫 근의 최소다항식 차수는 $n$ 이하이고, 그다음 근은 남은 차수가 $n-1$ 이하인 인수의 근이므로 각 단계의 차수는 차례로 $n,n-1,\dots,1$ 이하이다. 탑 법칙을 적용하면 곱이 $n!$ 이하이다.
+\end{proof}
+
+\begin{pitfall}
+분해체의 차수가 항상 $n!$인 것은 아니다. 이는 일반적인 상계일 뿐이다. 예를 들어 $X^4-1$의 분해체는 $\Q(i)$이고 차수는 $2$이다.
+\end{pitfall}
