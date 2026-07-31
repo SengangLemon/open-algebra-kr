@@ -1,0 +1,79 @@
+\section{선별 풀이}
+
+\begin{solution}[연습문제 1]
+$\alpha^2=3$이므로 모든 원소는 $a+b\alpha$의 꼴이다. 역원을
+\[
+  (2+\alpha)^{-1}=x+y\alpha
+\]
+라 두면
+\[
+  (2+\alpha)(x+y\alpha)=(2x+3y)+(x+2y)\alpha=1.
+\]
+따라서 $2x+3y=1$, $x+2y=0$이고 $x=2$, $y=-1$이다. 즉
+\[
+  (2+\alpha)^{-1}=2-\alpha.
+\]
+\end{solution}
+
+\begin{solution}[연습문제 2]
+\[
+  X^4-5X^2+6=(X^2-2)(X^2-3)
+\]
+이므로 모든 근은 $\pm\sqrt2,\pm\sqrt3$이다. 분해체는
+\[
+  \Q(\sqrt2,\sqrt3)
+\]
+이다. $\sqrt3\notin\Q(\sqrt2)$이므로 탑 법칙에 의해 차수는 $4$이다.
+\end{solution}
+
+\begin{solution}[연습문제 3]
+$\alpha=\sqrt[4]{2}$라 하면 근은
+\[
+  \alpha,-\alpha,i\alpha,-i\alpha
+\]
+이다. 따라서 분해체는 $L=\Q(\alpha,i)$이다. $X^4-2$는 아이젠슈타인 판정으로 기약이므로 $[\Q(\alpha):\Q]=4$이다. $\Q(\alpha)\subset\R$이고 $i\notin\R$이므로 $[L:\Q(\alpha)]=2$이다. 따라서
+\[
+  [L:\Q]=8.
+\]
+\end{solution}
+
+\begin{solution}[연습문제 4]
+\[
+  X^3-1=(X-1)(X^2+X+1).
+\]
+나머지 두 근은 원시 세제곱 단위근 $\omega,\omega^2$이므로 분해체는 $\Q(\omega)$이고 차수는 $2$이다.
+\end{solution}
+
+\begin{solution}[연습문제 7]
+페르마의 소정리에 의해 모든 $a\in\F_p$는 $a^p=a$를 만족한다. 따라서
+\[
+  X^p-X=\prod_{a\in\F_p}(X-a)
+\]
+이고 이미 $\F_p$에서 완전히 분해된다. 분해체는 $\F_p$이다.
+\end{solution}
+
+\begin{solution}[연습문제 8]
+유한체 $F=\{a_1,\dots,a_q\}$에 대해
+\[
+  h(X)=\prod_{j=1}^q(X-a_j)+1
+\]
+을 생각하자. 모든 $a_j$에 대해 $h(a_j)=1$이므로 $h$는 $F$ 안에 근을 갖지 않는다. 따라서 $F$는 대수적으로 닫혀 있지 않다.
+\end{solution}
+
+\begin{solution}[연습문제 9]
+반드시 그렇다. $f$는 이미 $L$에서 완전히 분해되고, $L$은 $K$와 모든 근으로 생성된다. $K\subseteq E\subseteq L$이므로 $E$와 같은 근들이 생성하는 체는 여전히 $L$이다. 따라서 $L$은 $E$ 위에서도 $f$의 분해체이다.
+\end{solution}
+
+\begin{solution}[연습문제 10]
+일반 상계에서 분해체 차수는 $3!=6$의 약수이다. 따라서 가능한 값은 $1,2,3,6$이다. 예를 들면
+\[
+\begin{array}{c|c}
+\text{다항식} & \text{분해체 차수}\\ \hline
+(X-1)(X-2)(X-3) & 1\\
+X^3-1 & 2\\
+X^3-3X-1 & 3\\
+X^3-2 & 6
+\end{array}
+\]
+이다. 세 번째 다항식은 기약이고 판별식이 제곱이므로 분해체 차수가 $3$이다.
+\end{solution}
