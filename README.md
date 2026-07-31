@@ -4,21 +4,33 @@
 
 한국어권 독학자와 대학 학부생을 위한 오픈 현대대수학 교재 프로젝트입니다. 군, 환, 다항식, 체확장, 갈루아 이론을 하나의 흐름으로 연결하고, 각 개념을 동기·직관·예제·엄밀한 증명·연습문제·해설의 순서로 설명합니다.
 
-> **Status: Volume 1 Draft 0.3 — 통합 검수 단계**
+> **Status: Volume 1 Draft 0.3 검수 완료 · Volume 2 Draft 0.1 집필 시작**
 
-Volume 1의 군론·환론·다항식론 원고와 연습문제·선별 풀이는 첫 번째 수학 검수 패스를 마쳤습니다. 현재 Chapter 0, 용어·표기, 문장과 조판을 통합 검수하고 있으며 정식 출판본은 아닙니다.
+Volume 1의 군론·환론·다항식론은 첫 번째 수학·통합 검수 패스를 마쳤습니다. Volume 2에서는 대수적 체확장론을 집필하고 있으며, 첫 장인 표수·확장차수·최소다항식·단순확장 원고와 문제·풀이가 들어갔습니다. 두 권 모두 아직 정식 출판본은 아닙니다.
 
 ## 현재 범위
 
-- Chapter 0: 방정식에서 현대대수학까지
-- Chapter 1: 군과 대칭
-- Chapter 2: 환과 아이디얼
-- Chapter 3: 다항식과 인수분해
+### Volume 1 — 군, 환, 다항식
+
+- 방정식에서 현대대수학까지
+- 군과 대칭
+- 환과 아이디얼
+- 다항식과 인수분해
 - 난이도별 연습문제와 선별 상세 풀이
 - 기호 목록과 한국어–영어 용어 대조표
-- GitHub Actions 기반 XeLaTeX PDF 자동 빌드
 
-장별 수학 검수 기록은 [`notes/qa/`](notes/qa/)에, 전체 품질 상태는 [`notes/quality-assurance.md`](notes/quality-assurance.md)에 기록합니다.
+### Volume 2 — 대수적 체확장
+
+- 근을 담는 새로운 수의 세계
+- 표수와 소체
+- 프로베니우스 준동형
+- 체확장의 차수와 탑 법칙
+- 대수적 원소와 최소다항식
+- 단순확장과 표준기저
+- 유한생성 대수적 확장과 대수성의 추이성
+- 연습문제 30개와 선별 상세 풀이 15개
+
+Volume 2 전체 계획은 [`notes/roadmaps/volume-02-roadmap.md`](notes/roadmaps/volume-02-roadmap.md)에 기록합니다. 장별 수학 검수 기록은 [`notes/qa/`](notes/qa/)에, Volume 1 전체 품질 상태는 [`notes/quality-assurance.md`](notes/quality-assurance.md)에 있습니다.
 
 ## 목표
 
@@ -29,29 +41,21 @@ Volume 1의 군론·환론·다항식론 원고와 연습문제·선별 풀이�
 - LaTeX 기반 PDF와 웹 버전 동시 관리
 - 공개 이슈와 릴리스를 통한 지속적인 교정
 
-## Volume 1 목차
+## 시리즈 구성
 
-1. 방정식에서 현대대수학까지
-2. 군과 대칭
-3. 부분군과 생성
-4. 군 준동형과 순환군
-5. 잉여류와 라그랑주 정리
-6. 정규부분군·몫군·동형정리
-7. 환·단위원·정역과 체
-8. 아이디얼·몫환·소아이디얼과 극대아이디얼
-9. 유클리드 정역과 중국인의 나머지 정리
-10. 다항식환·나눗셈·최대공약수
-11. 기약성·가우스 보조정리·아이젠슈타인 판정법
-12. 여러 변수 다항식과 갈루아 이론으로의 연결
+1. **Volume 1: 군, 환, 다항식** — Draft 0.3
+2. **Volume 2: 대수적 체확장** — Draft 0.1 집필 중
+3. **Volume 3: 갈루아 이론과 방정식** — 계획
 
 ## 저장소 구조
 
 ```text
-book/        교재 LaTeX 원고
+book/        Volume 1 LaTeX 원고
+volume2/     Volume 2 LaTeX 원고
 workbook/    독립 워크북 자료
-notes/       표기법·편집 지침·검수 기록
+notes/       로드맵·편집 지침·검수 기록
 anki/        복습 카드 자료
-.github/     자동 빌드와 기여 양식
+.github/     두 권의 자동 PDF 빌드
 ```
 
 ## 빌드
@@ -59,11 +63,16 @@ anki/        복습 카드 자료
 TeX Live와 `latexmk`가 설치된 환경에서 다음 명령을 실행합니다.
 
 ```bash
+# Volume 1
 cd book
+latexmk -xelatex main.tex
+
+# Volume 2
+cd ../volume2
 latexmk -xelatex main.tex
 ```
 
-Pull request에서는 GitHub Actions가 Volume 1 전체를 다시 컴파일하고 PDF artifact를 생성합니다.
+Pull request에서는 GitHub Actions가 Volume 1과 Volume 2를 각각 컴파일하고 별도의 PDF artifact를 생성합니다.
 
 ## 편집 원칙
 
