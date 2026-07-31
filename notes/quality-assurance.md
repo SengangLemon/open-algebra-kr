@@ -30,8 +30,8 @@
 - [x] Chapter 1 예제·문제·풀이 — [Pass 1 기록](qa/chapter-01-math-audit.md)
 - [x] Chapter 2 환론 정의·정리 — [Pass 1 기록](qa/chapter-02-math-audit.md)
 - [x] Chapter 2 예제·문제·풀이 — [Pass 1 기록](qa/chapter-02-math-audit.md)
-- [ ] Chapter 3 다항식론 정의·정리
-- [ ] Chapter 3 예제·문제·풀이
+- [x] Chapter 3 다항식론 정의·정리 — [Pass 1 기록](qa/chapter-03-math-audit.md)
+- [x] Chapter 3 예제·문제·풀이 — [Pass 1 기록](qa/chapter-03-math-audit.md)
 
 ### 3. 교육적 품질
 

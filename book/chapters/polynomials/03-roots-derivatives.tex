@@ -6,15 +6,17 @@
 \end{learninggoal}
 
 \begin{definition}
-체 $K$와 $f\in K[X]$에 대해 $\alpha\in K$가 $f(\alpha)=0$을 만족하면 $\alpha$를 $f$의 근이라 한다. $(X-\alpha)^m\mid f$이고 $(X-\alpha)^{m+1}\nmid f$이면 $\alpha$의 중복도는 $m$이다.
+체 $K$와 영이 아닌 다항식 $f\in K[X]$에 대해 $\alpha\in K$가 $f(\alpha)=0$을 만족하면 $\alpha$를 $f$의 근이라 한다. $(X-\alpha)^m\mid f$이고 $(X-\alpha)^{m+1}\nmid f$인 유일한 양의 정수 $m$을 $\alpha$의 중복도라 한다.
 \end{definition}
 
+영다항식은 모든 $\alpha$에서 값이 $0$이지만 각 선형인수의 모든 거듭제곱으로 나누어지므로 유한한 중복도를 정의할 수 없다. 따라서 근의 중복도를 다룰 때에는 항상 다항식이 영이 아니라고 가정한다.
+
 \begin{theorem}[근의 개수 정리]
-영이 아닌 $f\in K[X]$의 차수가 $n$이면 $f$는 $K$에서 중복도를 포함하여 많아야 $n$개의 근을 갖는다.
+영이 아닌 $f\in K[X]$의 차수가 $n$이면 $K$에 속하는 서로 다른 근들의 중복도 합은 많아야 $n$이다.
 \end{theorem}
 
 \begin{proof}
-근 $\alpha$가 하나 있으면 인수정리에 의해 $f=(X-\alpha)g$이고 $\deg g=n-1$이다. 이를 차수에 대해 귀납한다. 중복도까지 세는 경우에도 선형인수 하나를 제거할 때마다 차수가 정확히 $1$ 감소한다.
+근 $\alpha$가 하나 있으면 인수정리에 의해 $f=(X-\alpha)g$이고 $\deg g=n-1$이다. 선형인수 하나를 제거할 때마다 해당 근의 중복도와 전체 차수가 각각 $1$씩 감소한다. 이를 차수에 대해 귀납하면 서로 다른 근들의 중복도 합이 $n$을 넘을 수 없다.
 \end{proof}
 
 \begin{corollary}
@@ -22,7 +24,7 @@ $K$가 무한체이고 두 다항식 $f,g\in K[X]$가 모든 $a\in K$에서 $f(a
 \end{corollary}
 
 \begin{proof}
-$f-g$가 모든 $a\in K$를 근으로 갖는다. 영이 아닌 다항식은 차수보다 많은 근을 가질 수 없으므로 $f-g=0$이다.
+$f-g$가 모든 $a\in K$를 근으로 갖는다. 영이 아닌 다항식은 차수보다 많은 서로 다른 근을 가질 수 없으므로 $f-g=0$이다.
 \end{proof}
 
 \begin{definition}
@@ -38,29 +40,39 @@ $f-g$가 모든 $a\in K$를 근으로 갖는다. 영이 아닌 다항식은 차�
 \end{definition}
 
 \begin{theorem}[중근 판정]
-$f\in K[X]$이고 $\alpha\in K$가 $f$의 근이라 하자. 다음은 동치이다.
+영이 아닌 $f\in K[X]$이고 $\alpha\in K$가 $f$의 근이라 하자. 다음은 동치이다.
 \begin{enumerate}[label=(\roman*)]
-  \item $\alpha$는 $f$의 중근이다.
+  \item $\alpha$의 중복도는 적어도 $2$이다.
   \item $f'(\alpha)=0$이다.
   \item $(X-\alpha)$가 $f$와 $f'$를 모두 나눈다.
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-$f=(X-\alpha)^mg$와 $g(\alpha)\ne0$을 만족하는 $m\ge1$을 택하면
+$f=(X-\alpha)^mg$와 $g(\alpha)\ne0$을 만족하는 중복도 $m\ge1$을 택하면
 \[
  f'=m(X-\alpha)^{m-1}g+(X-\alpha)^mg'.
 \]
-따라서 $f'(\alpha)=0$일 필요충분조건은 $m\ge2$이다. 인수정리를 적용하면 나머지 동치도 얻는다.
+$m=1$이면 $f'(\alpha)=g(\alpha)\ne0$이고, $m\ge2$이면 두 항 모두 $X-\alpha$로 나누어져 $f'(\alpha)=0$이다. 따라서 (i)와 (ii)는 동치이다. 인수정리를 $f'$에 적용하면 (ii)와 (iii)의 동치도 얻는다.
 \end{proof}
 
 \begin{corollary}
-$f$가 어떤 확대체에서도 중근을 갖지 않을 필요충분조건은
+영이 아닌 $f\in K[X]$가 어떤 확대체에서도 중근을 갖지 않을 필요충분조건은
 \[
   \gcd(f,f')=1
 \]
 이다. 이런 다항식을 \emph{제곱인수가 없는 다항식}이라 한다.
 \end{corollary}
+
+\begin{proof}
+$d=\gcd(f,f')$라 하자. $\deg d>0$이면 $d$는 어떤 분해체에서 근 $\alpha$를 갖는다. 그러면 $f(\alpha)=f'(\alpha)=0$이므로 중근 판정에 의해 $\alpha$는 $f$의 중근이다.
+
+반대로 어떤 확대체 $L/K$에서 $\alpha$가 $f$의 중근이라고 하자. 그러면 $f(\alpha)=f'(\alpha)=0$이다. 만약 $\gcd(f,f')=1$이면 베주 항등식으로
+\[
+  af+bf'=1
+\]
+인 $a,b\in K[X]$가 존재한다. 이 식을 $L$에서 $\alpha$에 대입하면 $0=1$이라는 모순을 얻는다. 따라서 $\gcd(f,f')\ne1$이다.
+\end{proof}
 
 \begin{example}
 $\Q[X]$에서 $f=X^3-3X+2=(X-1)^2(X+2)$이다. 도함수는
@@ -72,7 +84,7 @@ $\Q[X]$에서 $f=X^3-3X+2=(X-1)^2(X+2)$이다. 도함수는
 
 \subsection{양의 표수에서의 주의점}
 
-표수가 $p>0$이면 $p=0$이므로
+표수가 $p>0$이면 $p\cdot1_K=0$이므로
 \[
  (X^p)'=pX^{p-1}=0.
 \]
@@ -87,7 +99,16 @@ $K$의 표수가 $p>0$일 때 $f'=0$일 필요충분조건은 어떤 $g\in K[X]$
 \end{proposition}
 
 \begin{proof}
-$f'=0$이면 $i a_i=0$인 모든 $i$에서 $a_i\ne0$일 수 있다. 체의 표수가 $p$이므로 이는 $p\mid i$인 지수만 남는다는 뜻이다.
+$f=\sum_i a_iX^i$이고 $f'=0$이라고 하자. $p\nmid i$이면 $i\cdot1_K$는 영이 아닌 체의 원소이므로 단위원이다. 따라서
+\[
+  ia_i=0\quad\Longrightarrow\quad a_i=0.
+\]
+즉 $p$의 배수인 지수만 남으므로
+\[
+  f(X)=\sum_j a_{pj}X^{pj}=g(X^p),
+  \qquad g(T)=\sum_j a_{pj}T^j
+\]
+로 쓸 수 있다. 반대로 $f(X)=g(X^p)$이면 모든 비영 항의 지수가 $p$의 배수이므로 형식적 도함수는 $0$이다.
 \end{proof}
 
 \begin{pitfall}

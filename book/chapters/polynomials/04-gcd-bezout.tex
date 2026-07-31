@@ -8,7 +8,7 @@ $K[X]$에서 유클리드 알고리즘으로 최대공약수를 계산하고, �
 체 $K$에 대해 $K[X]$는 차수를 유클리드 함수로 갖는 유클리드 정역이다. 따라서 모든 아이디얼이 주아이디얼이고, 두 다항식의 최대공약수를 나눗셈을 반복하여 계산할 수 있다.
 
 \begin{definition}
-$f,g\in K[X]$가 둘 다 영이 아닐 때 일계수다항식 $d$가
+$f,g\in K[X]$가 동시에 영다항식은 아니라고 하자. 일계수다항식 $d$가
 \begin{enumerate}[label=(\roman*)]
   \item $d\mid f$이고 $d\mid g$이며,
   \item $h\mid f$와 $h\mid g$이면 $h\mid d$
@@ -16,10 +16,18 @@ $f,g\in K[X]$가 둘 다 영이 아닐 때 일계수다항식 $d$가
 를 만족하면 $d$를 $f,g$의 최대공약수라 하고 $d=\gcd(f,g)$로 쓴다.
 \end{definition}
 
-일계수 조건은 단위원배의 모호성을 제거한다. $K[X]$의 단위원은 $K^\times$이므로 최대공약수는 상수배를 제외하면 유일하다.
+일계수 조건은 단위원배의 모호성을 제거한다. $K[X]$의 단위원은 $K^\times$이므로 최대공약수는 상수배를 제외하면 유일하다. 이 정의에 따라 $g\ne0$이면 $\gcd(0,g)$는 $g$를 일계수로 만든 다항식이다.
 
 \begin{theorem}[유클리드 알고리즘]
-$f,g\in K[X]$, $g\ne0$라 하자. 연속적인 나눗셈
+$f,g\in K[X]$, $g\ne0$라 하자. 나머지가 $0$이 될 때까지 연속적으로 나눗셈을 수행하면 마지막 영이 아닌 나머지를 일계수로 만든 다항식이 $\gcd(f,g)$이다.
+\end{theorem}
+
+\begin{proofidea}
+각 나눗셈 $a=qb+r$에서 $a,b$의 공약수와 $b,r$의 공약수는 같다. 영이 아닌 나머지들의 차수가 엄격히 감소하므로 과정은 유한 번 만에 끝난다.
+\end{proofidea}
+
+\begin{proof}
+연속적인 나눗셈을
 \[
 \begin{aligned}
  f&=q_1g+r_1, &\deg r_1&<\deg g,\\
@@ -29,15 +37,11 @@ $f,g\in K[X]$, $g\ne0$라 하자. 연속적인 나눗셈
  r_{n-1}&=q_{n+1}r_n
 \end{aligned}
 \]
-에서 마지막 영이 아닌 나머지 $r_n$을 일계수로 만든 것이 $\gcd(f,g)$이다.
-\end{theorem}
-
-\begin{proofidea}
-각 나눗셈 $a=qb+r$에서 $a,b$의 공약수와 $b,r$의 공약수는 같다. 차수가 계속 감소하므로 과정은 유한 번 만에 끝난다.
-\end{proofidea}
+와 같이 쓰자. $a=qb+r$이면 $a,b$의 공약수는 $b,r$의 공약수와 정확히 같다. 이 사실을 각 줄에 반복 적용하면 $f,g$의 공약수들은 $r_n,0$의 공약수들과 같다. 따라서 $r_n$은 단위원배를 제외하고 $f,g$의 최대공약수이며, 최고차항계수로 나누면 유일한 일계수 최대공약수를 얻는다.
+\end{proof}
 
 \begin{theorem}[베주 항등식]
-$f,g\in K[X]$에 대해 어떤 $a,b\in K[X]$가 존재하여
+$f,g\in K[X]$가 동시에 영다항식은 아니라고 하자. 그러면 어떤 $a,b\in K[X]$가 존재하여
 \[
   \gcd(f,g)=af+bg
 \]
@@ -52,6 +56,8 @@ $f,g\in K[X]$에 대해 어떤 $a,b\in K[X]$가 존재하여
 \begin{proof}
 $K[X]$가 PID이므로 $(f,g)=(d)$인 일계수 $d$가 존재한다. $d\in(f,g)$이므로 $d=af+bg$이고, $f,g\in(d)$이므로 $d$는 두 다항식의 공약수이다. 모든 공약수는 $af+bg$도 나누므로 $d$가 최대공약수이다.
 \end{proof}
+
+유클리드 알고리즘의 각 식을 마지막 식부터 거꾸로 대입하면 위의 $a,b$를 실제로 계산할 수 있다. 이를 확장 유클리드 알고리즘이라 한다.
 
 \begin{example}
 $\Q[X]$에서 $f=X^3-1$, $g=X^2-1$이라 하자. 나눗셈을 하면
@@ -76,7 +82,7 @@ $f,m\in K[X]$이고 $m\ne0$이라 하자. 잉여류 $\overline f\in K[X]/(m)$가
 \end{proposition}
 
 \begin{proof}
-$af+bm=1$이면 몫환에서 $\overline a\,\overline f=\overline1$이다. 반대로 $\overline f$가 역원을 가지면 어떤 $a$에 대해 $af-1\in(m)$이므로 $af+bm=1$인 $b$가 존재한다.
+$af+bm=1$이면 몫환에서 $\overline a\,\overline f=\overline1$이다. 반대로 $\overline f$가 역원을 가지면 어떤 $a\in K[X]$에 대해 $af-1\in(m)$이므로 $af+bm=1$인 $b\in K[X]$가 존재한다. 따라서 $f,m$의 최대공약수는 $1$이다.
 \end{proof}
 
 \begin{example}
