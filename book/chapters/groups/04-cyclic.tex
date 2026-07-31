@@ -1,0 +1,136 @@
+\section{순환군과 원소의 위수}
+\label{sec:cyclic-groups}
+
+\begin{definition}[순환부분군과 순환군]
+$g\in G$가 생성하는 부분군을
+\[
+  \langle g\rangle=\{g^n:n\in\Z\}
+\]
+라고 한다. 어떤 $g\in G$에 대해 $G=\langle g\rangle$이면 $G$를 \emph{순환군}이라 하고 $g$를 $G$의 \emph{생성원}이라고 한다.
+\end{definition}
+
+모든 순환군은 아벨군이다. 실제로 $g^m g^n=g^{m+n}=g^{n+m}=g^ng^m$이다.
+
+\begin{definition}[원소의 위수]
+$g\in G$의 \emph{위수} $\ord(g)$는 순환부분군 $\langle g\rangle$의 원소 개수이다. 유한한 경우에는
+\[
+  \ord(g)=\min\{n\ge1:g^n=e\}
+\]
+이다. 그런 양의 정수가 없으면 $\ord(g)=\infty$라고 한다.
+\end{definition}
+
+\begin{example}
+덧셈군 $\Z/12\Z$에서
+\[
+  \ord(\overline4)=3
+\]
+이다. 실제로 $3\overline4=\overline{12}=\overline0$이고, $\overline4,2\overline4$는 영이 아니다.
+\end{example}
+
+\begin{proposition}
+$g$의 위수가 유한하고 $\ord(g)=n$이면
+\[
+  g^m=e\quad\Longleftrightarrow\quad n\mid m.
+\]
+또한 $g^a=g^b$일 필요충분조건은 $a\equiv b\pmod n$이다.
+\end{proposition}
+
+\begin{proof}
+$m=qn+r$ ($0\le r<n$)로 나누어 쓰면
+\[
+  g^m=(g^n)^qg^r=g^r.
+\]
+$g^m=e$라면 $g^r=e$이다. $n$이 $g^n=e$인 최소 양의 정수이므로 $r=0$이고 $n\mid m$이다. 역은 자명하다. 두 번째 명제는 $g^a=g^b$가 $g^{a-b}=e$와 동치라는 사실에서 따른다.
+\end{proof}
+
+\begin{theorem}[순환군의 분류]
+모든 순환군은 다음 둘 중 하나와 동형이다.
+\begin{enumerate}[label=(\arabic*)]
+  \item 무한 순환군은 $(\Z,+)$와 동형이다.
+  \item 위수가 $n$인 유한 순환군은 $(\Z/n\Z,+)$와 동형이다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+$G=\langle g\rangle$라 하고 $\varphi:\Z\to G$, $m\mapsto g^m$을 생각하자. 이는 전사 준동형이다.
+
+$g$의 위수가 무한이면 $g^a=g^b$에서 $a=b$이므로 $\varphi$는 단사이고 $\Z\cong G$이다.
+
+$\ord(g)=n<\infty$이면 $g^a=g^b$일 필요충분조건은 $a\equiv b\pmod n$이다. 따라서
+\[
+  \overline a\longmapsto g^a
+\]
+는 잘 정의된 전단사 준동형 $\Z/n\Z\to G$이다.
+\end{proof}
+
+\begin{proposition}[거듭제곱의 위수]
+$\ord(g)=n<\infty$이면 모든 정수 $k$에 대해
+\[
+  \ord(g^k)=\frac{n}{\gcd(n,k)}.
+\]
+
+a fortiori, $g^k$가 $\langle g\rangle$의 생성원일 필요충분조건은 $\gcd(n,k)=1$이다.
+\end{proposition}
+
+\begin{proof}
+$d=\gcd(n,k)$, $n=dn_0$, $k=dk_0$라 하자. 그러면 $\gcd(n_0,k_0)=1$이다. $(g^k)^m=e$일 필요충분조건은 $n\mid km$, 즉 $dn_0\mid dk_0m$이다. $n_0$와 $k_0$가 서로소이므로 이는 $n_0\mid m$과 동치이다. 따라서 최소 양의 $m$은 $n_0=n/d$이다.
+\end{proof}
+
+\begin{corollary}
+위수가 $n$인 순환군의 생성원 개수는 오일러 파이 함수 $\varphi(n)$이다.
+\end{corollary}
+
+\subsection{순환군의 부분군}
+
+\begin{theorem}
+순환군의 모든 부분군은 순환군이다. 더 구체적으로, $G=\langle g\rangle$의 위수가 $n<\infty$이면 $n$의 각 양의 약수 $d$에 대해 위수가 $d$인 부분군이 정확히 하나 존재하며
+\[
+  H_d=\langle g^{n/d}\rangle
+\]
+이다.
+\end{theorem}
+
+\begin{proofidea}
+부분군 $H$ 안에 들어가는 $g$의 양의 거듭제곱 중 지수가 가장 작은 것을 택한다. 정수의 나눗셈 알고리즘을 사용하면 $H$의 모든 원소가 그 원소의 거듭제곱임을 보일 수 있다.
+\end{proofidea}
+
+\begin{proof}
+$H=\{e\}$이면 자명하다. 그렇지 않으면 $g^m\in H$인 양의 정수 $m$ 중 최소인 것을 택하자. $g^a\in H$라 하고 $a=qm+r$ ($0\le r<m$)로 쓰면
+\[
+  g^r=g^a(g^m)^{-q}\in H.
+\]
+$m$의 최소성 때문에 $r=0$이다. 따라서 모든 $H$의 원소는 $g^m$의 거듭제곱이고 $H=\langle g^m\rangle$이다.
+
+이제 $|G|=n$이라 하자. $g^n=e\in H$이므로 같은 나눗셈 논법으로 $m\mid n$이다. $H=\langle g^m\rangle$의 위수는 $n/m$이다. 따라서 위수 $d$인 부분군은 $m=n/d$일 때 정확히 $\langle g^{n/d}\rangle$이다.
+\end{proof}
+
+\begin{example}
+$\Z/12\Z$의 부분군은 $12$의 약수에 대응한다.
+\[
+\begin{array}{c|c}
+\text{위수} & \text{부분군}\\
+\hline
+1 & \langle\overline0\rangle\\
+2 & \langle\overline6\rangle\\
+3 & \langle\overline4\rangle\\
+4 & \langle\overline3\rangle\\
+6 & \langle\overline2\rangle\\
+12 & \langle\overline1\rangle
+\end{array}
+\]
+각 위수마다 부분군이 하나뿐이라는 점이 순환군의 강한 특징이다.
+\end{example}
+
+\begin{proposition}
+유한 순환군 $C_m,C_n$에 대해
+\[
+  C_m\times C_n\text{가 순환군}
+  \quad\Longleftrightarrow\quad
+  \gcd(m,n)=1.
+\]
+서로소일 때 $C_m\times C_n\cong C_{mn}$이다.
+\end{proposition}
+
+\begin{proof}
+$(a,b)\in C_m\times C_n$의 위수는 $\lcm(\ord(a),\ord(b))$이므로 최대 $\lcm(m,n)$이다. 직접곱이 위수 $mn$인 순환군이 되려면 $\lcm(m,n)=mn$, 즉 $\gcd(m,n)=1$이어야 한다. 반대로 서로소이면 각 군의 생성원 $x,y$에 대해 $(x,y)$의 위수가 $\lcm(m,n)=mn$이므로 전체 직접곱을 생성한다.
+\end{proof}
