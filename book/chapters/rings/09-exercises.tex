@@ -1,0 +1,214 @@
+\section{연습문제}
+\label{sec:ring-exercises}
+
+문제는 세 단계로 나뉜다. A는 정의와 계산, B는 핵심 증명, C는 구조를 연결하는 심화 문제이다. 별표가 붙은 문제는 뒤 절에 상세 풀이가 있다.
+
+\subsection*{A. 정의와 계산}
+
+\begin{exercise}
+환 $R$에서 다음을 직접 증명하라.
+\[
+  a(-b)=-(ab),\qquad (-a)(-b)=ab,
+  \qquad a(b-c)=ab-ac.
+\]
+\end{exercise}
+
+\begin{exercise}
+다음 부분집합이 주어진 환의 부분환인지, 아이디얼인지 각각 판단하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $2\Z\subseteq\Z$.
+  \item $\Z\subseteq\Q$.
+  \item $\R\times\{0\}\subseteq\R\times\R$.
+  \item $\{f\in\R[X]:f(0)=0\}\subseteq\R[X]$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+$\Z/20\Z$의 모든 단위원과 모든 영이 아닌 영인수를 구하라. 각 단위원의 역원도 구하라.
+\end{exercise}
+
+\begin{exercise}
+$\Z/24\Z$의 멱영원소를 모두 구하라.
+\end{exercise}
+
+\begin{exercise}
+환 $R\times S$에서 단위원, 영인수, 멱영원소를 $R$과 $S$의 자료로 기술하라.
+\end{exercise}
+
+\begin{exercise}[*]
+다음 아이디얼의 생성원을 가능한 한 단순하게 구하라.
+\[
+ (18,30)\subseteq\Z,\qquad
+ (12)\cap(18)\subseteq\Z,\qquad
+ (X^2,X^5)\subseteq K[X].
+\]
+\end{exercise}
+
+\begin{exercise}
+$\Z[X]$에서 다음 아이디얼을 원소의 계수 조건으로 설명하라.
+\[
+  (X),\qquad (3),\qquad (3,X),\qquad (X^2).
+\]
+\end{exercise}
+
+\begin{exercise}[*]
+평가 준동형
+\[
+  \operatorname{ev}_2:\Z[X]\to\Z,\qquad f\mapsto f(2)
+\]
+의 핵과 상을 구하고, 제1동형정리로 몫환을 기술하라.
+\end{exercise}
+
+\begin{exercise}
+다음 몫환의 원소를 표준형으로 쓰고, 정역 또는 체인지 판단하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $\Q[X]/(X^2-3)$.
+  \item $\R[X]/(X^2-4)$.
+  \item $\F_2[X]/(X^2+X+1)$.
+  \item $\F_2[X]/(X^2+1)$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+$\F_3[X]/(X^2+1)$의 모든 원소를 쓰고, 각 영이 아닌 원소의 역원을 구하라.
+\end{exercise}
+
+\subsection*{B. 핵심 증명}
+
+\begin{exercise}
+환의 아이디얼들의 임의의 교집합은 아이디얼임을 증명하라. 두 아이디얼의 합집합은 언제 아이디얼이 되는가?
+\end{exercise}
+
+\begin{exercise}[*]
+환 $R$의 멱영원소 전체
+\[
+  \sqrt{(0)}=\{a\in R:a^n=0\text{인 }n\ge1\text{이 존재}\}
+\]
+가 아이디얼임을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+가환환 $R$의 진아이디얼 $I$에 대해 다음이 동치임을 보이라.
+\begin{enumerate}[label=(\roman*)]
+  \item $I$는 극대아이디얼이다.
+  \item 모든 $a\notin I$에 대해 어떤 $r\in R$, $i\in I$가 존재하여 $ra+i=1$이다.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+환 준동형 $\varphi:R\to S$에 대해 다음을 증명하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $J\trianglelefteq S$이면 $\varphi^{-1}(J)\trianglelefteq R$이다.
+  \item $J$가 소아이디얼이면 $\varphi^{-1}(J)$도 소아이디얼이다.
+  \item $\varphi$가 전사이고 $J$가 극대아이디얼이면 $\varphi^{-1}(J)$도 극대아이디얼이다.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+환 준동형 $\varphi:R\to S$가 전사라고 하자. $I\trianglelefteq R$이면 $\varphi(I)$가 $S$의 아이디얼임을 증명하라. 전사 조건을 제거하면 거짓임을 예로 보여라.
+\end{exercise}
+
+\begin{exercise}[*]
+$I,J\trianglelefteq R$에 대해
+\[
+  I/(I\cap J)\cong(I+J)/J
+\]
+를 환의 제1동형정리로 증명하라.
+\end{exercise}
+
+\begin{exercise}
+$I\subseteq J\trianglelefteq R$에 대해
+\[
+  (R/I)/(J/I)\cong R/J
+\]
+를 대표원을 사용하여 직접 구성하고, 잘 정의됨을 확인하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$I+J=R$이면 $I^m+J^n=R$임을 모든 양의 정수 $m,n$에 대해 증명하라.
+\end{exercise}
+
+\begin{exercise}
+유한 가환환 $R$의 모든 원소가 영인수 또는 단위원임을 증명하라. 여기서 $0$도 영인수로 허용한다고 하자.
+\end{exercise}
+
+\begin{exercise}[*]
+가환환 $R$에 대해 다음이 동치임을 증명하라.
+\begin{enumerate}[label=(\roman*)]
+  \item $R$은 체이다.
+  \item 환 준동형 $R\to S$는 $S\ne0$인 모든 환 $S$에 대해 단사이다.
+  \item $R$의 아이디얼은 $(0)$과 $R$뿐이다.
+\end{enumerate}
+\end{exercise}
+
+\subsection*{C. 구조와 응용}
+
+\begin{exercise}[*]
+중국인의 나머지 정리를 이용하여
+\[
+  x\equiv4\pmod9,\qquad
+  x\equiv3\pmod{10},\qquad
+  x\equiv5\pmod7
+\]
+을 풀라.
+\end{exercise}
+
+\begin{exercise}
+양의 정수 $n=p_1^{e_1}\cdots p_r^{e_r}$가 소인수분해라고 하자. 환 동형
+\[
+  \Z/n\Z\cong
+  \prod_{i=1}^r\Z/p_i^{e_i}\Z
+\]
+를 증명하라. 이로부터 단위원군의 원소 개수에 대한 오일러 곱공식을 유도하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$K$를 표수가 $2$가 아닌 체라 하자. 다음 동형을 구체적으로 구성하라.
+\[
+  K[X]/(X^2-1)\cong K\times K.
+\]
+$X+(X^2-1)$은 오른쪽에서 어떤 원소에 대응하는가?
+\end{exercise}
+
+\begin{exercise}
+$K[X]/(X^3-X)$를 $K$의 표수에 따라 중국인의 나머지 정리로 가능한 한 많이 분해하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$A=\Q[X]/(X^3-2)$이고 $\alpha=X+(X^3-2)$라 하자. 다음을 계산하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $(1+\alpha+\alpha^2)(1-\alpha)$.
+  \item $(\alpha^2+\alpha+1)^{-1}$.
+  \item $A$가 체인 이유.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$R=K[X,Y]/(XY)$라 하고 $x,y$를 $X,Y$의 잉여류라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item $x,y$가 영이 아님을 보이라.
+  \item $xy=0$을 확인하라.
+  \item $(x)$와 $(y)$가 소아이디얼임을 보이라.
+  \item $(x,y)$가 극대아이디얼임을 보이라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+$R$이 PID이고 $a,b\in R$라 하자. $(a,b)=(d)$이면 $d$가 $a,b$의 최대공약수임을 증명하고, 역으로 최대공약수 $d$가 항상 $(a,b)$를 생성하는지는 일반 UFD에서도 성립하는지 조사하라.
+\end{exercise}
+
+\begin{exercise}
+$\Z[i]$에서
+\[
+  5=(2+i)(2-i)
+\]
+임을 확인하고, $2+i$가 단위원이 아님을 노름으로 보이라. $2+i$가 $5$의 제곱근과 어떤 관련이 있는지도 $\Z[i]/(2+i)$에서 설명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+정역 $R$에서 모든 소아이디얼이 극대아이디얼이라고 하자. $R$이 PID일 때 $R$은 체이거나 모든 영이 아닌 소아이디얼이 극대라는 사실과 어떤 관계가 있는지 설명하고, $\Z$가 가정을 만족하지 않는 이유를 명확히 하라.
+\end{exercise}
+
+\begin{exercise}
+체 $K$와 기약다항식 $f\in K[X]$에 대해 $L=K[X]/(f)$라 하자. $\deg f=n$이면 $L$이 $K$-벡터공간으로 차원 $n$임을 보이라. $1,\alpha,\dots,\alpha^{n-1}$이 기저임을 직접 증명하라.
+\end{exercise}
