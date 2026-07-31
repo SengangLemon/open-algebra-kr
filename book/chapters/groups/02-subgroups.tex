@@ -1,0 +1,173 @@
+\section{부분군과 생성}
+\label{sec:subgroups}
+
+큰 군 안에서 연산과 역원을 그대로 물려받아 군을 이루는 부분집합을 찾는 일은 군의 구조를 이해하는 첫 단계이다.
+
+\begin{definition}[부분군]
+군 $G$의 부분집합 $H\subseteq G$가 $G$의 연산을 제한했을 때 군을 이루면 $H$를 $G$의 \emph{부분군}이라고 하고
+\[
+  H\le G
+\]
+라고 쓴다. $H=\{e\}$와 $H=G$를 자명한 부분군이라고 한다.
+\end{definition}
+
+부분군을 확인할 때 결합법칙은 다시 증명할 필요가 없다. $G$에서 이미 성립하므로 $H$에서도 자동으로 성립한다. 핵심은 항등원, 곱, 역원에 대해 닫혀 있는지를 확인하는 것이다.
+
+\begin{proposition}[부분군 판정법]
+$G$의 공집합이 아닌 부분집합 $H$에 대하여 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $H\le G$.
+  \item 모든 $a,b\in H$에 대하여 $ab^{-1}\in H$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proofidea}
+조건 $ab^{-1}\in H$ 하나에서 항등원, 역원, 곱에 대한 닫힘성을 모두 복원한다. $a=b$로 두면 항등원을 얻고, $a=e$로 두면 역원을 얻으며, 이미 역원이 들어 있음을 안 뒤 $b^{-1}$ 대신 $b$를 넣으면 곱에 대한 닫힘성을 얻는다.
+\end{proofidea}
+
+\begin{proof}
+(i)$\Rightarrow$(ii)는 부분군이 곱과 역원에 닫혀 있으므로 즉시 성립한다.
+
+(ii)를 가정하자. $H$는 공집합이 아니므로 $h\in H$를 하나 택할 수 있다. 그러면
+\[
+  e=hh^{-1}\in H.
+\]
+이제 $a\in H$이면 $e,a\in H$이므로
+\[
+  a^{-1}=ea^{-1}\in H.
+\]
+마지막으로 $a,b\in H$이면 $b^{-1}\in H$이므로 판정 조건에 $a$와 $b^{-1}$을 넣어
+\[
+  a(b^{-1})^{-1}=ab\in H
+\]
+를 얻는다. 따라서 $H$는 부분군이다.
+\end{proof}
+
+덧셈 표기에서는 이 판정법이
+\[
+  a,b\in H\implies a-b\in H
+\]
+로 바뀐다.
+
+\begin{example}
+정수 $m$에 대해
+\[
+  m\Z=\{mk:k\in\Z\}
+\]
+는 $(\Z,+)$의 부분군이다. 실제로 $ma-mb=m(a-b)\in m\Z$이다.
+\end{example}
+
+\begin{example}
+$\SL_n(K)$는 $\GL_n(K)$의 부분군이다. $A,B\in\SL_n(K)$이면
+\[
+  \det(AB^{-1})=\det(A)\det(B)^{-1}=1
+\]
+이므로 부분군 판정법이 적용된다.
+\end{example}
+
+\begin{definition}[중심]
+군 $G$의 \emph{중심}은
+\[
+  Z(G)=\{z\in G:zg=gz\text{ for every }g\in G\}
+\]
+이다.
+\end{definition}
+
+\begin{proposition}
+$Z(G)$는 $G$의 아벨 부분군이다. 또한 $G$가 아벨군일 필요충분조건은 $Z(G)=G$이다.
+\end{proposition}
+
+\begin{proof}
+$e\in Z(G)$이다. $a,b\in Z(G)$와 $g\in G$에 대하여
+\[
+  (ab^{-1})g=a(b^{-1}g)=a(gb^{-1})=(ag)b^{-1}=(ga)b^{-1}=g(ab^{-1})
+\]
+이므로 $ab^{-1}\in Z(G)$이다. 부분군 판정법으로 $Z(G)\le G$이다. 중심의 원소들은 정의상 서로 교환하므로 $Z(G)$는 아벨군이다. 마지막 명제는 정의에서 바로 따른다.
+\end{proof}
+
+\subsection{교집합과 합집합}
+
+부분군들의 교집합은 언제나 부분군이다.
+
+\begin{proposition}
+$\{H_i\}_{i\in I}$가 군 $G$의 부분군들의 모임이면
+\[
+  \bigcap_{i\in I}H_i
+\]
+도 $G$의 부분군이다.
+\end{proposition}
+
+\begin{proof}
+모든 $H_i$가 $e$를 포함하므로 교집합은 공집합이 아니다. $a,b$가 교집합에 속하면 모든 $i$에 대해 $a,b\in H_i$이고, 따라서 $ab^{-1}\in H_i$이다. 그러므로 $ab^{-1}$도 교집합에 속한다.
+\end{proof}
+
+반면 합집합은 대개 부분군이 아니다. 예를 들어 $2\Z\cup3\Z$는 $2,3$을 포함하지만 $2+3=5$를 포함하지 않는다.
+
+\begin{proposition}
+부분군 $H,K\le G$에 대하여 $H\cup K$가 부분군일 필요충분조건은
+\[
+  H\subseteq K\quad\text{또는}\quad K\subseteq H
+\]
+이다.
+\end{proposition}
+
+\begin{proof}
+한쪽이 다른 쪽에 포함되면 합집합은 더 큰 부분군과 같으므로 충분하다. 반대로 어느 쪽도 다른 쪽에 포함되지 않는다고 하자. $h\in H\setminus K$, $k\in K\setminus H$를 택한다. $H\cup K$가 부분군이면 $hk\in H\cup K$이다. 만약 $hk\in H$이면 $k=h^{-1}(hk)\in H$가 되어 모순이다. 만약 $hk\in K$이면 $h=(hk)k^{-1}\in K$가 되어 역시 모순이다.
+\end{proof}
+
+\subsection{생성부분군}
+
+\begin{definition}[생성부분군]
+부분집합 $S\subseteq G$를 포함하는 모든 부분군의 교집합을 $S$가 \emph{생성하는 부분군}이라 하고
+\[
+  \langle S\rangle
+\]
+로 쓴다. $G=\langle S\rangle$이면 $S$가 $G$를 생성한다고 한다.
+\end{definition}
+
+교집합의 성질 때문에 $\langle S\rangle$은 $S$를 포함하는 가장 작은 부분군이다. 구체적으로는 $S$의 원소와 그 역원을 유한 번 곱해 얻을 수 있는 모든 원소로 이루어진다.
+
+\begin{proposition}
+\[
+\langle S\rangle
+=
+\left\{s_1^{\varepsilon_1}\cdots s_r^{\varepsilon_r}:
+ r\ge0,\ s_i\in S,\ \varepsilon_i\in\{1,-1\}\right\}.
+\]
+$r=0$인 빈 곱은 항등원으로 이해한다.
+\end{proposition}
+
+\begin{example}
+$S_3$는 두 전치 $(12)$와 $(23)$에 의해 생성된다. 실제로
+\[
+  (123)=(12)(23),\qquad
+  (132)=(23)(12),\qquad
+  (13)=(12)(23)(12)
+\]
+이므로 $S_3$의 여섯 원소를 모두 얻을 수 있다.
+\end{example}
+
+\begin{example}
+정사각형의 대칭군 $D_4$는 $90^\circ$ 회전 $r$과 반사 $s$에 의해 생성된다. 즉
+\[
+  D_4=\langle r,s\rangle.
+\]
+관계식 $r^4=e$, $s^2=e$, $srs=r^{-1}$을 이용하면 모든 단어를 $r^i$ 또는 $sr^i$ 꼴로 줄일 수 있다.
+\end{example}
+
+\begin{proposition}[유한 부분모노이드는 부분군]
+군 $G$의 공집합이 아닌 유한 부분집합 $H$가 곱에 대해 닫혀 있다면 $H$는 부분군이다.
+\end{proposition}
+
+\begin{proof}
+$h\in H$를 택하자. $H$가 곱에 닫혀 있으므로 $h,h^2,h^3,\dots$는 모두 $H$에 있다. $H$가 유한이므로 $h^i=h^j$인 $i<j$가 존재한다. 소거하면 $h^{j-i}=e$이고, 따라서 $e\in H$이다. 또한 $h^{j-i-1}$이 $h$의 역원이므로 $h^{-1}\in H$이다. 모든 $h\in H$에 대해 성립하므로 $H$는 부분군이다.
+\end{proof}
+
+\begin{checkpoint}
+\begin{enumerate}[label=\arabic*.]
+  \item $4\Z$와 $6\Z$의 교집합은 무엇인가?
+  \item $\langle 8,12\rangle\le(\Z,+)$를 구하라.
+  \item $S_3$에서 $\langle(123)\rangle$의 원소를 모두 쓰라.
+  \item 유한성 없이 ``공집합이 아니고 곱에 닫혀 있다''만으로 부분군이 된다는 명제가 거짓인 예를 찾으라.
+\end{enumerate}
+\end{checkpoint}
