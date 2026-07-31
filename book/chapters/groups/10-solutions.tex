@@ -1,0 +1,199 @@
+\section{선별 문제 풀이}
+\label{sec:group-selected-solutions}
+
+\subsection*{문제 \thechapter.3: $(\Z/15\Z)^\times$}
+
+\begin{solution}
+$15$와 서로소인 나머지는
+\[
+  \overline1,\overline2,\overline4,\overline7,
+  \overline8,\overline{11},\overline{13},\overline{14}
+\]
+이다. 역원은
+\[
+\begin{aligned}
+&\overline1^{-1}=\overline1,
+&&\overline2^{-1}=\overline8,
+&&\overline4^{-1}=\overline4,
+&&\overline7^{-1}=\overline{13},\\
+&\overline{11}^{-1}=\overline{11},
+&&\overline{14}^{-1}=\overline{14}
+\end{aligned}
+\]
+이며 나머지는 대칭적으로 정해진다. 각 원소의 위수를 계산하면
+\[
+\begin{array}{c|cccccccc}
+ a&1&2&4&7&8&11&13&14\\
+\hline
+\ord(\overline a)&1&4&2&4&4&2&4&2
+\end{array}
+\]
+이다. 위수 $8$인 원소가 없으므로 이 군은 순환군이 아니다. 실제로
+\[
+  (\Z/15\Z)^\times\cong\Z/4\Z\times\Z/2\Z
+\]
+이지만 이 동형은 이후 직접곱 구조를 더 공부한 뒤 체계적으로 확인할 수 있다.
+\end{solution}
+
+\subsection*{문제 \thechapter.6: 생성부분군}
+
+\begin{solution}
+덧셈군 $\Z$에서 두 정수가 생성하는 부분군은 그 최대공약수의 배수 전체이다. 따라서
+\[
+  \langle18,30\rangle=6\Z.
+\]
+$\Z/20\Z$에서 $\ord(\overline8)=20/\gcd(20,8)=5$이므로
+\[
+  \langle\overline8\rangle
+  =\{\overline0,\overline8,\overline{16},\overline4,\overline{12}\}
+  =\{\overline0,\overline4,\overline8,\overline{12},\overline{16}\}.
+\]
+마지막으로 $(1234)$의 위수는 $4$이므로
+\[
+  \langle(1234)\rangle
+  =\{e,(1234),(13)(24),(1432)\}.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.8(a): $\varphi(n)=\overline{3n}$}
+
+\begin{solution}
+$\varphi(n)=\overline0$일 필요충분조건은 $8\mid3n$이다. $\gcd(3,8)=1$이므로 이는 $8\mid n$과 동치이다. 따라서
+\[
+  \ker\varphi=8\Z.
+\]
+또한 $\overline3$은 $\Z/8\Z$의 생성원이다. 실제로 $\gcd(3,8)=1$이므로
+\[
+  \im\varphi=\Z/8\Z.
+\]
+따라서 $\varphi$는 전사지만 단사는 아니다. 제1동형정리에 의해
+\[
+  \Z/8\Z\cong\im\varphi
+\]
+를 다시 얻는다.
+\end{solution}
+
+\subsection*{문제 \thechapter.12: 유한 소거 모노이드}
+
+\begin{solution}
+$a\in M$을 고정하고 왼쪽 곱셈 함수
+\[
+  L_a:M\to M,\qquad x\mapsto ax
+\]
+를 생각하자. 왼쪽 소거법칙에 의해 $L_a$는 단사이다. $M$이 유한이므로 $L_a$는 전사이고, 따라서 어떤 $x\in M$에 대해 $ax=e$이다. 같은 방식으로 오른쪽 곱셈 함수 $R_a(x)=xa$도 전사이므로 어떤 $y$에 대해 $ya=e$이다. 그러면
+\[
+  x=ex=(ya)x=y(ax)=ye=y
+\]
+이므로 $x=y$는 양쪽 역원이다. 모든 $a$가 역원을 가지므로 $M$은 군이다.
+
+무한 반례로 $(\N,+)$를 들 수 있다. 이는 항등원 $0$을 가진 결합적 모노이드이고 소거법칙이 성립하지만, 양의 자연수는 덧셈 역원을 갖지 않는다.
+\end{solution}
+
+\subsection*{문제 \thechapter.14: 모든 원소가 제곱하여 항등원}
+
+\begin{solution}
+$a^2=e$이면 $a=a^{-1}$이다. 임의의 $a,b\in G$에 대해 $(ab)^2=e$이므로
+\[
+  ab=(ab)^{-1}=b^{-1}a^{-1}=ba.
+\]
+따라서 모든 두 원소가 교환하고 $G$는 아벨군이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.16: 순환군 사이의 준동형 개수}
+
+\begin{solution}
+준동형 $f:\Z/m\Z\to\Z/n\Z$는 $f(\overline1)=\overline a$에 의해 완전히 결정된다. 잘 정의되려면
+\[
+  \overline0=f(\overline m)=m\overline a=\overline{ma}
+\]
+여야 하므로 $n\mid ma$가 필요충분하다.
+
+$d=\gcd(m,n)$, $m=dm_0$, $n=dn_0$로 쓰면 $\gcd(m_0,n_0)=1$이다. 조건 $dn_0\mid dm_0a$는 $n_0\mid a$와 동치이다. $\Z/n\Z$에서 $n_0$의 배수인 원소는
+\[
+  \overline0,\overline{n_0},\dots,\overline{(d-1)n_0}
+\]
+의 $d$개이므로 준동형은 정확히 $d=\gcd(m,n)$개이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.18: 지표 $2$와 지표 $3$}
+
+\begin{solution}
+지표 $2$인 경우는 본문의 명제에서 증명했다. 지표 $3$에서는 결론이 거짓이다. 예를 들어 $S_3$에서
+\[
+  H=\langle(12)\rangle
+\]
+는 위수 $2$이므로 지표가 $3$이지만
+\[
+  (123)(12)(123)^{-1}=(23)\notin H
+\]
+이어서 정규가 아니다.
+\end{solution}
+
+\subsection*{문제 \thechapter.19: 잘 정의된 잉여류 곱은 정규성을 강제한다}
+
+\begin{solution}
+잉여류 곱이 잘 정의된다고 하자. $g\in G$, $h\in H$를 임의로 택한다. $hH=H$이므로
+\[
+  (gH)(hH)(g^{-1}H)
+  =(gH)(H)(g^{-1}H)
+  =H.
+\]
+한편 곱셈 공식에 따르면 왼쪽은
+\[
+  (ghg^{-1})H
+\]
+이다. 따라서 $(ghg^{-1})H=H$이고 $ghg^{-1}\in H$이다. 모든 $g,h$에 대해 성립하므로 $H\trianglelefteq G$이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.20: $\Aut(C_n)$}
+
+\begin{solution}
+$C_n=\langle g\rangle$라 하자. 자동동형은 생성원 $g$의 상에 의해 완전히 결정되며, $g$의 상도 반드시 생성원이어야 한다. $C_n$의 생성원은 $g^k$ 중 $\gcd(k,n)=1$인 것들이다. 따라서 각 $\overline k\in(\Z/n\Z)^\times$에
+\[
+  \alpha_k(g^m)=g^{km}
+\]
+를 대응시키면 자동동형을 얻는다. 또한
+\[
+  \alpha_k\circ\alpha_\ell=\alpha_{k\ell}
+\]
+이므로
+\[
+  (\Z/n\Z)^\times\to\Aut(C_n),
+  \qquad \overline k\mapsto\alpha_k
+\]
+는 전단사 준동형이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.22: 중국인의 나머지 정리}
+
+\begin{solution}
+$\Phi$는 덧셈을 보존하는 준동형이다. $\Phi(\overline x)=(\overline0,\overline0)$일 필요충분조건은 $m\mid x$와 $n\mid x$가 동시에 성립하는 것이다. $\gcd(m,n)=1$이면 이는 $mn\mid x$와 동치이므로 핵은 자명하다. 정의역과 공역의 원소 개수가 모두 $mn$이므로 $\Phi$는 전단사이다.
+
+반대로 $d=\gcd(m,n)>1$이면 $\lcm(m,n)=mn/d<mn$이다. $x=\lcm(m,n)$은 $m,n$의 공배수이므로 $\Phi(\overline x)=0$이지만 $\overline x\ne\overline0$ in $\Z/mn\Z$이다. 따라서 $\Phi$는 단사가 아니다.
+\end{solution}
+
+\subsection*{문제 \thechapter.28: 제2동형정리 계산}
+
+\begin{solution}
+덧셈 표기를 사용한다. 교집합은 공배수의 부분군이므로
+\[
+  4\Z\cap6\Z=12\Z.
+\]
+합은 최대공약수의 부분군이므로
+\[
+  4\Z+6\Z=2\Z.
+\]
+따라서
+\[
+  4\Z/12\Z\cong\Z/3\Z.
+\]
+한편
+\[
+  (4\Z+6\Z)/6\Z=2\Z/6\Z
+\]
+도 원소 $6\Z,2+6\Z,4+6\Z$의 세 개를 가지며 $\Z/3\Z$와 동형이다. 제2동형정리의 구체적인 동형은
+\[
+  4k+12\Z\longmapsto4k+6\Z
+\]
+이다.
+\end{solution}
