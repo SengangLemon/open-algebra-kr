@@ -1,0 +1,58 @@
+\section{다항식은 함수가 아니라 형식적 식이다}
+\label{sec:formal-polynomials}
+
+\begin{learninggoal}
+다항식을 계수의 유한열로 정의하고, 다항식과 다항함수를 구별한다. 또한 다항식환의 보편 성질을 이용해 대입을 환 준동형으로 이해한다.
+\end{learninggoal}
+
+\subsection{왜 형식적으로 정의하는가}
+
+고등학교에서는 다항식 $f(X)$를 함수 $x\mapsto f(x)$와 같은 것으로 생각하기 쉽다. 그러나 유한체에서는 서로 다른 다항식이 같은 함수를 나타낼 수 있다. 예를 들어 $\F_p$의 모든 $a$에 대해 $a^p=a$이므로 $X^p-X$는 영다항식이 아니지만 모든 점에서 값이 $0$이다.
+
+\begin{definition}
+가환환 $R$에 대해 $R[X]$는 유한 개를 제외한 모든 항이 $0$인 수열
+\[
+  (a_0,a_1,a_2,\dots),\qquad a_i\in R
+\]
+전체의 집합이다. 이를 $\sum_{i\ge0}a_iX^i$로 쓴다.
+\end{definition}
+
+덧셈은 성분별로, 곱셈은
+\[
+  \left(\sum_i a_iX^i\right)\left(\sum_j b_jX^j\right)
+  =\sum_{n\ge0}\left(\sum_{i+j=n}a_ib_j\right)X^n
+\]
+으로 정의한다.
+
+\begin{definition}
+영이 아닌 $f=\sum_{i=0}^n a_iX^i$에서 $a_n\ne0$이면 $\deg f=n$이다. $a_n$을 최고차항계수라 하며, $a_n=1$이면 $f$를 일계수다항식이라 한다. 영다항식에는 $\deg0=-\infty$를 부여한다.
+\end{definition}
+
+$R$의 원소는 상수다항식으로 보아 $R[X]$의 원소로 간주한다. 변수 $X$는 계수열 $(0,1,0,\dots)$을 뜻한다.
+
+\begin{theorem}[다항식환의 보편 성질]
+환 준동형 $\varphi:R\to S$와 $s\in S$가 주어지면
+\[
+  \Phi:R[X]\to S,\qquad
+  \Phi\left(\sum_i a_iX^i\right)=\sum_i\varphi(a_i)s^i
+\]
+로 정의되는 유일한 환 준동형이 존재한다. 이 준동형은 $\Phi|_R=\varphi$와 $\Phi(X)=s$를 만족한다.
+\end{theorem}
+
+\begin{proof}
+준동형이 존재한다면 각 항의 상은
+\[
+  \Phi(a_iX^i)=\varphi(a_i)s^i
+\]
+로 강제되므로 유일하다. 반대로 위 공식은 덧셈을 보존하고, 코시 곱을 전개하면 $\Phi(fg)=\Phi(f)\Phi(g)$도 성립한다.
+\end{proof}
+
+$R\subseteq S$일 때 이 준동형을 $s$에서의 평가 준동형이라 하고 $\operatorname{ev}_s(f)=f(s)$로 쓴다.
+
+\begin{keyidea}
+다항식환은 계수환 $R$과 자유롭게 선택할 수 있는 한 원소 $X$를 가진 가장 일반적인 환이다. 어떤 환에서 $X$ 대신 $s$를 선택하면 유일한 대입 준동형이 생긴다.
+\end{keyidea}
+
+\begin{pitfall}
+다항식의 등식은 모든 계수가 같다는 뜻이다. 함수값이 모든 점에서 같다는 것과는 일반적으로 다르다.
+\end{pitfall}
