@@ -1,12 +1,68 @@
 \chapter*{기호 목록}
 \addcontentsline{toc}{chapter}{기호 목록}
 
-\begin{tabular}{ll}
-$\mathbb{Z}$ & 정수환 \\
-$\mathbb{Q}$ & 유리수체 \\
-$\mathbb{R}$ & 실수체 \\
-$\mathbb{C}$ & 복소수체 \\
-$\langle S\rangle$ & 집합 $S$가 생성하는 부분군 또는 부분구조 \\
-$\mathrm{id}$ & 항등사상 \\
-$|G|$ & 유한군 $G$의 위수 \\
-\end{tabular}
+이 목록은 Volume 1에서 반복해서 사용하는 기호를 모은 것이다. 문맥에 따라 같은 기호가 조금 다른 대상을 나타낼 수 있으며, 각 장의 정의가 우선한다.
+
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.25\textwidth}p{0.66\textwidth}}
+\toprule
+\textbf{기호} & \textbf{뜻} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{기호} & \textbf{뜻} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+
+$\N$ & 자연수의 집합. 이 책에서는 문맥에 따라 $0$을 포함한다. \\
+$\Z,\Q,\R,\C$ & 정수환, 유리수체, 실수체, 복소수체. \\
+$\F_p$ & 소수 $p$개의 원소를 갖는 체 $\Z/p\Z$. \\
+$|X|$ & 유한집합 $X$의 원소 개수. 특히 $|G|$는 유한군 $G$의 위수. \\
+$\id_X$ & 집합 또는 대수적 구조 $X$의 항등사상. \\
+$A\cong B$ & 두 대수적 구조 $A,B$가 동형임. \\
+
+\addlinespace
+$H\le G$ & $H$가 군 $G$의 부분군임. \\
+$N\trianglelefteq G$ & $N$이 군 $G$의 정규부분군임. 환의 아이디얼에는 문맥상 같은 기호를 쓰기도 한다. \\
+$\langle S\rangle$ & 부분집합 $S$가 생성하는 부분군. 한 원소 $g$일 때는 $\langle g\rangle$. \\
+$\ord(g)$ & 군 원소 $g$의 위수, 즉 $|\langle g\rangle|$. \\
+$[G:H]$ & 부분군 $H$의 $G$에서의 지표, 즉 왼쪽 잉여류의 개수. \\
+$G/N$ & 정규부분군 $N$에 의한 몫군. \\
+$\ker\varphi$ & 준동형 $\varphi$의 핵. \\
+$\im\varphi$ & 준동형 $\varphi$의 상. \\
+$\Sym(X)$ & 집합 $X$의 모든 순열로 이루어진 군. \\
+$S_n$ & $\{1,\dots,n\}$의 대칭군. \\
+$\Aut(G)$ & 군 $G$의 자동동형군. \\
+$\GL_n(K)$ & 체 $K$ 위의 가역 $n\times n$ 행렬군. \\
+$\SL_n(K)$ & 행렬식이 $1$인 $\GL_n(K)$의 부분군. \\
+$\Gal(L/K)$ & 체확장 $L/K$의 $K$-자동동형군. 갈루아 확장일 때 갈루아군이라 부른다. \\
+
+\addlinespace
+$R^\times$ & 환 $R$의 단위원 전체가 이루는 곱셈군. \\
+$(a)$ & 원소 $a$가 생성하는 주아이디얼. \\
+$(a_1,\dots,a_n)$ & $a_1,\dots,a_n$이 생성하는 아이디얼. \\
+$I+J,\ IJ,\ I\cap J$ & 아이디얼의 합, 곱, 교집합. \\
+$R/I$ & 아이디얼 $I$에 의한 몫환. \\
+$\mathfrak p,\mathfrak m$ & 보통 소아이디얼과 극대아이디얼에 사용하는 기호. \\
+$\operatorname{char}R$ & 환 $R$의 표수. \\
+$\mathrm{ED}$ & 유클리드 정역(Euclidean domain). \\
+$\mathrm{PID}$ & 주아이디얼정역(principal ideal domain). \\
+$\mathrm{UFD}$ & 유일인수분해정역(unique factorization domain). \\
+$Q(R)$ & 정역 $R$의 분수체. \\
+
+\addlinespace
+$R[X]$ & 환 $R$ 위의 한 변수 다항식환. \\
+$R[X_1,\dots,X_n]$ & 환 $R$ 위의 여러 변수 다항식환. \\
+$\deg f$ & 영이 아닌 다항식 $f$의 차수. 영다항식에는 $-\infty$를 부여한다. \\
+$f'$ & 다항식 $f$의 형식적 도함수. \\
+$f\mid g$ & $f$가 $g$를 나눔. \\
+$\gcd(f,g)$ & 최대공약수. 체 위 다항식에서는 일계수다항식으로 정규화한다. \\
+$\lcm(a,b)$ & 최소공배수. 일반 정역에서는 동반원소의 차이까지 허용한다. \\
+$\operatorname{cont}(f)$ & UFD 위 다항식 $f$의 내용, 즉 계수들의 최대공약수. \\
+$K[X]/(f)$ & 관계 $f(X)=0$을 강제한 몫환. $f$가 기약이면 체이다. \\
+$K(\alpha)$ & 체 $K$와 원소 $\alpha$를 포함하는 가장 작은 체. \\
+$K[X_1,\dots,X_n]^\times$ & 여러 변수 다항식환의 단위원군. 계수환이 정역이면 $R^\times$와 같다. \\
+
+\end{longtable}
