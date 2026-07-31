@@ -1,0 +1,168 @@
+\section{중국인의 나머지 정리와 갈루아 이론으로 가는 다리}
+\label{sec:ring-crt-galois}
+
+\begin{learninggoal}
+서로소 아이디얼에 대한 중국인의 나머지 정리를 증명하고, 몫환이 방정식의 해를 형식적으로 만들어 내는 원리를 이해한다.
+\end{learninggoal}
+
+\subsection{여러 합동조건을 하나로 묶기}
+
+정수론에서 서로소인 법들에 대한 합동조건은 동시에 풀 수 있다. 환론에서는 정수 대신 임의의 환, 정수의 배수 아이디얼 대신 임의의 서로소 아이디얼을 사용한다.
+
+\begin{theorem}[중국인의 나머지 정리]
+가환환 $R$의 아이디얼 $I_1,\dots,I_n$이 쌍마다 서로소라고 하자. 즉 $i\ne j$이면 $I_i+I_j=R$이다. 그러면
+\[
+  \Phi:R\to\prod_{i=1}^nR/I_i,
+  \qquad
+  r\mapsto(r+I_1,\dots,r+I_n)
+\]
+는 전사 환 준동형이고
+\[
+  \ker\Phi=\bigcap_{i=1}^nI_i.
+\]
+따라서
+\[
+  R\Big/\bigcap_{i=1}^nI_i
+  \cong
+  \prod_{i=1}^nR/I_i.
+\]
+또한 쌍마다 서로소이면
+\[
+  \bigcap_{i=1}^nI_i=I_1I_2\cdots I_n
+\]
+이다.
+\end{theorem}
+
+\begin{proofidea}
+두 아이디얼의 경우 $I+J=R$에서 $u\in I$, $v\in J$, $u+v=1$을 택한다. $v$는 $I$로 나눈 몫에서는 $1$, $J$로 나눈 몫에서는 $0$처럼 행동한다. 반대로 $u$는 $I$ 쪽에서 $0$, $J$ 쪽에서 $1$처럼 행동한다. 이를 이용해 원하는 두 잉여류를 하나의 원소로 조립한다.
+\end{proofidea}
+
+\begin{proof}
+먼저 $n=2$인 경우를 보자. $I+J=R$이므로 $u\in I$, $v\in J$ 중 $u+v=1$인 것이 있다. 임의의 $a,b\in R$에 대해
+\[
+  x=b u+a v
+\]
+라 두면
+\[
+  x\equiv a\pmod I,\qquad x\equiv b\pmod J
+\]
+이다. 따라서 $R\to R/I\times R/J$는 전사이다. 핵은 정의상 $I\cap J$이다. 제1동형정리로
+\[
+  R/(I\cap J)\cong R/I\times R/J
+\]
+를 얻는다. 또한 서로소 아이디얼에 대해 $I\cap J=IJ$임은 앞 절에서 증명했다.
+
+일반적인 $n$은 귀납법으로 얻을 수 있다. 또는 각 $j$에 대해 $e_j\in\bigcap_{i\ne j}I_i$이면서 $e_j\equiv1\pmod{I_j}$인 원소를 구성하면, 주어진 잉여류 $a_j+I_j$를
+\[
+  x=\sum_{j=1}^na_je_j
+\]
+로 동시에 실현할 수 있다.
+\end{proof}
+
+\begin{example}[정수에 대한 고전적 형태]
+$\gcd(m,n)=1$이면
+\[
+  \Z/mn\Z\cong\Z/m\Z\times\Z/n\Z.
+\]
+예를 들어
+\[
+  \Z/12\Z\cong\Z/3\Z\times\Z/4\Z.
+\]
+이 동형은 단순한 집합의 분해가 아니라 덧셈과 곱셈을 모두 보존한다.
+\end{example}
+
+\begin{example}[합동식 풀기]
+\[
+  x\equiv2\pmod3,\qquad x\equiv3\pmod5
+\]
+를 풀자. $2\cdot3+(-1)\cdot5=1$이므로
+\[
+  e_3=-5\equiv1\pmod3,\quad e_3\equiv0\pmod5,
+\]
+\[
+  e_5=6\equiv0\pmod3,\quad e_5\equiv1\pmod5.
+\]
+따라서
+\[
+  x=2(-5)+3(6)=8
+\]
+은 해이고, 모든 해는 $x\equiv8\pmod{15}$이다.
+\end{example}
+
+\subsection{다항식 인수분해와 몫환 분해}
+
+체 $K$에서 $f,g\in K[X]$가 서로소이면 $(f)+(g)=K[X]$이다. 따라서
+\[
+  K[X]/(fg)\cong K[X]/(f)\times K[X]/(g).
+\]
+
+\begin{example}
+$X^2-1=(X-1)(X+1)$이고 $\operatorname{char}K\ne2$라 하자. 두 일차다항식은 서로소이므로
+\[
+  K[X]/(X^2-1)\cong K[X]/(X-1)\times K[X]/(X+1)
+  \cong K\times K.
+\]
+이것은 몫환에서 $X^2=1$이라는 관계가 두 선택 $X=1$과 $X=-1$로 분해됨을 나타낸다.
+\end{example}
+
+\begin{pitfall}
+$f$와 $g$가 서로소가 아니면 위 분해는 성립하지 않는다. 예를 들어
+\[
+  K[X]/(X^2)
+\]
+에는 $X+(X^2)$라는 영이 아닌 멱영원소가 있다. 이 환은 $K\times K$와 전혀 다르며, 중근의 정보를 보존한다.
+\end{pitfall}
+
+\subsection{방정식의 해를 몫환으로 만든다}
+
+체 $K$와 다항식 $f\in K[X]$를 생각하자. 몫환
+\[
+  A=K[X]/(f)
+\]
+에서 $\alpha=X+(f)$라 두면 정의에 의해
+\[
+  f(\alpha)=0
+\]
+이다. 즉 원래 $K$ 안에 근이 없더라도, 적어도 어떤 환 안에는 형식적인 근을 만들 수 있다.
+
+문제는 $A$가 체인지 여부이다. $f$가 기약이면 $(f)$가 극대아이디얼이므로 $A$는 체이다. 이때 $K$는 상수다항식의 잉여류를 통해 $A$의 부분체로 들어가며, $A$는 $K$ 위에 $f$의 근 하나를 붙여 만든 체가 된다.
+
+\begin{theorem}[크로네커 구성의 핵심]
+체 $K$와 기약다항식 $f\in K[X]$에 대해
+\[
+  L=K[X]/(f)
+\]
+는 체이다. $\alpha=X+(f)\in L$라 하면 $f(\alpha)=0$이고, 모든 원소는 유일하게
+\[
+  a_0+a_1\alpha+\cdots+a_{d-1}\alpha^{d-1}
+\]
+꼴로 쓸 수 있다. 여기서 $d=\deg f$이다.
+\end{theorem}
+
+\begin{proof}
+$f$가 기약이므로 $(f)$는 극대아이디얼이고 $L$은 체이다. 다항식 나눗셈으로 임의의 $g\in K[X]$는
+\[
+  g=qf+r,\qquad \deg r<d
+\]
+로 유일하게 쓸 수 있다. 몫환에서는 $g+(f)=r+(f)$이므로 모든 원소가 제시된 꼴을 갖는다. 유일성도 나머지의 유일성에서 따른다.
+\end{proof}
+
+\begin{example}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Q[X]/(X^2-2)=\Q(\sqrt2)$에서 모든 원소는 $a+b\sqrt2$ 꼴이다.
+  \item $\R[X]/(X^2+1)=\C$에서 모든 원소는 $a+bi$ 꼴이다.
+  \item $\F_2[X]/(X^2+X+1)$은 원소가 네 개인 체이다.
+\end{enumerate}
+\end{example}
+
+\begin{keyidea}
+갈루아 이론의 체확장은 몫환에서 시작한다. 기약다항식 $f$에 대해 $K[X]/(f)$는 $f$의 근을 포함하는 새 체를 만든다. 이후 여러 근을 차례로 붙이고, 그 체를 보존하는 자동동형군을 조사하면 갈루아군이 등장한다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\F_2[X]/(X^2+X+1)$의 네 원소를 쓰고 각 영이 아닌 원소의 역원을 구하라.
+  \item $\Q[X]/(X^2-2)$에서 $(3+2\alpha)^{-1}$을 구하라. 단, $\alpha^2=2$이다.
+  \item $K[X]/(X^2)$와 $K[X]/(X^2-1)$의 영인수 구조를 비교하라.
+\end{enumerate}
+\end{checkpoint}
