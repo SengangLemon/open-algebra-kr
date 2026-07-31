@@ -1,0 +1,171 @@
+\section{아이디얼: 곱셈을 견디는 덧셈부분군}
+\label{sec:ring-ideals}
+
+\begin{learninggoal}
+아이디얼을 정의하고 부분환과 구별한다. 생성아이디얼, 주아이디얼, 아이디얼의 합·곱·교집합을 계산하며 $\Z$와 다항식환에서 구체적인 예를 다룬다.
+\end{learninggoal}
+
+\subsection{정규부분군의 환론적 대응물}
+
+군에서 몫군을 만들기 위해서는 정규부분군이 필요했다. 환에서 몫구조를 만들 때에는 덧셈군의 부분군만으로 부족하다. 곱셈이 잉여류 위에서 잘 정의되려면, 우리가 $0$으로 보내려는 부분집합이 환의 모든 원소를 곱해도 그 안에 남아야 한다.
+
+\begin{definition}[아이디얼]
+가환환 $R$의 부분집합 $I$가 다음 두 조건을 만족하면 $I$를 $R$의 \emph{아이디얼}(ideal)이라 한다.
+\begin{enumerate}[label=(I\arabic*)]
+  \item $I$는 $(R,+)$의 부분군이다.
+  \item $r\in R$, $a\in I$이면 $ra\in I$이다.
+\end{enumerate}
+$I\trianglelefteq R$ 또는 간단히 $I\subseteq R$라 쓴다.
+\end{definition}
+
+두 번째 조건은 아이디얼이 환 전체의 곱셈을 \emph{흡수한다}는 뜻이다.
+
+\begin{proposition}[아이디얼 판정법]
+비어 있지 않은 부분집합 $I\subseteq R$에 대해 다음 두 조건이 성립하면 $I$는 아이디얼이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $a,b\in I$이면 $a-b\in I$.
+  \item $r\in R$, $a\in I$이면 $ra\in I$.
+\end{enumerate}
+\end{proposition}
+
+\begin{example}
+\begin{enumerate}[label=(\alph*)]
+  \item $\{0\}$과 $R$은 모든 환 $R$의 아이디얼이다.
+  \item $n\Z$는 $\Z$의 아이디얼이다.
+  \item $R[X]$에서 $(X)$는 상수항이 $0$인 모든 다항식의 집합이다.
+  \item $\Z[X]$에서 $(2)$는 모든 계수가 짝수인 다항식들의 집합이다.
+  \item $\Z[X]$에서 $(2,X)$는 상수항이 짝수인 다항식들의 집합이다.
+\end{enumerate}
+\end{example}
+
+\begin{proposition}
+아이디얼 $I$가 $1$을 포함하면 $I=R$이다. 따라서 진아이디얼 $I\ne R$은 부분환이 될 수 없다.
+\end{proposition}
+
+\begin{proof}
+$1\in I$이면 임의의 $r\in R$에 대해 $r=r\cdot1\in I$이다.
+\end{proof}
+
+\begin{pitfall}
+부분환과 아이디얼은 서로 다른 개념이다. 부분환은 내부 원소끼리의 곱에 닫혀 있고 $1$을 포함한다. 아이디얼은 환 전체의 임의의 원소를 곱해도 흡수하지만, 진아이디얼은 $1$을 포함하지 않는다.
+\end{pitfall}
+
+\subsection{생성아이디얼과 주아이디얼}
+
+\begin{definition}[생성아이디얼]
+$S\subseteq R$에 대해 $S$를 포함하는 모든 아이디얼의 교집합을 $S$가 생성하는 아이디얼이라 하며 $(S)$로 쓴다. $S=\{a_1,\dots,a_n\}$이면 $(a_1,\dots,a_n)$로 쓴다.
+\end{definition}
+
+가환환에서는 생성아이디얼을 구체적으로 쓸 수 있다.
+\[
+  (a_1,\dots,a_n)
+  =\{r_1a_1+\cdots+r_na_n:r_1,\dots,r_n\in R\}.
+\]
+
+\begin{definition}[주아이디얼]
+하나의 원소 $a$가 생성하는 아이디얼
+\[
+  (a)=Ra=\{ra:r\in R\}
+\]
+을 \emph{주아이디얼}(principal ideal)이라 한다.
+\end{definition}
+
+\begin{definition}[주아이디얼정역]
+모든 아이디얼이 주아이디얼인 정역을 \emph{주아이디얼정역}(principal ideal domain, PID)이라 한다.
+\end{definition}
+
+\begin{theorem}
+정수환 $\Z$의 모든 아이디얼은 $n\Z=(n)$ 꼴이다. 따라서 $\Z$는 PID이다.
+\end{theorem}
+
+\begin{proof}
+$0$이 아닌 아이디얼 $I$를 잡자. $I$가 포함하는 가장 작은 양의 정수를 $n$이라 하자. $n\in I$이므로 $n\Z\subseteq I$이다. 임의의 $a\in I$에 대해 나눗셈 알고리즘으로
+\[
+  a=qn+r,\qquad 0\le r<n
+\]
+라 쓸 수 있다. $r=a-qn\in I$이고 $n$의 최소성 때문에 $r=0$이다. 따라서 $a\in n\Z$이고 $I=n\Z$이다.
+\end{proof}
+
+\begin{proposition}[주아이디얼의 생성원]
+$R$이 정역이고 $a,b\in R$라 하자. $(a)=(b)$일 필요충분조건은 어떤 단위원 $u\in R^\times$에 대해 $b=ua$인 것이다.
+\end{proposition}
+
+\begin{proof}
+$b=ua$이고 $u$가 단위원이면 $(a)=(b)$는 명백하다. 반대로 $(a)=(b)$이고 둘 다 영아이디얼이 아니라고 하자. $a=rb$, $b=sa$인 $r,s\in R$가 있다. 따라서
+\[
+  a=rsa,
+\]
+이고 정역에서 $a\ne0$이므로 소거하여 $rs=1$을 얻는다. 따라서 $r,s$는 단위원이고 $b=sa$이다.
+\end{proof}
+
+이 관계를 만족하는 두 원소를 \emph{동반원소}(associate)라 한다.
+
+\subsection{아이디얼의 연산}
+
+$I,J\trianglelefteq R$일 때 다음 집합들도 아이디얼이다.
+\[
+\begin{aligned}
+ I+J&=\{a+b:a\in I,\ b\in J\},\\
+ I\cap J&=\{x:x\in I\text{이고 }x\in J\},\\
+ IJ&=\left\{\sum_{k=1}^m a_kb_k:m\ge1,\ a_k\in I,\ b_k\in J\right\}.
+\end{aligned}
+\]
+일반적으로
+\[
+  IJ\subseteq I\cap J
+\]
+이지만 등호는 항상 성립하지 않는다.
+
+\begin{example}[정수환의 아이디얼 연산]
+양의 정수 $m,n$에 대해
+\[
+\begin{aligned}
+ (m)+(n)&=(\gcd(m,n)),\\
+ (m)\cap(n)&=(\operatorname{lcm}(m,n)),\\
+ (m)(n)&=(mn).
+\end{aligned}
+\]
+예를 들어
+\[
+  (4)+(6)=(2),\qquad (4)\cap(6)=(12),\qquad (4)(6)=(24).
+\]
+따라서 $(4)(6)\subsetneq(4)\cap(6)$이다.
+\end{example}
+
+\begin{definition}[서로소 아이디얼]
+$I+J=R$이면 $I$와 $J$를 \emph{서로소}(comaximal)라 한다.
+\end{definition}
+
+\begin{proposition}
+$I+J=R$이면 $I\cap J=IJ$이다.
+\end{proposition}
+
+\begin{proof}
+항상 $IJ\subseteq I\cap J$이다. 반대로 $x\in I\cap J$라 하자. $I+J=R$이므로 $a\in I$, $b\in J$ 중 $a+b=1$인 것이 있다. 그러면
+\[
+  x=x(a+b)=xa+xb.
+\]
+여기서 $x\in J$, $a\in I$이므로 $xa\in IJ$이고, $x\in I$, $b\in J$이므로 $xb\in IJ$이다. 따라서 $x\in IJ$이다.
+\end{proof}
+
+\subsection{$\Z[X]$가 PID가 아닌 이유}
+
+\begin{proposition}
+아이디얼 $(2,X)\subseteq\Z[X]$는 주아이디얼이 아니다. 따라서 $\Z[X]$는 PID가 아니다.
+\end{proposition}
+
+\begin{proofidea}
+$(2,X)=(f)$라면 $f$는 $2$와 $X$를 모두 나누어야 한다. $f\mid2$이므로 $f$는 상수 다항식이어야 하고, $f\mid X$까지 만족하려면 $f=\pm1$이어야 한다. 그러면 $(f)=\Z[X]$인데 $(2,X)$는 $1$을 포함하지 않는다.
+\end{proofidea}
+
+\begin{proof}
+$(2,X)=(f)$라 가정하자. $2,X\in(f)$이므로 $f\mid2$이고 $f\mid X$이다. $\Z[X]$는 정역이므로 차수를 비교하면 $f$는 상수이다. 상수 $f$가 $X$를 나누려면 $f=\pm1$이어야 한다. 따라서 $(f)=\Z[X]$이다. 그러나 $(2,X)$의 모든 원소는 짝수 상수항을 가지므로 $1\notin(2,X)$이다. 모순이다.
+\end{proof}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Z$에서 $(18,30)$을 하나의 생성원으로 나타내라.
+  \item $\Z[X]$에서 $(X^2,X^3)$을 하나의 생성원으로 나타내라.
+  \item $(2)+(3)=\Z$를 이용하여 $(2)\cap(3)=(6)$을 증명하라.
+\end{enumerate}
+\end{checkpoint}
