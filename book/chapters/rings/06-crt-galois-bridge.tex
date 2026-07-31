@@ -34,29 +34,56 @@
 \end{theorem}
 
 \begin{proofidea}
-두 아이디얼의 경우 $I+J=R$에서 $u\in I$, $v\in J$, $u+v=1$을 택한다. $v$는 $I$로 나눈 몫에서는 $1$, $J$로 나눈 몫에서는 $0$처럼 행동한다. 반대로 $u$는 $I$ 쪽에서 $0$, $J$ 쪽에서 $1$처럼 행동한다. 이를 이용해 원하는 두 잉여류를 하나의 원소로 조립한다.
+두 아이디얼의 경우 $I+J=R$에서 $u\in I$, $v\in J$, $u+v=1$을 택한다. $v$는 $I$로 나눈 몫에서는 $1$, $J$로 나눈 몫에서는 $0$처럼 행동한다. 여러 아이디얼에서도 각 좌표에서만 $1$이고 나머지 좌표에서는 $0$인 원소 $e_j$를 만들면 원하는 잉여류들을 하나의 원소로 조립할 수 있다.
 \end{proofidea}
 
 \begin{proof}
-먼저 $n=2$인 경우를 보자. $I+J=R$이므로 $u\in I$, $v\in J$ 중 $u+v=1$인 것이 있다. 임의의 $a,b\in R$에 대해
+고정된 $j$와 각 $i\ne j$에 대해 $I_i+I_j=R$이므로
 \[
-  x=b u+a v
+  u_{ij}+v_{ij}=1,
+  \qquad u_{ij}\in I_i,\quad v_{ij}\in I_j
 \]
-라 두면
+인 원소들을 택할 수 있다. 이제
 \[
-  x\equiv a\pmod I,\qquad x\equiv b\pmod J
+  e_j=\prod_{i\ne j}u_{ij}
 \]
-이다. 따라서 $R\to R/I\times R/J$는 전사이다. 핵은 정의상 $I\cap J$이다. 제1동형정리로
+라 두자. 그러면 $i\ne j$일 때 $e_j\in I_i$이고, 각 $u_{ij}$가 $I_j$를 법으로 $1$과 합동이므로
 \[
-  R/(I\cap J)\cong R/I\times R/J
+  e_j\equiv1\pmod{I_j}
 \]
-를 얻는다. 또한 서로소 아이디얼에 대해 $I\cap J=IJ$임은 앞 절에서 증명했다.
-
-일반적인 $n$은 귀납법으로 얻을 수 있다. 또는 각 $j$에 대해 $e_j\in\bigcap_{i\ne j}I_i$이면서 $e_j\equiv1\pmod{I_j}$인 원소를 구성하면, 주어진 잉여류 $a_j+I_j$를
+이다. 따라서 임의의 잉여류들 $a_j+I_j$에 대해
 \[
   x=\sum_{j=1}^na_je_j
 \]
-로 동시에 실현할 수 있다.
+라 두면 모든 $j$에 대하여 $x\equiv a_j\pmod{I_j}$이다. 그러므로 $\Phi$는 전사이다. 또한
+\[
+  \Phi(r)=0
+  \quad\Longleftrightarrow\quad
+  r\in I_i\text{ for every }i
+\]
+이므로 $\ker\Phi=\bigcap_iI_i$이다. 제1동형정리가 첫 번째 동형을 준다.
+
+이제 교집합과 곱이 같음을 보이자. 항상
+\[
+  I_1\cdots I_n\subseteq\bigcap_{i=1}^nI_i
+\]
+이다. 역포함은 $n$에 대한 귀납법으로 증명한다. $n=2$인 경우는 서로소 아이디얼에 대해 $I_1\cap I_2=I_1I_2$임을 앞 절에서 증명했다. 귀납가정 아래
+\[
+  J=I_1\cdots I_{n-1}=\bigcap_{i=1}^{n-1}I_i
+\]
+라 두자. 각 $i<n$에 대해 $u_i\in I_i$, $v_i\in I_n$이고 $u_i+v_i=1$이 되게 택하면
+\[
+  u=\prod_{i=1}^{n-1}u_i\in J,
+  \qquad
+  u\equiv1\pmod{I_n}.
+\]
+따라서 $1=u+(1-u)\in J+I_n$이고 $J+I_n=R$이다. 두 아이디얼의 경우를 적용하면
+\[
+  \bigcap_{i=1}^nI_i
+  =J\cap I_n
+  =JI_n
+  =I_1\cdots I_n.
+\]
 \end{proof}
 
 \begin{example}[정수에 대한 고전적 형태]
@@ -115,7 +142,7 @@ $f$와 $g$가 서로소가 아니면 위 분해는 성립하지 않는다. 예�
 
 \subsection{방정식의 해를 몫환으로 만든다}
 
-체 $K$와 다항식 $f\in K[X]$를 생각하자. 몫환
+체 $K$와 비상수 다항식 $f\in K[X]$를 생각하자. 몫환
 \[
   A=K[X]/(f)
 \]
@@ -149,8 +176,8 @@ $f$가 기약이므로 $(f)$는 극대아이디얼이고 $L$은 체이다. 다�
 
 \begin{example}
 \begin{enumerate}[label=(\alph*)]
-  \item $\Q[X]/(X^2-2)=\Q(\sqrt2)$에서 모든 원소는 $a+b\sqrt2$ 꼴이다.
-  \item $\R[X]/(X^2+1)=\C$에서 모든 원소는 $a+bi$ 꼴이다.
+  \item $\Q[X]/(X^2-2)\cong\Q(\sqrt2)$이며 모든 원소는 $a+b\sqrt2$ 꼴이다.
+  \item $\R[X]/(X^2+1)\cong\C$이며 모든 원소는 $a+bi$ 꼴이다.
   \item $\F_2[X]/(X^2+X+1)$은 원소가 네 개인 체이다.
 \end{enumerate}
 \end{example}
@@ -163,6 +190,6 @@ $f$가 기약이므로 $(f)$는 극대아이디얼이고 $L$은 체이다. 다�
 \begin{enumerate}[label=(\alph*)]
   \item $\F_2[X]/(X^2+X+1)$의 네 원소를 쓰고 각 영이 아닌 원소의 역원을 구하라.
   \item $\Q[X]/(X^2-2)$에서 $(3+2\alpha)^{-1}$을 구하라. 단, $\alpha^2=2$이다.
-  \item $K[X]/(X^2)$와 $K[X]/(X^2-1)$의 영인수 구조를 비교하라.
+  \item $\operatorname{char}K\ne2$라 하자. $K[X]/(X^2)$와 $K[X]/(X^2-1)$의 영인수 구조를 비교하라.
 \end{enumerate}
 \end{checkpoint}
