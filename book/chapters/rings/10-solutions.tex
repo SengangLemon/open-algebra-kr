@@ -1,0 +1,287 @@
+\section{선별 문제 풀이}
+\label{sec:ring-selected-solutions}
+
+\subsection*{문제 \thechapter.3: $\Z/20\Z$의 단위원과 영인수}
+
+\begin{solution}
+$\overline a$가 단위원일 필요충분조건은 $\gcd(a,20)=1$이다. 따라서
+\[
+  (\Z/20\Z)^\times
+  =\{\overline1,\overline3,\overline7,\overline9,
+      \overline{11},\overline{13},\overline{17},\overline{19}\}.
+\]
+역원은
+\[
+\begin{aligned}
+&\overline1^{-1}=\overline1,
+&&\overline3^{-1}=\overline7,
+&&\overline7^{-1}=\overline3,
+&&\overline9^{-1}=\overline9,\\
+&\overline{11}^{-1}=\overline{11},
+&&\overline{13}^{-1}=\overline{17},
+&&\overline{17}^{-1}=\overline{13},
+&&\overline{19}^{-1}=\overline{19}.
+\end{aligned}
+\]
+영이 아닌 비단위원은 모두 영인수이다. 따라서 영이 아닌 영인수는
+\[
+  \overline2,\overline4,\overline5,\overline6,\overline8,
+  \overline{10},\overline{12},\overline{14},\overline{15},
+  \overline{16},\overline{18}
+\]
+이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.6: 생성아이디얼}
+
+\begin{solution}
+정수환에서 두 원소가 생성하는 아이디얼은 최대공약수가 생성한다. 따라서
+\[
+  (18,30)=(6).
+\]
+두 주아이디얼의 교집합은 최소공배수가 생성하므로
+\[
+  (12)\cap(18)=(36).
+\]
+마지막으로 $X^5=X^3X^2$이므로 $(X^5)\subseteq(X^2)$이고
+\[
+  (X^2,X^5)=(X^2).
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.8: $\operatorname{ev}_2$}
+
+\begin{solution}
+상수다항식이 모든 정수로 평가되므로 $\operatorname{ev}_2$는 전사이다. 인수정리에 의해
+\[
+  f(2)=0\quad\Longleftrightarrow\quad (X-2)\mid f.
+\]
+따라서
+\[
+  \ker(\operatorname{ev}_2)=(X-2),
+  \qquad
+  \im(\operatorname{ev}_2)=\Z.
+\]
+제1동형정리로
+\[
+  \Z[X]/(X-2)\cong\Z
+\]
+를 얻는다.
+\end{solution}
+
+\subsection*{문제 \thechapter.10: $\F_3[X]/(X^2+1)$}
+
+\begin{solution}
+$X^2+1$은 $\F_3$에서 근을 갖지 않으므로 기약이다. 따라서 몫환은 원소가 $9$개인 체이다. $\alpha=X+(X^2+1)$라 하면 $\alpha^2=-1=2$이고 원소는
+\[
+  0,1,2,\alpha,2\alpha,1+\alpha,1+2\alpha,
+  2+\alpha,2+2\alpha
+\]
+이다. 영이 아닌 원소의 역원은
+\[
+\begin{aligned}
+&1^{-1}=1,\qquad 2^{-1}=2,\qquad
+\alpha^{-1}=2\alpha,\qquad(2\alpha)^{-1}=\alpha,\\
+&(1+\alpha)^{-1}=2+\alpha,\qquad
+(2+\alpha)^{-1}=1+\alpha,\\
+&(1+2\alpha)^{-1}=2+2\alpha,\qquad
+(2+2\alpha)^{-1}=1+2\alpha.
+\end{aligned}
+\]
+일반적으로 $a+b\alpha\ne0$의 역원은
+\[
+  (a+b\alpha)^{-1}=\frac{a-b\alpha}{a^2+b^2}
+\]
+로 계산할 수 있다.
+\end{solution}
+
+\subsection*{문제 \thechapter.12: 멱영원소들의 아이디얼}
+
+\begin{solution}
+$0$은 멱영원소이다. $a^m=0$이면 $(-a)^m=(-1)^ma^m=0$이므로 덧셈 역원에 닫혀 있다.
+
+$a^m=0$, $b^n=0$이라 하자. 가환성을 이용해 $(a+b)^{m+n-1}$을 이항전개하면 각 항은
+\[
+  \binom{m+n-1}{k}a^kb^{m+n-1-k}
+\]
+꼴이다. $k\ge m$이면 $a^k=0$이고, $k<m$이면 $m+n-1-k\ge n$이므로 $b^{m+n-1-k}=0$이다. 따라서 모든 항이 $0$이고 $a+b$도 멱영원소이다.
+
+마지막으로 $r\in R$이면
+\[
+  (ra)^m=r^ma^m=0
+\]
+이므로 $ra$도 멱영원소이다. 따라서 멱영원소 전체는 아이디얼이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.14: 아이디얼의 역상}
+
+\begin{solution}
+$a,b\in\varphi^{-1}(J)$이면 $\varphi(a),\varphi(b)\in J$이고
+\[
+  \varphi(a-b)=\varphi(a)-\varphi(b)\in J.
+\]
+또한 $r\in R$에 대해
+\[
+  \varphi(ra)=\varphi(r)\varphi(a)\in J
+\]
+이므로 $ra\in\varphi^{-1}(J)$. 따라서 역상은 아이디얼이다.
+
+$J$가 소이고 $ab\in\varphi^{-1}(J)$이면
+\[
+  \varphi(a)\varphi(b)=\varphi(ab)\in J.
+\]
+소아이디얼의 정의에 의해 $\varphi(a)\in J$ 또는 $\varphi(b)\in J$이므로 $a$ 또는 $b$가 역상에 속한다.
+
+마지막으로 $\varphi$가 전사이고 $J$가 극대라 하자. 제1동형정리를 연속해서 적용하면
+\[
+  R/\varphi^{-1}(J)\cong S/J.
+\]
+오른쪽이 체이므로 왼쪽도 체이고, 따라서 $\varphi^{-1}(J)$는 극대아이디얼이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.16: 제2동형정리}
+
+\begin{solution}
+사상
+\[
+  \psi:I\to(I+J)/J,
+  \qquad a\mapsto a+J
+\]
+를 생각하자. 임의의 $(a+b)+J$에서 $b\in J$이므로
+\[
+  (a+b)+J=a+J
+\]
+이고 $a\in I$이므로 $\psi$는 전사이다. 또한
+\[
+  \ker\psi=I\cap J.
+\]
+제1동형정리에 의해
+\[
+  I/(I\cap J)\cong(I+J)/J
+\]
+이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.18: 아이디얼의 거듭제곱도 서로소}
+
+\begin{solution}
+$I+J=R$이므로 $x\in I$, $y\in J$ 중 $x+y=1$인 것이 있다. 이항정리를 적용하면
+\[
+  1=(x+y)^{m+n-1}
+   =\sum_{k=0}^{m+n-1}
+     \binom{m+n-1}{k}x^ky^{m+n-1-k}.
+\]
+각 항에서 $k\ge m$이면 그 항은 $I^m$에 속한다. $k<m$이면
+\[
+  m+n-1-k\ge n
+\]
+이므로 그 항은 $J^n$에 속한다. 따라서 $1\in I^m+J^n$이고
+\[
+  I^m+J^n=R.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.20: 체의 세 가지 특징}
+
+\begin{solution}
+$R$은 영환이 아니라고 가정한다. $R$이 체이면 준동형 $\varphi:R\to S$의 핵은 $R$의 아이디얼이다. $S\ne0$이므로 $\varphi(1)=1\ne0$이고 핵은 $R$ 전체가 아니다. 체의 유일한 진아이디얼은 $(0)$이므로 $\varphi$는 단사이다.
+
+(ii)를 가정하고 몫사상 $R\to R/I$를 생각하자. $I$가 진아이디얼이면 $R/I\ne0$이므로 몫사상은 단사이다. 그 핵이 $I$이므로 $I=(0)$이다. 따라서 아이디얼은 $(0)$과 $R$뿐이다.
+
+(iii)을 가정하자. $0\ne a\in R$이면 $(a)$는 영아이디얼이 아니므로 $(a)=R$이다. 따라서 $1\in(a)$이고 어떤 $b\in R$에 대해 $ab=1$이다. 모든 영이 아닌 원소가 단위원이므로 $R$은 체이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.21: 세 합동식}
+
+\begin{solution}
+먼저 $x\equiv3\pmod{10}$이라 두어 $x=3+10k$로 쓴다. 첫째 합동식은
+\[
+  3+k\equiv4\pmod9
+\]
+이므로 $k\equiv1\pmod9$이다. 따라서 $k=1+9t$이고
+\[
+  x=13+90t.
+\]
+셋째 합동식에 대입하면
+\[
+  13+90t\equiv6+6t\equiv5\pmod7.
+\]
+따라서 $6t\equiv6\pmod7$, 즉 $t\equiv1\pmod7$이다. 결론적으로
+\[
+  x\equiv103\pmod{630}.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.23: $K[X]/(X^2-1)$}
+
+\begin{solution}
+사상
+\[
+  \Phi:K[X]\to K\times K,
+  \qquad f\mapsto(f(1),f(-1))
+\]
+를 생각하자. 표수가 $2$가 아니므로 임의의 $(a,b)\in K\times K$에 대해
+\[
+  f(X)=\frac{a+b}{2}+\frac{a-b}{2}X
+\]
+라 두면 $f(1)=a$, $f(-1)=b$이다. 따라서 $\Phi$는 전사이다. 핵은 $1$과 $-1$을 모두 근으로 갖는 다항식들이므로
+\[
+  \ker\Phi=(X-1)(X+1)=(X^2-1).
+\]
+제1동형정리로 원하는 동형을 얻는다. 특히
+\[
+  X+(X^2-1)\longmapsto(1,-1).
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.25: $\Q[X]/(X^3-2)$}
+
+\begin{solution}
+$\alpha^3=2$를 이용하면
+\[
+  (1+\alpha+\alpha^2)(1-\alpha)
+  =1-\alpha^3=-1.
+\]
+또한
+\[
+  (1+\alpha+\alpha^2)(\alpha-1)
+  =\alpha^3-1=1
+\]
+이므로
+\[
+  (\alpha^2+\alpha+1)^{-1}=\alpha-1.
+\]
+다항식 $X^3-2$는 유리근을 갖지 않는다. 삼차다항식은 가약이면 일차인수를 가지므로 $X^3-2$는 $\Q[X]$에서 기약이다. 따라서 $(X^3-2)$는 극대아이디얼이고 $A$는 체이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.27: PID의 최대공약수}
+
+\begin{solution}
+$(a,b)=(d)$이면 $a,b\in(d)$이므로 $d\mid a$, $d\mid b$이다. 한편 $d\in(a,b)$이므로 어떤 $x,y\in R$에 대해
+\[
+  d=xa+yb
+\]
+이다. 따라서 $a,b$의 모든 공약수는 $d$를 나눈다. 즉 $d$는 최대공약수이다.
+
+일반 UFD에서는 최대공약수가 존재하지만 $(a,b)$를 생성하지 않을 수 있다. 예를 들어 $K[X,Y]$는 UFD이고 $\gcd(X,Y)=1$이지만
+\[
+  (X,Y)\ne(1)=K[X,Y].
+\]
+실제로 $(X,Y)$의 모든 다항식은 상수항이 $0$이므로 $1\notin(X,Y)$이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.29: 모든 소아이디얼이 극대인 경우}
+
+\begin{solution}
+모든 정역에서 $(0)$은 소아이디얼이다. 만약 모든 소아이디얼이 극대라면 $(0)$도 극대이고
+\[
+  R/(0)\cong R
+\]
+가 체가 된다. 따라서 가정은 사실상 $R$이 체임을 강제한다.
+
+한편 PID에서는 모든 \emph{영이 아닌} 소아이디얼이 극대이다. 이는 $(p)$가 소아이디얼이면 $p$가 소원소이고, PID에서 소원소는 기약원소이며 $(p)$가 극대가 되기 때문이다. $\Z$에서는 $(p)$들이 극대지만 $(0)$은 극대가 아니다. 실제로
+\[
+  (0)\subsetneq(2)\subsetneq\Z.
+\]
+따라서 $\Z$는 ``모든 소아이디얼이 극대''라는 강한 가정을 만족하지 않는다.
+\end{solution}
