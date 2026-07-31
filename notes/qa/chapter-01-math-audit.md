@@ -99,7 +99,7 @@ ord(a,b) = lcm(ord(a), ord(b))
 
 - Chapter 1 정의·정리: **Pass 1 완료**
 - Chapter 1 예제·문제·선별 풀이: **Pass 1 완료**
-- XeLaTeX 전체 빌드: PR의 CI에서 재검증 필요
+- XeLaTeX 전체 빌드: **GitHub Actions 재검증 성공**
 - 외부 독자 검토: 아직 필요
 
 이 검수는 첫 번째 수학 검수 패스이다. 최종 출판 전에는 표기 통일 검수와 외부 독자 검토를 별도로 수행한다.
