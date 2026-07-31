@@ -1,0 +1,117 @@
+\section{기약성 판정법}
+\label{sec:irreducibility-tests}
+
+\begin{learninggoal}
+유리근 정리, 계수의 법 $p$ 축소, 아이젠슈타인 판정법을 상황에 맞게 적용한다. 판정법의 충분조건과 필요조건을 구별한다.
+\end{learninggoal}
+
+\subsection{유리근 정리}
+
+\begin{theorem}[유리근 정리]
+서로소인 정수 $r,s$와
+\[
+ f=a_nX^n+\cdots+a_1X+a_0\in\Z[X]
+\]
+에 대해 $r/s$가 $f$의 근이면
+\[
+  r\mid a_0,\qquad s\mid a_n.
+\]
+특히 $f$가 일계수이면 모든 유리근은 정수이고 $a_0$의 약수이다.
+\end{theorem}
+
+\begin{proof}
+$f(r/s)=0$에 $s^n$을 곱하면
+\[
+ a_nr^n+a_{n-1}r^{n-1}s+\cdots+a_0s^n=0.
+\]
+나머지 항은 모두 $s$로 나누어지므로 $s\mid a_nr^n$이다. $\gcd(r,s)=1$이므로 $s\mid a_n$이다. 같은 식을 $r$에 대해 보면 $r\mid a_0$이다.
+\end{proof}
+
+차수 $2$나 $3$인 정수계수 다항식은 유리근 후보를 모두 검사하면 $\Q$에서의 기약성을 결정할 수 있다.
+
+\begin{example}
+$f=X^3-2X+2$의 유리근 후보는 $\pm1,\pm2$이다. 어느 것도 근이 아니므로 $f$는 $\Q[X]$에서 기약이다.
+\end{example}
+
+\subsection{법 $p$ 축소 판정}
+
+\begin{theorem}[축소 판정]
+$f\in\Z[X]$의 최고차항계수가 소수 $p$로 나누어지지 않는다고 하자. 계수를 법 $p$로 줄인 $\overline f\in\F_p[X]$가 기약이면 $f$는 $\Q[X]$에서 기약이다. $f$가 원시이면 $\Z[X]$에서도 기약이다.
+\end{theorem}
+
+\begin{proof}
+$f$가 $\Z[X]$에서 양의 차수 인수 $g,h$의 곱으로 분해된다고 하자. 최고차항계수 조건 때문에 $\overline g,\overline h$의 차수는 줄어들지 않는다. 따라서 $\overline f=\overline g\,\overline h$는 비자명한 인수분해가 되어 모순이다. $\Q[X]$의 경우에는 원시 부분에 가우스 정리를 적용한다.
+\end{proof}
+
+\begin{pitfall}
+$\overline f$가 가약이라고 해서 $f$가 가약인 것은 아니다. 축소 과정에서 서로 다른 인수가 우연히 생길 수 있다. 이 판정법은 한 방향의 충분조건이다.
+\end{pitfall}
+
+\begin{example}
+$f=X^3+3X^2-4X-1$을 법 $3$으로 줄이면
+\[
+ \overline f=X^3-X-1\in\F_3[X].
+\]
+$0,1,2$를 대입해도 근이 없으므로 차수 $3$인 $\overline f$는 기약이다. 따라서 $f$는 $\Q[X]$에서 기약이다.
+\end{example}
+
+\subsection{아이젠슈타인 판정법}
+
+\begin{theorem}[아이젠슈타인 판정법]
+원시다항식
+\[
+ f=a_nX^n+a_{n-1}X^{n-1}+\cdots+a_0\in\Z[X]
+\]
+에 대해 어떤 소수 $p$가
+\[
+ p\nmid a_n,\qquad
+ p\mid a_i\ (0\le i<n),\qquad
+ p^2\nmid a_0
+\]
+를 만족하면 $f$는 $\Q[X]$에서 기약이다.
+\end{theorem}
+
+\begin{proofidea}
+$f=gh$라고 가정하고 상수항을 본다. $p\mid a_0$이지만 $p^2\nmid a_0$이므로 두 인수의 상수항 중 정확히 하나만 $p$로 나누어진다. 계수를 낮은 차수부터 추적하면 한 인수의 모든 계수가 $p$로 나누어져야 하고, 결국 최고차항계수까지 $p$로 나누어지는 모순이 생긴다.
+\end{proofidea}
+
+\begin{example}
+$X^5+10X^3+15X^2+5$는 $p=5$에 대해 아이젠슈타인 조건을 만족하므로 $\Q[X]$에서 기약이다.
+\end{example}
+
+\subsection{변수 이동}
+
+대입 $X\mapsto X+c$는 $K[X]$의 자동동형을 정의하며 역은 $X\mapsto X-c$이다. 따라서
+\[
+  f(X)\text{가 기약}
+  \quad\Longleftrightarrow\quad
+  f(X+c)\text{가 기약}
+\]
+이다.
+
+\begin{example}[소수 차수 원분다항식]
+소수 $p$에 대해
+\[
+ \Phi_p(X)=1+X+\cdots+X^{p-1}
+\]
+를 생각하자. 직접 아이젠슈타인을 적용할 수는 없지만
+\[
+ \Phi_p(X+1)=\frac{(X+1)^p-1}{X}
+\]
+의 최고차항을 제외한 계수들은 모두 $p$로 나누어지고 상수항은 $p$이므로 $p^2$으로 나누어지지 않는다. 따라서 $\Phi_p$는 $\Q[X]$에서 기약이다.
+\end{example}
+
+\subsection{판정 전략}
+
+\begin{enumerate}
+  \item 먼저 내용을 제거하여 원시다항식으로 만든다.
+  \item 차수가 $2$ 또는 $3$이면 근을 검사한다.
+  \item 정수계수이면 유리근 후보를 줄인다.
+  \item 작은 소수로 줄여 기약성을 시험한다.
+  \item 계수의 나눗셈 패턴이 보이면 아이젠슈타인을 적용한다.
+  \item 필요하면 $X\mapsto X+c$로 이동한 뒤 다시 검사한다.
+\end{enumerate}
+
+\begin{keyidea}
+기약성 판정은 하나의 만능 공식이 아니라 여러 충분조건을 조합하는 탐색 과정이다. 먼저 가장 값싼 검사를 하고, 실패할 때 더 구조적인 판정법으로 이동한다.
+\end{keyidea}
