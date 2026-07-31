@@ -1,0 +1,145 @@
+\section{체확장과 차수}
+\label{sec:field-degree}
+
+\begin{learninggoal}
+체확장을 벡터공간으로 해석하고 차수를 계산한다. 중간체를 포함하는 확장탑에서 탑 법칙을 증명하고 활용한다.
+\end{learninggoal}
+
+\subsection{체확장은 벡터공간이다}
+
+\begin{definition}[체확장]
+두 체 $K,L$에 대해 $K$가 $L$의 부분체이면 $L/K$를 \emph{체확장}(field extension)이라 한다. $K\subseteq E\subseteq L$인 부분체 $E$를 $L/K$의 \emph{중간체}(intermediate field)라 한다.
+\end{definition}
+
+$K\subseteq L$이면 $L$의 덧셈과 $K$의 원소에 의한 곱셈을 이용해 $L$을 $K$-벡터공간으로 볼 수 있다.
+
+\begin{definition}[확장의 차수]
+체확장 $L/K$의 차수를
+\[
+  [L:K]=\dim_K L
+\]
+로 정의한다. 이 차원이 유한하면 $L/K$를 \emph{유한확장}, 그렇지 않으면 \emph{무한확장}이라 한다.
+\end{definition}
+
+\begin{example}
+\begin{enumerate}[label=(\alph*)]
+  \item $\C/\R$에서 $1,i$는 기저이므로 $[\C:\R]=2$이다.
+  \item $\Q(\sqrt2)/\Q$에서 $1,\sqrt2$는 기저이므로 차수는 $2$이다.
+  \item $\R/\Q$는 무한확장이다.
+  \item 유리함수체 $K(t)/K$는 무한확장이다. 실제로 $1,t,t^2,\dots$는 $K$ 위에서 선형독립이다.
+\end{enumerate}
+\end{example}
+
+\begin{pitfall}
+$[L:K]$는 집합의 원소 수가 아니다. 무한체 $K$에 대해서도 유한차수 확장이 가능하며, $[\C:\R]=2$이지만 두 체 모두 무한집합이다.
+\end{pitfall}
+
+\subsection{탑 법칙}
+
+\begin{theorem}[탑 법칙]
+체확장탑
+\[
+  K\subseteq L\subseteq M
+\]
+에 대해
+\[
+  [M:K]=[M:L][L:K]
+\]
+가 성립한다. 무한차수도 허용하며, 이 경우 오른쪽의 곱은 기저의 크기에 대한 기수 곱으로 이해한다. 특히 어느 한 단계가 무한차수이면 $M/K$도 무한차수이다.
+\end{theorem}
+
+\begin{proofidea}
+$L/K$의 기저와 $M/L$의 기저를 하나씩 곱하면 $M/K$의 기저가 된다.
+\end{proofidea}
+
+\begin{proof}
+$L/K$의 기저를 $(x_i)_{i\in I}$라 하고 $M/L$의 기저를 $(y_j)_{j\in J}$라 하자. 다음 집합을 생각한다.
+\[
+  \mathcal B=\{x_i y_j:(i,j)\in I\times J\}.
+\]
+
+먼저 $\mathcal B$가 $M$을 $K$ 위에서 생성함을 보자. 임의의 $z\in M$는 $y_j$들의 유한한 $L$-선형결합
+\[
+  z=\sum_{j\in J_0}c_jy_j
+\]
+으로 쓰인다. 여기서 $J_0\subseteq J$는 유한집합이고 $c_j\in L$이다. 각 $c_j$도 $x_i$들의 유한한 $K$-선형결합으로 쓰이므로, 대입하면 $z$는 $\mathcal B$의 유한한 $K$-선형결합이 된다.
+
+이제 선형독립성을 보자. 유한집합 $I_0\subseteq I$, $J_0\subseteq J$와 계수 $a_{ij}\in K$에 대해
+\[
+  \sum_{j\in J_0}\sum_{i\in I_0}a_{ij}x_i y_j=0
+\]
+이라 하자. $y_j$에 대한 $L$-선형결합으로 묶으면
+\[
+  \sum_{j\in J_0}\left(\sum_{i\in I_0}a_{ij}x_i\right)y_j=0.
+\]
+$y_j$들의 $L$-선형독립성에서 각 $j$에 대해
+\[
+  \sum_{i\in I_0}a_{ij}x_i=0
+\]
+이고, 다시 $x_i$들의 $K$-선형독립성에서 모든 $a_{ij}=0$이다. 따라서 $\mathcal B$는 $M/K$의 기저이다.
+
+기저의 크기를 세면
+\[
+  [M:K]=|I\times J|=|I|\,|J|=[L:K][M:L]
+\]
+을 얻는다.
+\end{proof}
+
+\begin{corollary}
+$L/K$가 유한확장이고 $E$가 중간체이면
+\[
+  [E:K]\mid[L:K],
+  \qquad
+  [L:E]\mid[L:K].
+\]
+\end{corollary}
+
+\begin{corollary}[소수 차수 확장]
+$[L:K]=p$가 소수이면 중간체는 $K$와 $L$뿐이다.
+\end{corollary}
+
+\begin{proof}
+중간체 $E$에 대해
+\[
+  p=[L:E][E:K]
+\]
+이다. 두 인수는 양의 정수이므로 하나가 $1$이어야 한다.
+\end{proof}
+
+\begin{example}
+$\Q\subseteq\Q(\sqrt2)\subseteq\Q(\sqrt2,\sqrt3)$를 생각하자. 뒤에서
+\[
+  [\Q(\sqrt2,\sqrt3):\Q(\sqrt2)]=2
+\]
+임을 확인할 것이다. 그러면 탑 법칙으로
+\[
+  [\Q(\sqrt2,\sqrt3):\Q]=4
+\]
+이다.
+\end{example}
+
+\subsection{유한체의 원소 수}
+
+\begin{proposition}
+유한체 $F$의 표수가 $p$이면 어떤 양의 정수 $n$에 대해
+\[
+  |F|=p^n
+\]
+이다.
+\end{proposition}
+
+\begin{proof}
+$F$의 소체는 $\F_p$이고, $F$는 유한집합이므로 $\F_p$ 위에서 유한차원이다. $n=[F:\F_p]$라 하면 $F$는 $n$차원 벡터공간이다. 각 기저좌표에는 $p$개의 선택이 있으므로 원소 수는 $p^n$이다.
+\end{proof}
+
+\begin{corollary}
+원소가 $6$개인 체는 존재하지 않는다.
+\end{corollary}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $[\Q(\sqrt2):\Q]=2$임을 기저로 증명하라.
+  \item $[M:K]=15$인 유한확장의 중간체 $E$가 가질 수 있는 차수를 모두 적어라.
+  \item 원소가 $12$개인 체가 존재할 수 있는지 판정하라.
+\end{enumerate}
+\end{checkpoint}

@@ -1,0 +1,354 @@
+\section{선별 문제 풀이}
+\label{sec:field-extension-solutions}
+
+\subsection*{문제 \thechapter.4: 기본 확장의 차수와 기저}
+
+\begin{solution}
+(a) $i$의 $\Q$ 위 최소다항식은 $X^2+1$이다. 이 다항식은 $\Q$에 근이 없으므로 기약이다. 따라서
+\[
+  [\Q(i):\Q]=2,
+  \qquad
+  \{1,i\}
+\]
+가 기저이다.
+
+(b) $X^2-5$는 $\Q$에 근이 없으므로 기약이고
+\[
+  [\Q(\sqrt5):\Q]=2,
+  \qquad
+  \{1,\sqrt5\}
+\]
+가 기저이다.
+
+(c) $X^2+X+1$은 $0,1\in\F_2$을 근으로 갖지 않으므로 기약이다. 따라서
+\[
+  [\F_2(\alpha):\F_2]=2,
+  \qquad
+  \{1,\alpha\}
+\]
+가 기저이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.6: $\Q(\sqrt[3]{2})$의 계산}
+
+\begin{solution}
+$\alpha^3=2$를 반복해서 사용한다.
+
+(a)
+\[
+  \alpha^7=\alpha(\alpha^3)^2=4\alpha.
+\]
+
+(b)
+\[
+  (1+\alpha)(1-\alpha+\alpha^2)=1+\alpha^3=3
+\]
+이므로
+\[
+  (1+\alpha)^{-1}=\frac{1-\alpha+\alpha^2}{3}.
+\]
+
+(c) 전개한 뒤 $\alpha^3=2$, $\alpha^4=2\alpha$를 사용하면
+\[
+\begin{aligned}
+ (1+\alpha+\alpha^2)^2
+ &=1+2\alpha+3\alpha^2+2\alpha^3+\alpha^4\\
+ &=5+4\alpha+3\alpha^2.
+\end{aligned}
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.8: $\Q(\sqrt2)$의 계산}
+
+\begin{solution}
+(a)
+\[
+  (3+2\sqrt2)(3-2\sqrt2)=9-8=1
+\]
+이므로 역원은 $3-2\sqrt2$이다.
+
+(b)
+\[
+  (1+\sqrt2)^2=3+2\sqrt2,
+  \qquad
+  (1+\sqrt2)^4=17+12\sqrt2.
+\]
+따라서
+\[
+  (1+\sqrt2)^5=(17+12\sqrt2)(1+\sqrt2)
+  =41+29\sqrt2.
+\]
+
+(c) 기준체가 이미 $\sqrt2$를 포함하므로 최소다항식은
+\[
+  X-\sqrt2
+\]
+이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.12: 체 준동형과 표수}
+
+\begin{solution}
+항등원을 보존하는 체 준동형 $\varphi:K\to L$에 대해 모든 $n\in\Z$에 대하여
+\[
+  \varphi(n\cdot1_K)=n\cdot\varphi(1_K)=n\cdot1_L.
+\]
+따라서
+\[
+  n\cdot1_K=0
+  \quad\Longrightarrow\quad
+  n\cdot1_L=0.
+\]
+한편 체 준동형은 단사이므로 역으로 $n\cdot1_L=0$이면
+\[
+  \varphi(n\cdot1_K)=0
+\]
+에서 $n\cdot1_K=0$이다. 그러므로 두 표준 준동형 $\Z\to K$, $\Z\to L$의 핵이 같고
+\[
+  \charac K=\charac L.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.14: 유한체의 원소 수}
+
+\begin{solution}
+$F$의 표수를 $p$라 하면 소체는 $\F_p$이다. $F$가 유한집합이므로 $\F_p$ 위의 벡터공간 차원
+\[
+  n=[F:\F_p]
+\]
+도 유한하다. 기저를 하나 고르면 모든 원소는 $n$개의 $\F_p$-좌표로 유일하게 표현된다. 각 좌표에는 $p$개의 선택이 있으므로
+\[
+  |F|=p^n.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.15: 탑 법칙}
+
+\begin{solution}
+$L/K$의 기저를 $x_1,\dots,x_m$, $M/L$의 기저를 $y_1,\dots,y_n$이라 하자. 임의의 $z\in M$는
+\[
+  z=\sum_j c_jy_j,
+  \qquad c_j\in L
+\]
+로 쓰이고, 각 $c_j=\sum_i a_{ij}x_i$로 쓸 수 있으므로 $x_iy_j$들이 $M$을 $K$ 위에서 생성한다.
+
+이제
+\[
+  \sum_{i,j}a_{ij}x_iy_j=0,
+  \qquad a_{ij}\in K
+\]
+라 하자. $y_j$들의 $L$-선형독립성에서 각 $j$에 대해
+\[
+  \sum_i a_{ij}x_i=0
+\]
+이고, $x_i$들의 $K$-선형독립성에서 모든 $a_{ij}=0$이다. 따라서 $x_iy_j$들은 기저이고
+\[
+  [M:K]=mn=[M:L][L:K].
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.17: 최소다항식의 나눗셈 성질}
+
+\begin{solution}
+$f$를 $m$으로 나누어
+\[
+  f=qm+r,
+  \qquad \deg r<\deg m
+\]
+라 쓰자. $f(\alpha)=m(\alpha)=0$이므로
+\[
+  r(\alpha)=0.
+\]
+$r\ne0$이면 최소다항식보다 낮은 차수의 영이 아닌 다항식이 $\alpha$를 근으로 갖게 되어 모순이다. 따라서 $r=0$이고 $m\mid f$이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.18: $K[\alpha]$가 체임을 보이기}
+
+\begin{solution}
+항상 $K[\alpha]\subseteq K(\alpha)$이다. 반대 포함을 위해 $K[\alpha]$의 모든 영이 아닌 원소가 역원을 가짐을 보이면 충분하다.
+
+영이 아닌 원소를 $f(\alpha)$라 하자. 최소다항식을 $m$이라 하면 $f(\alpha)\ne0$이므로 $m\nmid f$이다. $m$이 기약이므로
+\[
+  \gcd(f,m)=1.
+\]
+따라서 베주 항등식으로
+\[
+  a f+b m=1
+\]
+인 $a,b\in K[X]$가 존재한다. $X=\alpha$를 대입하면
+\[
+  a(\alpha)f(\alpha)=1.
+\]
+즉 역원 $a(\alpha)$도 $K[\alpha]$에 속한다. 따라서 $K[\alpha]$는 체이고
+\[
+  K[\alpha]=K(\alpha).
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.20: 대수성의 추이성}
+
+\begin{solution}
+$\alpha\in M$를 택하자. $\alpha$는 $L$ 위에서 대수적이므로
+\[
+  \alpha^n+c_{n-1}\alpha^{n-1}+\cdots+c_0=0
+\]
+인 $c_i\in L$가 존재한다. $L/K$가 대수적이므로 각 $c_i$는 $K$ 위에서 대수적이다. 따라서
+\[
+  E=K(c_0,\dots,c_{n-1})
+\]
+는 $K$의 유한확장이다. $\alpha$는 $E$ 위에서 대수적이므로 $E(\alpha)/E$도 유한하고, 탑 법칙에서 $E(\alpha)/K$가 유한하다. 유한확장은 대수적이므로 $\alpha$는 $K$ 위에서 대수적이다. $\alpha$가 임의였으므로 $M/K$는 대수적이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.23: 두 제곱근을 첨가한 체}
+
+\begin{solution}
+$[\Q(\sqrt2):\Q]=2$이다. $\sqrt3\in\Q(\sqrt2)$라고 가정하면
+\[
+  \sqrt3=a+b\sqrt2
+\]
+인 $a,b\in\Q$가 존재한다. 제곱하고 $1,\sqrt2$의 선형독립성을 사용하면 $ab=0$이다. $b=0$이면 $\sqrt3\in\Q$이고, $a=0$이면 $b^2=3/2$인데 둘 다 불가능하다. 따라서 $X^2-3$은 $\Q(\sqrt2)$ 위에서도 기약이고
+\[
+  [\Q(\sqrt2,\sqrt3):\Q(\sqrt2)]=2.
+\]
+탑 법칙으로 전체 차수는 $4$이다. 단계별 기저를 곱하면
+\[
+  1,\sqrt2,\sqrt3,\sqrt6
+\]
+이 $\Q$-기저이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.24: $\sqrt2+\sqrt3$의 최소다항식}
+
+\begin{solution}
+$\alpha=\sqrt2+\sqrt3$라 하면
+\[
+  \alpha^2=5+2\sqrt6
+\]
+이고
+\[
+  (\alpha^2-5)^2=24.
+\]
+따라서
+\[
+  \alpha^4-10\alpha^2+1=0.
+\]
+
+한편
+\[
+  \alpha^{-1}=\sqrt3-\sqrt2
+\]
+이므로
+\[
+  \sqrt3=\frac{\alpha+\alpha^{-1}}2,
+  \qquad
+  \sqrt2=\frac{\alpha-\alpha^{-1}}2.
+\]
+따라서
+\[
+  \Q(\alpha)=\Q(\sqrt2,\sqrt3).
+\]
+오른쪽의 차수는 문제 23에서 $4$이므로 $\alpha$의 최소다항식 차수도 $4$이다. 따라서
+\[
+  m_{\alpha,\Q}=X^4-10X^2+1.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.25: $\sqrt[3]{2}$의 제곱과 역원}
+
+\begin{solution}
+$\beta=\alpha^2$라 하자.
+
+(a) $\beta^3=4$이므로 $\beta$는 $X^3-4$의 근이다. 이 삼차다항식은 유리근을 갖지 않으므로 기약이다. 따라서 최소다항식은
+\[
+  X^3-4.
+\]
+
+(b) $\beta^2=\alpha^4=2\alpha$이므로
+\[
+  \alpha=\frac{\beta^2}{2}\in\Q(\beta).
+\]
+따라서 $\Q(\alpha)=\Q(\beta)$이다.
+
+(c) 직접 계산하면
+\[
+  (2+\alpha+\alpha^2)\left(1-\frac{\alpha^2}{2}\right)=1.
+\]
+따라서
+\[
+  (2+\alpha+\alpha^2)^{-1}=1-\frac{\alpha^2}{2}.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.26: 여덟 원소 체}
+
+\begin{solution}
+(a) $f(0)=f(1)=1$이므로 $f$는 $\F_2$에 근이 없다. 삼차다항식이므로 기약이다.
+
+(b) 몫체의 차수는 $3$이고 기저는 $1,\alpha,\alpha^2$이다. 따라서 원소 수는 $2^3=8$이다.
+
+(c) 관계식은
+\[
+  \alpha^3=\alpha+1.
+\]
+따라서
+\[
+  \alpha(\alpha^2+1)=\alpha^3+\alpha=1
+\]
+이므로 $\alpha^{-1}=\alpha^2+1$이다. 또한
+\[
+  (\alpha+1)(\alpha^2+\alpha)=\alpha^3+\alpha=1
+\]
+이므로
+\[
+  (\alpha+1)^{-1}=\alpha^2+\alpha.
+\]
+
+(d) 영이 아닌 원소들의 곱셈군의 위수는 $7$이므로 라그랑주 정리에 의해 $\alpha^7=1$이다. 직접 거듭제곱을 줄여도 같은 결과를 얻는다.
+\end{solution}
+
+\subsection*{문제 \thechapter.27: 유리함수체의 프로베니우스}
+
+\begin{solution}
+$t$가 $K$ 안의 $p$제곱이라고 가정하자. 서로소인 $f,g\in\F_p[t]$에 대해
+\[
+  t=\left(\frac fg\right)^p
+\]
+라 쓸 수 있다. 그러면
+\[
+  t g^p=f^p.
+\]
+차수를 비교하면
+\[
+  1+p\deg g=p\deg f.
+\]
+왼쪽은 $p$로 나눈 나머지가 $1$이고 오른쪽은 $p$의 배수이므로 불가능하다. 따라서 $t$는 프로베니우스의 상에 없고, 프로베니우스는 전사가 아니다.
+\end{solution}
+
+\subsection*{문제 \thechapter.30: $X^3-2$의 분해체를 향하여}
+
+\begin{solution}
+(a) $X^3-2$는 $p=2$에 대한 아이젠슈타인 판정법으로 기약이다. 따라서
+\[
+  [\Q(\alpha):\Q]=3.
+\]
+
+(b) $\Q(\alpha)$의 모든 원소는 실수이지만 $\omega$는 비실수이므로
+\[
+  \omega\notin\Q(\alpha).
+\]
+
+(c) $\omega$는 $X^2+X+1$의 근이다. 이 다항식은 $\Q(\alpha)$ 위에서 선형인수를 갖지 않으므로 최소다항식 차수는 $2$이다. 따라서
+\[
+  [\Q(\alpha,\omega):\Q(\alpha)]=2
+\]
+이고 탑 법칙으로
+\[
+  [\Q(\alpha,\omega):\Q]=2\cdot3=6.
+\]
+
+(d) $\Q(\alpha)/\Q$의 기저 $1,\alpha,\alpha^2$와 $\Q(\alpha,\omega)/\Q(\alpha)$의 기저 $1,\omega$를 곱하면
+\[
+  1,\alpha,\alpha^2,\omega,\alpha\omega,\alpha^2\omega
+\]
+가 전체 확장의 $\Q$-기저이다.
+\end{solution}
