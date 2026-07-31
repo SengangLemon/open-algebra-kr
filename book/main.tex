@@ -1,0 +1,73 @@
+\documentclass[11pt,openany]{book}
+
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{fontspec}
+\usepackage{kotex}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=green!40!black,
+  urlcolor=blue!60!black,
+  pdftitle={Open Algebra KR, Volume 1},
+  pdfauthor={Sunghyun Park}
+}
+
+\newtheorem{theorem}{정리}[chapter]
+\newtheorem{proposition}[theorem]{명제}
+\newtheorem{lemma}[theorem]{보조정리}
+\newtheorem{corollary}[theorem]{따름정리}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{정의}
+\newtheorem{example}[theorem]{예제}
+\newtheorem{exercise}[theorem]{연습문제}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{설명}
+
+\newtcolorbox{learninggoal}{
+  colback=blue!3,
+  colframe=blue!45!black,
+  title=학습 목표,
+  breakable
+}
+
+\newtcolorbox{pitfall}{
+  colback=red!3,
+  colframe=red!55!black,
+  title=자주 하는 실수,
+  breakable
+}
+
+\title{\Huge Open Algebra KR\\[8pt]\Large 갈루아 이론으로 배우는 현대대수학\\[18pt]\large Volume 1: 군, 환, 다항식}
+\author{Sunghyun Park}
+\date{Draft 0.1}
+
+\begin{document}
+\frontmatter
+\maketitle
+\tableofcontents
+\input{frontmatter/preface}
+
+\mainmatter
+\part{방정식에서 구조로}
+\input{chapters/00-motivation}
+
+\part{군과 대칭}
+\input{chapters/01-groups}
+
+\part{환과 다항식}
+\input{chapters/02-rings}
+\input{chapters/03-polynomials}
+
+\backmatter
+\input{backmatter/notation}
+\input{backmatter/references}
+\end{document}
