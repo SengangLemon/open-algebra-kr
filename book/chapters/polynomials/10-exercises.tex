@@ -1,0 +1,180 @@
+\section{연습문제}
+\label{sec:polynomial-exercises}
+
+문제는 A, B, C의 세 단계로 나뉜다. 별표 문제는 다음 절에 상세 풀이가 있다.
+
+\subsection*{A. 정의와 계산}
+
+\begin{exercise}
+$\F_2[X]$에서 $X^2+X$와 영다항식은 서로 다르지만 같은 함수 $\F_2\to\F_2$를 정의함을 확인하라.
+\end{exercise}
+
+\begin{exercise}
+다음을 전개하라.
+\[
+ (2-X+3X^2)(1+2X-X^2)\in\Z[X].
+\]
+\end{exercise}
+
+\begin{exercise}
+$R=\Z/6\Z$에서 $f=2X+1$, $g=3X+1$이라 하자. $\deg(fg)$를 계산하고 왜 $\deg(fg)<\deg f+\deg g$가 가능한지 설명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$\Q[X]$에서
+\[
+ f=X^5-2X^4+3X^2-X+5,\qquad g=X^2-X+1
+\]
+에 대해 $f=qg+r$, $\deg r<2$인 $q,r$을 구하라.
+\end{exercise}
+
+\begin{exercise}
+다항식 $f=X^4-5X^2+4\in\Q[X]$의 모든 유리근과 각 중복도를 구하라.
+\end{exercise}
+
+\begin{exercise}
+표수가 $5$인 체에서 다음 다항식의 도함수를 구하라.
+\[
+ X^{10}+3X^6+4X^5+2X^2+1.
+\]
+\end{exercise}
+
+\begin{exercise}[*]
+$\Q[X]$에서
+\[
+ f=X^4-1,\qquad g=X^3-X
+\]
+의 최대공약수를 구하고 베주 표현을 하나 구하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$A=\F_3[X]/(X^2+1)$에서 $\overline{X+1}$의 역원을 구하라.
+\end{exercise}
+
+\begin{exercise}
+다음 다항식이 주어진 체에서 기약인지 판정하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $X^2+X+1\in\F_2[X]$,
+  \item $X^3+X+1\in\F_2[X]$,
+  \item $X^3-3X+1\in\Q[X]$,
+  \item $X^4+5X^2+6\in\Q[X]$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$\F_2[X]/(X^3+X+1)$의 원소를 표준형으로 모두 쓰라. 이 환의 원소 개수는 얼마인가?
+\end{exercise}
+
+\subsection*{B. 핵심 증명}
+
+\begin{exercise}
+무한체 $K$에서 다항함수 $K\to K$가 영함수이면 그 다항식이 영다항식임을 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+유한체 $\F_q$에서
+\[
+  X^q-X=\prod_{a\in\F_q}(X-a)
+\]
+임을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+$f\in K[X]$가 제곱인수가 없을 필요충분조건은 $\gcd(f,f')=1$임을 분해체에서의 선형인수분해를 이용하여 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+표수가 $p>0$인 체 $K$에 대해 $f'=0$일 필요충분조건은 $f\in K[X^p]$임을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+차수 $4$인 다항식 $f\in K[X]$가 기약일 필요충분조건을 ``근이 없고 두 이차다항식의 곱으로 분해되지 않는다''로 표현하고 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$f\in K[X]$가 차수 $n$인 일계수 기약다항식이고 $L=K[X]/(f)$라 하자. $1,\alpha,\dots,\alpha^{n-1}$이 $L$의 $K$-기저임을 직접 증명하라.
+\end{exercise}
+
+\begin{exercise}
+원시다항식 $f,g\in\Z[X]$의 곱이 원시임을 어떤 소수로 계수를 줄이는 방법으로 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+원시다항식 $f\in\Z[X]$가 $\Q[X]$에서 가약이면 $\Z[X]$에서도 양의 차수인 두 다항식의 곱으로 분해됨을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+$K[X,Y]$의 아이디얼 $(X,Y)$가 주아이디얼이 아님을 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+서로소인 $f,g\in K[X]$에 대해
+\[
+ K[X]/(fg)\cong K[X]/(f)\times K[X]/(g)
+\]
+를 증명하라.
+\end{exercise}
+
+\subsection*{C. 판정과 구조}
+
+\begin{exercise}[*]
+유리근 정리를 사용하여 $2X^3-3X^2+4X-6$의 모든 유리근 후보를 쓰고 실제 근을 구하라. 이 다항식을 $\Q[X]$에서 완전히 인수분해하라.
+\end{exercise}
+
+\begin{exercise}
+다음 다항식을 적절한 소수로 줄여 $\Q[X]$에서 기약임을 보여라.
+\[
+  X^4+X+1.
+\]
+\end{exercise}
+
+\begin{exercise}[*]
+아이젠슈타인 판정법을 사용하여 다음 다항식의 기약성을 판정하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $X^7+14X^3+21X+7$,
+  \item $3X^5+10X^4+20X^2+50$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+변수 이동과 아이젠슈타인 판정법을 이용하여 $X^4+1$이 $\Q[X]$에서 기약임을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+소수 $p$에 대해 $1+X+\cdots+X^{p-1}$이 $\Q[X]$에서 기약임을 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$\F_2[X]$의 모든 일계수 기약다항식을 차수 $4$까지 구하라.
+\end{exercise}
+
+\begin{exercise}
+$A=\Q[X]/(X^3-2)$, $\alpha=X+(X^3-2)$라 하자. 다음을 계산하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $(1+\alpha)(1-\alpha+\alpha^2)$,
+  \item $(1+\alpha)^{-1}$,
+  \item $\alpha^5$의 표준형.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+$K$의 표수가 $2$가 아니라고 하자. 평가 준동형을 이용하여
+\[
+ K[X]/(X^2-1)\cong K\times K
+\]
+를 구체적으로 구성하라.
+\end{exercise}
+
+\begin{exercise}
+$R$이 UFD이면 $R[X_1,\dots,X_n]$도 UFD임을 변수의 수에 대한 귀납법으로 증명하라. 왜 이 결론만으로 PID라고 할 수 없는가?
+\end{exercise}
+
+\begin{exercise}[*]
+$f=X^3-2\in\Q[X]$에 대해 다음을 설명하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $f$가 기약인 이유,
+  \item $\Q[X]/(f)$가 체인 이유,
+  \item 이 체가 $f$의 모든 복소근을 포함하지 않는 이유,
+  \item 분해체를 얻기 위해 추가해야 할 원소.
+\end{enumerate}
+\end{exercise}
