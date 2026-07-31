@@ -1,0 +1,59 @@
+\section{갈루아 이론을 향한 첫 연결}
+\label{sec:galois-preview-groups}
+
+군론의 핵심 개념들은 이후 체확장과 방정식의 근을 연구할 때 그대로 다시 나타난다.
+
+\subsection{자동동형이 근을 순열한다}
+
+체확장 $L/K$에서 $K$의 모든 원소를 고정하는 체 자동동형들을 모으면 군이 된다. 이를 나중에 $\Gal(L/K)$라고 쓸 것이다. 자동동형은 덧셈과 곱셈을 보존하므로 $K$의 계수를 가진 다항식 $f$와 그 근 $\alpha$에 대해
+\[
+  f(\alpha)=0
+  \quad\Longrightarrow\quad
+  f(\sigma(\alpha))=0
+\]
+이다. 따라서 갈루아군의 원소는 다항식의 근들을 서로 순열한다.
+
+\begin{example}[이차방정식의 대칭]
+$L=\Q(\sqrt2)$를 생각하자. $\Q$를 고정하는 자동동형은
+\[
+  \id(a+b\sqrt2)=a+b\sqrt2,
+  \qquad
+  \sigma(a+b\sqrt2)=a-b\sqrt2
+\]
+의 두 개이다. $\sigma^2=\id$이므로
+\[
+  \Gal(\Q(\sqrt2)/\Q)\cong\Z/2\Z.
+\]
+두 근 $\sqrt2$와 $-\sqrt2$를 맞바꾸는 대칭이 군의 비자명 원소가 된다.
+\end{example}
+
+\subsection{중간체와 부분군}
+
+갈루아 이론의 기본정리는 대략 다음 대응을 제공한다.
+\[
+\left\{\text{$K$와 $L$ 사이의 중간체}\right\}
+\quad\longleftrightarrow\quad
+\left\{\text{$\Gal(L/K)$의 부분군}\right\}.
+\]
+더 나아가 정규부분군은 정상적인 중간 확장과 연결되고, 몫군은 더 작은 갈루아군으로 나타난다. 따라서 이 장의 잉여류, 정규부분군, 몫군, 동형정리는 갈루아 이론의 장식이 아니라 그 기본 문법이다.
+
+\begin{keyidea}
+갈루아 이론에서는 방정식의 근을 하나씩 계산하는 대신, 근들을 움직이는 자동동형군의 부분군 구조를 분석한다. ``체를 더 크게 잡는 것''과 ``고정해야 할 자동동형을 더 적게 잡는 것'' 사이에 역방향 대응이 생긴다.
+\end{keyidea}
+
+\section{장 요약}
+
+\begin{chapterreview}
+\begin{enumerate}[label=\arabic*.]
+  \item 군은 결합적인 이항연산, 항등원, 모든 원소의 역원을 갖는 집합이다.
+  \item 부분군은 한 단계 판정법 $a,b\in H\Rightarrow ab^{-1}\in H$로 효율적으로 확인할 수 있다.
+  \item $\langle S\rangle$는 $S$를 포함하는 가장 작은 부분군이며, $S$와 그 역원들의 유한 곱으로 이루어진다.
+  \item 준동형은 연산을 보존하며, 핵은 사라지는 정보, 상은 실제로 도달하는 구조를 기록한다.
+  \item 모든 군은 케일리 정리에 의해 어떤 순열군의 부분군으로 실현된다.
+  \item 순환군은 $\Z$ 또는 $\Z/n\Z$와 동형이고, 그 부분군은 모두 순환군이다.
+  \item 잉여류는 군을 같은 크기의 조각으로 분할하며, 라그랑주 정리는 $|G|=|H|[G:H]$를 준다.
+  \item 정규부분군은 잉여류의 곱을 잘 정의하여 몫군을 만들 수 있게 하는 정확한 조건이다.
+  \item 제1동형정리 $G/\ker\varphi\cong\im\varphi$는 준동형의 구조를 핵과 상으로 분해한다.
+  \item 부분군 대응정리는 몫군의 부분군 구조를 원래 군에서 $N$을 포함하는 부분군 구조와 연결한다.
+\end{enumerate}
+\end{chapterreview}
