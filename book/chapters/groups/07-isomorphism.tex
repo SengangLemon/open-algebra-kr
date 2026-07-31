@@ -99,11 +99,11 @@ $N=\ker\varphi$로 놓고 몫군의 보편성을 적용하면
 \end{example}
 
 \begin{example}[부호 준동형]
-순열의 짝홀성을 기록하는 부호 준동형
+$n\ge2$라 하자. 순열의 짝홀성을 기록하는 부호 준동형
 \[
   \operatorname{sgn}:S_n\to\{\pm1\}
 \]
-의 핵은 교대군 $A_n$이다. 따라서
+은 전사이고 그 핵은 교대군 $A_n$이다. 따라서
 \[
   S_n/A_n\cong\{\pm1\}\cong\Z/2\Z.
 \]
@@ -151,7 +151,7 @@ $h_1n_1,h_2n_2\in HN$이라 하자. $N$의 정규성을 이용하면
 \subsection{제3동형정리}
 
 \begin{theorem}[제3동형정리]
-$N\trianglelefteq H\trianglelefteq G$이면 $H/N\trianglelefteq G/N$이고
+$N\trianglelefteq G$, $H\trianglelefteq G$, $N\subseteq H$이면 $H/N\trianglelefteq G/N$이고
 \[
   (G/N)/(H/N)\cong G/H.
 \]
@@ -167,8 +167,16 @@ $N\trianglelefteq H\trianglelefteq G$이면 $H/N\trianglelefteq G/N$이고
 \[
   \ker\Phi=H/N.
 \]
-제1동형정리를 적용하면 원하는 동형을 얻는다.
+따라서 $H/N$은 $G/N$의 정규부분군이고, 제1동형정리를 적용하면 원하는 동형을 얻는다.
 \end{proof}
+
+\begin{pitfall}
+$N\trianglelefteq H$와 $H\trianglelefteq G$만으로 $N\trianglelefteq G$가 따라오지는 않는다. 예를 들어 $G=A_4$, $H=V_4$라 하고
+\[
+  N=\langle(12)(34)\rangle
+\]
+로 두면 $N\trianglelefteq H$이고 $H\trianglelefteq G$이지만 $N$은 $G$에서 정규가 아니다. 따라서 제3동형정리에서는 $N$과 $H$가 모두 $G$에서 정규라는 가정이 필요하다.
+\end{pitfall}
 
 제3동형정리는 ``먼저 $N$을 없애고, 그다음 남은 $H/N$을 없애는 것''과 ``처음부터 $H$를 없애는 것''이 같다고 말한다.
 
@@ -218,7 +226,7 @@ $G=\Z$, $N=12\Z$라 하자. $12\Z$를 포함하는 $\Z$의 부분군은 $d\Z$ �
 \begin{enumerate}[label=\arabic*.]
   \item 제1동형정리에서 $G/\ker\varphi$가 $H$ 전체가 아니라 $\im\varphi$와 동형인 이유는 무엇인가?
   \item $\R^\times$의 양의 실수 부분군 $\R_{>0}$에 대해 $\R^\times/\R_{>0}$를 구하라.
-  \item $N\trianglelefteq H\trianglelefteq G$에서 제3동형정리를 ``정보를 단계적으로 지우는 과정''으로 설명하라.
+  \item $N\trianglelefteq G$, $H\trianglelefteq G$, $N\subseteq H$에서 제3동형정리를 ``정보를 단계적으로 지우는 과정''으로 설명하라.
   \item 대응정리를 이용하여 순환군의 부분군을 몫군의 부분군과 연결해 보라.
 \end{enumerate}
 \end{checkpoint}
