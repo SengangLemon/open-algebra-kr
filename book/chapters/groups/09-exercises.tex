@@ -1,0 +1,187 @@
+\section{연습문제}
+\label{sec:group-exercises}
+
+문제는 세 단계로 나뉜다. A는 정의와 계산, B는 핵심 증명, C는 구조를 종합하는 심화 문제이다. 별표가 붙은 문제는 이 장을 복습할 때 우선적으로 풀기를 권한다.
+
+\subsection*{A. 기본 개념과 계산}
+
+\begin{exercise}[항등원과 역원의 유일성 $\star$]
+군의 공리만 사용하여 항등원과 각 원소의 역원이 유일함을 다시 증명하라. 증명의 각 등호 옆에 사용한 공리를 적어라.
+\end{exercise}
+
+\begin{exercise}[군 판정]
+다음 집합과 연산이 군인지 판정하라. 군이 아니면 가장 먼저 실패하는 공리를 지적하라.
+\begin{enumerate}[label=(\alph*)]
+  \item 짝수 정수와 덧셈
+  \item 홀수 정수와 곱셈
+  \item $\R\setminus\{0\}$와 곱셈
+  \item 양의 유리수와 곱셈
+  \item 행렬식이 $-1$인 실수 $2\times2$ 행렬과 행렬곱
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[$(\Z/15\Z)^\times$]
+$(\Z/15\Z)^\times$의 원소를 모두 쓰고 각 원소의 역원과 위수를 구하라. 이 군이 순환군인지 판정하라.
+\end{exercise}
+
+\begin{exercise}[$S_3$의 계산 $\star$]
+오른쪽 순열을 먼저 적용하는 관습 아래 다음을 계산하라.
+\[
+  (12)(123),\qquad (123)(12),\qquad (12)(23)(12).
+\]
+첫 두 결과를 비교하여 $S_3$가 비가환임을 확인하라.
+\end{exercise}
+
+\begin{exercise}[부분군 판정]
+다음 집합이 주어진 군의 부분군인지 판정하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $\{(x,y)\in\R^2:x+y=0\}\le(\R^2,+)$
+  \item $\{A\in\GL_n(\R):\det A>0\}\le\GL_n(\R)$
+  \item $\{\overline0,\overline3,\overline6\}\le\Z/9\Z$
+  \item $\{\sigma\in S_4:\sigma(1)=1\}\le S_4$
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[생성부분군]
+다음을 구하라.
+\[
+  \langle 18,30\rangle\le(\Z,+),
+  \qquad
+  \langle\overline8\rangle\le\Z/20\Z,
+  \qquad
+  \langle(1234)\rangle\le S_4.
+\]
+\end{exercise}
+
+\begin{exercise}[원소의 위수 $\star$]
+$\Z/24\Z$에서 $\overline0,\overline4,\overline6,\overline9,\overline{10}$의 위수를 구하라. 각 원소가 생성하는 부분군도 쓰라.
+\end{exercise}
+
+\begin{exercise}[준동형의 핵과 상]
+다음 준동형의 핵과 상을 구하고 단사, 전사 여부를 판정하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $\varphi:\Z\to\Z/8\Z$, $n\mapsto\overline{3n}$
+  \item $\psi:\R^\times\to\R_{>0}$, $x\mapsto x^2$
+  \item $\det:\GL_2(\R)\to\R^\times$
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[잉여류]
+$G=\Z/12\Z$, $H=\langle\overline4\rangle$라 하자. $H$의 모든 잉여류와 지표 $[G:H]$를 구하라.
+\end{exercise}
+
+\begin{exercise}[정규성 계산]
+$S_3$의 부분군 $\langle(123)\rangle$와 $\langle(12)\rangle$ 중 어느 것이 정규인지 켤레 조건으로 판정하라.
+\end{exercise}
+
+\subsection*{B. 핵심 증명}
+
+\begin{exercise}[왼쪽 조건만으로 군 만들기]
+결합적인 이항연산이 있는 집합 $G$에서 왼쪽 항등원 $e$가 존재하고, 각 $a\in G$가 왼쪽 역원 $b$ 즉 $ba=e$를 갖는다고 하자. 그러면 $G$가 군임을 증명하라. 특히 $e$가 오른쪽 항등원이기도 하고 $b$가 오른쪽 역원이기도 함을 보여라.
+\end{exercise}
+
+\begin{exercise}[유한 소거 모노이드 $\star$]
+유한 모노이드 $M$에서 왼쪽과 오른쪽 소거법칙이 성립한다고 하자. 그러면 $M$이 군임을 증명하라. 무한 모노이드에서는 거짓임을 보여 주는 반례도 제시하라.
+\end{exercise}
+
+\begin{exercise}[부분군의 합집합]
+부분군 $H,K\le G$에 대하여 $H\cup K$가 부분군이면 $H\subseteq K$ 또는 $K\subseteq H$임을 증명하라.
+\end{exercise}
+
+\begin{exercise}[지수가 $2$인 원소들]
+군 $G$의 모든 원소가 $g^2=e$를 만족한다고 하자. $G$가 아벨군임을 증명하라.
+\end{exercise}
+
+\begin{exercise}[순환군의 생성원 $\star$]
+$G=\langle g\rangle$이고 $|G|=n$이라 하자. $g^k$가 $G$를 생성할 필요충분조건이 $\gcd(k,n)=1$임을 증명하라. 이를 이용하여 $\Z/18\Z$의 모든 생성원을 구하라.
+\end{exercise}
+
+\begin{exercise}[순환군 사이의 준동형]
+양의 정수 $m,n$에 대하여 준동형 $\Z/m\Z\to\Z/n\Z$의 개수가 $\gcd(m,n)$임을 증명하라.
+\end{exercise}
+
+\begin{exercise}[지표의 곱셈법칙]
+$K\le H\le G$이고 지표들이 유한하다고 하자. 다음을 증명하라.
+\[
+  [G:K]=[G:H][H:K].
+\]
+\end{exercise}
+
+\begin{exercise}[지표 $2$ 정규부분군 $\star$]
+$[G:H]=2$이면 $H\trianglelefteq G$임을 왼쪽과 오른쪽 잉여류를 직접 비교하여 증명하라. 지표가 $3$이면 같은 결론이 항상 성립하는지 반례를 찾아라.
+\end{exercise}
+
+\begin{exercise}[몫군 연산과 정규성]
+$H\le G$라 하자. 공식 $(aH)(bH)=abH$가 대표원 선택과 무관하게 잘 정의된다면 $H\trianglelefteq G$임을 증명하라.
+\end{exercise}
+
+\begin{exercise}[자동동형과 생성원]
+$C_n$을 위수 $n$인 순환군이라 하자. 다음을 증명하라.
+\[
+  \Aut(C_n)\cong(\Z/n\Z)^\times.
+\]
+\end{exercise}
+
+\subsection*{C. 종합과 심화}
+
+\begin{exercise}[$\Q$의 두 군]
+덧셈군 $(\Q,+)$와 곱셈군 $(\Q_{>0},\times)$가 동형이 아님을 증명하라. 힌트: 한 군에서는 모든 원소가 제곱근에 해당하는 원소를 갖지만 다른 군에서는 그렇지 않다.
+\end{exercise}
+
+\begin{exercise}[중국인의 나머지 정리의 군론적 형태 $\star$]
+함수
+\[
+  \Phi:\Z/mn\Z\to\Z/m\Z\times\Z/n\Z,
+  \qquad \overline x\mapsto(\overline x,\overline x)
+\]
+를 생각하자. $\gcd(m,n)=1$일 때 $\Phi$가 동형임을 증명하라. 서로소가 아닐 때 단사가 실패함을 보여라.
+\end{exercise}
+
+\begin{exercise}[$\Q/\Z$]
+덧셈 몫군 $\Q/\Z$에 대해 다음을 증명하라.
+\begin{enumerate}[label=(\alph*)]
+  \item 모든 원소의 위수가 유한하다.
+  \item 각 $n\ge1$에 대해 위수 $n$인 부분군이 정확히 하나 존재한다.
+  \item $\Q/\Z$는 유한 생성군이 아니다.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[대응정리 응용]
+$N\trianglelefteq G$이고 $G/N$이 위수 $p^2$인 군이라고 하자. $N$을 포함하는 $G$의 부분군이 적어도 하나 더 존재함을 증명하라. 여기서 $p$는 소수이다.
+\end{exercise}
+
+\begin{exercise}[직접곱의 원소 위수]
+유한 위수의 원소 $a\in G$, $b\in H$에 대해
+\[
+  \ord(a,b)=\lcm(\ord(a),\ord(b))
+\]
+임을 증명하라. 이를 이용하여 $\Z/8\Z\times\Z/12\Z$에서 가능한 최대 원소 위수를 구하라.
+\end{exercise}
+
+\begin{exercise}[케일리 매장의 구체화]
+$G=\Z/3\Z$에 대해 케일리 정리에서 얻는 매장 $G\hookrightarrow S_3$을 구체적으로 쓰라. 각 원소가 $G$의 세 원소를 어떻게 순열하는지 이행표로 나타내라.
+\end{exercise}
+
+\begin{exercise}[비정규부분군과 몫의 실패]
+$S_3$에서 $H=\langle(12)\rangle$라 하자. 같은 왼쪽 잉여류를 나타내는 서로 다른 대표원을 선택하여
+\[
+  (aH)(bH)=abH
+\]
+가 모순된 결과를 내는 구체적인 예를 찾아라.
+\end{exercise}
+
+\begin{exercise}[제2동형정리 계산]
+$G=\Z$, $H=4\Z$, $N=6\Z$라 하자. $H\cap N$, $H+N$을 구하고 제2동형정리
+\[
+  H/(H\cap N)\cong(H+N)/N
+\]
+의 양변을 구체적인 순환군으로 나타내라.
+\end{exercise}
+
+\begin{exercise}[고정점과 부분군]
+군 $G$가 집합 $X$ 위에 전단사 변환으로 작용한다고 하자. 한 점 $x\in X$를 고정하는 원소들의 집합
+\[
+  G_x=\{g\in G:g(x)=x\}
+\]
+가 $G$의 부분군임을 증명하라. 이 부분군을 $x$의 안정자라고 한다.
+\end{exercise}
