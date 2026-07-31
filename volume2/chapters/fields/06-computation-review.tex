@@ -1,0 +1,146 @@
+\section{최소다항식과 차수 계산 전략}
+\label{sec:minimal-polynomial-strategy}
+
+최소다항식을 구하는 문제는 보통 두 단계로 나뉜다.
+
+\begin{enumerate}
+  \item 원소가 만족하는 일계수다항식 $f\in K[X]$를 찾는다.
+  \item 그 다항식의 차수가 실제 확장차수와 같거나, $f$가 기약임을 보여 최소다항식임을 확정한다.
+\end{enumerate}
+
+첫 단계는 계산이고 두 번째 단계는 구조 판정이다. 소거다항식을 찾는 것만으로는 충분하지 않다.
+
+\subsection{예제: 두 제곱근의 합}
+
+\begin{example}
+\[
+  \alpha=\sqrt2+\sqrt3
+\]
+의 $\Q$ 위 최소다항식을 구하자. 먼저
+\[
+  \alpha^2=5+2\sqrt6
+\]
+이므로
+\[
+  (\alpha^2-5)^2=24.
+\]
+전개하면
+\[
+  \alpha^4-10\alpha^2+1=0.
+\]
+따라서 후보는
+\[
+  f=X^4-10X^2+1.
+\]
+
+이제 차수가 실제로 $4$임을 보인다. 곱을 계산하면
+\[
+  (\sqrt2+\sqrt3)(\sqrt3-\sqrt2)=1
+\]
+이므로
+\[
+  \alpha^{-1}=\sqrt3-\sqrt2\in\Q(\alpha).
+\]
+따라서
+\[
+  \sqrt3=\frac{\alpha+\alpha^{-1}}2,
+  \qquad
+  \sqrt2=\frac{\alpha-\alpha^{-1}}2
+\]
+이고
+\[
+  \Q(\alpha)=\Q(\sqrt2,\sqrt3).
+\]
+앞 절에서 오른쪽의 $\Q$ 위 차수가 $4$임을 보았으므로
+\[
+  [\Q(\alpha):\Q]=4.
+\]
+최소다항식의 차수도 $4$여야 하므로 $f$가 최소다항식이다.
+\end{example}
+
+\begin{keyidea}
+소거 계산으로 얻은 다항식의 차수와, 탑 법칙이나 기저로 얻은 확장차수를 맞추면 기약성을 직접 인수분해하지 않고도 최소다항식을 확정할 수 있다.
+\end{keyidea}
+
+\subsection{예제: 평행이동된 제곱근}
+
+\begin{example}
+$\beta=1+\sqrt2$라 하자. $\beta-1=\sqrt2$이므로
+\[
+  (\beta-1)^2=2.
+\]
+따라서
+\[
+  \beta^2-2\beta-1=0.
+\]
+다항식
+\[
+  X^2-2X-1
+\]
+의 판별식은 $8$로 유리수의 제곱이 아니므로 $\Q[X]$에서 기약이다. 따라서 이것이 $\beta$의 최소다항식이다.
+\end{example}
+
+\subsection{확장차수 계산의 기본 절차}
+
+유한생성 대수적 확장
+\[
+  L=K(\alpha_1,\dots,\alpha_r)
+\]
+의 차수를 구할 때에는 다음 순서가 유용하다.
+
+\begin{enumerate}
+  \item 확장탑 $K=K_0\subseteq K_1\subseteq\cdots\subseteq K_r=L$을 만든다.
+  \item 각 단계에서 $\alpha_j$의 $K_{j-1}$ 위 최소다항식을 찾는다.
+  \item 단계별 차수를 탑 법칙으로 곱한다.
+  \item 단계별 기저를 곱해 전체 기저를 만든다.
+\end{enumerate}
+
+다만 최소다항식은 기준체가 커지면 차수가 낮아질 수 있다. 따라서 $K$ 위 최소다항식을 그대로 사용해 등호를 주장하지 말고, 각 단계에서 실제로 기약인지 확인해야 한다.
+
+\begin{pitfall}
+항상
+\[
+  [K(\alpha,\beta):K]
+  \le [K(\alpha):K][K(\beta):K]
+\]
+이지만 등호가 항상 성립하지는 않는다. 예를 들어 $\beta\in K(\alpha)$이면 왼쪽은 $[K(\alpha):K]$에 불과하다.
+\end{pitfall}
+
+\section{장 요약}
+
+\begin{chapterreview}
+\begin{enumerate}
+  \item 체의 표수는 $0$ 또는 소수이고, 소체는 $\Q$ 또는 $\F_p$와 동형이다.
+  \item 표수 $p$에서 $a\mapsto a^p$는 단사인 프로베니우스 준동형이며, 유한체에서는 자동동형이다.
+  \item 체확장 $L/K$의 차수는 $K$-벡터공간 차원 $[L:K]$이다.
+  \item 확장탑 $K\subseteq L\subseteq M$에서는 $[M:K]=[M:L][L:K]$가 성립한다.
+  \item 대수적 원소는 영이 아닌 $K$-다항식 관계를 만족하는 원소이다.
+  \item 최소다항식은 평가 준동형의 핵을 생성하는 유일한 일계수 기약다항식이다.
+  \item $\alpha$가 대수적이면 $K[\alpha]=K(\alpha)\cong K[X]/(m_{\alpha,K})$이다.
+  \item $[K(\alpha):K]=\deg m_{\alpha,K}$이고 $1,\alpha,\dots,\alpha^{n-1}$이 표준기저이다.
+  \item 유한확장은 대수적이며, 유한 개의 대수적 원소가 생성한 확장은 유한하다.
+  \item 대수성은 확장탑을 따라 추이적이지만, 대수적 확장이 반드시 유한한 것은 아니다.
+\end{enumerate}
+\end{chapterreview}
+
+\section{빠른 복습 카드}
+
+\begin{description}[style=nextline]
+  \item[Q] 체의 가능한 표수는?\\
+  \textbf{A} $0$ 또는 소수.
+
+  \item[Q] $[L:K]$의 의미는?\\
+  \textbf{A} $L$을 $K$-벡터공간으로 보았을 때의 차원.
+
+  \item[Q] $\alpha$의 최소다항식을 특징짓는 아이디얼은?\\
+  \textbf{A} $\ker(\operatorname{ev}_\alpha)=(m_{\alpha,K})$.
+
+  \item[Q] $\alpha$가 대수적일 때 $K[\alpha]$와 $K(\alpha)$의 관계는?\\
+  \textbf{A} 둘이 같고 체이다.
+
+  \item[Q] 유한확장과 대수적 확장의 관계는?\\
+  \textbf{A} 유한확장은 대수적이지만 역은 일반적으로 거짓이다.
+
+  \item[Q] 최소다항식 계산의 마지막 확인은?\\
+  \textbf{A} 후보의 기약성 또는 후보 차수와 실제 확장차수의 일치.
+\end{description}
