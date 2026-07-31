@@ -181,20 +181,48 @@ $R$의 부분환 $S$와 아이디얼 $I\trianglelefteq R$에 대해 $S+I$는 $R$
 \end{theorem}
 
 \begin{proof}
-합성
+$1\in S\subseteq S+I$이다. 또한 $s_1+i_1,s_2+i_2\in S+I$이면
+\[
+  (s_1+i_1)-(s_2+i_2)=(s_1-s_2)+(i_1-i_2)\in S+I
+\]
+이고
+\[
+  (s_1+i_1)(s_2+i_2)
+  =s_1s_2+(s_1i_2+i_1s_2+i_1i_2)\in S+I,
+\]
+이므로 $S+I$는 부분환이다. $S\cap I$가 $S$의 아이디얼이라는 사실도 아이디얼 판정법에서 바로 따른다.
+
+이제 합성
 \[
   S\hookrightarrow S+I\twoheadrightarrow(S+I)/I
 \]
-은 전사 환 준동형이고 핵은 $S\cap I$이다. 제1동형정리를 적용한다.
+을 생각하자. 임의의 $(s+i)+I$는 $s+I$와 같으므로 이 합성은 전사 환 준동형이고, 그 핵은 $S\cap I$이다. 제1동형정리를 적용하면 원하는 동형을 얻는다.
 \end{proof}
 
 \begin{theorem}[제3동형정리]
-$I\subseteq J$가 $R$의 아이디얼이면 $J/I$는 $R/I$의 아이디얼이고
+$I,J\trianglelefteq R$이고 $I\subseteq J$이면 $J/I$는 $R/I$의 아이디얼이고
 \[
   (R/I)/(J/I)\cong R/J
 \]
 이다.
 \end{theorem}
+
+\begin{proof}
+사상
+\[
+  \Phi:R/I\to R/J,
+  \qquad r+I\mapsto r+J
+\]
+를 정의하자. $r+I=s+I$이면 $r-s\in I\subseteq J$이므로 $r+J=s+J$이다. 따라서 $\Phi$는 잘 정의된 전사 환 준동형이다. 그 핵은
+\[
+  \ker\Phi=\{r+I:r\in J\}=J/I
+\]
+이므로 $J/I$는 $R/I$의 아이디얼이고, 제1동형정리에 의해
+\[
+  (R/I)/(J/I)\cong R/J
+\]
+이다.
+\end{proof}
 
 \begin{checkpoint}
 다음 동형을 적절한 준동형의 핵을 계산하여 증명하라.
