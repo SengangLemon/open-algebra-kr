@@ -1,0 +1,43 @@
+name: Build PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'book/**'
+      - '.github/workflows/build-pdf.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'book/**'
+      - '.github/workflows/build-pdf.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compile Volume 1 with XeLaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: book
+          latexmk_use_xelatex: true
+          args: -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Rename PDF
+        run: cp book/main.pdf Open-Algebra-KR-Volume-1-Draft.pdf
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: open-algebra-kr-volume-1
+          path: Open-Algebra-KR-Volume-1-Draft.pdf
+          if-no-files-found: error
+          retention-days: 30
