@@ -1,0 +1,165 @@
+\section{표수와 소체}
+\label{sec:characteristic-prime-field}
+
+\begin{learninggoal}
+체의 표수를 표준 준동형 $\Z\to K$의 핵으로 이해하고, 소체가 $\Q$ 또는 $\F_p$와 동형임을 증명한다. 양의 표수에서 프로베니우스 준동형을 계산한다.
+\end{learninggoal}
+
+\subsection{정수는 모든 체 안에 어떻게 들어가는가}
+
+항등원을 갖는 임의의 환 $R$에는 유일한 환 준동형
+\[
+  \iota_R:\Z\longrightarrow R,
+  \qquad
+  n\longmapsto n\cdot1_R
+\]
+이 존재한다. 양의 정수 $n$에 대해서는 $n\cdot1_R$가 $1_R$을 $n$번 더한 원소이고, 음의 정수에는 덧셈 역원을 사용한다.
+
+체 $K$에서는 $\ker\iota_K$가 $\Z$의 소아이디얼이다. 따라서
+\[
+  \ker\iota_K=(0)
+  \quad\text{또는}\quad
+  \ker\iota_K=(p)
+\]
+이며, 두 번째 경우의 $p$는 소수이다.
+
+\begin{definition}[표수]
+체 $K$의 표수는
+\[
+  \charac K=
+  \begin{cases}
+    0,&\ker\iota_K=(0),\\
+    p,&\ker\iota_K=(p)
+  \end{cases}
+\]
+로 정의한다. 두 번째 경우 $p$는 $p\cdot1_K=0$을 만족하는 가장 작은 양의 정수이다.
+\end{definition}
+
+\begin{theorem}
+체의 표수는 $0$이거나 소수이다.
+\end{theorem}
+
+\begin{proof}
+표수가 양의 정수 $n$이라고 하자. 만약 $n=ab$가 $1<a,b<n$인 합성수이면
+\[
+  (a\cdot1_K)(b\cdot1_K)=n\cdot1_K=0.
+\]
+체는 정역이므로 두 인수 중 하나가 $0$이어야 한다. 이는 $n$의 최소성에 모순이다. 따라서 $n$은 소수이다.
+\end{proof}
+
+\begin{example}
+\[
+  \charac\Q=\charac\R=\charac\C=0,
+  \qquad
+  \charac\F_p=p.
+\]
+유리함수체 $\F_p(t)$도 $\F_p$를 부분체로 포함하므로 표수가 $p$이다.
+\end{example}
+
+\begin{pitfall}
+표수는 체의 원소 개수와 같은 개념이 아니다. 예를 들어 $\F_{p^n}$의 원소 수는 $p^n$이지만 표수는 $p$이다.
+\end{pitfall}
+
+\subsection{가장 작은 부분체}
+
+한 체의 부분체들을 모두 교집합하면 다시 부분체가 된다. 따라서 모든 체 $K$에는 가장 작은 부분체가 존재한다.
+
+\begin{definition}[소체]
+체 $K$의 모든 부분체의 교집합을 $K$의 \emph{소체}(prime subfield)라 한다.
+\end{definition}
+
+\begin{theorem}[소체의 분류]
+체 $K$의 소체를 $P$라 하자.
+\begin{enumerate}[label=(\roman*)]
+  \item $\charac K=0$이면 $P\cong\Q$이다.
+  \item $\charac K=p>0$이면 $P\cong\F_p$이다.
+\end{enumerate}
+따라서 소체는 동형을 제외하면 $\Q$와 $\F_p$뿐이다.
+\end{theorem}
+
+\begin{proof}
+표수가 $p>0$이면 $\iota_K$의 상은
+\[
+  \Z/(p)\cong\F_p
+\]
+와 동형인 부분체이다. 소체의 최소성 때문에 이 상이 바로 $P$이다.
+
+표수가 $0$이면 $\iota_K$는 단사이므로 $K$ 안에 $\Z$의 동형인 부분환이 있다. $P$는 체이므로 이 부분환의 모든 영이 아닌 원소의 역원을 포함한다. 따라서 $P$는 그 분수체와 동형인 $\Q$를 포함한다. 반대로 $\Q$의 상 자체가 $K$의 부분체이므로 소체의 최소성에서 $P\cong\Q$이다.
+\end{proof}
+
+\begin{corollary}
+서로 다른 표수를 갖는 두 체 사이에는 항등원을 보존하는 환 준동형이 존재하지 않는다.
+\end{corollary}
+
+\begin{proof}
+환 준동형 $\varphi:K\to L$가 존재하면
+\[
+  \varphi(n\cdot1_K)=n\cdot1_L
+\]
+이다. 따라서 $n\cdot1_K=0$인 정수와 $n\cdot1_L=0$인 정수의 집합이 같아야 한다.
+\end{proof}
+
+\subsection{프로베니우스 준동형}
+
+표수가 $p>0$이면 이항계수
+\[
+  \binom pk
+  \qquad(1\le k\le p-1)
+\]
+는 모두 $p$로 나누어진다. 따라서 체 $K$의 모든 $a,b$에 대해
+\[
+  (a+b)^p=a^p+b^p
+\]
+가 성립한다.
+
+\begin{theorem}[프로베니우스 준동형]
+표수가 $p>0$인 체 $K$에서
+\[
+  \Frob_K:K\longrightarrow K,
+  \qquad
+  a\longmapsto a^p
+\]
+는 단사인 체 준동형이다. $K$가 유한체이면 $\Frob_K$는 자동동형이다.
+\end{theorem}
+
+\begin{proof}
+위의 이항공식으로 덧셈을 보존하고
+\[
+  (ab)^p=a^pb^p,
+  \qquad
+  1^p=1
+\]
+이므로 환 준동형이다. 체 준동형의 핵은 $(0)$ 또는 체 전체인데 $1$은 $0$으로 가지 않으므로 핵은 $(0)$이다. 따라서 단사이다. 유한집합의 단사 자기함수는 전사이므로, $K$가 유한하면 자동동형이다.
+\end{proof}
+
+\begin{example}
+$\F_p$의 모든 원소 $a$는
+\[
+  a^p=a
+\]
+를 만족한다. 따라서 $\Frob_{\F_p}=\id$이다.
+\end{example}
+
+\begin{example}[무한체에서는 전사일 필요가 없다]
+$K=\F_p(t)$를 한 변수 유리함수체라 하자. $t$가 $K$의 어떤 원소의 $p$제곱이라고 가정하여
+\[
+  t=\left(\frac{f(t)}{g(t)}\right)^p
+\]
+라 쓰자. 서로소인 $f,g\in\F_p[t]$를 택하면
+\[
+  t g(t)^p=f(t)^p.
+\]
+양변의 차수를 비교하면
+\[
+  1+p\deg g=p\deg f
+\]
+인데, 왼쪽은 $p$로 나눈 나머지가 $1$이고 오른쪽은 $p$의 배수이므로 모순이다. 따라서 프로베니우스는 단사이지만 전사가 아니다.
+\end{example}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 표수가 $6$인 체가 존재할 수 없는 이유를 설명하라.
+  \item $\F_5$에서 프로베니우스 준동형을 원소별로 계산하라.
+  \item $\F_p(t)$와 $\Q(t)$의 소체를 각각 구하라.
+\end{enumerate}
+\end{checkpoint}
