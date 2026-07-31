@@ -1,0 +1,83 @@
+\chapter*{용어 대조표}
+\addcontentsline{toc}{chapter}{용어 대조표}
+
+본문에서는 한국어 용어를 우선 사용하고, 처음 등장할 때 영어를 병기한다. 아래 표는 Volume 1에서 사용하는 표준 용어를 빠르게 찾기 위한 것이다.
+
+\renewcommand{\arraystretch}{1.22}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.31\textwidth}>{\raggedright\arraybackslash}p{0.31\textwidth}p{0.28\textwidth}}
+\toprule
+\textbf{한국어} & \textbf{영어} & \textbf{관련 기호·설명} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{한국어} & \textbf{영어} & \textbf{관련 기호·설명} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+
+이항연산 & binary operation & $G\times G\to G$ \\
+결합법칙 & associativity & $(ab)c=a(bc)$ \\
+항등원 & identity element & $e$ 또는 $1$ \\
+역원 & inverse & $a^{-1}$ \\
+아벨군·가환군 & abelian group & 모든 원소가 서로 교환 \\
+부분군 & subgroup & $H\le G$ \\
+정규부분군 & normal subgroup & $N\trianglelefteq G$ \\
+생성부분군 & generated subgroup & $\langle S\rangle$ \\
+순환군 & cyclic group & 한 원소가 생성 \\
+원소의 위수 & order of an element & $\ord(g)$ \\
+잉여류 & coset & $gH$, $Hg$ \\
+지표 & index & $[G:H]$ \\
+군 준동형 & group homomorphism & $\varphi(ab)=\varphi(a)\varphi(b)$ \\
+핵·상 & kernel, image & $\ker\varphi$, $\im\varphi$ \\
+몫군 & quotient group & $G/N$ \\
+자동동형 & automorphism & $\Aut(G)$ \\
+
+\addlinespace
+환 & ring & 이 책에서는 곱셈 항등원을 가짐 \\
+가환환 & commutative ring & 곱셈이 가환 \\
+부분환 & subring & 같은 곱셈 항등원을 공유 \\
+단위원 & unit & $R^\times$의 원소 \\
+영인수 & zero divisor & 영이 아닌 원소와 곱해 $0$ \\
+멱영원소 & nilpotent element & 어떤 $n>0$에 대해 $a^n=0$ \\
+정역 & integral domain & 영이 아닌 영인수가 없는 비영 가환환 \\
+체 & field & 모든 영이 아닌 원소가 단위원 \\
+아이디얼 & ideal & 덧셈부분군이며 환의 곱셈을 흡수 \\
+주아이디얼 & principal ideal & $(a)$ \\
+서로소 아이디얼 & comaximal ideals & $I+J=R$ \\
+소아이디얼 & prime ideal & $R/\mathfrak p$가 정역 \\
+극대아이디얼 & maximal ideal & $R/\mathfrak m$이 체 \\
+몫환 & quotient ring & $R/I$ \\
+유클리드 정역 & Euclidean domain & ED \\
+주아이디얼정역 & principal ideal domain & PID \\
+유일인수분해정역 & unique factorization domain & UFD \\
+기약원소 & irreducible element & 비자명한 인수분해가 없음 \\
+소원소 & prime element & $p\mid ab\Rightarrow p\mid a$ 또는 $p\mid b$ \\
+동반원소 & associates & 단위원배 관계 \\
+
+\addlinespace
+다항식환 & polynomial ring & $R[X]$ \\
+일계수다항식 & monic polynomial & 최고차항계수가 $1$ \\
+다항함수 & polynomial function & $a\mapsto f(a)$ \\
+평가 준동형 & evaluation homomorphism & $\operatorname{ev}_a$ \\
+나눗셈 알고리즘 & division algorithm & $f=qg+r$ \\
+나머지정리 & remainder theorem & 나머지가 $f(a)$ \\
+인수정리 & factor theorem & $f(a)=0\Leftrightarrow X-a\mid f$ \\
+근의 중복도 & multiplicity of a root & $(X-a)^m\mid f$ \\
+형식적 도함수 & formal derivative & $f'$ \\
+최대공약수 & greatest common divisor & $\gcd(f,g)$ \\
+베주 항등식 & Bezout identity & $af+bg=\gcd(f,g)$ \\
+기약다항식 & irreducible polynomial & 양의 차수의 기약원소 \\
+내용 & content & $\operatorname{cont}(f)$ \\
+원시다항식 & primitive polynomial & 내용이 단위원 \\
+가우스 보조정리 & Gauss's lemma & 원시다항식의 곱은 원시 \\
+유리근 정리 & rational root theorem & 분자·분모의 약수 조건 \\
+아이젠슈타인 판정법 & Eisenstein's criterion & 소수의 계수 나눗셈 조건 \\
+동차다항식 & homogeneous polynomial & 모든 항의 전체차수가 같음 \\
+전체차수 & total degree & 여러 변수에서 $\deg f$ \\
+분수체 & field of fractions & $Q(R)$ \\
+체확장 & field extension & $L/K$ \\
+분해체 & splitting field & 모든 근을 포함하는 최소 확장체 \\
+갈루아군 & Galois group & $\Gal(L/K)$ \\
+
+\end{longtable}

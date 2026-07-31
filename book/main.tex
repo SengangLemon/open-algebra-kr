@@ -6,8 +6,11 @@
 \setmainhangulfont{UnBatang}[AutoFakeSlant=0.2,AutoFakeBold=2]
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{booktabs}
+\usepackage{longtable,array}
 \usepackage{enumitem}
+\usepackage{needspace}
 \usepackage{hyperref}
+\usepackage{bookmark}
 \usepackage[nameinlink,noabbrev]{cleveref}
 \usepackage{xcolor}
 \usepackage[most]{tcolorbox}
@@ -18,7 +21,9 @@
   citecolor=green!40!black,
   urlcolor=blue!60!black,
   pdftitle={Open Algebra KR, Volume 1},
-  pdfauthor={Sunghyun Park}
+  pdfauthor={Sunghyun Park},
+  pdfsubject={Groups, rings, ideals, and polynomial rings},
+  pdfkeywords={abstract algebra, group theory, ring theory, polynomial rings, Galois theory}
 }
 
 \newtheorem{theorem}{정리}[chapter]
@@ -36,7 +41,8 @@
   colback=blue!3,
   colframe=blue!45!black,
   title=학습 목표,
-  breakable
+  breakable,
+  before={\par\Needspace{7\baselineskip}}
 }
 
 \newtcolorbox{pitfall}{
@@ -71,7 +77,8 @@
   colback=black!2,
   colframe=black!60,
   title=장 요약,
-  breakable
+  breakable,
+  before={\par\Needspace{8\baselineskip}}
 }
 
 \renewcommand{\proofname}{증명}
@@ -93,13 +100,23 @@
 \newcommand{\Gal}{\operatorname{Gal}}
 \newcommand{\lcm}{\operatorname{lcm}}
 
+\pdfstringdefDisableCommands{%
+  \def\Z{Z}%
+  \def\Q{Q}%
+  \def\R{R}%
+  \def\C{C}%
+  \def\F{F}%
+  \def\N{N}%
+}
+
 \title{\Huge Open Algebra KR\\[8pt]\Large 갈루아 이론으로 배우는 현대대수학\\[18pt]\large Volume 1: 군, 환, 다항식}
 \author{Sunghyun Park}
-\date{Draft 0.2 - PDF proof}
+\date{Draft 0.3 --- 통합 검수판}
 
 \begin{document}
 \frontmatter
 \maketitle
+\input{frontmatter/copyright}
 \tableofcontents
 \input{frontmatter/preface}
 
@@ -116,6 +133,7 @@
 \input{chapters/03-polynomials}
 
 \backmatter
+\input{backmatter/glossary}
 \input{backmatter/notation}
 \input{backmatter/references}
 \end{document}
