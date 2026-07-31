@@ -1,0 +1,90 @@
+\section{차수와 나눗셈 알고리즘}
+\label{sec:polynomial-division}
+
+\begin{learninggoal}
+다항식의 차수 계산을 익히고, 최고차항계수가 단위원일 때 성립하는 나눗셈 알고리즘을 증명하고 활용한다.
+\end{learninggoal}
+
+\begin{proposition}
+환 $R$과 $f,g\in R[X]$에 대해
+\[
+ \deg(f+g)\le\max\{\deg f,\deg g\},\qquad
+ \deg(fg)\le\deg f+\deg g.
+\]
+$R$이 정역이고 $f,g\ne0$이면
+\[
+ \deg(fg)=\deg f+\deg g.
+\]
+\end{proposition}
+
+\begin{proof}
+$f,g$의 최고차항계수를 각각 $a_m,b_n$이라 하자. $fg$의 $m+n$차 계수는 $a_mb_n$이다. 일반 환에서는 이 곱이 $0$일 수 있으므로 부등식만 얻는다. 정역에서는 $a_mb_n\ne0$이므로 등식이 성립한다.
+\end{proof}
+
+\begin{corollary}
+정역 $R$에 대해 $R[X]$도 정역이고
+\[
+  R[X]^\times=R^\times
+\]
+이다.
+\end{corollary}
+
+\begin{proof}
+영이 아닌 두 다항식의 곱은 차수 공식에 의해 영이 아니다. 또한 $fg=1$이면 $\deg f+\deg g=0$이므로 둘 다 상수다항식이고, 서로 역원이다.
+\end{proof}
+
+\begin{theorem}[다항식 나눗셈 알고리즘]
+$R$을 가환환이라 하고 $g\in R[X]$의 차수를 $d\ge0$이라 하자. $g$의 최고차항계수가 단위원이면 모든 $f\in R[X]$에 대해 유일한 $q,r\in R[X]$가 존재하여
+\[
+  f=qg+r,\qquad r=0\text{ 또는 }\deg r<d
+\]
+를 만족한다.
+\end{theorem}
+
+\begin{proofidea}
+$f$의 최고차항을 $g$의 적절한 배수로 제거하면 차수가 줄어든다. 이를 반복하면 나머지의 차수가 $d$보다 작아진다. 유일성은 두 표현을 빼고 차수를 비교하면 얻어진다.
+\end{proofidea}
+
+\begin{proof}
+존재성은 $\deg f$에 대한 귀납법으로 보인다. $\deg f<d$이면 $q=0,r=f$로 둔다. $\deg f=n\ge d$이고 $f$와 $g$의 최고차항계수를 각각 $c_n,a_d$라 하자. $a_d$가 단위원이므로
+\[
+ f_1=f-c_na_d^{-1}X^{n-d}g
+\]
+의 차수는 $n$보다 작다. 귀납가정을 $f_1$에 적용한다.
+
+유일성을 위해 $f=qg+r=q'g+r'$이라 하자. 그러면
+\[
+ (q-q')g=r'-r.
+\]
+$q\ne q'$이면 왼쪽의 차수는 적어도 $d$이지만 오른쪽의 차수는 $d$보다 작아 모순이다. 따라서 $q=q'$이고 $r=r'$이다.
+\end{proof}
+
+체 $K$에서는 영이 아닌 모든 최고차항계수가 단위원이므로 $K[X]$에서 항상 나눗셈이 가능하다.
+
+\begin{example}
+$\Q[X]$에서
+\[
+ f=X^4+2X^3-X+3,\qquad g=X^2+X-1
+\]
+을 나누면
+\[
+ f=(X^2+X)(X^2+X-1)+(-X+3)
+\]
+이다. 실제로 $(X^2+X)g=X^4+2X^3-X$이다.
+\end{example}
+
+\begin{corollary}[나머지정리]
+$R$이 가환환이고 $a\in R$이면 모든 $f\in R[X]$에 대해
+\[
+  f=(X-a)q+f(a)
+\]
+인 유일한 $q\in R[X]$가 존재한다.
+\end{corollary}
+
+\begin{corollary}[인수정리]
+$f(a)=0$일 필요충분조건은 $X-a$가 $f$를 나누는 것이다.
+\end{corollary}
+
+\begin{pitfall}
+$\Z[X]$에서는 임의의 다항식으로 나눌 수 없다. 예를 들어 $X$를 $2X+1$로 나누는 과정에서 최고차항을 없애려면 $1/2$가 필요하다. 나눗셈 정리에는 나누는 다항식의 최고차항계수가 단위원이라는 조건이 필요하다.
+\end{pitfall}
