@@ -1,0 +1,138 @@
+\section{정규부분군과 몫군}
+\label{sec:normal-quotient}
+
+왼쪽 잉여류들의 집합 $G/H$ 자체에 군 연산을 정의하고 싶다고 하자. 가장 자연스러운 후보는
+\[
+  (aH)(bH)=(ab)H
+\]
+이다. 그러나 $aH$와 $bH$는 대표원 $a,b$의 선택에 의존하지 않는 집합인데, 오른쪽 식이 대표원의 선택과 무관한지는 자동으로 보장되지 않는다. 이 문제를 해결하는 정확한 조건이 정규성이다.
+
+\begin{definition}[정규부분군]
+부분군 $N\le G$가 모든 $g\in G$에 대해
+\[
+  gN=Ng
+\]
+를 만족하면 $N$을 $G$의 \emph{정규부분군}이라고 하고
+\[
+  N\trianglelefteq G
+\]
+라고 쓴다.
+\end{definition}
+
+\begin{proposition}[정규성의 동치 조건]
+$N\le G$에 대하여 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $N\trianglelefteq G$.
+  \item 모든 $g\in G$에 대해 $gNg^{-1}=N$.
+  \item 모든 $g\in G$, $n\in N$에 대해 $gng^{-1}\in N$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i)에서 $gN=Ng$의 양변 오른쪽에 $g^{-1}$을 곱하면 $gNg^{-1}=N$이므로 (ii)이다. (ii)는 즉시 (iii)을 준다. (iii)을 가정하면 $gNg^{-1}\subseteq N$이다. $g^{-1}$에 같은 조건을 적용하면 $g^{-1}Ng\subseteq N$이고, 양변을 $g$와 $g^{-1}$로 켤레하여 $N\subseteq gNg^{-1}$을 얻는다. 따라서 등호가 성립한다.
+\end{proof}
+
+\begin{example}
+아벨군의 모든 부분군은 정규부분군이다. 실제로 $gng^{-1}=n$이다.
+\end{example}
+
+\begin{example}[비정규부분군]
+$S_3$에서 $H=\langle(12)\rangle$는 정규가 아니다. 예를 들어
+\[
+  (123)(12)(123)^{-1}=(23)\notin H.
+\]
+즉 켤레에 의해 $H$의 원소가 $H$ 밖으로 이동한다.
+\end{example}
+
+\begin{proposition}
+군 준동형 $\varphi:G\to H$의 핵은 $G$의 정규부분군이다.
+\end{proposition}
+
+\begin{proof}
+$n\in\ker\varphi$, $g\in G$이면
+\[
+  \varphi(gng^{-1})
+  =\varphi(g)\varphi(n)\varphi(g)^{-1}
+  =\varphi(g)e_H\varphi(g)^{-1}=e_H.
+\]
+따라서 $gng^{-1}\in\ker\varphi$이다.
+\end{proof}
+
+\begin{proposition}[지표 $2$인 부분군]
+$[G:H]=2$이면 $H\trianglelefteq G$이다.
+\end{proposition}
+
+\begin{proof}
+왼쪽 잉여류는 두 개뿐이다. $g\in H$이면 $gH=H=Hg$이다. $g\notin H$이면 $gH$와 $Hg$는 모두 $H$가 아닌 유일한 잉여류, 즉 $G\setminus H$이므로 $gH=Hg$이다.
+\end{proof}
+
+\subsection{몫군의 구성}
+
+\begin{theorem}[몫군]
+$N\trianglelefteq G$이면 왼쪽 잉여류의 집합
+\[
+  G/N=\{gN:g\in G\}
+\]
+에
+\[
+  (aN)(bN)=(ab)N
+\]
+로 연산을 정의할 수 있다. 이 연산 아래 $G/N$은 군이 되며, 이를 $G$의 $N$에 의한 \emph{몫군}이라고 한다.
+\end{theorem}
+
+\begin{proofidea}
+핵심은 연산의 잘 정의성이다. $a,b$ 대신 같은 잉여류의 다른 대표원 $an_1,bn_2$를 사용해도 곱이 같은 잉여류를 주어야 한다. 중간에 $n_1$을 $b$의 오른쪽으로 옮기기 위해 $b^{-1}n_1b\in N$이 필요하며, 이것이 바로 정규성이다.
+\end{proofidea}
+
+\begin{proof}
+$aN=a'N$, $bN=b'N$이라 하자. 어떤 $n_1,n_2\in N$에 대해 $a'=an_1$, $b'=bn_2$로 쓸 수 있다. $N$이 정규이므로 $b^{-1}n_1b\in N$이고
+\[
+  a'b'=an_1bn_2
+  =ab(b^{-1}n_1b)n_2\in abN.
+\]
+따라서 $a'b'N=abN$이고 연산은 대표원 선택과 무관하다.
+
+결합법칙은 $G$의 결합법칙에서 내려온다. 항등원은 $N=eN$이고, $aN$의 역원은 $a^{-1}N$이다. 따라서 $G/N$은 군이다.
+\end{proof}
+
+\begin{remark}
+사실 위 공식으로 잉여류에 군 연산을 정의할 수 있다는 조건은 $N$이 정규라는 조건과 동치이다. 정규성은 편의를 위한 충분조건이 아니라 몫군을 만들기 위한 정확한 조건이다.
+\end{remark}
+
+\begin{definition}[표준사영]
+$N\trianglelefteq G$일 때
+\[
+  \pi:G\to G/N,\qquad g\mapsto gN
+\]
+를 \emph{표준사영}이라고 한다.
+\end{definition}
+
+$\pi$는 전사 준동형이고
+\[
+  \ker\pi=N
+\]
+이다. 몫군은 $N$의 모든 원소를 하나의 항등원으로 압축하여 만든 군이라고 이해할 수 있다.
+
+\begin{example}
+덧셈군 $\Z$에서 $n\Z\trianglelefteq\Z$이고
+\[
+  \Z/n\Z
+\]
+는 익숙한 합동류의 덧셈군이다. 추상적 몫군 개념은 정수의 나머지 계산을 일반 군으로 확장한 것이다.
+\end{example}
+
+\begin{example}
+$S_3$의 부분군
+\[
+  A_3=\{e,(123),(132)\}
+\]
+는 지표 $2$이므로 정규이다. 몫군 $S_3/A_3$는 원소가 두 개이므로
+\[
+  S_3/A_3\cong\Z/2\Z.
+\]
+이 몫군은 순열이 짝순열인지 홀순열인지만 기억한다.
+\end{example}
+
+\begin{pitfall}
+$G/H$라는 기호는 $H$가 정규가 아니어도 왼쪽 잉여류의 \emph{집합}을 뜻할 수 있다. 그러나 $G/H$를 \emph{군}으로 다루려면 반드시 $H\trianglelefteq G$인지 확인해야 한다.
+\end{pitfall}
