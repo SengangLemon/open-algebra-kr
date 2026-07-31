@@ -45,7 +45,7 @@ $[L:K]$는 집합의 원소 수가 아니다. 무한체 $K$에 대해서도 유�
 \[
   [M:K]=[M:L][L:K]
 \]
-가 성립한다. 유한차수인 경우 오른쪽은 보통의 자연수 곱이고, 어느 한 차수가 무한이면 왼쪽도 무한이다.
+가 성립한다. 무한차수도 허용하며, 이 경우 오른쪽의 곱은 기저의 크기에 대한 기수 곱으로 이해한다. 특히 어느 한 단계가 무한차수이면 $M/K$도 무한차수이다.
 \end{theorem}
 
 \begin{proofidea}
@@ -53,51 +53,36 @@ $L/K$의 기저와 $M/L$의 기저를 하나씩 곱하면 $M/K$의 기저가 된
 \end{proofidea}
 
 \begin{proof}
-먼저 $[L:K]=m$, $[M:L]=n$이 유한하다고 하자. $L/K$의 기저를
+$L/K$의 기저를 $(x_i)_{i\in I}$라 하고 $M/L$의 기저를 $(y_j)_{j\in J}$라 하자. 다음 집합을 생각한다.
 \[
-  x_1,\dots,x_m
+  \mathcal B=\{x_i y_j:(i,j)\in I\times J\}.
 \]
-이라 하고 $M/L$의 기저를
-\[
-  y_1,\dots,y_n
-\]
-이라 하자. 그러면
-\[
-  \{x_i y_j:1\le i\le m,\ 1\le j\le n\}
-\]
-가 $M/K$의 기저임을 보이면 된다.
 
-먼저 생성성을 보자. 임의의 $z\in M$는
+먼저 $\mathcal B$가 $M$을 $K$ 위에서 생성함을 보자. 임의의 $z\in M$는 $y_j$들의 유한한 $L$-선형결합
 \[
-  z=\sum_{j=1}^n c_jy_j
-  \qquad(c_j\in L)
+  z=\sum_{j\in J_0}c_jy_j
 \]
-로 쓰이고, 각 $c_j$는
-\[
-  c_j=\sum_{i=1}^m a_{ij}x_i
-  \qquad(a_{ij}\in K)
-\]
-로 쓰인다. 따라서
-\[
-  z=\sum_{i,j}a_{ij}x_i y_j
-\]
-이다.
+으로 쓰인다. 여기서 $J_0\subseteq J$는 유한집합이고 $c_j\in L$이다. 각 $c_j$도 $x_i$들의 유한한 $K$-선형결합으로 쓰이므로, 대입하면 $z$는 $\mathcal B$의 유한한 $K$-선형결합이 된다.
 
-선형독립성을 보자. $a_{ij}\in K$에 대해
+이제 선형독립성을 보자. 유한집합 $I_0\subseteq I$, $J_0\subseteq J$와 계수 $a_{ij}\in K$에 대해
 \[
-  \sum_{i,j}a_{ij}x_i y_j=0
+  \sum_{j\in J_0}\sum_{i\in I_0}a_{ij}x_i y_j=0
 \]
 이라 하자. $y_j$에 대한 $L$-선형결합으로 묶으면
 \[
-  \sum_j\left(\sum_i a_{ij}x_i\right)y_j=0.
+  \sum_{j\in J_0}\left(\sum_{i\in I_0}a_{ij}x_i\right)y_j=0.
 \]
 $y_j$들의 $L$-선형독립성에서 각 $j$에 대해
 \[
-  \sum_i a_{ij}x_i=0
+  \sum_{i\in I_0}a_{ij}x_i=0
 \]
-이고, 다시 $x_i$들의 $K$-선형독립성에서 모든 $a_{ij}=0$이다. 따라서 곱으로 만든 $mn$개의 원소가 기저이다.
+이고, 다시 $x_i$들의 $K$-선형독립성에서 모든 $a_{ij}=0$이다. 따라서 $\mathcal B$는 $M/K$의 기저이다.
 
-이제 $[L:K]$ 또는 $[M:L]$이 무한이라고 하자. 임의로 큰 유한 선형독립 집합을 각각 택하고 위와 같은 곱셈 논증을 적용하면 $M$ 안에 임의로 큰 $K$-선형독립 집합이 생긴다. 따라서 $[M:K]$는 무한이다.
+기저의 크기를 세면
+\[
+  [M:K]=|I\times J|=|I|\,|J|=[L:K][M:L]
+\]
+을 얻는다.
 \end{proof}
 
 \begin{corollary}
