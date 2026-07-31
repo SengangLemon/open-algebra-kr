@@ -1,0 +1,143 @@
+\section{소아이디얼과 극대아이디얼}
+\label{sec:ring-prime-maximal}
+
+\begin{learninggoal}
+소아이디얼과 극대아이디얼을 몫환의 성질로 판정하고, $\Z$와 일변수 다항식환에서 구체적인 예를 분류한다.
+\end{learninggoal}
+
+\subsection{아이디얼이 만드는 몫환의 성질}
+
+아이디얼 $I$는 $R$의 일부를 $0$으로 만든다. 어떤 아이디얼을 택하느냐에 따라 몫환은 영인수를 가질 수도 있고, 정역이나 체가 될 수도 있다. 소아이디얼과 극대아이디얼은 이 차이를 정확히 포착한다.
+
+\begin{definition}[소아이디얼]
+가환환 $R$의 진아이디얼 $\mathfrak p\ne R$가 다음 조건을 만족하면 \emph{소아이디얼}(prime ideal)이라 한다.
+\[
+  ab\in\mathfrak p
+  \quad\Longrightarrow\quad
+  a\in\mathfrak p\text{ 또는 }b\in\mathfrak p.
+\]
+\end{definition}
+
+\begin{definition}[극대아이디얼]
+가환환 $R$의 진아이디얼 $\mathfrak m$이 $\mathfrak m\subseteq I\subseteq R$인 아이디얼 $I$에 대해
+\[
+  I=\mathfrak m\quad\text{또는}\quad I=R
+\]
+만을 허용하면 $\mathfrak m$을 \emph{극대아이디얼}(maximal ideal)이라 한다.
+\end{definition}
+
+\begin{theorem}[몫환 판정법]
+가환환 $R$과 진아이디얼 $I$에 대해 다음이 성립한다.
+\begin{enumerate}[label=(\roman*)]
+  \item $I$가 소아이디얼일 필요충분조건은 $R/I$가 정역인 것이다.
+  \item $I$가 극대아이디얼일 필요충분조건은 $R/I$가 체인 것이다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+몫환에서
+\[
+  (a+I)(b+I)=0+I
+\]
+일 필요충분조건은 $ab\in I$이다. 따라서 $R/I$에 영이 아닌 영인수가 없다는 조건은 정확히 $I$의 소아이디얼 조건과 같다.
+
+(ii)를 보이자. $I$를 포함하는 $R$의 아이디얼과 $R/I$의 아이디얼 사이에는
+\[
+  J\longmapsto J/I,\qquad
+  L\longmapsto\pi^{-1}(L)
+\]
+로 주어지는 포함관계 보존 일대일 대응이 있다. 따라서 $I$보다 크고 $R$보다 작은 아이디얼이 없다는 것은 $R/I$가 영아이디얼 이외의 진아이디얼을 갖지 않는다는 것과 동치이다. 영환이 아닌 가환환이 체일 필요충분조건은 진아이디얼이 $0$뿐인 것이므로 결론이 따른다.
+\end{proof}
+
+\begin{corollary}
+모든 극대아이디얼은 소아이디얼이다.
+\end{corollary}
+
+\begin{proof}
+체는 정역이므로 몫환 판정법을 적용한다.
+\end{proof}
+
+역은 일반적으로 거짓이다. 예를 들어 $\Z$에서 $(0)$은 소아이디얼이지만 극대아이디얼은 아니다. 실제로 $\Z/(0)\cong\Z$는 정역이지만 체가 아니다.
+
+\subsection{정수환의 소아이디얼과 극대아이디얼}
+
+\begin{theorem}
+정수환 $\Z$의 소아이디얼은
+\[
+  (0)\quad\text{및}\quad (p)\ (p\text{는 소수})
+\]
+이고, 극대아이디얼은 정확히 $(p)$들이다.
+\end{theorem}
+
+\begin{proof}
+$\Z$의 모든 아이디얼은 $(n)$ 꼴이다. $n=0$이면 몫환은 $\Z$이므로 $(0)$은 소아이디얼이다. $n>0$일 때
+\[
+  \Z/(n)=\Z/n\Z
+\]
+가 정역 또는 체일 필요충분조건은 $n$이 소수인 것이다. 몫환 판정법을 적용하면 된다.
+\end{proof}
+
+\subsection{체 위 일변수 다항식환}
+
+뒤 장에서 $K[X]$가 유클리드 정역이며 따라서 PID임을 증명한다. 그 사실을 잠시 사용하면 $K[X]$의 모든 아이디얼은 $(f)$ 꼴이다.
+
+\begin{proposition}
+체 $K$와 영이 아닌 비상수 다항식 $f\in K[X]$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $f$는 기약다항식이다.
+  \item $(f)$는 소아이디얼이다.
+  \item $(f)$는 극대아이디얼이다.
+  \item $K[X]/(f)$는 체이다.
+\end{enumerate}
+\end{proposition}
+
+\begin{proofidea}
+PID에서는 기약원소와 소원소가 일치한다. 또한 $(f)$를 포함하는 아이디얼은 $f$의 약수에 대응한다. $f$가 기약이면 $(f)$와 $K[X]$ 사이에 아이디얼이 없다.
+\end{proofidea}
+
+\begin{example}
+\begin{enumerate}[label=(\alph*)]
+  \item $(X^2+1)$은 $\R[X]$의 극대아이디얼이다. 몫환은 $\C$와 동형이다.
+  \item $(X^2+1)$은 $\C[X]$에서는 극대아이디얼이 아니다. $X^2+1=(X-i)(X+i)$로 인수분해되기 때문이다.
+  \item $(X^2-2)$는 $\Q[X]$의 극대아이디얼이며 $\Q[X]/(X^2-2)$는 $\Q(\sqrt2)$와 동형인 체이다.
+\end{enumerate}
+\end{example}
+
+\subsection{아이디얼 대응정리}
+
+\begin{theorem}[아이디얼 대응정리]
+$I\trianglelefteq R$라 하자. $I$를 포함하는 $R$의 아이디얼과 $R/I$의 아이디얼 사이에는
+\[
+  J\longmapsto J/I,\qquad
+  L\longmapsto\pi^{-1}(L)
+\]
+로 주어지는 일대일 대응이 있다. 이 대응은 포함관계를 보존하며, 소아이디얼과 극대아이디얼도 서로 대응시킨다.
+\end{theorem}
+
+\begin{proof}
+두 사상이 서로 역이라는 것은
+\[
+  \pi^{-1}(J/I)=J,\qquad \pi(\pi^{-1}(L))=L
+\]
+에서 확인된다. 포함관계 보존은 명백하다. $J/I$가 소 또는 극대인지 여부는
+\[
+  (R/I)/(J/I)\cong R/J
+\]
+와 몫환 판정법으로 확인된다.
+\end{proof}
+
+\begin{example}
+$R=\Z$, $I=(12)$라 하자. $(12)$를 포함하는 아이디얼은
+\[
+  (12),\ (6),\ (4),\ (3),\ (2),\ (1)
+\]
+이다. 이들은 $\Z/12\Z$의 모든 아이디얼과 대응한다. 그중 극대아이디얼은 $(2)/(12)$와 $(3)/(12)$이며, 각각 몫을 취하면 $\F_2$, $\F_3$가 된다.
+\end{example}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Z/18\Z$의 모든 소아이디얼과 극대아이디얼을 구하라.
+  \item $\Q[X]/(X^3-2)$가 체인지 판단하라.
+  \item $\R[X]/(X^2-1)$이 정역이 아닌 이유를 영인수를 직접 제시하여 설명하라.
+\end{enumerate}
+\end{checkpoint}
