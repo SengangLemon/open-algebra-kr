@@ -32,7 +32,7 @@ $\Z/24\Z$의 멱영원소를 모두 구하라.
 \end{exercise}
 
 \begin{exercise}
-환 $R\times S$에서 단위원, 영인수, 멱영원소를 $R$과 $S$의 자료로 기술하라.
+$R,S$를 영환이 아닌 가환환이라 하자. 환 $R\times S$의 단위원과 멱영원소를 각 성분의 자료로 기술하라. 또한 영이 아닌 $(r,s)$가 영인수일 필요충분조건을 $r,s$의 소멸원소를 이용하여 설명하라.
 \end{exercise}
 
 \begin{exercise}[*]
@@ -109,15 +109,15 @@ $\F_3[X]/(X^2+1)$의 모든 원소를 쓰고, 각 영이 아닌 원소의 역원
 \end{exercise}
 
 \begin{exercise}[*]
-$I,J\trianglelefteq R$에 대해
+$S\subseteq R$를 $R$과 같은 항등원을 갖는 부분환이라 하고 $J\trianglelefteq R$라 하자. $S+J$가 $R$의 부분환이고 $S\cap J$가 $S$의 아이디얼임을 확인한 뒤,
 \[
-  I/(I\cap J)\cong(I+J)/J
+  S/(S\cap J)\cong(S+J)/J
 \]
 를 환의 제1동형정리로 증명하라.
 \end{exercise}
 
 \begin{exercise}
-$I\subseteq J\trianglelefteq R$에 대해
+$I,J\trianglelefteq R$이고 $I\subseteq J$라 하자. 동형
 \[
   (R/I)/(J/I)\cong R/J
 \]
@@ -129,15 +129,15 @@ $I+J=R$이면 $I^m+J^n=R$임을 모든 양의 정수 $m,n$에 대해 증명하�
 \end{exercise}
 
 \begin{exercise}
-유한 가환환 $R$의 모든 원소가 영인수 또는 단위원임을 증명하라. 여기서 $0$도 영인수로 허용한다고 하자.
+유한 가환환 $R$의 모든 원소가 영인수 또는 단위원임을 증명하라. 이 문제에서만 $0$도 영인수로 허용한다고 하자.
 \end{exercise}
 
 \begin{exercise}[*]
-가환환 $R$에 대해 다음이 동치임을 증명하라.
+$R\ne0$인 가환환에 대해 다음이 동치임을 증명하라.
 \begin{enumerate}[label=(\roman*)]
   \item $R$은 체이다.
-  \item 환 준동형 $R\to S$는 $S\ne0$인 모든 환 $S$에 대해 단사이다.
-  \item $R$의 아이디얼은 $(0)$과 $R$뿐이다.
+  \item $S\ne0$인 모든 환 $S$와 모든 환 준동형 $R\to S$에 대해 그 준동형은 단사이다.
+  \item $R$의 아이디얼은 서로 다른 두 아이디얼 $(0)$과 $R$뿐이다.
 \end{enumerate}
 \end{exercise}
 
@@ -197,16 +197,25 @@ $R=K[X,Y]/(XY)$라 하고 $x,y$를 $X,Y$의 잉여류라 하자.
 $R$이 PID이고 $a,b\in R$라 하자. $(a,b)=(d)$이면 $d$가 $a,b$의 최대공약수임을 증명하고, 역으로 최대공약수 $d$가 항상 $(a,b)$를 생성하는지는 일반 UFD에서도 성립하는지 조사하라.
 \end{exercise}
 
-\begin{exercise}
-$\Z[i]$에서
+\begin{exercise}[*]
+가우스 정수환 $\Z[i]$에서
 \[
   5=(2+i)(2-i)
 \]
-임을 확인하고, $2+i$가 단위원이 아님을 노름으로 보이라. $2+i$가 $5$의 제곱근과 어떤 관련이 있는지도 $\Z[i]/(2+i)$에서 설명하라.
+임을 확인하고, 노름을 이용하여 $2+i$가 단위원이 아님을 보이라. 이어서 환 동형
+\[
+  \Z[i]/(2+i)\cong\F_5
+\]
+를 구체적으로 구성하고, 이 동형 아래에서 $i$가 $\F_5$의 어떤 원소에 대응하는지 구하라. 그 원소가 $-1$의 제곱근임도 확인하라.
 \end{exercise}
 
 \begin{exercise}[*]
-정역 $R$에서 모든 소아이디얼이 극대아이디얼이라고 하자. $R$이 PID일 때 $R$은 체이거나 모든 영이 아닌 소아이디얼이 극대라는 사실과 어떤 관계가 있는지 설명하고, $\Z$가 가정을 만족하지 않는 이유를 명확히 하라.
+$R$을 정역이라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item $R$의 모든 소아이디얼이 극대아이디얼이면 $R$이 체임을 증명하라.
+  \item $R$이 PID이면 모든 영이 아닌 소아이디얼이 극대아이디얼임을 증명하라.
+  \item $\Z$가 (b)는 만족하지만 (a)의 가정은 만족하지 않는 이유를 설명하라.
+\end{enumerate}
 \end{exercise}
 
 \begin{exercise}
