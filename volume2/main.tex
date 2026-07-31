@@ -1,0 +1,131 @@
+\documentclass[11pt,openany]{book}
+
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{fontspec}
+\usepackage{kotex}
+\setmainhangulfont{UnBatang}[AutoFakeSlant=0.2,AutoFakeBold=2]
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{longtable,array}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=green!40!black,
+  urlcolor=blue!60!black,
+  pdftitle={Open Algebra KR, Volume 2},
+  pdfauthor={Sunghyun Park},
+  pdfsubject={Algebraic field extensions and the road to Galois theory},
+  pdfkeywords={field theory, algebraic extensions, minimal polynomial, characteristic, Galois theory}
+}
+
+\newtheorem{theorem}{정리}[chapter]
+\newtheorem{proposition}[theorem]{명제}
+\newtheorem{lemma}[theorem]{보조정리}
+\newtheorem{corollary}[theorem]{따름정리}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{정의}
+\newtheorem{example}[theorem]{예제}
+\newtheorem{exercise}{연습문제}[chapter]
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{설명}
+
+\newtcolorbox{learninggoal}{
+  colback=blue!3,
+  colframe=blue!45!black,
+  title=학습 목표,
+  breakable,
+  before={\par\Needspace{7\baselineskip}}
+}
+
+\newtcolorbox{pitfall}{
+  colback=red!3,
+  colframe=red!55!black,
+  title=자주 하는 실수,
+  breakable
+}
+
+\newtcolorbox{keyidea}{
+  colback=green!3,
+  colframe=green!45!black,
+  title=핵심 아이디어,
+  breakable
+}
+
+\newtcolorbox{proofidea}{
+  colback=yellow!5,
+  colframe=orange!65!black,
+  title=증명 전략,
+  breakable
+}
+
+\newtcolorbox{checkpoint}{
+  colback=violet!3,
+  colframe=violet!45!black,
+  title=이해 점검,
+  breakable
+}
+
+\newtcolorbox{chapterreview}{
+  colback=black!2,
+  colframe=black!60,
+  title=장 요약,
+  breakable,
+  before={\par\Needspace{8\baselineskip}}
+}
+
+\renewcommand{\proofname}{증명}
+\newenvironment{solution}{\begin{proof}[풀이]}{\end{proof}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\charac}{\operatorname{char}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Frob}{\operatorname{Frob}}
+\newcommand{\minpoly}{\operatorname{minpoly}}
+
+\pdfstringdefDisableCommands{%
+  \def\Z{Z}%
+  \def\Q{Q}%
+  \def\R{R}%
+  \def\C{C}%
+  \def\F{F}%
+  \def\N{N}%
+}
+
+\title{\Huge Open Algebra KR\\[8pt]\Large 갈루아 이론으로 배우는 현대대수학\\[18pt]\large Volume 2: 대수적 체확장}
+\author{Sunghyun Park}
+\date{Draft 0.1 --- 집필 시작판}
+
+\begin{document}
+\frontmatter
+\maketitle
+\input{frontmatter/copyright}
+\tableofcontents
+\input{frontmatter/preface}
+
+\mainmatter
+\part{체확장의 언어}
+\setcounter{chapter}{-1}
+\input{chapters/00-motivation}
+\input{chapters/01-field-extensions}
+
+\backmatter
+\input{backmatter/notation}
+\input{backmatter/references}
+\end{document}
