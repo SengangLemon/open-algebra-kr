@@ -1,0 +1,193 @@
+\section{선별 문제 풀이 II}
+\label{sec:finite-field-solutions-b}
+
+\subsection*{문제 \thechapter.18: 상대 프로베니우스와 자동동형군}
+
+\begin{solution}
+$q=p^r$라 하자. 표수 $p$의 프로베니우스 공식을 반복하면
+\[
+  (a+b)^q=a^q+b^q,
+  \qquad
+  (ab)^q=a^qb^q.
+\]
+따라서 $\Frob_q:a\mapsto a^q$는 체 준동형이다. 체 준동형이므로 단사이고, 유한집합의 단사 자기함수이므로 전사이다. $c\in\F_q$이면 $c^q=c$이므로 $\F_q$를 고정한다.
+
+$L=\F_{q^n}$의 모든 원소는 $a^{q^n}=a$를 만족하므로
+\[
+  \Frob_q^n=\id.
+\]
+만약 $0<d<n$에 대해 $\Frob_q^d=\id$라면 $L$의 $q^n$개 원소가 모두 $X^{q^d}-X$의 근이다. 그러나 이 다항식의 차수는 $q^d<q^n$이므로 모순이다. 따라서 $\Frob_q$의 위수는 정확히 $n$이다.
+
+한편 $L/\F_q$는 분리이고 정규인 차수 $n$의 확장이므로 $\F_q$-자동동형은 $n$개이다. $\Frob_q$의 거듭제곱
+\[
+  \id,\Frob_q,\dots,\Frob_q^{n-1}
+\]
+이 이미 서로 다른 $n$개의 자동동형이므로
+\[
+  \Aut_{\F_q}(L)=\langle\Frob_q\rangle.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.20: $X^{q^n}-X$의 기약인수}
+
+\begin{solution}
+$f$의 한 근을 $\alpha$라 하자. $f$는 기약이고 차수가 $d$이므로
+\[
+  [\F_q(\alpha):\F_q]=d
+\]
+이고 $\F_q(\alpha)$는 원소가 $q^d$개인 체, 즉 $\F_{q^d}$이다.
+
+$f\mid X^{q^n}-X$일 필요충분조건은 $\alpha$가 $X^{q^n}-X$의 근인 것이고, 이는
+\[
+  \alpha\in\F_{q^n}
+\]
+과 동치이다. 따라서
+\[
+\begin{aligned}
+ f\mid X^{q^n}-X
+ &\Longleftrightarrow \F_{q^d}\subseteq\F_{q^n}\\
+ &\Longleftrightarrow d\mid n.
+\end{aligned}
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.22: 기약다항식 개수 공식}
+
+\begin{solution}
+$X^{q^n}-X$는 도함수가 $-1$이므로 중근이 없다. 또한 일계수 기약다항식 $f$가 이 다항식을 나눌 필요충분조건은 $\deg f\mid n$이다. 따라서
+\[
+  X^{q^n}-X
+  =\prod_{d\mid n}\prod_{\substack{f\text{ monic irreducible}\\\deg f=d}}f(X).
+\]
+양변의 차수를 비교하면 왼쪽은 $q^n$이고, 오른쪽에서 차수 $d$인 인수는 $N_q(d)$개이므로
+\[
+  q^n=\sum_{d\mid n}dN_q(d).
+\]
+
+산술함수
+\[
+  A(n)=q^n,
+  \qquad
+  B(n)=nN_q(n)
+\]
+를 두면 $A(n)=\sum_{d\mid n}B(d)$이다. 모비우스 반전 공식에 의해
+\[
+  B(n)=\sum_{d\mid n}\mu(d)A(n/d)
+  =\sum_{d\mid n}\mu(d)q^{n/d}.
+\]
+따라서
+\[
+  N_q(n)=\frac1n\sum_{d\mid n}\mu(d)q^{n/d}.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.23: $\overline{\F_p}$의 중첩된 구성}
+
+\begin{solution}
+$n!\mid(n+1)!$이므로
+\[
+  \F_{p^{n!}}\subseteq\F_{p^{(n+1)!}}.
+\]
+따라서
+\[
+  K=\bigcup_{n\ge1}\F_{p^{n!}}
+\]
+는 중첩된 체들의 합집합이어서 체이다. 모든 원소는 어떤 유한체에 속하므로 $K/\F_p$는 대수적이다.
+
+이제 비상수 다항식 $f\in K[X]$를 택한다. 계수는 유한개이므로 어떤 $m$에 대해 모두 $\F_{p^{m!}}$에 속한다. $f$의 분해체 $E$는 $\F_{p^{m!}}$의 유한확장이므로 어떤 $r\ge1$에 대해
+\[
+  |E|=(p^{m!})^r=p^{m!r}.
+\]
+충분히 큰 $N$을 택하면 $m!r\mid N!$이다. 그러면
+\[
+  E=\F_{p^{m!r}}\subseteq\F_{p^{N!}}\subseteq K.
+\]
+따라서 $f$의 모든 근이 $K$에 속한다. 모든 비상수 다항식이 $K$에서 완전히 분해되므로 $K$는 대수적으로 닫혀 있다. 그러므로 $K$는 $\F_p$의 대수적 폐포이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.25: $\F_{q^{12}}$의 부분군과 고정체}
+
+\begin{solution}
+$\sigma=\Frob_q$라 두면
+\[
+  G=\langle\sigma\rangle
+\]
+는 위수 $12$인 순환군이다. $12$의 약수에 대응하는 모든 부분군과 고정체는 다음과 같다.
+\[
+\begin{array}{c|c|c}
+\text{부분군}&\text{부분군의 위수}&\text{고정체}\\
+\hline
+\langle\sigma\rangle&12&\F_q\\
+\langle\sigma^2\rangle&6&\F_{q^2}\\
+\langle\sigma^3\rangle&4&\F_{q^3}\\
+\langle\sigma^4\rangle&3&\F_{q^4}\\
+\langle\sigma^6\rangle&2&\F_{q^6}\\
+\{\id\}=\langle\sigma^{12}\rangle&1&\F_{q^{12}}
+\end{array}
+\]
+실제로 $d\mid12$일 때 $\sigma^d$의 고정체는
+\[
+  \F_{q^{\gcd(12,d)}}=\F_{q^d}
+\]
+이다.
+
+예를 들어
+\[
+  \langle\sigma^4\rangle\subseteq\langle\sigma^2\rangle
+\]
+이지만 고정체는 반대로
+\[
+  \F_{q^4}\supseteq\F_{q^2}
+\]
+이다. 일반적으로 더 큰 부분군은 더 많은 조건을 부과하므로 더 작은 고정체를 갖는다.
+\end{solution}
+
+\subsection*{문제 \thechapter.28: 영이 아닌 원소 전체의 곱}
+
+\begin{solution}
+$F^\times$의 각 원소 $a$를 $a^{-1}$과 짝짓는다. $a\ne a^{-1}$인 쌍의 곱은 모두 $1$이다. 짝이 자기 자신인 원소는
+\[
+  a^2=1
+\]
+을 만족한다. 체에서는
+\[
+  (a-1)(a+1)=0
+\]
+이므로 이러한 원소는 $1$과 $-1$뿐이다. 표수가 $2$이면 $1=-1$이고, 표수가 홀수이면 두 원소의 곱이 $-1$이다. 따라서 모든 경우에
+\[
+  \prod_{a\in F^\times}a=-1.
+\]
+
+$F=\F_p$이면 영이 아닌 원소는 $1,2,\dots,p-1$의 잉여류이므로
+\[
+  (p-1)!\equiv-1\pmod p.
+\]
+이것이 윌슨 정리이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.30: 프로베니우스 궤도와 최소다항식}
+
+\begin{solution}
+$\sigma=\Frob_q$라 하자. $\sigma^n=\id$이고 $d$는 $\sigma^d(\alpha)=\alpha$가 되는 최소의 양의 정수이다. 순환군에서 원소의 궤도 길이는 군의 위수를 나누므로 $d\mid n$이다. 직접적으로도 $n=ad+r$, $0\le r<d$로 나누면
+\[
+  \alpha=\sigma^n(\alpha)=\sigma^r(\alpha)
+\]
+이고 $d$의 최소성 때문에 $r=0$이다.
+
+이제
+\[
+  g(X)=\prod_{j=0}^{d-1}(X-\alpha^{q^j})
+\]
+라 하자. 계수에 프로베니우스를 적용하면 근들이
+\[
+  \alpha^q,\alpha^{q^2},\dots,
+  \alpha^{q^d}=\alpha
+\]
+로 순환될 뿐이므로 $g$는 변하지 않는다. 따라서 각 계수 $c$는 $c^q=c$를 만족하고 $c\in\F_q$이다. 즉 $g\in\F_q[X]$이다.
+
+$e=[\F_q(\alpha):\F_q]$라 하자. $g(\alpha)=0$이므로 최소다항식의 차수 $e$는 $d$ 이하이다. 한편 $\F_q(\alpha)=\F_{q^e}$이고 그 모든 원소는 $q^e$제곱에 고정되므로
+\[
+  \alpha^{q^e}=\alpha.
+\]
+$d$의 최소성에서 $d\mid e$이므로 $d\le e$이다. 따라서 $d=e$이다. $g$는 일계수이고 차수가 $d=e$이며 $\alpha$를 근으로 가지므로 $\alpha$의 최소다항식과 같다.
+\end{solution}
