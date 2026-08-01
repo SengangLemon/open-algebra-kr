@@ -1,0 +1,214 @@
+\section{매장과 분리차수}
+\label{sec:separable-degree}
+
+\begin{learninggoal}
+기준체를 고정하는 체매장의 개수로 분리차수를 정의한다. 단순확장에서 분리차수를 계산하고, 확장탑에 대한 곱셈공식과 유한 분리확장의 판정법을 증명한다.
+\end{learninggoal}
+
+체 $K$의 대수적 폐포 $\overline K$를 고정하자. 유한 대수적 확장 $L/K$에 대해
+\[
+  \Hom_K(L,\overline K)
+\]
+는 $K$의 모든 원소를 고정하는 체매장 $L\to\overline K$들의 집합이다.
+
+\begin{remark}[매장의 연장]
+$K\subseteq E\subseteq L$이 유한 대수적 확장탑이면 모든 $K$-매장
+\[
+  \sigma:E\longrightarrow\overline K
+\]
+은 $L$의 원소들을 하나씩 첨가하면서 $K$-매장 $L\to\overline K$로 연장할 수 있다. 단순확장 $E(\alpha)/E$에서는 $\alpha$를 $\sigma$가 계수에 작용한 최소다항식의 한 근으로 보내면 된다.
+
+또한 대수적 폐포의 동형 연장 정리에 의해 $E$의 $K$-매장은 $\overline K$의 $K$-자동동형으로 연장할 수 있다. 이 표준 연장 정리는 아래의 분리차수 곱셈공식에서 사용한다.
+\end{remark}
+
+\begin{definition}[분리차수]
+유한 대수적 확장 $L/K$의 \emph{분리차수}(separable degree)를
+\[
+  [L:K]_{\mathrm s}
+  :=\#\Hom_K(L,\overline K)
+\]
+로 정의한다.
+\end{definition}
+
+대수적 폐포를 다르게 선택해도 결과는 같다. 두 대수적 폐포 사이의 $K$-동형과 합성하면 매장 집합 사이의 전단사를 얻기 때문이다.
+
+\begin{lemma}[단순확장의 분리차수]
+$L=K(\alpha)$가 유한 단순확장이고 $m_{\alpha,K}$가 $\alpha$의 최소다항식이라 하자. 그러면
+\[
+  [L:K]_{\mathrm s}
+\]
+는 $m_{\alpha,K}$가 $\overline K$에서 갖는 서로 다른 근의 개수와 같다. 특히
+\[
+  \alpha\text{가 }K\text{ 위에서 분리적}
+  \quad\Longleftrightarrow\quad
+  [K(\alpha):K]_{\mathrm s}=[K(\alpha):K].
+\]
+\end{lemma}
+
+\begin{proof}
+$K$-매장 $\sigma:K(\alpha)\to\overline K$는 $\sigma(\alpha)$에 의해 유일하게 정해진다. 최소다항식의 계수는 $K$에 있으므로
+\[
+  m_{\alpha,K}(\sigma(\alpha))
+  =\sigma(m_{\alpha,K}(\alpha))=0.
+\]
+반대로 최소다항식의 각 근 $\beta$에 대해 근을 보내는 동형
+\[
+  K(\alpha)\longrightarrow K(\beta)\subseteq\overline K,
+  \qquad
+  \alpha\longmapsto\beta
+\]
+가 존재한다. 따라서 매장과 서로 다른 근이 일대일로 대응한다.
+\end{proof}
+
+\begin{corollary}
+$\charac K=p>0$이고 $\alpha$의 최소다항식의 모든 근의 중복도가 $p^r$이면
+\[
+  [K(\alpha):K]
+  =p^r[K(\alpha):K]_{\mathrm s}.
+\]
+\end{corollary}
+
+\begin{example}
+$\alpha=\sqrt[3]{2}$라 하자. $X^3-2$는 $\Q$ 위에서 세 개의 서로 다른 복소근
+\[
+  \alpha,\quad \omega\alpha,\quad \omega^2\alpha
+\]
+를 가지므로
+\[
+  [\Q(\alpha):\Q]_{\mathrm s}=3=[\Q(\alpha):\Q].
+\]
+$\Q(\alpha)/\Q$가 분해체가 아니어도 분리확장일 수 있다는 점에 주의하자.
+\end{example}
+
+\begin{example}
+$K=\F_p(t^p)$, $L=\F_p(t)$이면 $t$의 최소다항식은 $(X-t)^p$이고 서로 다른 근은 하나뿐이다. 따라서
+\[
+  [L:K]=p,
+  \qquad
+  [L:K]_{\mathrm s}=1.
+\]
+\end{example}
+
+\subsection{확장탑에 대한 곱셈공식}
+
+\begin{theorem}[분리차수의 곱셈공식]
+유한 대수적 확장탑
+\[
+  K\subseteq L\subseteq M
+\]
+에 대해
+\[
+  [M:K]_{\mathrm s}
+  =[M:L]_{\mathrm s}[L:K]_{\mathrm s}
+\]
+가 성립한다.
+\end{theorem}
+
+\begin{proofidea}
+$M$의 $K$-매장을 $L$에 제한한다. $L$의 각 $K$-매장 위에는 정확히 $[M:L]_{\mathrm s}$개의 연장이 놓인다.
+\end{proofidea}
+
+\begin{proof}
+$M$을 포함하는 $K$의 대수적 폐포 $\overline K$를 고정한다. 제한 사상
+\[
+  \rho:\Hom_K(M,\overline K)
+  \longrightarrow\Hom_K(L,\overline K),
+  \qquad
+  \tau\longmapsto\tau|_L
+\]
+을 생각하자. 매장 연장 정리에 의해 $\rho$는 전사이다.
+
+$\sigma\in\Hom_K(L,\overline K)$를 하나 고정하고, $\sigma$를 연장하는 $K$-자동동형 $\widetilde\sigma$ of $\overline K$를 택한다. 합성
+\[
+  \eta\longmapsto\widetilde\sigma\circ\eta
+\]
+은 $\Hom_L(M,\overline K)$와 $\rho^{-1}(\sigma)$ 사이의 전단사이다. 따라서 모든 섬유의 크기는 $[M:L]_{\mathrm s}$이고, 섬유들을 합하면 원하는 공식이 나온다.
+\end{proof}
+
+\begin{corollary}
+유한 대수적 확장 $L/K$에 대해
+\[
+  1\le [L:K]_{\mathrm s}\le [L:K].
+\]
+표수 $0$에서는 두 수가 같고, 표수 $p>0$에서는 어떤 $r\ge0$에 대해
+\[
+  [L:K]=p^r[L:K]_{\mathrm s}.
+\]
+특히 분리차수는 보통 차수를 나눈다.
+\end{corollary}
+
+\begin{proof}
+단순확장에서는 앞의 따름정리로 성립한다. 일반 유한확장을 단순확장의 탑으로 쓰고 보통 차수와 분리차수의 곱셈공식을 함께 적용하면 된다.
+\end{proof}
+
+\subsection{유한 분리확장의 판정}
+
+\begin{theorem}[분리확장의 동치조건]
+유한 대수적 확장 $L/K$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $L/K$는 분리확장이다.
+  \item $L=K(\alpha_1,\dots,\alpha_n)$가 되도록 $K$ 위에서 분리적인 원소 $\alpha_i$들을 택할 수 있다.
+  \item $[L:K]_{\mathrm s}=[L:K]$이다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i)$\Rightarrow$(ii)는 유한확장이 유한개의 원소로 생성된다는 사실에서 자명하다.
+
+(ii)$\Rightarrow$(iii)를 보자. 탑
+\[
+  K\subseteq K(\alpha_1)\subseteq\cdots
+  \subseteq K(\alpha_1,\dots,\alpha_n)=L
+\]
+을 생각한다. $\alpha_i$의 중간체 위 최소다항식은 $K$ 위 최소다항식을 나누므로 여전히 분리다항식이다. 따라서 각 단순확장에서 보통 차수와 분리차수가 같고, 두 곱셈공식을 적용하면 전체에서도 같다.
+
+(iii)$\Rightarrow$(i)를 보자. 임의의 $\alpha\in L$에 대해
+\[
+  K\subseteq K(\alpha)\subseteq L
+\]
+을 생각한다. 두 곱셈공식과 각 단계에서의 부등식
+\[
+  [E:F]_{\mathrm s}\le [E:F]
+\]
+을 비교하면 전체 곱이 같은 이상 두 단계 모두 등호여야 한다. 특히
+\[
+  [K(\alpha):K]_{\mathrm s}=[K(\alpha):K]
+\]
+이므로 $\alpha$는 분리적이다.
+\end{proof}
+
+\begin{corollary}[생성원 판정]
+대수적 확장 $L/K$가 원소들의 집합 $A$로 생성되었다고 하자. 그러면
+\[
+  L/K\text{가 분리확장}
+  \quad\Longleftrightarrow\quad
+  A\text{의 모든 원소가 }K\text{ 위에서 분리적}
+\]
+이다.
+\end{corollary}
+
+\begin{proof}
+한 방향은 자명하다. 역방향에서 임의의 $\alpha\in L$는 $A$의 유한개 원소가 생성하는 유한 부분확장 안에 들어간다. 앞의 정리를 그 유한 부분확장에 적용하면 $\alpha$가 분리적이다.
+\end{proof}
+
+\begin{corollary}[분리성의 추이성]
+대수적 확장탑 $K\subseteq L\subseteq M$에 대해
+\[
+  M/K\text{가 분리확장}
+  \quad\Longleftrightarrow\quad
+  L/K\text{와 }M/L\text{가 모두 분리확장}
+\]
+이다.
+\end{corollary}
+
+\begin{proof}
+정방향은 최소다항식의 나눗셈 관계에서 따른다. 역방향은 먼저 유한확장인 경우 분리차수의 곱셈공식으로 얻는다. 일반 대수적 확장에서는 $M$의 각 원소와 그 최소다항식의 유한개 계수를 포함하는 유한 부분확장으로 줄인다.
+\end{proof}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Q(\sqrt2,\sqrt3)/\Q$의 분리차수를 구하라.
+  \item $[L:K]_{\mathrm s}=[L:K]$이면 $L$의 모든 중간체 $E$에 대해 $E/K$와 $L/E$가 분리확장인 이유를 설명하라.
+  \item 표수 $p$에서 $[L:K]$가 $p$와 서로소이면 $L/K$가 분리확장임을 보여라.
+\end{enumerate}
+\end{checkpoint}
