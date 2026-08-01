@@ -1,0 +1,136 @@
+\clearpage
+\section{순수비분리 고정체와 두 분해의 결합}
+\label{sec:normal-inseparable-fixed-field}
+
+\begin{learninggoal}
+정규확장의 자동동형들이 공통으로 고정하는 체가 최대 순수비분리 중간체임을 증명한다. 분리부분과 순수비분리부분을 어느 순서로 쌓아도 전체 정규확장을 복원함을 보인다.
+\end{learninggoal}
+
+정규확장이 분리일 필요는 없다. 자동동형들이 구별하지 못하는 순수비분리부분은 모든 자동동형에 의해 고정된다.
+
+\begin{definition}[자동동형군의 고정체]
+정규 대수적 확장 $L/K$와
+\[
+  G=\Aut_K(L)
+\]
+에 대해
+\[
+  K_{\mathrm i}:=L^G
+  :=\{a\in L:\sigma(a)=a\text{ for all }\sigma\in G\}
+\]
+를 $G$의 고정체라 한다.
+\end{definition}
+
+\begin{theorem}[순수비분리부분을 먼저 놓는 분해]
+$L/K$가 정규 대수적 확장이면 $K_{\mathrm i}$는 다음을 만족하는 유일한 중간체이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $K_{\mathrm i}/K$는 순수비분리 확장이다.
+  \item $L/K_{\mathrm i}$는 분리확장이다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+먼저 $K_{\mathrm i}$가 체라는 것은 자동동형들이 사칙연산을 보존한다는 사실에서 즉시 따른다.
+
+$K_{\mathrm i}/K$가 순수비분리임을 보자. 임의의 $K$-매장
+\[
+  \rho:K_{\mathrm i}\longrightarrow\Omega
+\]
+를 $L$의 $K$-매장 $\widetilde\rho:L\to\Omega$로 연장한다. 정규성에 의해 $\widetilde\rho$는 $L$의 $K$-자동동형, 즉 $G$의 원소이다. 따라서 $K_{\mathrm i}$를 점별로 고정하고 $\rho$는 항등매장이다. 그러므로
+\[
+  [K_{\mathrm i}:K]_{\mathrm s}=1
+\]
+이고 $K_{\mathrm i}/K$는 순수비분리이다.
+
+이제 $a\in L$를 택하고 $G$ 아래에서 서로 다른 상들을
+\[
+  \sigma_1(a),\dots,\sigma_r(a)
+\]
+라 하자. 이들은 $a$의 $K$ 위 최소다항식의 근들이므로 유한개이다. 다항식
+\[
+  P_a(X)=\prod_{j=1}^r\bigl(X-\sigma_j(a)\bigr)
+\]
+의 근 집합은 $G$의 모든 원소에 의해 순열되므로 그 계수는 $K_{\mathrm i}$에 속한다. $P_a$는 서로 다른 일차인수의 곱이고 $a$를 근으로 가지므로 $a$는 $K_{\mathrm i}$ 위에서 분리적이다. 모든 $a\in L$에 대해 성립하므로 $L/K_{\mathrm i}$는 분리확장이다.
+
+유일성을 보자. 중간체 $E$가 $E/K$는 순수비분리이고 $L/E$는 분리라고 하자. 순수비분리 원소는 $K$-켤레를 하나만 가지므로 모든 $\sigma\in G$가 $E$를 점별로 고정한다. 따라서 $E\subseteq K_{\mathrm i}$이다. 한편 $K_{\mathrm i}/E$는 $L/E$의 부분확장이므로 분리이고, $K_{\mathrm i}/K$가 순수비분리이므로 $K_{\mathrm i}/E$도 순수비분리이다. 두 성질을 동시에 갖는 확장은 자명하므로 $E=K_{\mathrm i}$이다.
+\end{proof}
+
+\begin{corollary}
+$L/K$가 정규 분리확장이면
+\[
+  L^{\Aut_K(L)}=K.
+\]
+반면 비분리 정규확장에서는 고정체가 $K$보다 클 수 있다.
+\end{corollary}
+
+\begin{example}
+$L/K$가 비자명한 순수비분리 확장이면 $L/K$는 정규이지만
+\[
+  \Aut_K(L)=\{\id\}.
+\]
+따라서
+\[
+  L^{\Aut_K(L)}=L\ne K.
+\]
+자동동형만으로 기준체를 복원하려면 분리성이 추가로 필요하다.
+\end{example}
+
+\subsection{두 분해의 결합}
+
+앞 장의 분리폐포
+\[
+  K_{\mathrm s}=\{a\in L:a\text{가 }K\text{ 위에서 분리적}\}
+\]
+를 다시 생각하자. $L/K$가 정규이면 $K_{\mathrm s}/K$도 정규이다.
+
+\begin{theorem}
+정규 대수적 확장 $L/K$에 대해
+\[
+  L=K_{\mathrm s}K_{\mathrm i}.
+\]
+즉 분리부분과 순수비분리부분은 어느 순서로 쌓아도 전체 확장을 복원한다.
+\end{theorem}
+
+\begin{proof}
+먼저 $L/K$가 유한이라고 하자. $K_{\mathrm s}/K$는 분리이면서 정규이고, $K_{\mathrm i}/K$는 순수비분리이므로
+\[
+  K_{\mathrm s}\cap K_{\mathrm i}=K.
+\]
+또한 분리차수의 곱셈공식에서
+\[
+  [L:K]_{\mathrm s}=[K_{\mathrm s}:K]
+\]
+이고, $K_{\mathrm i}/K$의 분리차수는 $1$이며 $L/K_{\mathrm i}$는 분리이므로
+\[
+  [L:K_{\mathrm i}]
+  =[L:K_{\mathrm i}]_{\mathrm s}
+  =[L:K]_{\mathrm s}
+  =[K_{\mathrm s}:K].
+\]
+$K_{\mathrm s}/K$가 정규이고 교집합이 $K$이므로 합성체 차수 공식에서
+\[
+  [K_{\mathrm s}K_{\mathrm i}:K_{\mathrm i}]
+  =[K_{\mathrm s}:K].
+\]
+따라서 $K_{\mathrm s}K_{\mathrm i}\subseteq L$은 $K_{\mathrm i}$ 위에서 $L$과 같은 차수를 가지며 두 체가 같다.
+
+일반 대수적 확장에서 $a\in L$를 택하자. $K(a)/K$의 정상폐포 $N$은 유한이고 $L/K$의 정규성 때문에 $N\subseteq L$이다. 유한한 경우의 결과를 $N/K$에 적용하면 $a$는 $L$ 안의 $K$-분리원소와 $K$-순수비분리원소들이 생성하는 체에 들어간다. 따라서 $a\in K_{\mathrm s}K_{\mathrm i}$이고 결론이 따른다.
+\end{proof}
+
+\begin{keyidea}
+정규확장에서는 두 자연스러운 중간체가 서로 보완한다.
+\[
+  K_{\mathrm s}/K\text{는 최대 분리부분},
+  \qquad
+  K_{\mathrm i}/K\text{는 최대 순수비분리부분}.
+\]
+그리고 두 부분의 합성체가 전체 $L$이다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\F_p(t)/\F_p(t^p)$에서 고정체 $K_{\mathrm i}$를 구하라.
+  \item 정규 분리확장에서 모든 자동동형이 고정하는 원소가 기준체에만 속하는 이유를 설명하라.
+  \item 표수 $0$에서 항상 $K_{\mathrm i}=K$인 이유를 설명하라.
+\end{enumerate}
+\end{checkpoint}
