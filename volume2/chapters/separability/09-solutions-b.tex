@@ -1,0 +1,199 @@
+\section{선별 문제 풀이 II}
+\label{sec:separability-solutions-b}
+
+\subsection*{문제 \thechapter.14: 분리차수의 곱셈공식}
+
+\begin{solution}
+$M$을 포함하는 $K$의 대수적 폐포 $\overline K$를 고정하고 제한 사상
+\[
+  \rho:\Hom_K(M,\overline K)
+  \longrightarrow\Hom_K(L,\overline K),
+  \qquad \tau\longmapsto\tau|_L
+\]
+을 생각하자. 매장 연장 정리에 의해 $\rho$는 전사이다.
+
+$\sigma\in\Hom_K(L,\overline K)$를 고정하고, 이를 연장하는 $K$-자동동형
+\[
+  \widetilde\sigma:\overline K\longrightarrow\overline K
+\]
+를 택한다. 그러면
+\[
+  \Hom_L(M,\overline K)\longrightarrow\rho^{-1}(\sigma),
+  \qquad
+  \eta\longmapsto\widetilde\sigma\circ\eta
+\]
+는 전단사이다. 실제로 역함수는
+\[
+  \tau\longmapsto\widetilde\sigma^{-1}\circ\tau
+\]
+이다. 따라서 $\rho$의 모든 섬유는 정확히 $[M:L]_{\mathrm s}$개의 원소를 갖는다. 섬유의 개수는 $[L:K]_{\mathrm s}$이므로
+\[
+  [M:K]_{\mathrm s}
+  =[M:L]_{\mathrm s}[L:K]_{\mathrm s}.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.18: 무한 기준체 위의 원시원}
+
+\begin{solution}
+$n=[L:K]$라 하고, 분리성에 의해 서로 다른 $K$-매장을
+\[
+  \sigma_1,\dots,\sigma_n:L\to\overline K
+\]
+로 쓴다. $i\ne j$에 대해
+\[
+  \sigma_i(\alpha+c\beta)=\sigma_j(\alpha+c\beta)
+\]
+가 성립하려면
+\[
+  \sigma_i(\alpha)-\sigma_j(\alpha)
+  +c\bigl(\sigma_i(\beta)-\sigma_j(\beta)\bigr)=0
+\]
+이어야 한다. $\sigma_i(\beta)\ne\sigma_j(\beta)$이면 이를 만족하는 $c$는 하나뿐이고, 두 $\beta$의 상이 같다면 두 매장이 서로 다르므로 $\alpha$의 상이 달라 충돌하는 $c$가 없다.
+
+따라서 모든 쌍에서 생기는 금지된 $c$는 유한개이다. $K$가 무한하므로 금지값을 피하는 $c\in K$를 택할 수 있다. $\theta=\alpha+c\beta$라 두면 $\sigma_i(\theta)$가 모두 서로 다르므로 $\theta$의 최소다항식은 적어도 $n$개의 서로 다른 근을 갖는다. 따라서
+\[
+  [K(\theta):K]\ge n.
+\]
+하지만 $K(\theta)\subseteq L$이므로 왼쪽은 $n$ 이하이다. 결국 차수가 같고
+\[
+  L=K(\theta)=K(\alpha+c\beta).
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.19: 완전체와 프로베니우스}
+
+\begin{solution}
+프로베니우스가 전사라고 하자. 기약다항식 $f$가 비분리이면 $f'=0$이고
+\[
+  f(X)=\sum_i a_iX^{pi}
+\]
+로 쓸 수 있다. 각 $a_i$의 $p$제곱근 $b_i\in K$를 택하면
+\[
+  f(X)=\left(\sum_i b_iX^i\right)^p
+\]
+가 되어 $f$의 기약성과 모순이다. 따라서 모든 기약다항식이 분리이고 $K$는 완전체이다.
+
+반대로 $K$가 완전체인데 어떤 $a\in K$가 $p$제곱이 아니라고 하자. 대수적 폐포에서 $\alpha^p=a$인 $\alpha$를 택하면 $\alpha\notin K$이다. $X^p-a=(X-\alpha)^p$의 비상수 기약인수인 $\alpha$의 최소다항식은 서로 다른 근을 하나만 가지므로 비분리이다. 이는 완전성과 모순이다. 따라서 모든 $a$가 $p$제곱이고 프로베니우스는 전사이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.21: 단순확장이 아닌 순수비분리 확장}
+
+\begin{solution}
+문제 \thechapter.8에서
+\[
+  [L:K]=p^2
+\]
+임을 보였다. 임의의 $\gamma\in L=\F_p(s,t)$를
+\[
+  \gamma=\frac{A(s,t)}{B(s,t)}
+\]
+로 쓰면
+\[
+  \gamma^p
+  =\frac{A(s^p,t^p)}{B(s^p,t^p)}\in K.
+\]
+따라서 $\gamma$의 최소다항식은 $X^p-\gamma^p$를 나누고
+\[
+  [K(\gamma):K]\le p.
+\]
+모든 한 원소 생성 부분체의 차수가 $p$ 이하인데 $[L:K]=p^2$이므로 어떤 $\gamma$도 $L$ 전체를 생성할 수 없다.
+\end{solution}
+
+\subsection*{문제 \thechapter.24: 분리원소와 순수비분리 원소를 합치기}
+
+\begin{solution}
+(a) $E=K(\alpha+\beta)$, $M=K(\alpha,\beta)$라 하자. $\beta^{p^r}\in K\subseteq E$인 $r$이 존재하므로 $M=E(\beta)$는 $E$ 위에서 순수비분리이다. 한편
+\[
+  M=E(\alpha)
+\]
+이고 $\alpha$는 $K$ 위에서 분리적이므로 $E$ 위에서도 분리적이다. 따라서 $M/E$는 분리이면서 순수비분리이고, 그러므로 $M=E$이다.
+
+(b) $\alpha\beta\ne0$이라 하고 $E=K(\alpha\beta)$라 두자. $M=E(\beta)$는 앞과 같이 순수비분리이다. 또한
+\[
+  M=E(\alpha),
+  \qquad
+  \beta=\frac{\alpha\beta}{\alpha},
+\]
+이므로 $M/E$는 분리확장이기도 하다. 따라서 $M=E$이고
+\[
+  K(\alpha,\beta)=K(\alpha\beta).
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.25: 확장 안의 분리폐포}
+
+\begin{solution}
+$K_{\mathrm s}$의 두 원소 $a,b$를 택하자. $K(a,b)/K$는 분리적인 두 원소로 생성된 유한 분리확장이다. 따라서
+\[
+  a\pm b,\quad ab,\quad a^{-1}\ (a\ne0)
+\]
+가 모두 $K$ 위에서 분리적이고 $K_{\mathrm s}$는 중간체이다. 정의상 $K_{\mathrm s}/K$는 분리확장이다.
+
+$\gamma\in L$의 $K_{\mathrm s}$ 위 최소다항식을 $f$라 하자. 양의 표수에서
+\[
+  f(X)=g(X^{p^r})
+\]
+로 쓸 수 있으며 $g$는 기약인 분리다항식이다. $c=\gamma^{p^r}$는 $g$의 근이므로 $K_{\mathrm s}$ 위에서 분리적이다. $K_{\mathrm s}/K$도 분리이므로 추이성에 의해 $c$는 $K$ 위에서 분리적이고, 따라서 $c\in K_{\mathrm s}$이다. 즉
+\[
+  \gamma^{p^r}\in K_{\mathrm s}
+\]
+이므로 $L/K_{\mathrm s}$는 순수비분리이다. 표수 $0$에서는 $K_{\mathrm s}=L$이어서 같은 결론이 자명하다.
+
+마지막으로 $E$가 $E/K$는 분리이고 $L/E$는 순수비분리인 중간체라 하자. 정의에서 $E\subseteq K_{\mathrm s}$이다. $K_{\mathrm s}/E$는 $L/E$의 부분확장이므로 순수비분리이고, 동시에 분리확장이다. 따라서 $K_{\mathrm s}=E$이고 유일성이 증명된다.
+\end{solution}
+
+\subsection*{문제 \thechapter.28: 혼합확장의 분리폐포}
+
+\begin{solution}
+$K=\F_p(s,t)$, $\alpha^p=s$, $\beta^2=t$이고 $p$는 홀수이다. $X^2-t$는 $K[X]$에서 기약이며 도함수 $2X$가 영이 아니므로
+\[
+  K(\beta)/K
+\]
+는 차수 $2$의 분리확장이다. 한편 $\alpha^p=s\in K\subseteq K(\beta)$이므로
+\[
+  L/K(\beta)
+\]
+는 순수비분리 확장이다. $X^p-s$의 기약성에서 그 차수는 $p$이다.
+
+따라서 $K(\beta)$는 분리-순수비분리 분해의 두 조건을 만족한다. 그 중간체의 유일성에 의해
+\[
+  K_{\mathrm s}=K(\beta).
+\]
+결과적으로
+\[
+  [K_{\mathrm s}:K]=2,
+  \qquad
+  [L:K_{\mathrm s}]=p.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.30: 단순확장과 중간체의 개수}
+
+\begin{solution}
+먼저 $L=K(\alpha)$라 하자. $f$를 $\alpha$의 $K$ 위 최소다항식이라 하고, 중간체 $E$에 대해 $f_E$를 $\alpha$의 $E$ 위 최소다항식이라 하자. $f_E$는 $L[X]$에서 $f$의 일계수 인수이다.
+
+또한 $E$는 $f_E$의 계수들로 생성된다. 실제로 그 계수들이 생성하는 체를 $E_0$라 하면 $E_0\subseteq E$이고 $f_E\in E_0[X]$이다. $f_E$가 $E_0[X]$에서 인수분해되면 $E[X]$에서도 인수분해되므로 $f_E$는 $E_0$ 위에서도 기약이다. 따라서
+\[
+  [L:E_0]=\deg f_E=[L:E]
+\]
+이고 $E_0=E$이다. 그러므로 서로 다른 중간체는 서로 다른 $f_E$를 주며, $f$의 일계수 인수는 유한개뿐이므로 중간체도 유한개이다.
+
+역으로 $L/K$가 중간체를 유한개만 갖는다고 하자. $K$가 유한체이면 $L$도 유한체이고 $L^\times$가 순환군이므로 $L/K$는 단순확장이다.
+
+이제 $K$가 무한하다고 하자. 먼저 $L=K(\alpha,\beta)$인 경우를 보자. 무한히 많은 $c\in K$에 대해
+\[
+  E_c=K(\alpha+c\beta)
+\]
+는 모두 $L/K$의 중간체이다. 중간체가 유한개뿐이므로 서로 다른 $c,d$에 대해 $E_c=E_d=:E$가 된다. 그러면
+\[
+  (c-d)\beta=(\alpha+c\beta)-(\alpha+d\beta)\in E
+\]
+이고 $c-d\ne0$이므로 $\beta\in E$이다. 이어서 $\alpha\in E$이고
+\[
+  E=L.
+\]
+따라서 $L=K(\alpha+c\beta)$는 단순확장이다.
+
+일반 유한확장은 유한개의 원소로 생성된다. 두 생성원을 하나로 합치는 위 논증을 반복하면 전체 확장을 하나의 원소로 생성할 수 있다.
+\end{solution}

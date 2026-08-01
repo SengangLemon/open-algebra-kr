@@ -1,0 +1,163 @@
+\section{순수비분리 확장}
+\label{sec:purely-inseparable}
+
+\begin{learninggoal}
+순수비분리 다항식, 원소와 확장을 정의한다. 분리차수가 $1$이라는 조건 및 충분한 $p$-거듭제곱이 기준체에 들어간다는 조건과의 동치성을 증명한다.
+\end{learninggoal}
+
+이 절에서는 $\charac K=p>0$이라 가정한다. 표수 $0$에서는 모든 대수적 확장이 분리확장이므로 비자명한 순수비분리 현상이 나타나지 않는다.
+
+\begin{definition}[순수비분리 다항식]
+비상수 다항식 $f\in K[X]$가 대수적 폐포에서 서로 다른 근을 정확히 하나만 가지면 $f$를 \emph{순수비분리 다항식}(purely inseparable polynomial)이라 한다.
+\end{definition}
+
+\begin{proposition}
+일계수 기약다항식 $m\in K[X]$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $m$은 순수비분리 다항식이다.
+  \item 어떤 $r\ge0$과 $a\in K$가 존재하여
+  \[
+    m(X)=X^{p^r}-a
+  \]
+  이다.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$m$이 순수비분리라고 하자. 기약다항식의 중복도 구조 정리에 의해
+\[
+  m(X)=g(X^{p^r})
+\]
+로 쓸 수 있으며 $g$는 기약인 분리다항식이다. $m$의 서로 다른 근이 하나뿐이므로 $g$도 서로 다른 근을 하나만 갖는다. 분리다항식인 $g$는 따라서 일차이고, 일계수 조건에서 $g=X-a$이다. 그러므로 $m=X^{p^r}-a$이다.
+
+반대로 대수적 폐포에서 $c^{p^r}=a$인 $c$를 택하면
+\[
+  X^{p^r}-a=(X-c)^{p^r}
+\]
+이므로 서로 다른 근은 $c$ 하나뿐이다.
+\end{proof}
+
+\begin{definition}[순수비분리 원소와 확장]
+대수적 확장 $L/K$와 $\alpha\in L$에 대해 다음과 같이 정의한다.
+\begin{itemize}
+  \item $\alpha$의 $K$ 위 최소다항식이 순수비분리이면 $\alpha$를 $K$ 위에서 \emph{순수비분리적}이라 한다.
+  \item 모든 $\alpha\in L$가 $K$ 위에서 순수비분리적이면 $L/K$를 \emph{순수비분리 확장}(purely inseparable extension)이라 한다.
+\end{itemize}
+\end{definition}
+
+\begin{example}
+$K=\F_p(t^p)$와 $L=\F_p(t)$에 대해
+\[
+  t^p\in K
+\]
+이고 $t$의 최소다항식은 $X^p-t^p$이다. 따라서 $L/K$는 차수 $p$의 순수비분리 확장이다.
+\end{example}
+
+\begin{theorem}[순수비분리성의 동치조건]
+대수적 확장 $L/K$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $L/K$는 순수비분리 확장이다.
+  \item $L$은 $K$ 위에서 순수비분리적인 원소들로 생성된다.
+  \item $\Hom_K(L,\overline K)$는 항등매장 하나만 갖는다. 즉
+  \[
+    [L:K]_{\mathrm s}=1
+  \]
+  이다.
+  \item 모든 $\alpha\in L$에 대해 어떤 $r\ge0$이 존재하여
+  \[
+    \alpha^{p^r}\in K
+  \]
+  이다.
+\end{enumerate}
+유한확장이 아닌 경우 (iii)의 분리차수는 매장 집합의 기수로 해석한다.
+\end{theorem}
+
+\begin{proof}
+(i)$\Rightarrow$(ii)는 자명하다.
+
+(ii)$\Rightarrow$(iii)를 보자. 순수비분리 생성원 $\alpha$의 최소다항식은 $X^{p^r}-a$ 꼴이고 대수적 폐포에서 서로 다른 근을 하나만 갖는다. 따라서 모든 $K$-매장은 각 생성원의 상을 유일하게 결정하며, 전체 매장도 하나뿐이다.
+
+(iii)$\Rightarrow$(iv)를 보자. $\alpha\in L$를 택한다. $K(\alpha)$의 모든 $K$-매장은 대수적 확장 $L$로 연장되므로
+\[
+  [K(\alpha):K]_{\mathrm s}=1.
+\]
+따라서 $\alpha$의 최소다항식은 서로 다른 근을 하나만 가지며, 앞의 명제에 의해 $X^{p^r}-a$ 꼴이다. 그러므로 $\alpha^{p^r}=a\in K$이다.
+
+(iv)$\Rightarrow$(i)는 $\alpha$가 $X^{p^r}-\alpha^{p^r}\in K[X]$의 근이라는 사실에서 따른다. 최소다항식은 이 순수비분리 다항식의 기약인수이므로 역시 순수비분리이다.
+\end{proof}
+
+\begin{corollary}
+대수적 확장 $L/K$가 분리확장이면서 순수비분리 확장이면 $L=K$이다.
+\end{corollary}
+
+\begin{proof}
+임의의 $\alpha\in L$의 최소다항식은 분리다항식이면서 서로 다른 근을 하나만 갖는다. 따라서 차수가 $1$이고 $\alpha\in K$이다.
+\end{proof}
+
+\begin{corollary}[순수비분리성의 추이성]
+대수적 확장탑 $K\subseteq L\subseteq M$에 대해
+\[
+  M/K\text{가 순수비분리}
+  \quad\Longleftrightarrow\quad
+  L/K\text{와 }M/L\text{가 모두 순수비분리}
+\]
+이다.
+\end{corollary}
+
+\begin{proof}
+$M/K$가 순수비분리이면 $\alpha^{p^r}\in K\subseteq L$이므로 $M/L$도 순수비분리이고, $L/K$는 부분확장이므로 순수비분리이다.
+
+반대로 $M/L$과 $L/K$가 순수비분리라고 하자. $\alpha\in M$에 대해 $\alpha^{p^r}\in L$인 $r$이 있고, 다시 어떤 $s$에 대해
+\[
+  (\alpha^{p^r})^{p^s}=\alpha^{p^{r+s}}\in K
+\]
+이다. 따라서 $M/K$는 순수비분리이다.
+\end{proof}
+
+\begin{proposition}
+$\alpha$가 표수 $p$의 체 $K$ 위에서 대수적이면 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $\alpha$는 $K$ 위에서 분리적이다.
+  \item $K(\alpha)=K(\alpha^p)$이다.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$K(\alpha)/K(\alpha^p)$는 $\alpha^p$가 기준체에 있으므로 항상 순수비분리 확장이다. $\alpha$가 $K$ 위에서 분리적이면 기준체를 확대해도 분리적이므로 이 확장은 분리이기도 하다. 따라서 자명한 확장이고 두 체가 같다.
+
+반대로 $\alpha$의 최소다항식에서 공통 중복도가 $p^r$이라 하자. $r>0$이면 $\alpha^p$의 최소다항식은 서로 다른 근의 수를 유지하면서 순수비분리 중복도를 한 단계 줄이므로
+\[
+  [K(\alpha):K(\alpha^p)]=p.
+\]
+따라서 두 체가 같을 수 없다. 그러므로 $r=0$이고 $\alpha$는 분리적이다.
+\end{proof}
+
+\begin{example}[단순확장이 아닌 유한확장]
+독립인 변수 $s,t$에 대해
+\[
+  K=\F_p(s^p,t^p),
+  \qquad
+  L=\F_p(s,t)
+\]
+라 하자. $L/K$는 순수비분리이고
+\[
+  [L:K]=p^2
+\]
+이다. 그러나 모든 $\gamma\in L$에 대해 $\gamma^p\in K$이므로
+\[
+  [K(\gamma):K]\le p.
+\]
+따라서 $L$은 하나의 원소로 생성될 수 없다. 이는 원시원 정리에서 분리성 가정이 필요한 이유이다.
+\end{example}
+
+\begin{pitfall}
+비분리확장과 순수비분리확장은 같은 말이 아니다. 유한확장은 분리부분과 순수비분리부분을 동시에 가질 수 있다. 순수비분리란 분리차수가 정확히 $1$인 극단적인 경우이다.
+\end{pitfall}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $X^{p^2}-a$가 대수적 폐포에서 갖는 서로 다른 근의 개수를 구하라.
+  \item 순수비분리 유한확장의 차수가 왜 $p$의 거듭제곱인지 설명하라.
+  \item $\F_p(s,t)/\F_p(s^p,t^p)$가 단순확장이 아님을 다시 증명하라.
+\end{enumerate}
+\end{checkpoint}
