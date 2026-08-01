@@ -1,0 +1,179 @@
+\section{원시원 정리와 완전체}
+\label{sec:primitive-perfect}
+
+\begin{learninggoal}
+유한 분리확장이 하나의 원소로 생성된다는 원시원 정리를 증명한다. 양의 표수에서 프로베니우스 사상의 전사성과 완전성이 동치임을 보인다.
+\end{learninggoal}
+
+\subsection{유한 곱셈부분군은 순환군이다}
+
+원시원 정리의 유한 기준체 경우에는 다음 사실이 필요하다.
+
+\begin{lemma}
+아벨군의 유한위수 원소 $a,b$에 대해 위수가
+\[
+  \operatorname{lcm}(\operatorname{ord}(a),\operatorname{ord}(b))
+\]
+인 원소가 존재한다.
+\end{lemma}
+
+\begin{proof}
+$m=\operatorname{ord}(a)$, $n=\operatorname{ord}(b)$라 하자. $\operatorname{lcm}(m,n)$의 각 소수거듭제곱에 대해 $m$과 $n$ 중 더 큰 지수를 가진 쪽을 택한다. $a$와 $b$의 적당한 거듭제곱을 취하면 서로소 위수 $m_0,n_0$을 가진 원소들을 얻고 $m_0n_0=\operatorname{lcm}(m,n)$이다. 서로소 위수의 서로 교환하는 두 원소의 곱은 위수가 두 위수의 곱이므로 결론이 따른다.
+\end{proof}
+
+\begin{proposition}
+체 $F$의 곱셈군 $F^\times$의 유한부분군 $H$는 순환군이다.
+\end{proposition}
+
+\begin{proof}
+$H$에서 위수가 최대인 원소 $a$를 택하고 $m=\operatorname{ord}(a)$라 하자. 앞의 보조정리에 의해 모든 $b\in H$의 위수는 $m$을 나누어야 한다. 그렇지 않으면 $m$보다 큰 위수의 원소를 만들 수 있다.
+
+따라서 $H$의 모든 원소는 $X^m-1$의 근이다. 체 위의 $m$차 다항식은 서로 다른 근을 $m$개보다 많이 가질 수 없으므로
+\[
+  |H|\le m.
+\]
+한편 $\langle a\rangle\subseteq H$이고 $|\langle a\rangle|=m$이므로 $H=\langle a\rangle$이다.
+\end{proof}
+
+\subsection{원시원 정리}
+
+\begin{definition}[원시원]
+유한확장 $L/K$에서
+\[
+  L=K(\theta)
+\]
+를 만족하는 원소 $\theta\in L$를 $L/K$의 \emph{원시원}(primitive element)이라 한다.
+\end{definition}
+
+\begin{theorem}[원시원 정리]
+모든 유한 분리확장 $L/K$는 단순확장이다. 즉 어떤 $\theta\in L$가 존재하여
+\[
+  L=K(\theta)
+\]
+이다.
+\end{theorem}
+
+\begin{proofidea}
+$K$가 유한하면 $L^\times$의 생성원을 택한다. $K$가 무한하면 두 생성원 $\alpha,\beta$를 $\alpha+c\beta$ 하나로 합치되, 서로 다른 매장들의 상이 충돌하게 만드는 유한개의 $c$만 피한다.
+\end{proofidea}
+
+\begin{proof}
+먼저 $K$가 유한체라고 하자. $[L:K]<\infty$이므로 $L$도 유한체이고, 앞의 명제에 의해 $L^\times$는 순환군이다. 생성원 $\theta$를 택하면 $K(\theta)$는 $0$과 $L$의 모든 영이 아닌 원소를 포함하므로 $L=K(\theta)$이다.
+
+이제 $K$가 무한하다고 하자. 유한확장은 유한개의 원소로 생성되므로 생성원 수에 대한 귀납법으로 두 원소의 경우만 보이면 된다. $L=K(\alpha,\beta)$라 하고
+\[
+  n=[L:K]=[L:K]_{\mathrm s}
+\]
+라 하자. 서로 다른 $K$-매장들을
+\[
+  \sigma_1,\dots,\sigma_n:L\longrightarrow\overline K
+\]
+라 쓰자.
+
+$i\ne j$에 대해
+\[
+  \sigma_i(\alpha+c\beta)=\sigma_j(\alpha+c\beta)
+\]
+가 되는 $c\in K$는, $\sigma_i(\beta)\ne\sigma_j(\beta)$일 때 많아야 하나이다. 모든 쌍에서 나오는 금지된 $c$는 유한개이고 $K$는 무한하므로, 이를 모두 피하는 $c\in K$를 택할 수 있다. 그러면
+\[
+  \sigma_1(\alpha+c\beta),\dots,
+  \sigma_n(\alpha+c\beta)
+\]
+는 서로 다르다.
+
+$\theta=\alpha+c\beta$라 두자. $\theta$의 최소다항식은 적어도 $n$개의 서로 다른 근을 가지므로
+\[
+  [K(\theta):K]\ge n.
+\]
+그러나 $K(\theta)\subseteq L$이므로 반대 부등식도 성립한다. 따라서
+\[
+  [K(\theta):K]=[L:K]
+\]
+이고 $K(\theta)=L$이다.
+\end{proof}
+
+\begin{example}[두 제곱근을 하나로 합치기]
+$L=\Q(\sqrt2,\sqrt3)$에서
+\[
+  \theta=\sqrt2+\sqrt3
+\]
+라 두면
+\[
+  \sqrt2=\frac{\theta-\theta^{-1}}2,
+  \qquad
+  \sqrt3=\frac{\theta+\theta^{-1}}2
+\]
+이다. 실제로 $(\sqrt3+\sqrt2)(\sqrt3-\sqrt2)=1$이므로 $\theta^{-1}=\sqrt3-\sqrt2$이다. 따라서
+\[
+  L=\Q(\theta).
+\]
+또한
+\[
+  \theta^4-10\theta^2+1=0
+\]
+이고 $[L:\Q]=4$이므로 $\theta$의 최소다항식은 $X^4-10X^2+1$이다.
+\end{example}
+
+\begin{pitfall}
+모든 유한확장이 단순확장인 것은 아니다. 분리성 가정이 없으면 양의 표수에서 반례가 생긴다. 뒤의 연습문제에서
+\[
+  \F_p(s,t)/\F_p(s^p,t^p)
+\]
+가 차수 $p^2$이지만 단순확장이 아님을 확인한다.
+\end{pitfall}
+
+\subsection{프로베니우스와 완전체}
+
+\begin{theorem}[완전체의 프로베니우스 판정]
+$K$가 표수 $p>0$인 체라 하자. 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $K$는 완전체이다.
+  \item 프로베니우스 준동형
+  \[
+    \Frob_K:K\longrightarrow K,
+    \qquad a\longmapsto a^p
+  \]
+  가 전사이다.
+  \item 모든 $a\in K$가 $K$ 안에서 $p$제곱근을 갖는다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(ii)와 (iii)는 같은 말이다.
+
+(ii)를 가정하고 $f\in K[X]$가 기약이면서 비분리라고 하자. 그러면 $f'=0$이므로
+\[
+  f(X)=\sum_i a_iX^{pi}
+\]
+이다. 프로베니우스가 전사이므로 $a_i=b_i^p$인 $b_i\in K$를 택할 수 있다. 표수 $p$의 이항공식으로
+\[
+  f(X)=\left(\sum_i b_iX^i\right)^p
+\]
+가 되어 기약성과 모순이다. 따라서 모든 기약다항식은 분리되고 $K$는 완전체이다.
+
+반대로 $K$가 완전체라고 하자. 어떤 $a\in K$가 $K$에서 $p$제곱근을 갖지 않는다고 가정한다. 대수적 폐포에서 $\alpha^p=a$인 $\alpha$를 택하면 $\alpha\notin K$이고, $\alpha$의 최소다항식은 $X^p-a$의 기약인수이다. 그런데 $X^p-a=(X-\alpha)^p$는 서로 다른 근을 하나만 가지므로 그 비상수 기약인수도 비분리다항식이다. 이는 $K$의 완전성과 모순이다.
+\end{proof}
+
+\begin{corollary}
+모든 유한체는 완전체이다.
+\end{corollary}
+
+\begin{proof}
+유한체에서 프로베니우스는 체 준동형이므로 단사이고, 유한집합의 단사 자기함수는 전사이다.
+\end{proof}
+
+\begin{proposition}
+완전체 $K$의 임의의 대수적 확장 $L$도 완전체이다.
+\end{proposition}
+
+\begin{proof}
+$M/L$이 대수적이면 $M/K$도 대수적이다. $K$가 완전체이므로 $M/K$는 분리확장이고, 기준체를 $L$로 확대해도 분리성이 보존되므로 $M/L$도 분리확장이다.
+\end{proof}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Q(\sqrt2,\sqrt5)$의 원시원 후보를 하나 제시하라.
+  \item $\F_p(t)$의 프로베니우스가 전사가 아님을 $t$를 이용해 설명하라.
+  \item 대수적으로 닫힌 체가 항상 완전체인 이유를 프로베니우스로 설명하라.
+\end{enumerate}
+\end{checkpoint}
