@@ -1,0 +1,229 @@
+\section{선별 문제 풀이 I}
+\label{sec:separability-solutions-a}
+
+\subsection*{문제 \thechapter.1: 분리다항식 판정}
+
+\begin{solution}
+(a) $f=X^4-2$의 도함수는 $f'=4X^3$이다. 공통근이 있다면 $X=0$이어야 하지만 $f(0)=-2\ne0$이므로
+\[
+  \gcd(f,f')=1.
+\]
+따라서 $f$는 분리다항식이다. 표수 $0$에서 기약다항식은 항상 분리라는 사실로도 판정할 수 있다.
+
+(b) $\F_2$에서는
+\[
+  f'=4X^3+2X=0
+\]
+이고
+\[
+  X^4+X^2+1=(X^2+X+1)^2.
+\]
+$X^2+X+1$의 도함수는 $1$이므로 이 이차다항식은 서로 다른 두 근을 갖는다. 따라서 $f$는 서로 다른 근을 두 개 가지며 각 근의 중복도는 $2$이다.
+
+(c) $\F_3$에서
+\[
+  f'=6X^5-1=-1=2
+\]
+는 영이 아닌 상수이다. 따라서 $\gcd(f,f')=1$이고 $f$는 분리다항식이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.2: $X^p-t$}
+
+\begin{solution}
+(a) $f=X^p-t$를 $\F_p[t][X]$의 다항식으로 보자. 소원소 $t$는 상수항 $-t$를 나누지만 $t^2$은 상수항을 나누지 않고, 나머지 계수는 모두 $0$이므로 아이젠슈타인 판정법에 의해 $f$는 $\F_p(t)[X]$에서 기약이다.
+
+(b) $\alpha^p=t$인 근 $\alpha$를 택하면 $f$가 최소다항식이므로
+\[
+  [K(\alpha):K]=p.
+\]
+한편 $f'=0$이고 $f$는 기약이므로 비분리이다. 서로 다른 근은 하나뿐이어서
+\[
+  [K(\alpha):K]_{\mathrm s}=1.
+\]
+
+(c) 표수 $p$의 이항공식으로
+\[
+  X^p-t=X^p-\alpha^p=(X-\alpha)^p.
+\]
+따라서 $\alpha$ 하나가 중복도 $p$로 나타난다.
+\end{solution}
+
+\subsection*{문제 \thechapter.3: $\Q(\sqrt2,\sqrt3)$의 매장}
+
+\begin{solution}
+$\Q$-매장은 최소다항식을 보존하므로 $\sqrt2$는 $\pm\sqrt2$ 중 하나로, $\sqrt3$은 $\pm\sqrt3$ 중 하나로 보내야 한다. 네 조합은 모두 실제 매장을 정의한다.
+\[
+\begin{array}{c|cc|c}
+ & \sqrt2 & \sqrt3 & \sqrt2+\sqrt3\\
+\hline
+\sigma_{++}&\sqrt2&\sqrt3&\sqrt2+\sqrt3\\
+\sigma_{+-}&\sqrt2&-\sqrt3&\sqrt2-\sqrt3\\
+\sigma_{-+}&-\sqrt2&\sqrt3&-\sqrt2+\sqrt3\\
+\sigma_{--}&-\sqrt2&-\sqrt3&-\sqrt2-\sqrt3
+\end{array}
+\]
+따라서
+\[
+  [L:\Q]_{\mathrm s}=4.
+\]
+실제로 $[L:\Q]=4$이므로 $L/\Q$는 분리확장이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.6: $\sqrt2+\sqrt3$을 원시원으로 사용하기}
+
+\begin{solution}
+$\theta=\sqrt2+\sqrt3$라 하자. 곱
+\[
+  (\sqrt3+\sqrt2)(\sqrt3-\sqrt2)=1
+\]
+에서
+\[
+  \theta^{-1}=\sqrt3-\sqrt2
+\]
+를 얻는다. 따라서
+\[
+  \sqrt2=\frac{\theta-\theta^{-1}}2,
+  \qquad
+  \sqrt3=\frac{\theta+\theta^{-1}}2
+\]
+이고 두 제곱근 모두 $\Q(\theta)$에 속한다. 그러므로
+\[
+  \Q(\sqrt2,\sqrt3)=\Q(\theta).
+\]
+
+또한
+\[
+  \theta^2=5+2\sqrt6
+\]
+이므로
+\[
+  (\theta^2-5)^2=24.
+\]
+정리하면
+\[
+  \theta^4-10\theta^2+1=0.
+\]
+이미 $\Q(\theta)=\Q(\sqrt2,\sqrt3)$이고 오른쪽 확장의 차수가 $4$이므로 $\theta$의 최소다항식은
+\[
+  X^4-10X^2+1
+\]
+이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.8: 두 변수 순수비분리 확장}
+
+\begin{solution}
+$K=\F_p(s^p,t^p)$라 하자. 먼저
+\[
+  K(t)=\F_p(s^p,t)
+\]
+이고 $s$는 $K(t)$ 위에서 $X^p-s^p$의 근이다. $s\notin K(t)$이고 이 다항식의 유일한 근은 $s$이므로 최소다항식의 차수는 $p$이다. 따라서
+\[
+  1,s,\dots,s^{p-1}
+\]
+는 $L/K(t)$의 기저이다.
+
+마찬가지로 $t$의 $K$ 위 최소다항식은 $X^p-t^p$이고
+\[
+  1,t,\dots,t^{p-1}
+\]
+는 $K(t)/K$의 기저이다. 탑 법칙의 기저 곱 구성에 의해
+\[
+  \{s^it^j:0\le i,j<p\}
+\]
+가 $L/K$의 기저이다. 따라서
+\[
+  [L:K]=p^2.
+\]
+
+임의의 $\gamma\in L=\F_p(s,t)$는 유리함수 $A(s,t)/B(s,t)$로 쓰인다. 그러면
+\[
+  \gamma^p=\frac{A(s,t)^p}{B(s,t)^p}
+  =\frac{A(s^p,t^p)}{B(s^p,t^p)}\in K.
+\]
+따라서 $L/K$는 순수비분리이고
+\[
+  [L:K]_{\mathrm s}=1,
+  \qquad
+  [L:K]_{\mathrm i}=p^2.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.10: 분리부분과 순수비분리부분이 섞인 확장}
+
+\begin{solution}
+$X^p-s$는 $K=\F_p(s,t)$에서 기약이고 $\alpha$의 최소다항식이다. 따라서
+\[
+  [K(\alpha):K]=p,
+  \qquad
+  [K(\alpha):K]_{\mathrm s}=1.
+\]
+또한 $K(\alpha)=\F_p(\alpha,t)$에서 $t$는 제곱이 아니므로 $X^2-t$는 기약이다. $p$가 홀수이므로 도함수 $2X$는 영다항식이 아니고 이 이차다항식은 분리이다. 따라서
+\[
+  [L:K(\alpha)]=2,
+  \qquad
+  [L:K(\alpha)]_{\mathrm s}=2.
+\]
+두 차수의 곱셈공식으로
+\[
+  [L:K]=2p,
+  \qquad
+  [L:K]_{\mathrm s}=2,
+  \qquad
+  [L:K]_{\mathrm i}=p.
+\]
+
+$K(\beta)/K$는 차수 $2$의 분리확장이고 $L/K(\beta)$는 $\alpha^p=s\in K$이므로 차수 $p$의 순수비분리 확장이다. 분리-순수비분리 분해의 유일성에 의해 $L$ 안에서의 $K$의 분리폐포는
+\[
+  K_{\mathrm s}=K(\beta)
+\]
+이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.11: 도함수가 영이 되는 조건}
+
+\begin{solution}
+$f=\sum_{i=0}^n a_iX^i$라 하자. 표수 $p$에서
+\[
+  f'=\sum_{i=1}^n i a_iX^{i-1}.
+\]
+$f'=0$이면 $p\nmid i$인 모든 $i$에 대해 $ia_i\ne0$일 수 없으므로 $a_i=0$이다. 따라서 지수가 $p$의 배수인 항만 남고
+\[
+  f(X)=\sum_j a_{pj}X^{pj}
+  =g(X^p),
+  \qquad
+  g(Y)=\sum_j a_{pj}Y^j.
+\]
+반대로 $f(X)=g(X^p)$이면 모든 비상수 항의 지수가 $p$의 배수이므로 형식적 도함수는 $0$이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.13: $K(\alpha)$와 $K(\alpha^p)$}
+
+\begin{solution}
+먼저 $\alpha$가 $K$ 위에서 분리적이라고 하자. 확장
+\[
+  K(\alpha)/K(\alpha^p)
+\]
+는 $\alpha$가 $X^p-\alpha^p$의 근이므로 순수비분리이다. 한편 기준체를 확대해도 분리성이 보존되므로 이 확장은 분리이기도 하다. 분리이면서 순수비분리인 확장은 자명하므로
+\[
+  K(\alpha)=K(\alpha^p).
+\]
+
+반대로 $\alpha$의 최소다항식을
+\[
+  m(X)=g(X^{p^r})
+\]
+로 쓰되 $r$을 최대로 택하자. $g$는 분리인 기약다항식이다. $r>0$이라 하고 $\beta=\alpha^p$라 두면
+\[
+  h(X)=g(X^{p^{r-1}})
+\]
+는 $\beta$를 근으로 갖는다. $h$가 인수분해되면 $m(X)=h(X^p)$도 인수분해되므로 $h$는 기약이고, 따라서 $h$는 $\beta$의 최소다항식이다. 그러므로
+\[
+  [K(\alpha):K]=p\,[K(\alpha^p):K]
+\]
+이고
+\[
+  [K(\alpha):K(\alpha^p)]=p.
+\]
+따라서 두 체가 같다면 $r=0$이어야 하며, 이 경우 $m$은 분리다항식이다.
+\end{solution}
