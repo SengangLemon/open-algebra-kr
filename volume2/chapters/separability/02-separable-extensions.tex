@@ -1,0 +1,68 @@
+\section{분리원소와 분리확장}
+\label{sec:separable-extensions}
+
+\begin{learninggoal}
+분리원소, 분리확장과 완전체를 정의한다. 기준체를 확대할 때 분리성이 어떻게 변하는지 설명하고, 표수 $0$의 체가 완전체임을 증명한다.
+\end{learninggoal}
+
+\begin{definition}[분리원소와 분리확장]
+대수적 체확장 $L/K$와 원소 $\alpha\in L$를 생각하자.
+\begin{itemize}
+  \item $\alpha$의 $K$ 위 최소다항식이 분리다항식이면 $\alpha$를 $K$ 위에서 \emph{분리적}(separable)이라 한다.
+  \item 모든 $\alpha\in L$가 $K$ 위에서 분리적이면 $L/K$를 \emph{분리확장}(separable extension)이라 한다.
+\end{itemize}
+\end{definition}
+
+``어떤 분리다항식의 근이다''라는 조건과 ``최소다항식이 분리다항식이다''라는 조건은 동치이다. 실제로 최소다항식은 $\alpha$를 근으로 갖는 모든 $K[X]$의 다항식을 나누므로, 분리다항식의 인수 역시 분리다항식이다.
+
+\begin{example}
+\begin{enumerate}[label=(\alph*)]
+  \item $\sqrt2$, $i$, $\sqrt[3]{2}$는 모두 $\Q$ 위에서 분리적이다. 최소다항식들이 표수 $0$에서 기약이기 때문이다.
+  \item $K=\F_p(t^p)$와 $L=\F_p(t)$를 생각하자. $t$의 $K$ 위 최소다항식은
+  \[
+    X^p-t^p=(X-t)^p
+  \]
+  이므로 $L/K$는 분리확장이 아니다.
+  \item 초월원소는 이 정의의 대상이 아니다. 분리성은 대수적 원소와 대수적 확장에 대한 개념이다.
+\end{enumerate}
+\end{example}
+
+\begin{proposition}[기준체 확대]
+$K\subseteq E\subseteq L$이고 $\alpha\in L$가 $K$ 위에서 분리적이면, $\alpha$는 $E$ 위에서도 분리적이다.
+\end{proposition}
+
+\begin{proof}
+$\alpha$의 $K$ 위 최소다항식을 $m_K$, $E$ 위 최소다항식을 $m_E$라 하자. $m_K(\alpha)=0$이므로 $m_E$는 $E[X]$에서 $m_K$를 나눈다. $m_K$가 중근을 갖지 않으므로 그 인수 $m_E$도 중근을 갖지 않는다.
+\end{proof}
+
+역은 일반적으로 성립하지 않는다. 모든 대수적 원소는 자신을 포함하는 체 위에서는 최소다항식이 일차이므로 분리적이지만, 더 작은 기준체 위에서는 비분리적일 수 있다.
+
+\begin{definition}[완전체]
+체 $K$의 모든 대수적 확장이 분리확장이면 $K$를 \emph{완전체}(perfect field)라 한다. 동치로, $K[X]$의 모든 기약다항식이 분리다항식이면 $K$는 완전체이다.
+\end{definition}
+
+\begin{theorem}
+표수 $0$의 모든 체는 완전체이다.
+\end{theorem}
+
+\begin{proof}
+표수 $0$에서는 비상수 다항식의 도함수가 영다항식일 수 없다. 따라서 모든 기약다항식은 분리다항식이고, 모든 대수적 확장은 분리확장이다.
+\end{proof}
+
+양의 표수에서는 완전성이 자동으로 성립하지 않는다. $\F_p(t)$에서 $X^p-t$가 기약이면서 비분리인 것이 대표적인 반례이다. 뒤에서 프로베니우스 사상
+\[
+  x\longmapsto x^p
+\]
+의 전사성이 양의 표수에서 완전성을 정확히 판정한다는 것을 증명한다.
+
+\begin{keyidea}
+분리성은 ``근을 몇 번 세는가''가 아니라 ``서로 다른 켤레근이 얼마나 존재하는가''를 측정한다. 이 차이는 양의 표수에서만 본질적으로 나타난다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Q(\sqrt2,\sqrt3)/\Q$가 분리확장임을 설명하라.
+  \item $\F_p(t)/\F_p(t^p)$가 비분리확장임을 최소다항식으로 확인하라.
+  \item $\alpha$가 $K$ 위에서 분리적이고 $K\subseteq E\subseteq K(\alpha)$이면 $K(\alpha)/E$가 분리확장인 이유를 설명하라.
+\end{enumerate}
+\end{checkpoint}
