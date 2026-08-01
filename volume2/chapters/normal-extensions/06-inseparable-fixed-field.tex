@@ -36,11 +36,7 @@ $K_{\mathrm i}/K$가 순수비분리임을 보자. 임의의 $K$-매장
 \[
   \rho:K_{\mathrm i}\longrightarrow\Omega
 \]
-를 $L$의 $K$-매장 $\widetilde\rho:L\to\Omega$로 연장한다. 정규성에 의해 $\widetilde\rho$는 $L$의 $K$-자동동형, 즉 $G$의 원소이다. 따라서 $K_{\mathrm i}$를 점별로 고정하고 $\rho$는 항등매장이다. 그러므로
-\[
-  [K_{\mathrm i}:K]_{\mathrm s}=1
-\]
-이고 $K_{\mathrm i}/K$는 순수비분리이다.
+를 $L$의 $K$-매장 $\widetilde\rho:L\to\Omega$로 연장한다. 정규성에 의해 $\widetilde\rho$는 $L$의 $K$-자동동형, 즉 $G$의 원소이다. 따라서 $K_{\mathrm i}$를 점별로 고정하고 $\rho$는 항등매장이다. 그러므로 $K_{\mathrm i}$에서 대수적 폐포로 가는 $K$-매장은 하나뿐이고 $K_{\mathrm i}/K$는 순수비분리이다.
 
 이제 $a\in L$를 택하고 $G$ 아래에서 서로 다른 상들을
 \[
@@ -50,7 +46,7 @@ $K_{\mathrm i}/K$가 순수비분리임을 보자. 임의의 $K$-매장
 \[
   P_a(X)=\prod_{j=1}^r\bigl(X-\sigma_j(a)\bigr)
 \]
-의 근 집합은 $G$의 모든 원소에 의해 순열되므로 그 계수는 $K_{\mathrm i}$에 속한다. $P_a$는 서로 다른 일차인수의 곱이고 $a$를 근으로 가지므로 $a$는 $K_{\mathrm i}$ 위에서 분리적이다. 모든 $a\in L$에 대해 성립하므로 $L/K_{\mathrm i}$는 분리확장이다.
+의 근 집합은 $G$의 모든 원소에 의해 순열되므로 그 계수는 $K_{\mathrm i}$에 속한다. $P_a$는 서로 다른 일차인수의 곱이고 $a$를 근으로 가지므로 $a$의 $K_{\mathrm i}$ 위 최소다항식은 $P_a$를 나누며 분리다항식이다. 모든 $a\in L$에 대해 성립하므로 $L/K_{\mathrm i}$는 분리확장이다.
 
 유일성을 보자. 중간체 $E$가 $E/K$는 순수비분리이고 $L/E$는 분리라고 하자. 순수비분리 원소는 $K$-켤레를 하나만 가지므로 모든 $\sigma\in G$가 $E$를 점별로 고정한다. 따라서 $E\subseteq K_{\mathrm i}$이다. 한편 $K_{\mathrm i}/E$는 $L/E$의 부분확장이므로 분리이고, $K_{\mathrm i}/K$가 순수비분리이므로 $K_{\mathrm i}/E$도 순수비분리이다. 두 성질을 동시에 갖는 확장은 자명하므로 $E=K_{\mathrm i}$이다.
 \end{proof}
@@ -81,7 +77,44 @@ $L/K$가 비자명한 순수비분리 확장이면 $L/K$는 정규이지만
 \[
   K_{\mathrm s}=\{a\in L:a\text{가 }K\text{ 위에서 분리적}\}
 \]
-를 다시 생각하자. $L/K$가 정규이면 $K_{\mathrm s}/K$도 정규이다.
+를 다시 생각하자.
+
+\begin{proposition}
+$L/K$가 정규 대수적 확장이면 $K_{\mathrm s}/K$도 정규확장이다.
+\end{proposition}
+
+\begin{proof}
+$K$-매장 $\rho:K_{\mathrm s}\to\Omega$를 $L$의 $K$-매장 $\widetilde\rho:L\to\Omega$로 연장한다. $L/K$의 정규성에 의해 $\widetilde\rho(L)=L$이다. 자동동형은 최소다항식과 분리성을 보존하므로 $\widetilde\rho$와 그 역함수는 $K_{\mathrm s}$를 자기 자신으로 보낸다. 따라서
+\[
+  \rho(K_{\mathrm s})=K_{\mathrm s},
+\]
+이고 체매장 판정에 의해 $K_{\mathrm s}/K$는 정규이다.
+\end{proof}
+
+다음 보조정리는 분리부분과 순수비분리부분을 합성할 때 차수가 줄어들지 않음을 보장한다.
+
+\begin{lemma}[분리확장과 순수비분리확장의 합성]
+하나의 대수적 폐포 안에서 $E/K$가 유한 정규 분리확장이고 $P/K$가 순수비분리 확장이라 하자. 그러면
+\[
+  [EP:P]=[E:K].
+\]
+\end{lemma}
+
+\begin{proof}
+기준체 확대에 의해 $EP/P$는 정규이고, $E$의 원소들은 $K$ 위에서 분리적이므로 $P$ 위에서도 분리적이다. 따라서 $EP/P$는 유한 정규 분리확장이고
+\[
+  [EP:P]=|\Aut_P(EP)|.
+\]
+
+제한 사상
+\[
+  \Aut_P(EP)\longrightarrow\Aut_K(E)
+\]
+은 단사이다. 역으로 $\sigma\in\Aut_K(E)$를 대수적 폐포의 $K$-자동동형으로 연장하자. $P/K$가 순수비분리이므로 $P$의 각 원소는 $K$-켤레를 하나만 가지며, 이 연장은 $P$를 점별로 고정한다. 또한 $E/K$가 정규이므로 $E$를 자기 자신으로 보낸다. 따라서 $\sigma$는 $EP$의 $P$-자동동형으로 연장된다. 제한 사상은 전단사이고
+\[
+  [EP:P]=|\Aut_K(E)|=[E:K].
+\]
+\end{proof}
 
 \begin{theorem}
 정규 대수적 확장 $L/K$에 대해
@@ -92,29 +125,31 @@ $L/K$가 비자명한 순수비분리 확장이면 $L/K$는 정규이지만
 \end{theorem}
 
 \begin{proof}
-먼저 $L/K$가 유한이라고 하자. $K_{\mathrm s}/K$는 분리이면서 정규이고, $K_{\mathrm i}/K$는 순수비분리이므로
-\[
-  K_{\mathrm s}\cap K_{\mathrm i}=K.
-\]
-또한 분리차수의 곱셈공식에서
-\[
-  [L:K]_{\mathrm s}=[K_{\mathrm s}:K]
-\]
-이고, $K_{\mathrm i}/K$의 분리차수는 $1$이며 $L/K_{\mathrm i}$는 분리이므로
-\[
-  [L:K_{\mathrm i}]
-  =[L:K_{\mathrm i}]_{\mathrm s}
-  =[L:K]_{\mathrm s}
-  =[K_{\mathrm s}:K].
-\]
-$K_{\mathrm s}/K$가 정규이고 교집합이 $K$이므로 합성체 차수 공식에서
+먼저 $L/K$가 유한이라고 하자. $K_{\mathrm s}/K$는 유한 정규 분리확장이고 $K_{\mathrm i}/K$는 순수비분리확장이다. 앞의 보조정리에 의해
 \[
   [K_{\mathrm s}K_{\mathrm i}:K_{\mathrm i}]
   =[K_{\mathrm s}:K].
 \]
+한편 분리차수의 곱셈공식과 두 부분의 정의에서
+\[
+\begin{aligned}
+  [L:K_{\mathrm i}]
+  &=[L:K_{\mathrm i}]_{\mathrm s}\\
+  &=[L:K]_{\mathrm s}\\
+  &=[K_{\mathrm s}:K].
+\end{aligned}
+\]
 따라서 $K_{\mathrm s}K_{\mathrm i}\subseteq L$은 $K_{\mathrm i}$ 위에서 $L$과 같은 차수를 가지며 두 체가 같다.
 
-일반 대수적 확장에서 $a\in L$를 택하자. $K(a)/K$의 정상폐포 $N$은 유한이고 $L/K$의 정규성 때문에 $N\subseteq L$이다. 유한한 경우의 결과를 $N/K$에 적용하면 $a$는 $L$ 안의 $K$-분리원소와 $K$-순수비분리원소들이 생성하는 체에 들어간다. 따라서 $a\in K_{\mathrm s}K_{\mathrm i}$이고 결론이 따른다.
+일반 대수적 확장에서 $a\in L$를 택하자. $K(a)/K$의 정상폐포 $N$은 유한이고 $L/K$의 정규성 때문에 $N\subseteq L$이다. 유한한 경우를 $N/K$에 적용하면
+\[
+  N=N_{\mathrm s}N_{\mathrm i}.
+\]
+$N_{\mathrm s}$의 원소들은 $K$ 위에서 분리적이므로 $N_{\mathrm s}\subseteq K_{\mathrm s}$이고, $N_{\mathrm i}/K$는 순수비분리이므로 모든 $K$-자동동형이 $N_{\mathrm i}$를 점별로 고정하여 $N_{\mathrm i}\subseteq K_{\mathrm i}$이다. 따라서
+\[
+  a\in N\subseteq K_{\mathrm s}K_{\mathrm i}.
+\]
+임의의 $a\in L$에 대해 성립하므로 결론이 따른다.
 \end{proof}
 
 \begin{keyidea}
