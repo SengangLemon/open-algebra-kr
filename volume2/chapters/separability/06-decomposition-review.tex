@@ -1,0 +1,143 @@
+\section{분리부분과 순수비분리부분}
+\label{sec:separable-pure-decomposition}
+
+\begin{learninggoal}
+임의의 대수적 확장 안에서 기준체의 최대 분리부분을 구성한다. 전체 확장이 이 분리부분 위에서 순수비분리가 됨을 증명하고, 유한확장의 차수를 분리차수와 비분리차수로 분해한다.
+\end{learninggoal}
+
+\begin{definition}[확장 안의 분리폐포]
+대수적 확장 $L/K$에 대해
+\[
+  K_{\mathrm s}
+  :=\{\alpha\in L:\alpha\text{가 }K\text{ 위에서 분리적}\}
+\]
+라 놓는다. 이를 $L$ 안에서의 $K$의 \emph{분리폐포}(separable closure in $L$)라 한다.
+\end{definition}
+
+\begin{theorem}[분리-순수비분리 분해]
+대수적 확장 $L/K$에 대해 $K_{\mathrm s}$는 중간체이며 다음을 만족한다.
+\begin{enumerate}[label=(\roman*)]
+  \item $K_{\mathrm s}/K$는 분리확장이다.
+  \item $L/K_{\mathrm s}$는 순수비분리 확장이다.
+\end{enumerate}
+또한 이 두 조건을 만족하는 중간체는 $K_{\mathrm s}$ 하나뿐이다.
+\end{theorem}
+
+\begin{proofidea}
+분리적인 두 원소가 생성하는 유한확장은 분리확장이므로 분리원소들은 사칙연산에 닫혀 있다. 임의의 $\alpha\in L$의 $K_{\mathrm s}$ 위 최소다항식에서 분리부분만 남기면 $\alpha$의 충분한 $p$-거듭제곱이 $K_{\mathrm s}$에 들어간다.
+\end{proofidea}
+
+\begin{proof}
+먼저 $K_{\mathrm s}$가 체임을 보자. $a,b\in K_{\mathrm s}$이면 $K(a,b)/K$는 분리적인 생성원들로 생성되므로 분리확장이다. 따라서
+\[
+  a\pm b,\quad ab,\quad a^{-1}\ (a\ne0)
+\]
+도 모두 $K$ 위에서 분리적이고 $K_{\mathrm s}$에 속한다. 정의상 $K_{\mathrm s}/K$는 분리확장이다.
+
+이제 $\alpha\in L$를 택하고 $\alpha$의 $K_{\mathrm s}$ 위 최소다항식을 $f$라 하자. 표수 $0$이면 모든 확장이 분리이므로 $K_{\mathrm s}=L$이고 결론이 자명하다. 표수 $p>0$이라 하자. 기약다항식의 중복도 구조에 의해
+\[
+  f(X)=g(X^{p^r})
+\]
+인 $r\ge0$과 기약인 분리다항식 $g\in K_{\mathrm s}[X]$가 존재한다. $c=\alpha^{p^r}$라 두면 $g(c)=0$이므로 $c$는 $K_{\mathrm s}$ 위에서 분리적이다. 또한 $K_{\mathrm s}/K$가 분리확장이므로 분리성의 추이성에 의해 $c$는 $K$ 위에서도 분리적이다. 따라서 $c\in K_{\mathrm s}$이고
+\[
+  \alpha^{p^r}\in K_{\mathrm s}.
+\]
+순수비분리성의 동치조건에 의해 $L/K_{\mathrm s}$는 순수비분리 확장이다.
+
+유일성을 보자. 중간체 $E$가 $E/K$는 분리이고 $L/E$는 순수비분리라고 하자. 정의에서 $E\subseteq K_{\mathrm s}$이다. 한편 $K_{\mathrm s}/E$는 $L/E$의 부분확장이므로 순수비분리이고, $K_{\mathrm s}/K$가 분리이므로 기준체를 확대하여 $K_{\mathrm s}/E$는 분리이기도 하다. 두 성질을 동시에 갖는 확장은 자명하므로 $E=K_{\mathrm s}$이다.
+\end{proof}
+
+\begin{corollary}
+$L/K$가 유한확장이면
+\[
+  [L:K]_{\mathrm s}=[K_{\mathrm s}:K]
+\]
+이고
+\[
+  [L:K]=[L:K_{\mathrm s}]\,[L:K]_{\mathrm s}.
+\]
+이때
+\[
+  [L:K]_{\mathrm i}:=[L:K_{\mathrm s}]
+  =\frac{[L:K]}{[L:K]_{\mathrm s}}
+\]
+를 $L/K$의 \emph{비분리차수}(inseparable degree)라 한다. 표수 $p>0$에서는 $[L:K]_{\mathrm i}$가 $p$의 거듭제곱이다.
+\end{corollary}
+
+\begin{proof}
+분리차수의 곱셈공식과
+\[
+  [L:K_{\mathrm s}]_{\mathrm s}=1,
+  \qquad
+  [K_{\mathrm s}:K]_{\mathrm s}=[K_{\mathrm s}:K]
+\]
+을 사용하면 첫 공식이 나온다. 두 번째 공식은 보통 차수의 탑 법칙이고, 유한 순수비분리 확장의 차수는 단순확장들의 차수 $p^r$의 곱이므로 $p$의 거듭제곱이다.
+\end{proof}
+
+\begin{example}[분리부분과 순수비분리부분이 모두 있는 확장]
+$p$가 홀수이고 $s,t$가 독립인 변수라고 하자. $K=\F_p(s,t)$에서
+\[
+  \alpha^p=s,
+  \qquad
+  \beta^2=t
+\]
+인 원소들을 첨가하여
+\[
+  L=K(\alpha,\beta)
+\]
+를 만든다. $X^p-s$는 순수비분리이고 $X^2-t$는 분리다항식이다. 또한 $t$는 $K$와 $K(\alpha)$에서 제곱이 아니므로
+\[
+  [L:K]=2p.
+\]
+중간체
+\[
+  K_{\mathrm s}=K(\beta)
+\]
+에 대해 $K_{\mathrm s}/K$는 차수 $2$의 분리확장이고, $L/K_{\mathrm s}$는 차수 $p$의 순수비분리 확장이다. 따라서
+\[
+  [L:K]_{\mathrm s}=2,
+  \qquad
+  [L:K]_{\mathrm i}=p.
+\]
+\end{example}
+
+\begin{remark}
+정규 대수적 확장에서는 순수비분리부분을 먼저 놓고 그 위에 분리확장을 쌓는 역순의 분해도 가능하다. 이 구성은 자동동형군과 고정체를 사용하므로 정상확장과 갈루아 이론을 다루는 뒤의 장에서 증명한다.
+\end{remark}
+
+\begin{keyidea}
+유한 대수적 확장의 차수는 두 종류의 복잡성을 곱한 값이다.
+\[
+  \boxed{
+  [L:K]
+  =\underbrace{[L:K]_{\mathrm s}}_{\text{서로 다른 매장의 수}}
+   \underbrace{[L:K]_{\mathrm i}}_{\text{$p$-거듭제곱 중복}}
+  }
+\]
+표수 $0$에서는 비분리차수가 항상 $1$이고, 양의 표수에서만 두 요소가 분리된다.
+\end{keyidea}
+
+\begin{chapterreview}
+\begin{itemize}
+  \item $f$의 중근은 $f$와 $f'$의 공통근이며, $f$가 분리라는 것은 $\gcd(f,f')=1$이라는 뜻이다.
+  \item 표수 $p$의 기약다항식은 $g(X^{p^r})$ 꼴로 분리부분과 공통 중복도 $p^r$을 갖는다.
+  \item 분리차수 $[L:K]_{\mathrm s}$는 $K$-매장 $L\to\overline K$의 개수이다.
+  \item 유한확장은 분리차수와 보통 차수가 같을 때 정확히 분리확장이다.
+  \item 모든 유한 분리확장은 원시원을 갖는다.
+  \item 표수 $p$의 체는 프로베니우스가 전사일 때 정확히 완전체이다.
+  \item 순수비분리 확장은 모든 원소의 충분한 $p$-거듭제곱이 기준체에 들어가는 확장이다.
+  \item 임의의 대수적 확장에는 유일한 최대 분리 중간체 $K_{\mathrm s}$가 있고, 그 위의 나머지는 순수비분리이다.
+\end{itemize}
+\end{chapterreview}
+
+\subsection*{복습 카드}
+
+\begin{description}[style=nextline,leftmargin=0pt]
+  \item[분리다항식의 계산 판정은?] $\gcd(f,f')=1$.
+  \item[기약다항식이 비분리일 수 있는 표수는?] 양의 표수 $p$뿐이다.
+  \item[$[L:K]_{\mathrm s}$의 의미는?] $K$를 고정하는 $L\to\overline K$ 매장의 수.
+  \item[유한확장이 분리일 조건은?] $[L:K]_{\mathrm s}=[L:K]$.
+  \item[완전체의 양의 표수 판정은?] 프로베니우스 $x\mapsto x^p$의 전사성.
+  \item[순수비분리 원소의 판정은?] 어떤 $r$에 대해 $\alpha^{p^r}\in K$.
+  \item[분리폐포 $K_{\mathrm s}$는?] $L$ 안에서 $K$ 위 분리적인 모든 원소의 체.
+\end{description}
