@@ -1,0 +1,155 @@
+\section{중근과 분리다항식}
+\label{sec:separable-polynomials}
+
+\begin{learninggoal}
+다항식의 중근을 형식적 미분과 최대공약수로 판정한다. 양의 표수에서 기약다항식의 모든 중근이 같은 $p$-거듭제곱 중복도를 갖는 이유를 설명한다.
+\end{learninggoal}
+
+이 절에서는 체 $K$의 대수적 폐포 $\overline K$를 하나 고정하고, $K[X]$의 다항식의 근을 $\overline K$ 안에서 생각한다. 대수적 폐포는 $K$-동형까지 유일하므로 ``서로 다른 근의 개수''와 ``중근의 존재''는 선택한 대수적 폐포에 의존하지 않는다.
+
+\begin{definition}[분리다항식]
+비상수 다항식 $f\in K[X]$가 $\overline K$에서 중근을 갖지 않으면 $f$를 \emph{분리다항식}(separable polynomial)이라 한다. 다시 말해 $f$의 모든 근의 중복도가 $1$이면 $f$는 분리다항식이다.
+\end{definition}
+
+\begin{proposition}[중근 판정]
+$f\in K[X]$가 비상수 다항식이고 $f'$가 형식적 도함수라 하자. $\alpha\in\overline K$에 대하여 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $\alpha$는 $f$의 중근이다.
+  \item $f(\alpha)=f'(\alpha)=0$이다.
+\end{enumerate}
+따라서
+\[
+  f\text{가 분리다항식}
+  \quad\Longleftrightarrow\quad
+  \gcd(f,f')=1.
+\]
+\end{proposition}
+
+\begin{proof}
+$f=(X-\alpha)^m g$이고 $g(\alpha)\ne0$라 하자. 곱의 미분법으로
+\[
+  f'=m(X-\alpha)^{m-1}g+(X-\alpha)^m g'
+\]
+이다. $m\ge2$이면 두 항 모두 $X-\alpha$로 나누어지므로 $f'(\alpha)=0$이다. 반대로 $m=1$이면
+\[
+  f'(\alpha)=g(\alpha)\ne0.
+\]
+그러므로 중근은 정확히 $f$와 $f'$의 공통근이다. 공통근이 없다는 것은 대수적 폐포에서도 $\gcd(f,f')=1$이라는 뜻이고, 최대공약수는 체를 확대해도 단위원배를 제외하고 변하지 않으므로 $K[X]$에서의 조건과 같다.
+\end{proof}
+
+\begin{corollary}
+$f\in K[X]$가 기약인 비상수 다항식이면
+\[
+  f\text{가 분리다항식}
+  \quad\Longleftrightarrow\quad
+  f'\ne0.
+\]
+\end{corollary}
+
+\begin{proof}
+$f'\ne0$이면 $\deg f'<\deg f$이다. 기약성 때문에 $f$와 $f'$의 최대공약수는 $1$이어야 한다. 반대로 $f'=0$이면 $f$와 $f'$의 최대공약수는 $f$이므로 분리되지 않는다.
+\end{proof}
+
+\begin{example}
+표수 $0$에서는 비상수 다항식의 도함수가 영다항식일 수 없다. 따라서 $\Q$, $\R$, $\C$ 위의 모든 기약다항식은 분리다항식이다. 다만 기약이 아닌 다항식은 표수 $0$에서도 중근을 가질 수 있다. 예를 들어
+\[
+  (X^2-2)^2
+\]
+는 $\pm\sqrt2$를 각각 중복도 $2$의 근으로 갖는다.
+\end{example}
+
+\subsection{양의 표수에서 도함수가 사라지는 경우}
+
+이제 $\charac K=p>0$이라 하자. 계수 $a_i\in K$에 대하여
+\[
+  \left(\sum_i a_iX^i\right)'=\sum_i i a_iX^{i-1}
+\]
+인데, $p\mid i$이면 $i=0$이 $K$ 안에서 성립한다.
+
+\begin{lemma}
+$f\in K[X]$에 대하여 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $f'=0$이다.
+  \item 어떤 $g\in K[X]$가 존재하여 $f(X)=g(X^p)$이다.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+$f=\sum_i a_iX^i$라 하자. $f'=0$이면 $p\nmid i$인 모든 $i$에 대해 $a_i=0$이다. 따라서 지수가 $p$의 배수인 항만 남아
+\[
+  f(X)=\sum_j a_{pj}X^{pj}=g(X^p)
+\]
+로 쓸 수 있다. 역방향은 직접 미분하면 된다.
+\end{proof}
+
+\begin{theorem}[기약다항식의 중복도 구조]
+$K$의 표수가 $p>0$이고 $f\in K[X]$가 일계수 기약다항식이라 하자. 다음을 만족하는 최대의 $r\ge0$을 택한다.
+\[
+  f(X)=g\!\left(X^{p^r}\right)
+  \qquad(g\in K[X]).
+\]
+그러면 $g$는 기약인 분리다항식이다. 또한 $g$의 서로 다른 근을 $a_1,\dots,a_m$이라 하고 $c_i^{p^r}=a_i$인 원소 $c_i\in\overline K$를 택하면
+\[
+  f(X)=\prod_{i=1}^m (X-c_i)^{p^r}.
+\]
+따라서 $f$의 모든 근은 같은 중복도 $p^r$을 가지며
+\[
+  \deg f=p^r\,m.
+\]
+\end{theorem}
+
+\begin{proof}
+$r$의 최대성 때문에 $g'\ne0$이다. $f$가 기약이므로 $g$도 기약이고, 앞의 따름정리에 의해 $g$는 분리다항식이다.
+
+대수적 폐포에서
+\[
+  g(X)=\prod_{i=1}^m(X-a_i)
+\]
+로 쓸 수 있다. 각 $a_i$에 대해 $X^{p^r}-a_i$는 대수적 폐포에서 근 $c_i$를 갖는다. 표수 $p$의 이항공식으로
+\[
+  X^{p^r}-a_i=X^{p^r}-c_i^{p^r}=(X-c_i)^{p^r}
+\]
+이므로
+\[
+  f(X)=g(X^{p^r})
+  =\prod_{i=1}^m\left(X^{p^r}-a_i\right)
+  =\prod_{i=1}^m(X-c_i)^{p^r}.
+\]
+$g$의 근들이 서로 다르고 $p^r$제곱 사상은 체에서 단사이므로 $c_i$들도 서로 다르다.
+\end{proof}
+
+\begin{example}[전형적인 비분리 기약다항식]
+$t$를 변수라 하고 $K=\F_p(t)$라 하자. 다항식
+\[
+  f=X^p-t\in K[X]
+\]
+는 $\F_p[t]$에서 소원소 $t$에 대한 아이젠슈타인 판정법으로 기약이다. 그러나
+\[
+  f'=pX^{p-1}=0
+\]
+이므로 분리되지 않는다. $\alpha^p=t$인 근 $\alpha$를 대수적 폐포에서 택하면
+\[
+  X^p-t=(X-\alpha)^p.
+\]
+즉 차수는 $p$이지만 서로 다른 근은 하나뿐이다.
+\end{example}
+
+\begin{example}
+$\F_2[X]$에서
+\[
+  X^4+X^2+1=(X^2+X+1)^2
+\]
+이다. 도함수는 영다항식이며, $X^2+X+1$의 두 근이 각각 중복도 $2$로 나타난다. 이 예제는 $f'=0$이라는 조건이 기약성을 뜻하지는 않음을 보여준다.
+\end{example}
+
+\begin{pitfall}
+``도함수가 $0$이다''와 ``다항식이 상수이다''는 표수 $0$에서만 같은 뜻이다. 표수 $p$에서는 $X^p$, $X^{2p}$ 같은 항들이 미분으로 사라진다.
+\end{pitfall}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $X^6-X\in\F_3[X]$가 분리다항식인지 판정하라.
+  \item $X^4+X^2+1\in\F_2[X]$의 서로 다른 근의 개수와 각 중복도를 구하라.
+  \item 표수 $p$에서 기약다항식의 차수가 $p$로 나누어지지 않으면 왜 반드시 분리되는가?
+\end{enumerate}
+\end{checkpoint}
