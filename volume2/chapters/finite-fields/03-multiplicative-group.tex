@@ -1,0 +1,142 @@
+\clearpage
+\section{유한체의 곱셈군}
+\label{sec:finite-field-multiplicative-group}
+
+\begin{learninggoal}
+유한체의 영이 아닌 원소들이 순환군을 이룸을 증명한다. 원시원과 그 개수를 설명하고, 작은 유한체에서 곱셈 구조를 구체적으로 계산한다.
+\end{learninggoal}
+
+앞 장에서 체의 곱셈군의 모든 유한부분군이 순환군임을 증명했다. 이를 유한체 전체에 적용하면 유한체의 곱셈 구조가 매우 단순해진다.
+
+\begin{theorem}[유한체 곱셈군의 순환성]
+$q$가 소수의 거듭제곱이면
+\[
+  \F_q^\times
+\]
+는 위수가 $q-1$인 순환군이다.
+\end{theorem}
+
+\begin{proof}
+$\F_q^\times$는 체의 곱셈군의 유한부분군이므로 순환군이다. 원소 수는 $0$을 제외한 $q-1$개이다.
+\end{proof}
+
+\begin{definition}[원시원]
+$\F_q^\times$를 생성하는 원소를 $\F_q$의 \emph{원시원}(primitive element)이라 한다. 즉 $g\in\F_q^\times$가 원시원이라는 것은
+\[
+  \F_q^\times=\langle g\rangle
+\]
+라는 뜻이다.
+\end{definition}
+
+\begin{corollary}
+$\F_q$에는 정확히
+\[
+  \varphi(q-1)
+\]
+개의 원시원이 있다. 여기서 $\varphi$는 오일러 파이함수이다.
+\end{corollary}
+
+\begin{proof}
+위수 $q-1$인 순환군의 생성원 수가 $\varphi(q-1)$개이기 때문이다.
+\end{proof}
+
+\begin{remark}
+체확장을 생성하는 원시원과 곱셈군을 생성하는 원시원은 문맥상 같은 한국어 이름을 사용한다. 유한체에서는 곱셈군의 생성원 $g$가 체도 생성한다.
+\[
+  \F_q=\F_p(g).
+\]
+실제로 $\F_p(g)$는 $0$과 $g$의 모든 거듭제곱을 포함하므로 $\F_q$ 전체를 포함한다.
+\end{remark}
+
+\subsection{여덟 원소 체의 곱셈표를 압축하기}
+
+\begin{example}
+$\alpha^3+\alpha+1=0$인 $\alpha$를 택하여
+\[
+  \F_8=\F_2(\alpha)
+\]
+라 하자. 관계식 $\alpha^3=\alpha+1$을 사용하면
+\[
+\begin{array}{c|c}
+ k & \alpha^k\\
+\hline
+0&1\\
+1&\alpha\\
+2&\alpha^2\\
+3&\alpha+1\\
+4&\alpha^2+\alpha\\
+5&\alpha^2+\alpha+1\\
+6&\alpha^2+1\\
+7&1
+\end{array}
+\]
+이다. $\F_8^\times$의 위수는 소수 $7$이고 $\alpha\ne1$이므로 $\alpha$의 위수는 $7$이다. 따라서 $\alpha$는 원시원이다.
+
+이 표를 사용하면 곱셈은 지수의 덧셈으로 바뀐다.
+\[
+  \alpha^i\alpha^j=\alpha^{i+j\bmod7}.
+\]
+예를 들어
+\[
+  (\alpha^2+1)(\alpha+1)=\alpha^6\alpha^3=\alpha^2.
+\]
+\end{example}
+
+\begin{example}[아홉 원소 체]
+$\F_9=\F_3(i)$, $i^2=-1$이라 하자. $1+i$의 거듭제곱을 계산하면
+\[
+  (1+i)^2=-i,
+  \qquad
+  (1+i)^4=-1,
+  \qquad
+  (1+i)^8=1.
+\]
+중간 거듭제곱들은 $1$이 아니므로 $1+i$의 위수는 $8$이고, 따라서 $1+i$는 $\F_9$의 원시원이다.
+\end{example}
+
+\subsection{모든 영이 아닌 원소의 곱}
+
+\begin{proposition}
+유한체 $F$에서 모든 영이 아닌 원소의 곱은
+\[
+  \prod_{a\in F^\times}a=-1
+\]
+이다.
+\end{proposition}
+
+\begin{proof}
+각 원소 $a$를 역원 $a^{-1}$과 짝지으면 $a\ne a^{-1}$인 쌍의 곱은 $1$이다. 짝지어지지 않는 원소는
+\[
+  a=a^{-1}
+  \quad\Longleftrightarrow\quad
+  a^2=1
+\]
+을 만족한다. 체에서는 $(a-1)(a+1)=0$이므로 가능한 원소는 $1$과 $-1$이다. 표수가 $2$이면 두 원소가 같고 그 값은 $1=-1$이다. 따라서 모든 경우에 남는 곱은 $-1$이다.
+\end{proof}
+
+\begin{corollary}[윌슨 정리]
+소수 $p$에 대해
+\[
+  (p-1)!\equiv-1\pmod p.
+\]
+\end{corollary}
+
+\begin{proof}
+$F=\F_p$에 앞의 명제를 적용하면 된다.
+\end{proof}
+
+\begin{pitfall}
+$\F_q^\times$가 순환군이라는 사실은 덧셈군도 순환군이라는 뜻이 아니다. $q=p^n$일 때 덧셈군은
+\[
+  (\Z/p\Z)^n
+\]
+과 동형이다. 따라서 $n>1$이면 덧셈군은 일반적으로 순환군이 아니다.
+\end{pitfall}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\F_{16}$의 원시원은 몇 개인가?
+  \item $\F_8$에서 $(\alpha^2+\alpha+1)^{-1}$을 위의 거듭제곱표로 구하라.
+  \item $\F_{25}$의 덧셈군과 곱셈군의 추상적 군 구조를 각각 설명하라.
+\end{enumerate}
+\end{checkpoint}
