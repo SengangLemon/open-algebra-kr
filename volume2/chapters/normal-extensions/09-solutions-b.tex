@@ -1,0 +1,244 @@
+\section{선별 문제 풀이 II}
+\label{sec:normal-solutions-b}
+
+\subsection*{문제 \thechapter.15: 합성체와 교집합의 정규성}
+
+\begin{solution}
+두 확장을 포함하는 대수적 폐포 $\Omega$를 고정하자. 임의의 $K$-자동동형
+\[
+  \sigma\in\Aut_K(\Omega)
+\]
+를 택한다. $L_1/K$와 $L_2/K$의 정규성에 의해
+\[
+  \sigma(L_1)=L_1,
+  \qquad
+  \sigma(L_2)=L_2.
+\]
+따라서
+\[
+  \sigma(L_1L_2)
+  =\sigma(L_1)\sigma(L_2)=L_1L_2
+\]
+이고
+\[
+  \sigma(L_1\cap L_2)
+  =\sigma(L_1)\cap\sigma(L_2)
+  =L_1\cap L_2.
+\]
+
+합성체 또는 교집합에서 $\Omega$로 가는 임의의 $K$-매장은 $\Omega$의 $K$-자동동형으로 연장된다. 위 계산에 의해 그 상은 원래 체와 같으므로 정규성의 체매장 판정에서 두 확장이 모두 정규이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.18: 유한 정규확장의 자동동형 수}
+
+\begin{solution}
+$L/K$가 정규이고 $\sigma:L\to\Omega$가 $K$-매장이면 정규성의 동치조건에 의해
+\[
+  \sigma(L)=L.
+\]
+체매장은 단사이고 상이 $L$ 전체이므로 $\sigma$는 $L$의 $K$-자동동형이다. 역으로 모든 $K$-자동동형은 당연히 $K$-매장이다. 따라서
+\[
+  \Hom_K(L,\Omega)=\Aut_K(L).
+\]
+분리차수의 정의에서
+\[
+  |\Aut_K(L)|
+  =\#\Hom_K(L,\Omega)
+  =[L:K]_{\mathrm s}.
+\]
+유한확장에 대해 $[L:K]_{\mathrm s}=[L:K]$일 필요충분조건은 $L/K$가 분리라는 것이므로
+\[
+  |\Aut_K(L)|=[L:K]
+  \quad\Longleftrightarrow\quad
+  L/K\text{가 분리확장}
+\]
+이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.21: $\Q(\sqrt[4]{2},i)$의 자동동형}
+
+\begin{solution}
+$\alpha=\sqrt[4]{2}$라 하자. $N=\Q(\alpha,i)$는 $X^4-2$의 분해체이고
+\[
+  [N:\Q]=8.
+\]
+$\Q$-자동동형은 $\alpha$를 $X^4-2$의 근 중 하나로, $i$를 $X^2+1$의 근 중 하나로 보내야 한다. 따라서 가능한 상은
+\[
+  \alpha\longmapsto i^k\alpha
+  \quad(k=0,1,2,3),
+  \qquad
+  i\longmapsto\varepsilon i
+  \quad(\varepsilon=\pm1)
+\]
+이다.
+
+$\Q(\alpha)$는 실수체이고 $\Q(i)\cap\R=\Q$이므로
+\[
+  \Q(\alpha)\cap\Q(i)=\Q.
+\]
+따라서 두 단순확장의 매장을 독립적으로 결합할 수 있고 위의 여덟 선택은 모두 서로 다른 $\Q$-매장을 정의한다. $N/\Q$가 정규이므로 이들은 모두 자동동형이다. 차수가 $8$이므로 다른 자동동형은 없다.
+
+$\alpha$의 궤도는
+\[
+  \{\alpha,i\alpha,-\alpha,-i\alpha\}
+\]
+이다. $\alpha$를 고정하는 자동동형은
+\[
+  i\longmapsto i,\qquad i\longmapsto-i
+\]
+인 두 개이므로 안정자의 크기는 $2$이다. 실제로
+\[
+  |\operatorname{Orb}(\alpha)|
+  =\frac{8}{2}=4.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.23: 두 제곱근 확장의 궤도와 안정자}
+
+\begin{solution}
+$G=\Aut_\Q(L)$의 원소는
+\[
+  \sigma_{\varepsilon,\delta}:
+  \sqrt2\longmapsto\varepsilon\sqrt2,
+  \qquad
+  \sqrt3\longmapsto\delta\sqrt3,
+  \qquad
+  \varepsilon,\delta\in\{\pm1\}
+\]
+인 네 자동동형이다. 따라서 $G$는 클라인 사군과 동형이다.
+
+$\sqrt2+\sqrt3$의 네 상은
+\[
+  \pm\sqrt2\pm\sqrt3
+\]
+이고 모두 서로 다르다. 따라서 안정자는 항등자동동형 하나뿐이다.
+
+$\sqrt2$의 궤도는
+\[
+  \{\sqrt2,-\sqrt2\}
+\]
+이고 안정자는 $\sqrt2$를 고정하면서 $\sqrt3$의 부호만 선택하는 두 자동동형
+\[
+  \{\sigma_{+,+},\sigma_{+,-}\}
+\]
+이다. 궤도-안정자 공식은
+\[
+  2=\frac{|G|}{|G_{\sqrt2}|}=\frac42
+\]
+로 확인된다.
+\end{solution}
+
+\subsection*{문제 \thechapter.25: 혼합 정규확장의 두 부분}
+
+\begin{solution}
+$K(\alpha)/K$는 $\alpha^p=s$인 순수비분리 확장이므로 정규이다. $K(\beta)/K$는 $\beta^2=t$인 이차확장이므로 정규이다. 정규확장들의 합성체는 정규이므로
+\[
+  L=K(\alpha,\beta)
+\]
+는 $K$ 위에서 정규이다.
+
+$\alpha$는 $K$ 위 켤레를 하나만 가지므로 모든 $K$-자동동형이 $\alpha$를 고정한다. $\beta$는 $\pm\beta$로 갈 수 있으므로
+\[
+  \Aut_K(L)=\{\id,\tau\},
+  \qquad
+  \tau(\alpha)=\alpha,\quad \tau(\beta)=-\beta.
+\]
+
+$L=K(\alpha)(\beta)$이고 $p$가 홀수이므로 모든 원소는
+\[
+  u+v\beta,\qquad u,v\in K(\alpha)
+\]
+로 유일하게 표현된다. $\tau(u+v\beta)=u-v\beta$이므로 고정되기 위한 필요충분조건은 $v=0$이다. 따라서
+\[
+  K_{\mathrm i}=L^{\Aut_K(L)}=K(\alpha).
+\]
+
+한편 $K(\beta)/K$는 분리이고 $L/K(\beta)$는 $\alpha^p=s\in K$이므로 순수비분리이다. 분리폐포의 유일성에서
+\[
+  K_{\mathrm s}=K(\beta).
+\]
+마지막으로 정의에서 바로
+\[
+  K_{\mathrm s}K_{\mathrm i}
+  =K(\beta)K(\alpha)=L
+\]
+이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.27: $\Q(\sqrt2,i)$ 위의 인수들}
+
+\begin{solution}
+$L=\Q(\sqrt2,i)$에서
+\[
+  X^4-2=(X^2-\sqrt2)(X^2+\sqrt2).
+\]
+$N=\Q(\sqrt[4]{2},i)$는 $X^4-2$의 분해체이고
+\[
+  [N:\Q]=8,
+  \qquad
+  [L:\Q]=4.
+\]
+따라서
+\[
+  [N:L]=2.
+\]
+$\sqrt[4]{2}$를 첨가하면 $N$을 얻으므로 $X^2-\sqrt2$는 $L$ 위에서 기약이다. 만약 $X^2+\sqrt2$가 $L$에서 근 $\gamma$를 가진다면
+\[
+  (i\gamma)^2=\sqrt2
+\]
+이므로 $X^2-\sqrt2$도 근을 가져 모순이다. 따라서 두 인수 모두 기약이다.
+
+$L/\Q$의 자동동형
+\[
+  \sigma(\sqrt2)=-\sqrt2,
+  \qquad
+  \sigma(i)=i
+\]
+를 계수에 적용하면
+\[
+  (X^2-\sqrt2)^\sigma=X^2+\sqrt2
+\]
+가 되어 두 인수가 교환된다.
+\end{solution}
+
+\subsection*{문제 \thechapter.29: 분리부분과 순수비분리부분의 합성}
+
+\begin{solution}
+$K_{\mathrm s}/K$는 분리이고 $K_{\mathrm i}/K$는 순수비분리이다. 따라서 교집합
+\[
+  K_{\mathrm s}\cap K_{\mathrm i}
+\]
+은 $K$ 위에서 분리이면서 순수비분리이다. 이러한 확장은 자명하므로
+\[
+  K_{\mathrm s}\cap K_{\mathrm i}=K.
+\]
+
+분리폐포의 성질에서
+\[
+  [K_{\mathrm s}:K]=[L:K]_{\mathrm s}.
+\]
+또한 $K_{\mathrm i}/K$는 순수비분리이므로 분리차수가 $1$이고, $L/K_{\mathrm i}$는 분리이므로
+\[
+\begin{aligned}
+  [L:K]_{\mathrm s}
+  &=[L:K_{\mathrm i}]_{\mathrm s}
+    [K_{\mathrm i}:K]_{\mathrm s}\\
+  &=[L:K_{\mathrm i}].
+\end{aligned}
+\]
+따라서
+\[
+  [L:K_{\mathrm i}]=[K_{\mathrm s}:K].
+\]
+
+$L/K$가 정규이므로 $K_{\mathrm s}/K$도 정규이다. 정규확장에 대한 합성체 차수 공식과 교집합 계산에서
+\[
+  [K_{\mathrm s}K_{\mathrm i}:K_{\mathrm i}]
+  =[K_{\mathrm s}:K_{\mathrm s}\cap K_{\mathrm i}]
+  =[K_{\mathrm s}:K].
+\]
+따라서 $K_{\mathrm s}K_{\mathrm i}\subseteq L$은 $K_{\mathrm i}$ 위에서 $L$과 같은 차수를 가진다. 그러므로
+\[
+  L=K_{\mathrm s}K_{\mathrm i}.
+\]
+\end{solution}

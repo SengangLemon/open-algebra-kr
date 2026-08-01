@@ -1,0 +1,112 @@
+\section{구조 정리와 복습}
+\label{sec:normal-review}
+
+\begin{learninggoal}
+켤레원소, 정규확장, 정상폐포와 순수비분리 고정체 사이의 관계를 한눈에 정리한다. 구체적인 확장에서 정규성 판정 절차를 적용한다.
+\end{learninggoal}
+
+\subsection{정규성 판정 절차}
+
+유한 대수적 확장 $L/K$가 주어졌을 때 다음 순서로 정규성을 판정할 수 있다.
+
+\begin{enumerate}
+  \item $L$의 생성원 $\alpha_1,\dots,\alpha_r$을 선택한다.
+  \item 각 생성원의 $K$ 위 최소다항식을 구한다.
+  \item 각 최소다항식의 모든 서로 다른 근이 $L$ 안에 들어 있는지 확인한다.
+  \item 모든 근이 들어 있으면 $L/K$는 정규이고, 빠진 근이 있으면 정규가 아니다.
+  \item 빠진 모든 켤레근을 첨가하면 정상폐포를 얻는다.
+\end{enumerate}
+
+단순확장 $L=K(\alpha)$에서는 최소다항식 하나만 검사하면 된다.
+
+\begin{example}[판정 요약]
+\[
+\begin{array}{c|c|c|c}
+L/K & \alpha\text{의 최소다항식} & \text{빠진 근} & \text{정규성}\\
+\hline
+\Q(\sqrt2)/\Q & X^2-2 & \text{없음} & \text{정규}\\
+\Q(\sqrt[3]{2})/\Q & X^3-2 & \omega\alpha,\omega^2\alpha & \text{비정규}\\
+\Q(\sqrt[4]{2})/\Q & X^4-2 & \pm i\alpha & \text{비정규}\\
+\Q(\sqrt{2+\sqrt2})/\Q & X^4-4X^2+2 & \text{없음} & \text{정규}
+\end{array}
+\]
+\end{example}
+
+\subsection{분리성과 정규성의 비교}
+
+\[
+\begin{array}{c|p{0.32\textwidth}|p{0.32\textwidth}}
+ & \textbf{분리성} & \textbf{정규성}\\
+\hline
+\text{근의 관점}
+& 최소다항식의 서로 다른 근이 충분히 많다.
+& 한 근이 체에 들어오면 모든 켤레근이 함께 들어온다.\\
+\text{매장의 관점}
+& 매장의 수가 확장차수와 같다.
+& 모든 매장의 상이 원래 체와 같다.\\
+\text{분해체와의 관계}
+& 분리다항식의 근으로 생성되는 확장은 분리이다.
+& 다항식족의 분해체는 정규이다.\\
+\text{반례}
+& 순수비분리 확장
+& $\Q(\sqrt[3]{2})/\Q$
+\end{array}
+\]
+
+두 조건은 서로 독립적이다.
+
+\begin{itemize}
+  \item $\Q(\sqrt[3]{2})/\Q$는 분리이지만 정규가 아니다.
+  \item 비자명한 순수비분리 확장은 정규이지만 분리되지 않는다.
+  \item $\Q(\sqrt2)/\Q$는 정규이면서 분리이다.
+\end{itemize}
+
+\begin{keyidea}
+분리성은 켤레근의 \emph{개수}에 관한 조건이고, 정규성은 켤레근의 \emph{위치}에 관한 조건이다. 갈루아 이론은 서로 다른 켤레근이 모두 같은 체 안에 있는 상황을 연구한다.
+\end{keyidea}
+
+\subsection{네 개의 핵심 체}
+
+대수적 확장 $L/K$ 안에는 다음 체들이 자연스럽게 나타난다.
+
+\begin{description}[style=nextline]
+  \item[$K_{\mathrm s}$] $L$ 안에서 $K$ 위 분리적인 모든 원소가 이루는 최대 분리 중간체.
+  \item[$K_{\mathrm i}$] $L/K$가 정규일 때 모든 $K$-자동동형이 고정하는 체. $K$ 위 최대 순수비분리 중간체.
+  \item[$N$] $L/K$의 정상폐포. $L$의 모든 켤레매장의 상을 모아 생성한 최소 정규확장.
+  \item[$\overline K$] $K$ 위의 모든 대수방정식의 근을 담는 대수적 폐포.
+\end{description}
+
+정규확장 $L/K$에서는
+\[
+  K\subseteq K_{\mathrm s},K_{\mathrm i}\subseteq L,
+  \qquad
+  L=K_{\mathrm s}K_{\mathrm i}.
+\]
+표수 $0$에서는 $K_{\mathrm i}=K$이고 모든 대수적 확장이 분리이므로, 정규성만 확인하면 된다.
+
+\begin{chapterreview}
+\begin{itemize}
+  \item 두 대수적 원소는 같은 최소다항식을 가질 때 $K$-켤레이다.
+  \item 켤레원소는 대수적 폐포의 $K$-자동동형 궤도와 같다.
+  \item 정규확장은 체매장의 상이 자기 자신인 대수적 확장이다.
+  \item 정규확장은 다항식족의 분해체인 것과 동치이다.
+  \item 기약다항식이 정규확장 안에 한 근을 가지면 모든 근을 가진다.
+  \item 유한 정규확장에서는 $K$-매장과 $K$-자동동형이 일치한다.
+  \item 정규성은 확장탑에서 아래로 추이적이지 않지만, 위쪽 확장과 기준체 확대에서는 보존된다.
+  \item 정상폐포는 생성원들의 최소다항식의 분해체이다.
+  \item 정규확장에서 켤레집합은 내부 자동동형의 궤도이다.
+  \item 모든 자동동형의 고정체 $K_{\mathrm i}$는 $K$ 위 순수비분리이고, $L/K_{\mathrm i}$는 분리이다.
+\end{itemize}
+\end{chapterreview}
+
+\subsection*{복습 카드}
+
+\begin{itemize}
+  \item \textbf{켤레원소의 판정은?} 같은 $K$ 위 최소다항식을 갖는다.
+  \item \textbf{정규확장의 근 판정은?} 기약다항식의 한 근을 가지면 모든 근을 가진다.
+  \item \textbf{분해체와 정규성의 관계는?} 다항식족의 분해체는 정규이며 모든 정규확장은 어떤 다항식족의 분해체이다.
+  \item \textbf{정상폐포는?} 주어진 확장을 포함하는 최소 정규확장.
+  \item \textbf{유한 정규확장의 자동동형 수는?} 분리차수 $[L:K]_{\mathrm s}$.
+  \item \textbf{정규 분리확장의 고정체는?} $L^{\Aut_K(L)}=K$.
+  \item \textbf{정규 비분리확장에서 고정체는?} $K$보다 큰 순수비분리 확장일 수 있다.
+\end{itemize}

@@ -1,0 +1,129 @@
+\clearpage
+\section{정상폐포}
+\label{sec:normal-closure}
+
+\begin{learninggoal}
+임의의 대수적 확장을 포함하는 최소 정규확장을 구성한다. 정상폐포를 생성원들의 최소다항식의 분해체 및 모든 켤레매장의 상으로 기술한다.
+\end{learninggoal}
+
+정규가 아닌 확장도 모든 빠진 켤레근을 첨가하면 정규확장 안에 넣을 수 있다. 이 과정을 최소로 수행한 체가 정상폐포이다.
+
+\begin{definition}[정상폐포]
+대수적 확장 $L/K$를 포함하는 대수적 확장 $N/K$가 다음 조건을 만족하면 $N$을 $L/K$의 \emph{정상폐포}(normal closure)라 한다.
+\begin{enumerate}[label=(\roman*)]
+  \item $L\subseteq N$이고 $N/K$는 정규확장이다.
+  \item $L\subseteq E\subseteq N$이고 $E/K$가 정규이면 $E=N$이다.
+\end{enumerate}
+즉 $N$은 $L$을 포함하는 최소의 정규확장이다.
+\end{definition}
+
+\begin{theorem}[정상폐포의 존재와 구성]
+$L/K$가 대수적 확장이고
+\[
+  L=K(\alpha_i:i\in I)
+\]
+라 하자. $m_i=m_{\alpha_i,K}$라 쓰고, 하나의 대수적 폐포 $\Omega$ 안에서 모든 $m_i$의 근들이 생성하는 체를
+\[
+  N=K(\text{모든 }m_i\text{의 근})
+\]
+라 하자. 그러면 $N$은 $L/K$의 정상폐포이다.
+
+특히 $L/K$가 유한확장이면 $N/K$도 유한확장이다.
+\end{theorem}
+
+\begin{proof}
+$N$은 다항식족 $(m_i)_{i\in I}$의 분해체이므로 $N/K$는 정규이다. 각 $\alpha_i$는 $m_i$의 근이므로 $L\subseteq N$이다.
+
+이제 $L\subseteq E\subseteq N$이고 $E/K$가 정규라고 하자. $E$는 각 $\alpha_i$를 포함하므로 정규성에 의해 $\alpha_i$의 모든 $K$-켤레, 즉 $m_i$의 모든 근을 포함한다. 따라서 $N\subseteq E$이고 $E=N$이다. 최소성이 증명되었다.
+
+$L/K$가 유한이면 유한개의 원소 $\alpha_1,\dots,\alpha_r$로 생성된다. 유한개의 유한차수 다항식의 분해체는 유한확장이므로 $N/K$도 유한이다.
+\end{proof}
+
+\begin{corollary}[단순확장의 정상폐포]
+$L=K(\alpha)$이면 $L/K$의 정상폐포는 $\alpha$의 최소다항식 $m_{\alpha,K}$의 분해체이다.
+\end{corollary}
+
+\begin{corollary}
+유한 분리확장 $L/K$의 정상폐포 $N/K$는 유한 정규 분리확장이다.
+\end{corollary}
+
+\begin{proof}
+유한개의 분리원소 $\alpha_i$를 생성원으로 택한다. 각 최소다항식 $m_i$는 분리다항식이고, 그 분해체는 분리적인 근들로 생성된다. 따라서 $N/K$는 분리이며, 앞 정리에 의해 유한 정규이다.
+\end{proof}
+
+\subsection{모든 켤레매장의 상을 모으기}
+
+\begin{theorem}[매장에 의한 정상폐포]
+$L/K$를 대수적 확장으로 하고 $\Omega$를 $L$을 포함하는 대수적 폐포라 하자. 모든 $K$-매장
+\[
+  \sigma:L\longrightarrow\Omega
+\]
+의 상들을 모아 생성한 체
+\[
+  N=K\bigl(\sigma(L):\sigma\in\Hom_K(L,\Omega)\bigr)
+\]
+는 $L/K$의 정상폐포이다.
+\end{theorem}
+
+\begin{proof}
+$L=K(\alpha_i:i\in I)$라 하고 $m_i$를 각 생성원의 최소다항식이라 하자. 임의의 $K$-매장 $\sigma$에 대해 $\sigma(\alpha_i)$는 $m_i$의 근이므로
+\[
+  \sigma(L)\subseteq K(\text{모든 }m_i\text{의 근}).
+\]
+따라서 왼쪽의 모든 상으로 생성한 체는 앞 정리에서 구성한 정상폐포 안에 들어간다.
+
+반대로 $m_i$의 임의의 근 $\beta$를 택하자. 근을 보내는 동형
+\[
+  K(\alpha_i)\longrightarrow K(\beta),
+  \qquad \alpha_i\longmapsto\beta
+\]
+를 $L$의 $K$-매장 $\sigma:L\to\Omega$로 연장할 수 있다. 그러면 $\beta=\sigma(\alpha_i)\in\sigma(L)$이다. 따라서 모든 $m_i$의 모든 근이 매장들의 상이 생성하는 체에 들어간다. 두 구성이 같고, 앞 정리에 의해 정상폐포이다.
+\end{proof}
+
+\begin{remark}[유일성]
+고정된 대수적 폐포 $\Omega$ 안에서는 정상폐포가 실제 부분체로서 유일하다. 추상적으로 서로 다른 대수적 폐포 안에서 구성한 두 정상폐포는 $L$을 점별로 고정하는 동형까지 유일하다. 둘 다 같은 최소다항식족의 분해체이기 때문이다.
+\end{remark}
+
+\subsection{정상폐포 계산 예제}
+
+\begin{example}
+$L=\Q(\sqrt[3]{2})$의 정상폐포는
+\[
+  N=\Q(\sqrt[3]{2},\omega)
+\]
+이다. 세 $\Q$-매장의 상은
+\[
+  \Q(\sqrt[3]{2}),\quad
+  \Q(\omega\sqrt[3]{2}),\quad
+  \Q(\omega^2\sqrt[3]{2})
+\]
+이고, 이들을 모두 합성하면 $N$을 얻는다.
+\end{example}
+
+\begin{example}
+$L=\Q(\sqrt[4]{2})$의 정상폐포는
+\[
+  N=\Q(\sqrt[4]{2},i)
+\]
+이다. 최소다항식 $X^4-2$의 네 근을 모두 포함하는 최소 체이며 $[N:\Q]=8$이다.
+\end{example}
+
+\begin{example}
+$L=\Q(\sqrt2,\sqrt3)$는 이미 $(X^2-2)(X^2-3)$의 분해체이다. 따라서 정상폐포는 $L$ 자신이다.
+\end{example}
+
+\begin{corollary}
+유한 대수적 확장 $L/K$가 정규일 필요충분조건은 그 정상폐포가 $L$ 자신인 것이다.
+\end{corollary}
+
+\begin{pitfall}
+정상폐포는 단순히 대수적 폐포 전체가 아니다. 대수적 폐포는 기준체 위의 모든 대수방정식의 근을 포함하지만, 정상폐포는 주어진 확장 $L/K$의 생성원에 필요한 켤레근만 최소한으로 첨가한다.
+\end{pitfall}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Q(\sqrt[5]{2})/\Q$의 정상폐포를 원시 오차단위근을 이용해 적어라.
+  \item 정규확장의 정상폐포가 자기 자신인 이유를 설명하라.
+  \item 유한 분리확장의 정상폐포가 분리확장인 이유를 생성원으로 설명하라.
+\end{enumerate}
+\end{checkpoint}

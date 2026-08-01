@@ -1,0 +1,187 @@
+\section{예제와 정규성의 보존 성질}
+\label{sec:normal-examples-properties}
+
+\begin{learninggoal}
+구체적인 수체확장의 정규성을 판정하고 정상폐포를 예측한다. 확장탑, 합성체, 교집합과 기준체 확대에서 정규성이 어떻게 변하는지 증명한다.
+\end{learninggoal}
+
+\subsection{대표적인 수체 예제}
+
+\begin{example}[한 실근만 첨가한 삼차확장]
+$\alpha=\sqrt[3]{2}$라 하자. 최소다항식
+\[
+  X^3-2
+\]
+의 세 근은
+\[
+  \alpha,\quad \omega\alpha,\quad \omega^2\alpha
+\]
+이다. 실수체 $\Q(\alpha)$에는 비실수인 두 켤레근이 들어 있지 않으므로
+\[
+  \Q(\alpha)/\Q
+\]
+는 정규확장이 아니다.
+
+반면
+\[
+  \Q(\alpha,\omega)
+\]
+는 $X^3-2$의 분해체이므로 $\Q$ 위에서 정규이다. 이 체의 차수는
+\[
+  [\Q(\alpha,\omega):\Q]=6
+\]
+이다.
+\end{example}
+
+\begin{example}[사차근의 정상폐포]
+$\alpha=\sqrt[4]{2}$라 하자. $X^4-2$의 근은
+\[
+  \alpha,\quad -\alpha,\quad i\alpha,\quad -i\alpha
+\]
+이다. $\Q(\alpha)$는 실수체이므로 $i\alpha$를 포함하지 않고 정규가 아니다. 모든 근을 첨가하면
+\[
+  N=\Q(\alpha,i)
+\]
+를 얻는다. 이 체는 $X^4-2$의 분해체이므로 정규이다. 또한
+\[
+  [\Q(\alpha):\Q]=4,
+  \qquad
+  [N:\Q(\alpha)]=2
+\]
+이므로 $[N:\Q]=8$이다.
+\end{example}
+
+\begin{example}[단순확장이면서 정규인 사차확장]
+\[
+  \alpha=\sqrt{2+\sqrt2}
+\]
+라 하자. 계산하면
+\[
+  \alpha^4-4\alpha^2+2=0.
+\]
+다항식 $X^4-4X^2+2$는 소수 $2$에 대한 아이젠슈타인 판정법으로 기약이므로
+\[
+  [\Q(\alpha):\Q]=4.
+\]
+다른 양의 근을
+\[
+  \beta=\sqrt{2-\sqrt2}
+\]
+라 두면
+\[
+  \sqrt2=\alpha^2-2\in\Q(\alpha),
+  \qquad
+  \alpha\beta=\sqrt2
+\]
+이므로
+\[
+  \beta=\frac{\sqrt2}{\alpha}\in\Q(\alpha).
+\]
+최소다항식의 네 근 $\pm\alpha,\pm\beta$가 모두 $\Q(\alpha)$에 들어가므로 이 확장은 정규이다.
+\end{example}
+
+\begin{pitfall}
+확장차수가 $4$라는 사실만으로 정규성을 판정할 수 없다. $\Q(\sqrt[4]{2})/\Q$는 정규가 아니지만 $\Q(\sqrt{2+\sqrt2})/\Q$는 정규이다. 정규성은 차수가 아니라 켤레근을 모두 포함하는지에 달려 있다.
+\end{pitfall}
+
+\subsection{확장탑에서의 정규성}
+
+\begin{proposition}[위쪽 정규성]
+대수적 확장탑
+\[
+  K\subseteq E\subseteq M
+\]
+에서 $M/K$가 정규이면 $M/E$도 정규이다.
+\end{proposition}
+
+\begin{proof}
+$M$이 $K[X]$의 다항식족 $(f_i)$의 분해체라 하자. 같은 다항식들을 $E[X]$의 원소로 보면, $M$은 $E$와 그 모든 근들로 생성된다. 따라서 $M$은 $(f_i)$의 $E$ 위 분해체이고 $M/E$는 정규이다.
+\end{proof}
+
+\begin{example}[정규성은 추이적이지 않다]
+\[
+  \Q\subseteq\Q(\sqrt2)\subseteq\Q(\sqrt[4]{2})
+\]
+를 생각하자. 첫 확장과 둘째 확장은 모두 차수 $2$이므로 정규이다. 그러나 전체 확장
+\[
+  \Q(\sqrt[4]{2})/\Q
+\]
+는 $X^4-2$의 비실수근을 포함하지 않으므로 정규가 아니다.
+\end{example}
+
+\begin{example}[정규확장의 중간체]
+$N=\Q(\sqrt[3]{2},\omega)$는 $\Q$ 위에서 정규이지만 중간체
+\[
+  \Q(\sqrt[3]{2})
+\]
+는 $\Q$ 위에서 정규가 아니다. 따라서 정규확장의 모든 중간체가 기준체 위에서 정규인 것은 아니다.
+\end{example}
+
+\subsection{기준체 확대, 합성체와 교집합}
+
+\begin{proposition}[기준체 확대]
+$L/K$가 정규 대수적 확장이고 $E/K$가 같은 대수적 폐포 안의 대수적 확장이라 하자. 그러면 합성체
+\[
+  LE/E
+\]
+는 정규확장이다.
+\end{proposition}
+
+\begin{proof}
+$L$이 $K[X]$의 다항식족 $(f_i)$의 분해체라 하자. $LE$는 $E$와 $(f_i)$의 모든 근들로 생성되고, 각 $f_i$는 $LE$에서 완전히 분해된다. 따라서 $LE$는 $(f_i)$의 $E$ 위 분해체이다.
+\end{proof}
+
+\begin{theorem}[합성체와 교집합]
+하나의 대수적 폐포 $\Omega$ 안에서 $L_1/K$와 $L_2/K$가 정규 대수적 확장이라 하자. 그러면
+\[
+  L_1L_2/K
+  \qquad\text{및}\qquad
+  (L_1\cap L_2)/K
+\]
+도 정규확장이다.
+\end{theorem}
+
+\begin{proof}
+임의의 $K$-자동동형 $\sigma\in\Aut_K(\Omega)$를 택하자. 정규성의 체매장 조건에 의해
+\[
+  \sigma(L_1)=L_1,
+  \qquad
+  \sigma(L_2)=L_2.
+\]
+따라서
+\[
+  \sigma(L_1L_2)
+  =\sigma(L_1)\sigma(L_2)=L_1L_2
+\]
+이고
+\[
+  \sigma(L_1\cap L_2)
+  =\sigma(L_1)\cap\sigma(L_2)
+  =L_1\cap L_2.
+\]
+각 부분체에 대한 모든 $K$-매장은 $\Omega$의 $K$-자동동형으로 연장되므로, 정규성의 동치조건에서 두 확장이 정규임을 얻는다.
+\end{proof}
+
+\begin{corollary}
+$K[X]$의 두 다항식 $f,g$의 분해체를 각각 $L_f,L_g$라 하면, 곱 $fg$의 분해체는 합성체
+\[
+  L_fL_g
+\]
+이다.
+\end{corollary}
+
+\begin{example}
+$\Q(\sqrt2)/\Q$와 $\Q(\sqrt3)/\Q$는 정규이므로
+\[
+  \Q(\sqrt2,\sqrt3)/\Q
+\]
+도 정규이다. 이 체는 $(X^2-2)(X^2-3)$의 분해체이다.
+\end{example}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Q(\sqrt[3]{2},\omega)/\Q(\omega)$가 정규인 이유를 설명하라.
+  \item $\Q(\sqrt2,\sqrt3)$의 모든 $\Q$-켤레가 체 안에 들어 있음을 확인하라.
+  \item 정규성의 추이성이 실패하는 예제에서 각 단계의 최소다항식을 적어라.
+\end{enumerate}
+\end{checkpoint}

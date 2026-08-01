@@ -1,0 +1,135 @@
+\section{켤레원소와 체매장}
+\label{sec:conjugates-embeddings}
+
+\begin{learninggoal}
+대수적 원소의 켤레원소를 최소다항식, 단순확장의 동형, 대수적 폐포의 자동동형이라는 세 관점으로 이해한다. 체매장이 생성원의 켤레를 어떻게 선택하는지 계산한다.
+\end{learninggoal}
+
+체 $K$의 대수적 폐포 $\overline K$를 하나 고정한다. $K$ 위에서 대수적인 원소 $\alpha\in\overline K$의 최소다항식을 $m_{\alpha,K}$라 쓰자.
+
+\begin{definition}[켤레원소]
+$K$ 위에서 대수적인 두 원소 $\alpha,\beta\in\overline K$가 같은 최소다항식을 가지면 $\alpha$와 $\beta$를 $K$ 위의 \emph{켤레원소}(conjugate elements)라 한다. $\alpha$의 모든 $K$-켤레의 집합을
+\[
+  \operatorname{Conj}_K(\alpha)
+  :=\{\beta\in\overline K:m_{\beta,K}=m_{\alpha,K}\}
+\]
+로 쓴다.
+\end{definition}
+
+최소다항식은 기약이므로 $\operatorname{Conj}_K(\alpha)$는 정확히 $m_{\alpha,K}$의 서로 다른 근들의 집합이다. 중근은 한 번만 센다.
+
+\begin{theorem}[켤레원소의 동치조건]
+$\alpha,\beta\in\overline K$가 $K$ 위에서 대수적이라 하자. 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $\alpha$와 $\beta$는 $K$ 위의 켤레원소이다.
+  \item 유일한 $K$-동형
+  \[
+    K(\alpha)\longrightarrow K(\beta),
+    \qquad \alpha\longmapsto\beta
+  \]
+  가 존재한다.
+  \item 어떤 $K$-자동동형 $\sigma\in\Aut_K(\overline K)$가 존재하여
+  \[
+    \sigma(\alpha)=\beta
+  \]
+  이다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i)$\Rightarrow$(ii): 공통 최소다항식을 $m$이라 하자. 두 체는 모두 $K[X]/(m)$과 $K$-동형이므로
+\[
+  g(\alpha)\longmapsto g(\beta)
+\]
+로 주어지는 $K$-동형이 존재한다. 생성원의 상이 정해졌으므로 유일하다.
+
+(ii)$\Rightarrow$(iii): 대수적 확장에 대한 체매장 연장 정리를 적용하면 $K(\alpha)\to K(\beta)\subseteq\overline K$를 $K$-자동동형 $\overline K\to\overline K$로 연장할 수 있다.
+
+(iii)$\Rightarrow$(i): $m_{\alpha,K}(\alpha)=0$이고 $\sigma$가 $K$를 고정하므로
+\[
+  m_{\alpha,K}(\beta)
+  =m_{\alpha,K}(\sigma(\alpha))
+  =\sigma(m_{\alpha,K}(\alpha))=0.
+\]
+따라서 $\beta$는 $m_{\alpha,K}$의 근이다. 두 원소의 최소다항식은 모두 일계수 기약이고 하나가 다른 하나를 나누므로 서로 같다.
+\end{proof}
+
+\begin{corollary}
+$\Aut_K(\overline K)$가 $\overline K$에 작용할 때 $\alpha$의 궤도는 켤레집합과 같다.
+\[
+  \Aut_K(\overline K)\cdot\alpha
+  =\operatorname{Conj}_K(\alpha).
+\]
+또한
+\[
+  \#\operatorname{Conj}_K(\alpha)
+  =[K(\alpha):K]_{\mathrm s}.
+\]
+\end{corollary}
+
+\begin{proof}
+첫 등식은 앞 정리의 (i)와 (iii)의 동치이다. 둘째 등식은 $K$-매장 $K(\alpha)\to\overline K$가 $\alpha$의 서로 다른 켤레를 선택하는 것과 일대일로 대응한다는 분리차수의 단순확장 계산이다.
+\end{proof}
+
+\begin{example}
+$\alpha=\sqrt2$의 $\Q$-켤레는
+\[
+  \sqrt2,\quad -\sqrt2
+\]
+이다. 두 $\Q$-매장 $\Q(\sqrt2)\to\C$는 $\sqrt2$를 각각 이 두 원소로 보낸다.
+\end{example}
+
+\begin{example}
+$\alpha=\sqrt[3]{2}$의 $\Q$-켤레는
+\[
+  \alpha,\quad \omega\alpha,\quad \omega^2\alpha,
+  \qquad \omega=e^{2\pi i/3}
+\]
+이다. 따라서 $\Q(\alpha)$에서 $\C$로 가는 $\Q$-매장은 세 개이다. 그러나 $\omega\alpha$와 $\omega^2\alpha$는 실수체 $\Q(\alpha)$ 안에 들어 있지 않는다. 켤레원소가 반드시 원래 단순확장 안에 있을 필요는 없다.
+\end{example}
+
+\begin{example}[순수비분리 원소]
+$K=\F_p(t^p)$, $\alpha=t$라 하자. 최소다항식은
+\[
+  X^p-t^p=(X-t)^p
+\]
+이고 서로 다른 근은 $t$ 하나뿐이다. 따라서
+\[
+  \operatorname{Conj}_K(t)=\{t\},
+  \qquad
+  [K(t):K]_{\mathrm s}=1
+\]
+이지만 보통 차수는 $p$이다.
+\end{example}
+
+\subsection{여러 생성원과 체매장}
+
+$L=K(\alpha_1,\dots,\alpha_r)$가 유한 대수적 확장이라 하자. $K$-매장
+\[
+  \sigma:L\longrightarrow\overline K
+\]
+는 생성원들의 상
+\[
+  \sigma(\alpha_1),\dots,\sigma(\alpha_r)
+\]
+에 의해 유일하게 정해진다. 각 $\sigma(\alpha_i)$는 $\alpha_i$의 $K$-켤레이지만, 켤레들을 서로 독립적으로 아무렇게나 고를 수 있는 것은 아니다. 생성원들이 만족하는 모든 대수적 관계도 보존되어야 한다.
+
+\begin{example}
+$L=\Q(\sqrt2,\sqrt3)$에서 $\sqrt2$와 $\sqrt3$의 부호는 독립적으로 선택할 수 있다. 따라서 네 개의 $\Q$-매장이 존재한다. 반면 $L=\Q(\sqrt2,\sqrt6)$에서는
+\[
+  \sqrt6=\sqrt2\sqrt3
+\]
+와 같은 관계 때문에 생성원의 상들이 곱셈관계를 만족해야 한다.
+\end{example}
+
+\begin{keyidea}
+켤레원소는 하나의 대수적 수가 기준체에서 보기에 가질 수 있는 모든 모습이다. 체매장은 이 모습들 가운데 하나를 선택하며, 정규확장은 그 모든 모습을 체 내부에 함께 담는 확장이다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\sqrt2+\sqrt3$의 $\Q$-켤레를 모두 구하라.
+  \item $i$와 $-i$가 $\R$ 위에서는 켤레인지 판정하라.
+  \item 순수비분리 원소의 켤레집합이 한 원소만 갖는 이유를 설명하라.
+\end{enumerate}
+\end{checkpoint}

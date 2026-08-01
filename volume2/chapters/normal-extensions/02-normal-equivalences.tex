@@ -1,0 +1,139 @@
+\clearpage
+\section{정규확장의 정의와 동치조건}
+\label{sec:normal-equivalences}
+
+\begin{learninggoal}
+정규확장을 체매장의 안정성, 분해체, 기약다항식의 근이라는 세 관점으로 정의한다. 유한 정규확장에서 체매장과 자기동형이 일치함을 설명한다.
+\end{learninggoal}
+
+대수적 확장 $L/K$를 하나의 대수적 폐포 $\Omega$ 안에 놓자. $\Omega$는 $L$ 위에서도 대수적이고 대수적으로 닫혀 있으므로 $L$의 대수적 폐포로도 볼 수 있다.
+
+\begin{theorem}[정규성의 동치조건]
+대수적 확장 $L/K$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item 모든 $K$-매장
+  \[
+    \sigma:L\longrightarrow\Omega
+  \]
+  에 대해 $\sigma(L)=L$이다.
+  \item $L$은 $K[X]$의 어떤 비상수 다항식족의 분해체이다.
+  \item $K[X]$의 기약다항식 $f$가 $L$ 안에 한 근을 가지면, $f$는 $L[X]$에서 일차인수들의 곱으로 완전히 분해된다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proofidea}
+체매장은 근을 켤레근으로 보낸다. 따라서 체가 모든 체매장 아래에서 안정적이라는 것은, 체 안의 한 근과 켤레인 모든 근도 함께 체 안에 있다는 뜻이다. 생성원들의 최소다항식을 모으면 이 조건은 분해체 조건으로 바뀐다.
+\end{proofidea}
+
+\begin{proof}
+(i)$\Rightarrow$(iii): 기약다항식 $f\in K[X]$가 근 $\alpha\in L$을 갖는다고 하자. $\beta\in\Omega$를 $f$의 임의의 다른 근이라 하자. 두 근은 $K$ 위의 켤레이므로
+\[
+  K(\alpha)\longrightarrow K(\beta),
+  \qquad \alpha\longmapsto\beta
+\]
+인 $K$-동형이 존재한다. 이를 $\Omega$의 $K$-자동동형 $\tau$로 연장한다. 제한 $\tau|_L:L\to\Omega$는 $K$-매장이므로 가정에 의해 $\tau(L)=L$이다. 따라서
+\[
+  \beta=\tau(\alpha)\in L.
+\]
+$f$의 모든 근이 $L$에 들어가므로 $f$는 $L$에서 완전히 분해된다.
+
+(iii)$\Rightarrow$(ii): $L=K(\alpha_i:i\in I)$라 하고 $m_i$를 $\alpha_i$의 $K$ 위 최소다항식이라 하자. 각 $m_i$는 $L$ 안에 근 $\alpha_i$를 가지므로 가정에 의해 $L$에서 완전히 분해된다. 모든 $m_i$의 근들이 생성하는 체는 $L$에 포함되고, 반대로 $\alpha_i$들을 모두 포함하므로 $L$과 같다. 따라서 $L$은 다항식족 $(m_i)_{i\in I}$의 분해체이다.
+
+(ii)$\Rightarrow$(i): $L$이 다항식족 $(f_i)_{i\in I}\subseteq K[X]$의 분해체라 하자. $R_i\subseteq L$를 $f_i$의 서로 다른 근들의 유한집합이라 하자. $K$-매장 $\sigma:L\to\Omega$는 $f_i$의 계수를 고정하므로 $R_i$를 그 자체 안으로 보낸다. $R_i$가 유한하고 $\sigma$가 단사이므로
+\[
+  \sigma(R_i)=R_i.
+\]
+따라서
+\[
+  \sigma(L)
+  =K(\sigma(R_i):i\in I)
+  =K(R_i:i\in I)=L.
+\]
+\end{proof}
+
+\begin{definition}[정규확장]
+앞 정리의 동치조건들을 만족하는 대수적 확장 $L/K$를 \emph{정규확장}(normal extension)이라 한다.
+\end{definition}
+
+\begin{keyidea}
+정규성은 ``근 하나를 담으면 그 근의 모든 켤레도 함께 담는다''는 닫힘 조건이다. 분해체는 이 닫힘 조건을 생성원의 관점에서 구현한 체이다.
+\end{keyidea}
+
+\subsection{체매장과 자기동형}
+
+\begin{corollary}
+$L/K$가 정규확장이면
+\[
+  \Hom_K(L,\Omega)=\Aut_K(L)
+\]
+로 볼 수 있다. 정확히는 모든 $K$-매장 $L\to\Omega$의 상이 $L$이고, 따라서 각 매장은 $L$의 $K$-자동동형이다.
+\end{corollary}
+
+\begin{proof}
+정규성의 조건 (i)에 의해 임의의 $K$-매장 $\sigma:L\to\Omega$는 $\sigma(L)=L$을 만족한다. 체매장은 단사이고 상이 $L$ 전체이므로 $L$의 자기동형이다.
+\end{proof}
+
+\begin{corollary}
+$L/K$가 유한 정규확장이면
+\[
+  |\Aut_K(L)|=[L:K]_{\mathrm s}\le [L:K].
+\]
+특히 $L/K$가 분리확장이기도 하면
+\[
+  |\Aut_K(L)|=[L:K].
+\]
+\end{corollary}
+
+\begin{proof}
+분리차수는 $K$-매장 $L\to\Omega$의 개수이고, 정규성에 의해 이 매장들은 정확히 $K$-자동동형들이다. 마지막 등식은 유한 분리확장의 판정
+\[
+  [L:K]_{\mathrm s}=[L:K]
+\]
+에서 따른다.
+\end{proof}
+
+\begin{remark}
+정규성과 분리성을 동시에 갖는 확장을 다음 장에서 \emph{갈루아 확장}이라 부른다. 정규성은 모든 켤레가 체 안에 들어온다는 조건이고, 분리성은 그 켤레들이 중복 없이 충분히 많다는 조건이다.
+\end{remark}
+
+\subsection{즉시 얻는 예제}
+
+\begin{proposition}
+모든 이차 대수적 확장은 정규확장이다.
+\end{proposition}
+
+\begin{proof}
+$[L:K]=2$이고 $\alpha\in L\setminus K$라 하자. $L=K(\alpha)$이고 최소다항식은 이차이다. 한 근 $\alpha$가 $L$에 들어가면 다른 근은 근과 계수의 관계에 의해
+\[
+  -a-\alpha
+\]
+꼴로 $L$에 들어간다. 따라서 최소다항식은 $L$에서 완전히 분해되고 $L/K$는 정규이다.
+\end{proof}
+
+\begin{proposition}
+모든 순수비분리 대수적 확장은 정규확장이다.
+\end{proposition}
+
+\begin{proof}
+순수비분리 원소의 최소다항식은 어떤 $r\ge0$에 대해
+\[
+  X^{p^r}-a=(X-\alpha)^{p^r}
+\]
+꼴이다. 서로 다른 근이 $\alpha$ 하나뿐이므로, 한 근을 포함하면 이미 모든 근을 포함한다. 정규성의 조건 (iii)가 성립한다.
+\end{proof}
+
+\begin{proposition}
+유한체의 모든 대수적 확장은 정규확장이다.
+\end{proposition}
+
+\begin{proof}
+유한 부분확장 $\F_{q^n}/\F_q$는 $X^{q^n}-X$의 분해체이므로 정규이다. 일반 대수적 확장의 각 원소는 이러한 유한 부분확장 안에 있고, 그 최소다항식의 모든 근도 같은 유한체 안에 들어간다.
+\end{proof}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 분해체가 항상 정규확장인 이유를 한 문장으로 설명하라.
+  \item 유한 정규확장에서 자동동형의 수가 보통 차수보다 작을 수 있는 이유는 무엇인가?
+  \item 순수비분리 확장이 정규이지만 분리일 필요는 없는 이유를 설명하라.
+\end{enumerate}
+\end{checkpoint}
