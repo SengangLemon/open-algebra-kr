@@ -1,0 +1,113 @@
+\section{자동동형의 궤도와 기약인수}
+\label{sec:normal-orbits-factorization}
+
+\begin{learninggoal}
+정규확장에서 켤레원소를 자동동형의 궤도로 해석한다. 기약다항식의 인수들이 자동동형 아래에서 서로 켤레임을 보이고 궤도-안정자 공식을 분리차수와 연결한다.
+\end{learninggoal}
+
+\subsection{켤레집합은 자동동형의 궤도이다}
+
+\begin{theorem}
+$L/K$가 정규 대수적 확장이고 $\alpha\in L$라 하자. 그러면
+\[
+  \Aut_K(L)\cdot\alpha
+  =\operatorname{Conj}_K(\alpha).
+\]
+즉 $\alpha$의 모든 $K$-켤레는 $L$ 안에 들어 있고, $L$의 어떤 $K$-자동동형으로 $\alpha$에서 도달할 수 있다.
+\end{theorem}
+
+\begin{proof}
+자동동형은 최소다항식을 보존하므로 왼쪽 궤도는 켤레집합에 포함된다.
+
+반대로 $\beta$가 $\alpha$의 $K$-켤레라고 하자. 대수적 폐포 $\Omega\supseteq L$의 어떤 $K$-자동동형 $\tau$가 $\tau(\alpha)=\beta$를 만족한다. 정규성에 의해 $\tau(L)=L$이므로 제한
+\[
+  \tau|_L\in\Aut_K(L)
+\]
+이고 $\beta$는 왼쪽 궤도에 속한다.
+\end{proof}
+
+\begin{corollary}
+$L/K$가 정규이고 $\alpha\in L$이면
+\[
+  \#\bigl(\Aut_K(L)\cdot\alpha\bigr)
+  =[K(\alpha):K]_{\mathrm s}.
+\]
+$L/K$가 유한이고 $G=\Aut_K(L)$라 하면 궤도-안정자 정리에 의해
+\[
+  [K(\alpha):K]_{\mathrm s}
+  =\frac{|G|}{|\Aut_{K(\alpha)}(L)|}.
+\]
+\end{corollary}
+
+\begin{proof}
+궤도는 최소다항식의 서로 다른 근들의 집합이므로 그 크기는 단순확장의 분리차수이다. 안정자는 $\alpha$와 $K$를 고정하는 자동동형들, 즉 $K(\alpha)$를 점별로 고정하는 자동동형들이다.
+\end{proof}
+
+\begin{example}
+$L=\Q(\sqrt2,\sqrt3)$에서 $\alpha=\sqrt2+\sqrt3$의 궤도는
+\[
+  \sqrt2+\sqrt3,\quad
+  \sqrt2-\sqrt3,\quad
+  -\sqrt2+\sqrt3,\quad
+  -\sqrt2-\sqrt3
+\]
+이다. 네 원소가 모두 서로 다르므로 안정자는 항등자동동형 하나뿐이다.
+\end{example}
+
+\subsection{기약인수들 사이의 대칭}
+
+$\sigma\in\Aut_K(L)$와 다항식
+\[
+  h(X)=\sum_i a_iX^i\in L[X]
+\]
+에 대해
+\[
+  h^\sigma(X):=\sum_i\sigma(a_i)X^i
+\]
+라 쓰자.
+
+\begin{theorem}[기약인수의 켤레성]
+$L/K$가 정규 대수적 확장이고 $f\in K[X]$가 일계수 기약다항식이라 하자. $f$의 $L[X]$에서의 서로 다른 일계수 기약인수들을
+\[
+  f_1,\dots,f_r
+\]
+라 하자. 그러면 임의의 $i,j$에 대해 어떤 $\sigma\in\Aut_K(L)$가 존재하여
+\[
+  f_j=f_i^\sigma
+\]
+이다. 특히 모든 $f_i$의 차수는 같다.
+\end{theorem}
+
+\begin{proof}
+대수적 폐포 $\Omega\supseteq L$에서 $f_i$의 한 근을 $\alpha$, $f_j$의 한 근을 $\beta$라 하자. 두 원소는 모두 $K$ 위 최소다항식 $f$의 근이므로 $K$-켤레이다. 따라서 어떤 $K$-자동동형 $\tau\in\Aut_K(\Omega)$가
+\[
+  \tau(\alpha)=\beta
+\]
+를 만족한다. $L/K$가 정규이므로 $\sigma=\tau|_L$는 $L$의 $K$-자동동형이다.
+
+$f_i$는 $\alpha$의 $L$ 위 최소다항식이다. 계수와 근에 $\tau$를 적용하면 $f_i^\sigma$는 $\beta$를 근으로 갖는 일계수 기약다항식이다. 따라서 $\beta$의 $L$ 위 최소다항식 $f_j$와 같고
+\[
+  f_j=f_i^\sigma
+\]
+이다. 자동동형은 차수를 바꾸지 않으므로 모든 인수의 차수가 같다.
+\end{proof}
+
+\begin{remark}
+$f$가 비분리이면 같은 기약인수가 거듭제곱의 중복도로 나타날 수 있다. 위 정리는 중복도를 제거한 서로 다른 기약인수들의 집합에 관한 명제이다. 이 인수들은 여전히 하나의 자동동형 궤도를 이룬다.
+\end{remark}
+
+\begin{example}
+$L=\Q(\sqrt2)$ 위에서
+\[
+  X^4-2=(X^2-\sqrt2)(X^2+\sqrt2)
+\]
+이다. $\sqrt2\mapsto-\sqrt2$인 $\Q$-자동동형이 두 이차인수를 서로 바꾼다.
+\end{example}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 정규확장에서 $\alpha$의 자동동형 궤도 크기가 최소다항식 차수보다 작을 수 있는 경우를 설명하라.
+  \item $\Q(\sqrt2,\sqrt3)$에서 $\sqrt2$의 궤도와 안정자를 구하라.
+  \item $X^4-2$의 두 $\Q(\sqrt2)$-기약인수가 같은 차수를 갖는 이유를 자동동형으로 설명하라.
+\end{enumerate}
+\end{checkpoint}
