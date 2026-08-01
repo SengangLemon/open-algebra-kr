@@ -1,0 +1,166 @@
+\clearpage
+\section{부분체와 대수적 폐포}
+\label{sec:finite-field-subfields}
+
+\begin{learninggoal}
+고정된 대수적 폐포 안에서 유한체 사이의 포함관계를 분류한다. 교집합과 합성체를 계산하고, 유한체의 모든 대수적 확장이 정규·분리임을 증명한다.
+\end{learninggoal}
+
+앞으로 소수 $p$를 고정하고 모든 유한체 $\F_{p^n}$을 하나의 대수적 폐포 $\overline{\F_p}$ 안의 부분체로 본다. 유한체의 유일성 때문에 이렇게 배치한 뒤에는 원소 수가 같은 부분체가 실제로 하나뿐이다.
+
+\begin{lemma}
+한 체 $\Omega$ 안의 두 유한부분체 $E,F\subseteq\Omega$가 같은 수의 원소를 가지면
+\[
+  E=F
+\]
+이다.
+\end{lemma}
+
+\begin{proof}
+$|E|=|F|=q$라 하자. 두 체의 원소는 모두 $X^q-X$의 근이다. 이 다항식은 중근을 갖지 않고 $\Omega$ 안에서 근을 많아야 $q$개 가지므로, $E$와 $F$는 같은 근 집합이다.
+\end{proof}
+
+\begin{theorem}[유한체의 포함관계]
+양의 정수 $m,n$에 대해
+\[
+  \F_{p^m}\subseteq\F_{p^n}
+  \quad\Longleftrightarrow\quad
+  m\mid n.
+\]
+이 경우
+\[
+  [\F_{p^n}:\F_{p^m}]=\frac{n}{m}.
+\]
+\end{theorem}
+
+\begin{proof}
+포함이 성립하면 탑 법칙에 의해
+\[
+  n=[\F_{p^n}:\F_p]
+  =[\F_{p^n}:\F_{p^m}]\,m
+\]
+이므로 $m\mid n$이다.
+
+반대로 $n=rm$이라 하자. $a\in\F_{p^m}$이면 $a^{p^m}=a$이고, 이 등식을 $r$번 반복하면
+\[
+  a^{p^n}=a^{p^{rm}}=a.
+\]
+따라서 $a$는 $X^{p^n}-X$의 근이고 $\F_{p^n}$에 속한다. 차수 공식은 탑 법칙에서 따른다.
+\end{proof}
+
+\begin{corollary}[부분체의 분류]
+$\F_{p^n}$의 부분체는 정확히
+\[
+  \F_{p^d}\qquad(d\mid n)
+\]
+들이다. 각 약수 $d$에 대해 원소가 $p^d$개인 부분체는 하나뿐이다.
+\end{corollary}
+
+\begin{proof}
+부분체 $E\subseteq\F_{p^n}$의 표수는 $p$이고 $|E|=p^d$인 어떤 $d$가 존재한다. 탑 법칙으로 $d\mid n$이며, 고정된 대수적 폐포 안에서 원소가 $p^d$개인 부분체는 $\F_{p^d}$ 하나뿐이다. 역으로 $d\mid n$이면 앞의 정리에 의해 $\F_{p^d}\subseteq\F_{p^n}$이다.
+\end{proof}
+
+\begin{example}
+$\F_{2^{12}}$의 부분체들은 $12$의 약수에 대응한다.
+\[
+  \F_2,\quad \F_{2^2},\quad \F_{2^3},\quad
+  \F_{2^4},\quad \F_{2^6},\quad \F_{2^{12}}.
+\]
+반면 $\F_{2^5}$는 $5\nmid12$이므로 $\F_{2^{12}}$의 부분체가 아니다.
+\end{example}
+
+\subsection{교집합과 합성체}
+
+\begin{corollary}
+고정된 $\overline{\F_p}$ 안에서
+\[
+  \F_{p^m}\cap\F_{p^n}
+  =\F_{p^{\gcd(m,n)}}
+\]
+이고
+\[
+  \F_{p^m}\F_{p^n}
+  =\F_{p^{\operatorname{lcm}(m,n)}}.
+\]
+여기서 왼쪽 두 번째 식은 두 체가 생성하는 합성체를 뜻한다.
+\end{corollary}
+
+\begin{proof}
+교집합은 두 체의 공통 부분체이므로 그 차수는 $m$과 $n$의 공약수이다. 반대로 $d=\gcd(m,n)$이면 $d\mid m,n$이므로 $\F_{p^d}$는 두 체에 모두 들어간다. 부분체의 유일성으로 교집합은 $\F_{p^d}$이다.
+
+합성체는 $\F_{p^m}$과 $\F_{p^n}$을 모두 포함하는 가장 작은 유한체이다. 그 차수는 $m$과 $n$의 공배수여야 하고, $\ell=\operatorname{lcm}(m,n)$이면 $\F_{p^\ell}$이 두 체를 모두 포함한다. 따라서 합성체는 $\F_{p^\ell}$이다.
+\end{proof}
+
+\begin{example}
+$\overline{\F_p}$ 안에서
+\[
+  \F_{p^6}\cap\F_{p^{10}}=\F_{p^2},
+  \qquad
+  \F_{p^6}\F_{p^{10}}=\F_{p^{30}}.
+\]
+\end{example}
+
+\subsection{유한체 위의 대수적 확장}
+
+\begin{theorem}
+유한체 $\F_q$의 모든 대수적 확장은 정규확장이면서 분리확장이다. 특히 모든 유한체는 완전체이다.
+\end{theorem}
+
+\begin{proof}
+먼저 $E/\F_q$가 유한확장이고 $[E:\F_q]=n$이라 하자. 그러면 $|E|=q^n$이고 $E$는
+\[
+  X^{q^n}-X
+\]
+의 $\F_q$ 위 분해체이다. 이 다항식의 도함수는 $-1$이므로 분리다항식이다. 따라서 $E/\F_q$는 정규이면서 분리이다.
+
+이제 $L/\F_q$가 임의의 대수적 확장이라 하자. 각 $\alpha\in L$는 유한 부분확장 $\F_q(\alpha)$에 들어간다. 위의 논증에 의해 $\alpha$의 최소다항식은 그 유한체 안에서 완전히 분해되고 중근이 없다. 따라서 $L/\F_q$ 전체가 정규이면서 분리이다. 모든 대수적 확장이 분리이므로 $\F_q$는 완전체이다.
+\end{proof}
+
+\begin{remark}
+정규확장의 정의와 동치조건은 다음 장에서 체계적으로 다룬다. 여기서는 유한체의 유한확장이 분리다항식 $X^{q^n}-X$의 분해체라는 사실이 정규성과 분리성을 동시에 준다는 점만 사용한다.
+\end{remark}
+
+\subsection{유한체의 대수적 폐포}
+
+유한체들을 중첩된 사슬로 만들기 위해
+\[
+  \F_p\subseteq\F_{p^{2!}}\subseteq\F_{p^{3!}}
+  \subseteq\cdots
+\]
+를 생각하자. $n!\mid(n+1)!$이므로 각 포함이 성립한다.
+
+\begin{theorem}
+고정된 대수적 폐포 $\overline{\F_p}$ 안에서
+\[
+  \overline{\F_p}
+  =\bigcup_{n\ge1}\F_{p^{n!}}.
+\]
+즉 오른쪽의 합집합은 $\F_p$의 대수적 폐포이다.
+\end{theorem}
+
+\begin{proof}
+오른쪽을 $K$라 하자. 중첩된 체들의 합집합이므로 $K$는 체이고 $\F_p$ 위에서 대수적이다.
+
+$f\in K[X]$가 비상수 다항식이라 하자. 계수는 유한개이므로 어떤 $m$에 대해 모두 $\F_{p^{m!}}$에 들어간다. $f$의 분해체는 이 유한체의 유한확장이므로 어떤 양의 정수 $r$에 대해 원소 수가
+\[
+  p^{m!r}
+\]
+인 유한체이다. 충분히 큰 $N$을 택하면 $m!r\mid N!$이고, 포함관계 정리에 의해 그 분해체는 $\F_{p^{N!}}\subseteq K$에 들어간다. 따라서 $f$는 $K$에서 완전히 분해된다. $K$는 대수적으로 닫혀 있으므로 $\F_p$의 대수적 폐포이다.
+\end{proof}
+
+\begin{keyidea}
+고정된 표수 $p$에서 유한체의 세계는 양의 정수의 나눗셈 관계를 그대로 반영한다.
+\[
+  \F_{p^m}\subseteq\F_{p^n}
+  \quad\Longleftrightarrow\quad m\mid n.
+\]
+부분체 문제는 약수 문제로, 교집합과 합성체 문제는 최대공약수와 최소공배수 문제로 바뀐다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\F_{3^{18}}$의 부분체를 모두 적어라.
+  \item $\F_{2^8}\cap\F_{2^{12}}$와 두 체의 합성체를 구하라.
+  \item $\bigcup_{n\ge1}\F_{p^n}$을 고정된 대수적 폐포 안에서 생각하면 왜 체가 되는지 설명하라.
+\end{enumerate}
+\end{checkpoint}
