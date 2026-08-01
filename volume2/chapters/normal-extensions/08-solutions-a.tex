@@ -1,0 +1,211 @@
+\section{선별 문제 풀이 I}
+\label{sec:normal-solutions-a}
+
+\subsection*{문제 \thechapter.1: $\sqrt2+\sqrt3$의 켤레}
+
+\begin{solution}
+$L=\Q(\sqrt2,\sqrt3)$의 $\Q$-매장은 두 제곱근의 부호를 독립적으로 바꾼다. 따라서
+\[
+  \alpha=\sqrt2+\sqrt3
+\]
+의 켤레는
+\[
+  \sqrt2+\sqrt3,\quad
+  \sqrt2-\sqrt3,\quad
+  -\sqrt2+\sqrt3,\quad
+  -\sqrt2-\sqrt3
+\]
+이다.
+
+또한
+\[
+  \alpha^2=5+2\sqrt6
+\]
+이므로
+\[
+  (\alpha^2-5)^2=24.
+\]
+정리하면
+\[
+  \alpha^4-10\alpha^2+1=0.
+\]
+네 켤레가 서로 다르고 $[L:\Q]=4$이므로 최소다항식은
+\[
+  X^4-10X^2+1
+\]
+이다. 각 켤레는 $\sqrt2$와 $\sqrt3$의 네 가지 부호 변화에 의해 얻어진다.
+\end{solution}
+
+\subsection*{문제 \thechapter.2: 순삼차확장의 매장}
+
+\begin{solution}
+$\alpha=\sqrt[3]{2}$의 최소다항식은 $X^3-2$이고 세 근은
+\[
+  \alpha,\quad\omega\alpha,\quad\omega^2\alpha
+\]
+이다. 따라서 세 $\Q$-매장은
+\[
+  \sigma_j:g(\alpha)\longmapsto g(\omega^j\alpha),
+  \qquad j=0,1,2
+\]
+로 주어진다. 그 상은 각각
+\[
+  \Q(\alpha),\quad
+  \Q(\omega\alpha),\quad
+  \Q(\omega^2\alpha)
+\]
+이다.
+
+첫 두 상의 합성체는 $\alpha$와 $\omega\alpha$를 포함하므로
+\[
+  \omega=\frac{\omega\alpha}{\alpha}
+\]
+도 포함한다. 따라서 세 상이 생성하는 합성체는
+\[
+  \Q(\alpha,\omega)
+\]
+이고, 이는 $X^3-2$의 분해체이자 $\Q(\alpha)/\Q$의 정상폐포이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.3: 세 확장의 정규성}
+
+\begin{solution}
+$\Q(\sqrt[3]{2})/\Q$는 $X^3-2$의 실근 하나만 포함하고 두 비실수근을 포함하지 않으므로 정규가 아니다.
+
+$\Q(\sqrt[3]{2},\omega)$는 $X^3-2$의 세 근
+\[
+  \sqrt[3]{2},\quad \omega\sqrt[3]{2},\quad
+  \omega^2\sqrt[3]{2}
+\]
+를 모두 포함하며 이 근들로 생성된다. 따라서 $X^3-2$의 분해체이고 정규이다.
+
+$\Q(\sqrt2,\sqrt3)$는
+\[
+  (X^2-2)(X^2-3)
+\]
+의 모든 근 $\pm\sqrt2,\pm\sqrt3$으로 생성되는 분해체이므로 정규이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.5: 중첩 제곱근의 정규확장}
+
+\begin{solution}
+$\alpha^2=2+\sqrt2$이므로
+\[
+  (\alpha^2-2)^2=2.
+\]
+따라서
+\[
+  f=X^4-4X^2+2
+\]
+가 $\alpha$를 근으로 갖는다. $f$는 소수 $2$에 대한 아이젠슈타인 판정법으로 기약이므로 최소다항식이고 $[L:\Q]=4$이다.
+
+\[
+  \beta=\sqrt{2-\sqrt2}
+\]
+라 두자. $\sqrt2=\alpha^2-2\in L$이고
+\[
+  \alpha\beta=\sqrt{(2+\sqrt2)(2-\sqrt2)}=\sqrt2
+\]
+이므로
+\[
+  \beta=\frac{\sqrt2}{\alpha}\in L.
+\]
+$f$의 네 근은
+\[
+  \alpha,\quad-\alpha,\quad\beta,\quad-\beta
+\]
+이고 모두 $L$에 들어간다. 따라서 $L/\Q$는 정규이다.
+
+각 근을 $\alpha$의 상으로 정하면 $L=\Q(\alpha)$에서 $L$로 가는 $\Q$-매장이 생기고, 정규성에 의해 자동동형이 된다. 따라서 네 자동동형은
+\[
+  \alpha\longmapsto
+  \alpha,-\alpha,\beta,-\beta
+\]
+로 기술된다.
+\end{solution}
+
+\subsection*{문제 \thechapter.7: 오차 순수확장의 정상폐포}
+
+\begin{solution}
+$X^5-2$의 모든 근은
+\[
+  \alpha,\quad\zeta_5\alpha,\quad\zeta_5^2\alpha,\quad
+  \zeta_5^3\alpha,\quad\zeta_5^4\alpha
+\]
+이다. 따라서 분해체는
+\[
+  N=\Q(\alpha,\zeta_5)
+\]
+이고, 단순확장 $\Q(\alpha)/\Q$의 정상폐포이다.
+
+아이젠슈타인 판정법으로
+\[
+  [\Q(\alpha):\Q]=5.
+\]
+또한 원분다항식 $\Phi_5=X^4+X^3+X^2+X+1$에서
+\[
+  [\Q(\zeta_5):\Q]=4.
+\]
+교집합 $\Q(\alpha)\cap\Q(\zeta_5)$의 $\Q$ 위 차수는 $5$와 $4$를 모두 나누므로 $1$이다. 따라서 교집합은 $\Q$이고
+\[
+  [N:\Q]=5\cdot4=20.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.9: $X^4-2$의 이차인수}
+
+\begin{solution}
+$L=\Q(\sqrt2)$에서
+\[
+  X^4-2=(X^2-\sqrt2)(X^2+\sqrt2).
+\]
+두 이차다항식이 기약임을 보이자. 만약 $\sqrt2$가 $L$에서 제곱이라면 유리수 $a,b$에 대해
+\[
+  (a+b\sqrt2)^2=\sqrt2
+\]
+이다. 계수를 비교하면
+\[
+  a^2+2b^2=0,\qquad 2ab=1
+\]
+인데 첫 식은 $a=b=0$을 강제하여 모순이다. $-\sqrt2$가 제곱이라고 가정해도 첫 식은 같으므로 모순이다. 따라서 두 인수는 기약이다.
+
+비자명한 $\Q$-자동동형
+\[
+  \sigma:\sqrt2\longmapsto-\sqrt2
+\]
+를 계수에 적용하면
+\[
+  (X^2-\sqrt2)^\sigma=X^2+\sqrt2
+\]
+가 되어 두 기약인수가 서로 교환된다.
+\end{solution}
+
+\subsection*{문제 \thechapter.11: 켤레원소의 세 조건}
+
+\begin{solution}
+(i)$\Rightarrow$(ii): 공통 최소다항식을 $m$이라 하면
+\[
+  K(\alpha)\cong K[X]/(m)\cong K(\beta)
+\]
+이고 합성동형은 $\alpha$를 $\beta$로 보낸다. 생성원의 상이 정해졌으므로 유일하다.
+
+(ii)$\Rightarrow$(iii): 주어진 $K$-동형 $K(\alpha)\to K(\beta)$를 체매장 연장 정리로 $\overline K$의 $K$-자동동형으로 연장한다.
+
+(iii)$\Rightarrow$(i): $m_{\alpha,K}(\alpha)=0$에 $\sigma$를 적용하면
+\[
+  m_{\alpha,K}(\beta)=0
+\]
+이다. 따라서 $m_{\beta,K}$는 $m_{\alpha,K}$를 나눈다. $\sigma^{-1}$에 같은 논증을 적용하면 반대 나눗셈도 얻으므로 두 일계수 최소다항식은 같다.
+\end{solution}
+
+\subsection*{문제 \thechapter.13: 확장탑과 비추이성}
+
+\begin{solution}
+$M/K$가 정규이면 $M$은 $K[X]$의 어떤 다항식족 $(f_i)$의 분해체이다. 같은 다항식족을 $E[X]$에서 생각하면 $M$은 $E$와 모든 $f_i$의 근들로 생성되므로 $(f_i)$의 $E$ 위 분해체이다. 따라서 $M/E$는 정규이다.
+
+이제
+\[
+  K=\Q,\qquad E=\Q(\sqrt2),\qquad M=\Q(\sqrt[4]{2})
+\]
+라 하자. $E/K$는 $X^2-2$의 분해체이므로 정규이다. $M/E$는 $\sqrt[4]{2}$의 $E$ 위 최소다항식 $X^2-\sqrt2$의 분해체이므로 정규이다. 그러나 $M/K$에서 $X^4-2$의 비실수근 $i\sqrt[4]{2}$가 $M\subseteq\R$에 들어 있지 않으므로 정규가 아니다. 따라서 정규성은 추이적이지 않다.
+\end{solution}
