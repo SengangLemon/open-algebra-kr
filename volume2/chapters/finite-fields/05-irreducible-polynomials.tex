@@ -1,0 +1,173 @@
+\clearpage
+\section{기약다항식과 프로베니우스 궤도}
+\label{sec:finite-field-irreducibles}
+
+\begin{learninggoal}
+유한체 위 기약다항식이 $X^{q^n}-X$를 나누는 조건을 판정한다. 프로베니우스 궤도로 최소다항식을 구성하고, 차수별 기약다항식의 개수를 계산한다.
+\end{learninggoal}
+
+유한체의 존재 정리는 $X^{q^n}-X$의 근 전체를 이용했다. 이제 이 다항식이 $\F_q[X]$의 기약다항식들을 어떻게 한꺼번에 담는지 살펴본다.
+
+\begin{theorem}[기약인수 판정]
+$f\in\F_q[X]$가 일계수 기약다항식이고 $\deg f=d$라 하자. 양의 정수 $n$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $f$가 $X^{q^n}-X$를 나눈다.
+  \item $f$의 한 근이 $\F_{q^n}$에 속한다.
+  \item $f$의 모든 근이 $\F_{q^n}$에 속한다.
+  \item $d\mid n$이다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+$f$의 한 근을 $\alpha$라 하자. $f$가 $X^{q^n}-X$를 나누는 것은 $\alpha^{q^n}=\alpha$인 것과 동치이고, 이는 $\alpha\in\F_{q^n}$인 것과 같다. 따라서 (i)와 (ii)는 동치이다.
+
+$\F_q(\alpha)$는 원소가 $q^d$개인 체이므로 고정된 대수적 폐포 안에서 $\F_{q^d}$와 같다. 따라서
+\[
+  \alpha\in\F_{q^n}
+  \quad\Longleftrightarrow\quad
+  \F_{q^d}\subseteq\F_{q^n}
+  \quad\Longleftrightarrow\quad
+  d\mid n.
+\]
+이는 (ii)와 (iv)의 동치를 준다. $d\mid n$이면 $\F_{q^d}\subseteq\F_{q^n}$이고 $f$의 모든 근은 $\F_{q^d}$ 안에 있으므로 (iii)도 성립한다. (iii)$\Rightarrow$(ii)는 자명하다.
+\end{proof}
+
+\begin{corollary}[기약다항식들의 곱]
+$\F_q[X]$에서
+\[
+  X^{q^n}-X
+  =\prod_{\substack{f\text{ monic irreducible}\\ \deg f\mid n}}f(X).
+\]
+각 일계수 기약다항식은 정확히 한 번만 나타난다.
+\end{corollary}
+
+\begin{proof}
+앞의 정리에 의해 오른쪽의 기약다항식들은 정확히 $X^{q^n}-X$의 모든 일계수 기약인수이다. 도함수가 $-1$이므로 $X^{q^n}-X$는 중근을 갖지 않아 각 인수는 한 번만 나타난다.
+\end{proof}
+
+\begin{example}
+$\F_2[X]$에서 $n=2$를 적용하면 차수가 $1$ 또는 $2$인 모든 일계수 기약다항식이 나타난다.
+\[
+  X^4-X=X(X+1)(X^2+X+1).
+\]
+표수 $2$에서는 $-X=X$이므로 왼쪽을 $X^4+X$로 써도 같다.
+\end{example}
+
+\begin{example}
+$\F_2[X]$에서 $X^3+X+1$과 $X^3+X^2+1$은 두 일계수 기약 삼차다항식이다. 둘 다 $3\mid3$이므로 $X^8-X$를 나누며
+\[
+  X^8-X=X(X+1)(X^3+X+1)(X^3+X^2+1).
+\]
+\end{example}
+
+\subsection{프로베니우스 궤도와 최소다항식}
+
+\begin{theorem}
+$\alpha\in\F_{q^n}$라 하고, $d$를
+\[
+  \alpha^{q^d}=\alpha
+\]
+를 만족하는 가장 작은 양의 정수라 하자. 그러면 $d\mid n$이고 $\alpha$의 $\F_q$ 위 최소다항식은
+\[
+  m_{\alpha,\F_q}(X)
+  =\prod_{j=0}^{d-1}\left(X-\alpha^{q^j}\right)
+\]
+이다. 특히
+\[
+  [\F_q(\alpha):\F_q]=d.
+\]
+\end{theorem}
+
+\begin{proof}
+상대 프로베니우스의 궤도
+\[
+  \alpha,\alpha^q,\alpha^{q^2},\dots
+\]
+는 처음 $d$단계에서 되돌아오고 그 전까지는 서로 다르다. $\Frob_q^n=\id$이므로 군원소의 위수에 관한 기본 성질에서 $d\mid n$이다.
+
+다항식
+\[
+  g(X)=\prod_{j=0}^{d-1}(X-\alpha^{q^j})
+\]
+의 근 집합은 프로베니우스에 의해 순환되므로 계수는 $\Frob_q$에 고정된다. $\F_{q^n}$에서 $\Frob_q$의 고정체는 $\F_q$이므로 $g\in\F_q[X]$이다. $g(\alpha)=0$이므로 최소다항식 $m_{\alpha,\F_q}$는 $g$를 나눈다.
+
+반대로 최소다항식의 모든 근은 $\alpha$의 $\F_q$-켤레이고, 유한체 확장의 모든 $\F_q$-매장은 프로베니우스의 거듭제곱이다. 따라서 그 근들은 위 궤도 안에 있다. 두 일계수 다항식은 같은 서로 다른 근을 가지므로 서로 같다.
+\end{proof}
+
+\begin{example}
+$\F_8=\F_2(\alpha)$에서 $\alpha^3+\alpha+1=0$이라 하자. 프로베니우스 궤도는
+\[
+  \alpha,\quad\alpha^2,\quad\alpha^4
+\]
+이고 길이는 $3$이다. 따라서
+\[
+  m_{\alpha,\F_2}(X)
+  =(X-\alpha)(X-\alpha^2)(X-\alpha^4)
+  =X^3+X+1.
+\]
+\end{example}
+
+\subsection{차수별 기약다항식의 개수}
+
+$N_q(n)$을 $\F_q[X]$의 일계수 기약 $n$차다항식의 개수라 하자. 앞의 곱 공식에서 양변의 차수를 비교하면 다음을 얻는다.
+
+\begin{proposition}
+모든 $n\ge1$에 대해
+\[
+  q^n=\sum_{d\mid n}dN_q(d).
+\]
+따라서 모비우스 반전으로
+\[
+  N_q(n)
+  =\frac1n\sum_{d\mid n}\mu(d)q^{n/d}
+\]
+이다. 여기서 $\mu$는 모비우스 함수이다.
+\end{proposition}
+
+\begin{proof}
+$X^{q^n}-X$의 차수는 $q^n$이다. 이 다항식은 각 $d\mid n$에 대해 일계수 기약 $d$차다항식 $N_q(d)$개를 정확히 한 번씩 인수로 가지므로 전체 차수는
+\[
+  \sum_{d\mid n}dN_q(d)
+\]
+이다. 첫 식에 산술함수의 모비우스 반전 공식을 적용하면 두 번째 식이 나온다.
+\end{proof}
+
+\begin{remark}[모비우스 함수]
+$\mu(1)=1$이고, 서로 다른 소수 $r$개의 곱이면 $\mu(n)=(-1)^r$, 어떤 소수의 제곱이 $n$을 나누면 $\mu(n)=0$이다. 예를 들어
+\[
+  \mu(2)=-1,\quad \mu(6)=1,\quad \mu(12)=0.
+\]
+\end{remark}
+
+\begin{example}
+$q=2$일 때
+\[
+\begin{aligned}
+N_2(1)&=2,\\
+N_2(2)&=\frac{2^2-2}{2}=1,\\
+N_2(3)&=\frac{2^3-2}{3}=2,\\
+N_2(4)&=\frac{2^4-2^2}{4}=3.
+\end{aligned}
+\]
+따라서 $\F_2[X]$에는 일계수 기약 사차다항식이 정확히 세 개 있다.
+\end{example}
+
+\begin{corollary}
+모든 유한체 $\F_q$와 모든 $n\ge1$에 대해 일계수 기약 $n$차다항식이 존재한다.
+\end{corollary}
+
+\begin{proof}
+$\F_{q^n}$ 안에는 진부분체들의 합집합에 속하지 않는 원소가 존재하며, 그런 원소의 최소다항식 차수는 $n$이다. 또는 위의 공식에서 $N_q(n)>0$임을 직접 확인할 수 있다.
+\end{proof}
+
+\begin{pitfall}
+$\alpha\in\F_{q^n}$라고 해서 최소다항식의 차수가 반드시 $n$인 것은 아니다. $\alpha$가 진부분체 $\F_{q^d}$에 들어가면 최소다항식 차수는 $d$의 약수이다. 정확한 차수는 프로베니우스 궤도의 길이이다.
+\end{pitfall}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\F_3[X]$의 기약 이차다항식은 몇 개인가?
+  \item 일계수 기약 오차다항식 $f\in\F_2[X]$가 $X^{2^{10}}-X$를 나누는지 판정하라.
+  \item $\alpha\in\F_{q^{12}}$가 $\alpha^{q^4}=\alpha$이지만 $\alpha^{q^2}\ne\alpha$를 만족할 때 최소다항식 차수를 구하라.
+\end{enumerate}
+\end{checkpoint}
