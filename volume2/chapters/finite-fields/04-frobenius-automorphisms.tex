@@ -1,0 +1,162 @@
+\clearpage
+\section{프로베니우스 자동동형}
+\label{sec:finite-field-frobenius}
+
+\begin{learninggoal}
+유한체 확장의 모든 기준체 자동동형을 상대 프로베니우스의 거듭제곱으로 기술한다. 프로베니우스의 위수와 고정체를 계산한다.
+\end{learninggoal}
+
+$q=p^r$이라 하고 유한확장
+\[
+  \F_q\subseteq\F_{q^n}
+\]
+을 생각하자. 표수 $p$의 프로베니우스 $x\mapsto x^p$를 $r$번 합성하면
+\[
+  x\longmapsto x^q
+\]
+를 얻는다.
+
+\begin{definition}[상대 프로베니우스]
+사상
+\[
+  \Frob_q:\F_{q^n}\longrightarrow\F_{q^n},
+  \qquad
+  a\longmapsto a^q
+\]
+를 $\F_{q^n}/\F_q$의 \emph{상대 프로베니우스 자동동형}(relative Frobenius automorphism)이라 한다.
+\end{definition}
+
+\begin{proposition}
+$\Frob_q$는 $\F_q$의 모든 원소를 고정하는 체자동동형이다.
+\end{proposition}
+
+\begin{proof}
+$q$가 $p$의 거듭제곱이므로
+\[
+  (a+b)^q=a^q+b^q,
+  \qquad
+  (ab)^q=a^qb^q.
+\]
+따라서 $\Frob_q$는 체 준동형이고 단사이다. 정의역이 유한하므로 전사이기도 하다. 또한 $c\in\F_q$이면 $c^q=c$이므로 $\F_q$를 점별로 고정한다.
+\end{proof}
+
+\begin{theorem}[유한체 확장의 자동동형군]
+$[\F_{q^n}:\F_q]=n$이고
+\[
+  \Aut_{\F_q}(\F_{q^n})
+  =\langle\Frob_q\rangle
+\]
+이다. 특히 이 자동동형군은 위수 $n$인 순환군이며
+\[
+  \Aut_{\F_q}(\F_{q^n})
+  =\{\id,\Frob_q,\Frob_q^2,\dots,\Frob_q^{n-1}\}.
+\]
+\end{theorem}
+
+\begin{proof}
+모든 $a\in\F_{q^n}$에 대해 $a^{q^n}=a$이므로
+\[
+  \Frob_q^n=\id.
+\]
+만약 어떤 $0<d<n$에 대해 $\Frob_q^d=\id$라면 $\F_{q^n}$의 모든 원소가
+\[
+  X^{q^d}-X
+\]
+의 근이 된다. 그러나 이 다항식의 차수는 $q^d<q^n$이므로 $q^n$개의 서로 다른 근을 가질 수 없다. 따라서 $\Frob_q$의 위수는 정확히 $n$이다.
+
+$\F_{q^n}/\F_q$는 분리확장이므로 분리차수 정리에 의해 $\F_q$-매장
+\[
+  \F_{q^n}\longrightarrow\overline{\F_q}
+\]
+은 정확히 $n$개이다. 이러한 매장의 상은 원소가 $q^n$개인 $\overline{\F_q}$의 부분체이다. 한 대수적 폐포 안에서 원소가 $q^n$개인 부분체는 하나뿐이므로 그 상은 다시 $\F_{q^n}$이다. 따라서 모든 매장은 $\F_q$-자동동형이고
+\[
+  |\Aut_{\F_q}(\F_{q^n})|=n.
+\]
+이미 $\Frob_q$의 거듭제곱으로 서로 다른 $n$개의 자동동형을 얻었으므로 이것들이 전부이다.
+\end{proof}
+
+\begin{remark}
+다음 장부터 정규이면서 분리인 확장을 갈루아 확장이라 하고 그 자동동형군을 갈루아군이라 부른다. 따라서 위 정리는
+\[
+  \Gal(\F_{q^n}/\F_q)\cong\Z/n\Z
+\]
+라는 유한체 갈루아군의 완전한 계산을 미리 제공한다.
+\end{remark}
+
+\subsection{프로베니우스의 고정체}
+
+\begin{proposition}
+정수 $d\ge0$에 대해 $\Frob_q^d$의 고정체는
+\[
+  \{a\in\F_{q^n}:a^{q^d}=a\}
+  =\F_{q^{\gcd(n,d)}}
+\]
+이다. 특히 $d=0$일 때에는 고정체를 $\F_{q^n}$으로 해석한다.
+\end{proposition}
+
+\begin{proof}
+고정원소들은 $X^{q^d}-X$의 근이면서 $\F_{q^n}$에 속하는 원소들이다. 고정된 대수적 폐포 안에서 이는
+\[
+  \F_{q^d}\cap\F_{q^n}
+\]
+과 같고, 앞 절의 교집합 공식에 의해 $\F_{q^{\gcd(n,d)}}$이다. $d=0$이면 $\Frob_q^0=\id$이므로 전체 체가 고정된다.
+\end{proof}
+
+\begin{corollary}
+$\F_{q^n}/\F_q$의 중간체와 $\Aut_{\F_q}(\F_{q^n})$의 부분군은 모두 $n$의 약수로 매개화된다. $d\mid n$에 대해
+\[
+  \F_{q^d}
+\]
+는 부분군
+\[
+  \langle\Frob_q^d\rangle
+\]
+의 고정체이다.
+\end{corollary}
+
+\begin{proof}
+$\langle\Frob_q^d\rangle$의 모든 원소를 고정하는 것은 생성원 $\Frob_q^d$를 고정하는 것과 같고, $d\mid n$이면 $\gcd(n,d)=d$이다. 부분체와 부분군의 전체 분류는 각각 약수에 대한 앞의 결과와 순환군의 부분군 분류에서 따른다.
+\end{proof}
+
+\subsection{구체적인 프로베니우스 궤도}
+
+\begin{example}[$\F_8/\F_2$]
+$\alpha^3+\alpha+1=0$이라 하자. 상대 프로베니우스는
+\[
+  \Frob_2(a)=a^2
+\]
+이고
+\[
+  \alpha\longmapsto\alpha^2
+  \longmapsto\alpha^4=\alpha^2+\alpha
+  \longmapsto\alpha^8=\alpha
+\]
+이다. 따라서 자동동형군은 위수 $3$인 순환군이다. $\alpha$의 세 프로베니우스 켤레는 $X^3+X+1$의 세 근이다.
+\end{example}
+
+\begin{example}[$\F_9/\F_3$]
+$\F_9=\F_3(i)$, $i^2=-1$이라 하자. 상대 프로베니우스는
+\[
+  a+bi\longmapsto(a+bi)^3=a-bi
+\]
+이다. 특히 $i\mapsto-i$이고 두 번 적용하면 항등사상이 된다. 따라서
+\[
+  \Aut_{\F_3}(\F_9)=\{\id,\Frob_3\}\cong\Z/2\Z.
+\]
+\end{example}
+
+\begin{keyidea}
+유한체의 모든 대칭은 하나의 사상에서 나온다.
+\[
+  a\longmapsto a^q.
+\]
+확장차수 $n$은 이 상대 프로베니우스를 몇 번 적용해야 항등사상으로 돌아오는지를 나타낸다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Aut_{\F_5}(\F_{5^6})$의 원소를 모두 기호로 적어라.
+  \item $\Frob_2^4$가 $\F_{2^{12}}$에서 고정하는 부분체를 구하라.
+  \item $\F_{3^6}/\F_{3^2}$의 상대 프로베니우스와 그 위수를 구하라.
+\end{enumerate}
+\end{checkpoint}

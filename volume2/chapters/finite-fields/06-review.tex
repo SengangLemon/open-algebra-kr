@@ -1,0 +1,82 @@
+\section{계산 전략과 장 요약}
+\label{sec:finite-field-review}
+
+\begin{learninggoal}
+유한체 문제를 원소 수, 약수, 순환군과 프로베니우스 문제로 환원하는 표준 전략을 정리한다.
+\end{learninggoal}
+
+\subsection{유한체 문제를 푸는 네 단계}
+
+\begin{enumerate}[label=\textbf{전략 \arabic*.},leftmargin=*]
+  \item \textbf{원소 수를 소수거듭제곱으로 쓴다.}
+  \[
+    q=p^n.
+  \]
+  표수는 $p$이고 소체는 $\F_p$이며 $[\F_q:\F_p]=n$이다.
+
+  \item \textbf{부분체 문제를 약수 문제로 바꾼다.}
+  \[
+    \F_{p^d}\subseteq\F_{p^n}
+    \quad\Longleftrightarrow\quad d\mid n.
+  \]
+  교집합에는 최대공약수, 합성체에는 최소공배수가 등장한다.
+
+  \item \textbf{곱셈은 순환군의 지수 계산으로 바꾼다.}
+  원시원 $g$를 택하면 모든 영이 아닌 원소는 $g^k$이고
+  \[
+    g^ig^j=g^{i+j\bmod(q-1)}.
+  \]
+
+  \item \textbf{켤레와 자동동형은 프로베니우스로 계산한다.}
+  \[
+    \Frob_q:a\mapsto a^q.
+  \]
+  최소다항식 차수는 프로베니우스 궤도의 길이이고, 자동동형군은 상대 프로베니우스가 생성한다.
+\end{enumerate}
+
+\begin{example}[종합 계산]
+$L=\F_{2^{12}}$라 하자.
+\begin{itemize}
+  \item $L/\F_2$의 차수는 $12$이다.
+  \item 부분체는 $d\mid12$인 $\F_{2^d}$들이다.
+  \item $L^\times$는 위수 $2^{12}-1=4095$인 순환군이다.
+  \item $\Aut_{\F_2}(L)$은 위수 $12$인 순환군이고 $a\mapsto a^2$가 생성한다.
+  \item $a\mapsto a^{2^4}$의 고정체는
+  \[
+    \F_{2^{\gcd(12,4)}}=\F_{2^4}
+  \]
+  이다.
+  \item $L$의 원시원은 $\varphi(4095)$개이다.
+\end{itemize}
+\end{example}
+
+\begin{chapterreview}
+\begin{itemize}
+  \item 유한체의 원소 수는 반드시 $p^n$ 꼴이다.
+  \item 모든 소수거듭제곱 $q=p^n$에 대해 $\F_q$가 존재하며 동형까지 유일하다.
+  \item $\F_q$는 $X^q-X$의 $\F_p$ 위 분해체이고, 그 원소는 정확히 $a^q=a$를 만족한다.
+  \item $\F_{p^m}\subseteq\F_{p^n}$일 필요충분조건은 $m\mid n$이다.
+  \item 유한체의 모든 대수적 확장은 정규이고 분리이며, 유한체는 완전체이다.
+  \item $\F_q^\times$는 위수 $q-1$인 순환군이다.
+  \item $\Aut_{\F_q}(\F_{q^n})$은 상대 프로베니우스가 생성하는 위수 $n$의 순환군이다.
+  \item 일계수 기약 $d$차다항식은 $d\mid n$일 때 정확히 $X^{q^n}-X$를 나눈다.
+  \item 원소의 최소다항식 차수는 프로베니우스 궤도의 길이이다.
+  \item 일계수 기약 $n$차다항식의 개수는
+  \[
+    N_q(n)=\frac1n\sum_{d\mid n}\mu(d)q^{n/d}
+  \]
+  이다.
+\end{itemize}
+\end{chapterreview}
+
+\subsection*{복습 카드}
+
+\begin{itemize}
+  \item \textbf{유한체의 가능한 원소 수는?} 소수거듭제곱 $p^n$.
+  \item \textbf{$\F_q$를 정의하는 다항식은?} $X^q-X$.
+  \item \textbf{$\F_{p^m}\subseteq\F_{p^n}$의 조건은?} $m\mid n$.
+  \item \textbf{$\F_q^\times$의 구조는?} 위수 $q-1$인 순환군.
+  \item \textbf{$\Aut_{\F_q}(\F_{q^n})$의 생성원은?} $a\mapsto a^q$.
+  \item \textbf{최소다항식의 근들은?} $\alpha,\alpha^q,\alpha^{q^2},\dots$의 서로 다른 프로베니우스 켤레.
+  \item \textbf{기약 $d$차다항식이 $X^{q^n}-X$를 나눌 조건은?} $d\mid n$.
+\end{itemize}
