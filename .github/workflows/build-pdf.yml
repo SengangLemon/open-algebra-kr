@@ -6,12 +6,14 @@ on:
     paths:
       - 'book/**'
       - 'volume2/**'
+      - 'volume3/**'
       - '.github/workflows/build-pdf.yml'
   pull_request:
     branches: [main]
     paths:
       - 'book/**'
       - 'volume2/**'
+      - 'volume3/**'
       - '.github/workflows/build-pdf.yml'
   workflow_dispatch:
 
@@ -34,6 +36,10 @@ jobs:
             working_directory: volume2
             output_name: Open-Algebra-KR-Volume-2-Draft.pdf
             artifact_name: open-algebra-kr-volume-2
+          - label: Volume 3
+            working_directory: volume3
+            output_name: Open-Algebra-KR-Volume-3-Draft.pdf
+            artifact_name: open-algebra-kr-volume-3
 
     steps:
       - name: Checkout
