@@ -1,0 +1,281 @@
+\section{연습문제}
+\label{sec:symmetric-discriminant-exercises}
+
+문제는 A, B, C의 세 단계로 나뉜다. 별표 문제는 다음 두 절에 상세 풀이가 있다.
+
+\subsection*{A. 계산과 판정}
+
+\begin{exercise}[*]
+세 변수의 기본대칭식을 $s_1,s_2,s_3$이라 하자. 다음 대칭다항식을 기본대칭식으로 나타내라.
+\begin{enumerate}[label=(\alph*)]
+  \item $T_1^2+T_2^2+T_3^2$,
+  \item $T_1^3+T_2^3+T_3^3$,
+  \item $T_1^2T_2^2+T_1^2T_3^2+T_2^2T_3^2$,
+  \item $\sum_{i\ne j}T_i^2T_j$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+세 변수에서
+\[
+  f=\sum_{\mathrm{sym}}T_1^3T_2
+\]
+라 하자. 여기서 합은 $T_i^3T_j$, $i\ne j$인 여섯 항에 걸친다. 사전식 최고항 제거 알고리즘을 사용하여 $f$를 $s_1,s_2,s_3$로 나타내라.
+\end{exercise}
+
+\begin{exercise}
+정리 \ref{thm:fundamental-symmetric-polynomials}의 자유기저를 $n=2,3,4$에서 각각 적고 원소 수가 $n!$인지 확인하라.
+\end{exercise}
+
+\begin{exercise}[*]
+다음 다항식의 판별식을 계산하고 중근의 존재 여부를 판정하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $X^2-6X+9$,
+  \item $X^3-X+1$,
+  \item $X^3-3X+2$,
+  \item $X^4-2$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+다음 종결식을 실베스터 행렬 또는 근 공식으로 계산하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $\Res(aX+b,cX+d)$,
+  \item $\Res(X^2+pX+q,X-r)$,
+  \item $\Res(X^2-a,X^2-b)$,
+  \item $\Res(X^m-a,X)$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+다음 두 다항식이 대수적 폐포에서 공통근을 갖는지 종결식으로 판정하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $X^2-2$와 $X^2-3$,
+  \item $X^2-2$와 $X^3-2X$,
+  \item $X^3-X$와 $X^2-1$,
+  \item $X^3+X+1$과 $3X^2+1$ over $\F_2$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+다음 삼차다항식이 $\Q$ 위에서 기약임을 확인하고 갈루아군을 구하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $X^3-X+1$,
+  \item $X^3-3X+1$,
+  \item $X^3-2$,
+  \item $X^3+3X^2-1$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+곱의 판별식 공식을 이용하여
+\[
+  f=(X^2-2)(X^2-3)
+\]
+의 판별식을 계산하라. 네 근을 직접 사용한 계산과 비교하라.
+\end{exercise}
+
+\begin{exercise}
+$f=X^3+aX+b$와 $f'=3X^2+a$의 실베스터 행렬을 쓰고, 행연산을 통해
+\[
+  \Disc(f)=-4a^3-27b^2
+\]
+를 다시 계산하라.
+\end{exercise}
+
+\begin{exercise}
+일계수 $n$차다항식 $f$와 $c\in R$에 대해 $g(X)=f(X+c)$라 하자. $n=2,3$인 구체적 예를 하나씩 택하여
+\[
+  \Disc(g)=\Disc(f)
+\]
+를 계수 공식으로 확인하라.
+\end{exercise}
+
+\subsection*{B. 핵심 정리의 증명}
+
+\begin{exercise}[*]
+$\lambda_1\ge\cdots\ge\lambda_n\ge0$일 때
+\[
+  s_1^{\lambda_1-\lambda_2}
+  s_2^{\lambda_2-\lambda_3}\cdots s_n^{\lambda_n}
+\]
+의 사전식 최고 단항식이
+\[
+  T_1^{\lambda_1}\cdots T_n^{\lambda_n}
+\]
+이고 계수가 $1$임을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+기본대칭식 $s_1,\dots,s_n$이 임의의 가환환 $R$ 위에서 대수적으로 독립임을 최고 단항식으로 증명하라.
+\end{exercise}
+
+\begin{exercise}
+변수 수를 줄이는 재귀법을 사용하여 모든 대칭다항식이 $R[s_1,\dots,s_n]$에 속함을 증명하라. 특히
+\[
+  f=f_0(s_1,\dots,s_{n-1})+s_ng
+\]
+에서 $g$가 다시 대칭다항식임을 확인하라.
+\end{exercise}
+
+\begin{exercise}[*]
+가환환 $A$와 일계수 $d$차다항식 $h\in A[X]$에 대해
+\[
+  A[X]=A[h]\oplus A[h]X\oplus\cdots\oplus A[h]X^{d-1}
+\]
+임을 반복나눗셈으로 증명하라.
+\end{exercise}
+
+\begin{exercise}
+체 $k$에 대해 모든 대칭 유리함수가 $k(s_1,\dots,s_n)$에 속함을 증명하라. 분모를 대칭으로 만드는 과정을 명시하라.
+\end{exercise}
+
+\begin{exercise}[*]
+실베스터 사상의 수반행렬을 사용하여
+\[
+  \Res(f,g)=pf+qg,
+  \qquad
+  \deg p<\deg g,\quad\deg q<\deg f
+\]
+인 베주 항등식을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+체 $K$ 위의 영이 아닌 두 다항식 $f,g$에 대해
+\[
+  \Res(f,g)=0
+  \quad\Longleftrightarrow\quad
+  \gcd(f,g)\ne1
+\]
+임을 실베스터 사상의 핵을 이용하여 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$f$가 일계수 $m$차다항식이고 $A=R[X]/(f)$라 하자. 종결식이 곱셈사상
+\[
+  A\to A,
+  \qquad a\mapsto g(x)a
+\]
+의 행렬식과 같음을 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+종결식의 곱셈성과
+\[
+  \Res(X-\alpha,g)=g(\alpha)
+\]
+를 이용하여 근 공식
+\[
+  \Res(f,g)=a^n\prod_{i=1}^m g(\alpha_i)
+\]
+를 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+일계수 $n$차다항식에 대해
+\[
+  \Disc(f)=(-1)^{n(n-1)/2}\Res(f,f')
+\]
+를 근들의 곱으로 증명하라.
+\end{exercise}
+
+\subsection*{C. 구조와 응용}
+
+\begin{exercise}[*]
+$\charac K\ne2$이고 $f\in K[X]$가 분리다항식이라 하자. 근의 순열표현으로 $G=\Gal(f/K)\le S_n$라 볼 때
+\[
+  G\subseteq A_n
+  \quad\Longleftrightarrow\quad
+  \Disc(f)\in K^{\times2}
+\]
+임을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+일계수다항식 $f,g$에 대해
+\[
+  \Disc(fg)=\Disc(f)\Disc(g)\Res(f,g)^2
+\]
+를 근들을 세 종류의 쌍으로 나누어 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$3$이 가역인 계수환에서
+\[
+  X^3+aX^2+bX+c
+\]
+를 평행이동으로 우울형 삼차식으로 바꾸고
+\[
+  \Disc(f)=a^2b^2-4b^3-4a^3c-27c^2+18abc
+\]
+를 유도하라. 이 식이 임의의 가환환에서도 성립하는 이유를 설명하라.
+\end{exercise}
+
+\begin{exercise}
+정수 $p,q$에 대해
+\[
+  f_{p,q}=X^3+pX+q
+\]
+라 하자. $f_{p,q}$가 중근을 갖는 정수쌍 $(p,q)$의 조건을 구하고, 가능한 중근 $r$을 사용하여
+\[
+  p=-3r^2,
+  \qquad q=2r^3
+\]
+꼴로 매개화하라.
+\end{exercise}
+
+\begin{exercise}
+기약 삼차다항식 $f\in\Q[X]$의 판별식이 정수의 제곱이면 분해체가 한 근을 첨가한 삼차체와 같음을 증명하라. 판별식이 제곱이 아니면 분해체 차수가 $6$임을 설명하라.
+\end{exercise}
+
+\begin{exercise}
+단위원 $u$와 $c$에 대해
+\[
+  g(X)=u^{-n}f(uX+c)
+\]
+라 하자. 근 공식을 이용하여
+\[
+  \Disc(g)=u^{-n(n-1)}\Disc(f)
+\]
+를 증명하라.
+\end{exercise}
+
+\begin{exercise}
+$f=X^m-a$, $g=X^n-b$라 하자. $f$의 근들을 이용하여 $\Res(f,g)$를 곱으로 표현하라. $m=n$인 경우 공통근이 존재할 조건을 해석하라.
+\end{exercise}
+
+\begin{exercise}[*]
+가환환 $R$ 위의 두 이차다항식
+\[
+  f=a_0X^2+a_1X+a_2,
+  \qquad
+  g=b_0X^2+b_1X+b_2
+\]
+에 대해
+\[
+  \Res(f,g)
+  =(a_0b_2-a_2b_0)^2
+  +(a_1b_2-a_2b_1)(a_1b_0-a_0b_1)
+\]
+임을 실베스터 행렬로 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$f\in R[X]$가 일계수 $n$차다항식이고 $A=R[X]/(f)$라 하자. 보편 계수환과 반데르몬드 행렬을 이용하여
+\[
+  D_{A/R}(1,x,\dots,x^{n-1})=\Disc(f)
+\]
+를 증명하라.
+\end{exercise}
+
+\begin{exercise}
+$K$가 체이고 $f\in K[X]$가 일계수다항식이라 하자. 다음 세 방법이 모두 같은 분리성 판정을 준다는 것을 증명하라.
+\[
+  \gcd(f,f')=1,
+  \qquad
+  \Res(f,f')\ne0,
+  \qquad
+  \Disc(f)\ne0.
+\]
+각 방법의 계산상 장단점을 한 문단으로 비교하라.
+\end{exercise}
