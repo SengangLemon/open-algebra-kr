@@ -1,0 +1,169 @@
+\clearpage
+\section{대각합 판별식과 장 요약}
+\label{sec:trace-discriminant-review}
+
+\begin{learninggoal}
+유한 자유 환확장에서 대각합을 이용한 판별식을 정의하고, 다항식의 판별식이 거듭제곱 기저의 판별식과 일치함을 이해한다. 대칭식·종결식·판별식의 계산 흐름을 하나로 정리한다.
+\end{learninggoal}
+
+이 절은 뒤의 노름과 대각합 장을 미리 연결한다. 여기서는 필요한 정의와 판별식의 일치만 다루고, 대각합의 일반 성질은 Chapter 5에서 체계적으로 전개한다.
+
+\subsection{유한 자유 환확장의 대각합}
+
+$R\subseteq A$가 환확장이고 $A$가 $R$ 위의 계수 $n$인 자유모듈이라 하자. $a\in A$에 대해 곱셈사상
+\[
+  \mu_a:A\to A,
+  \qquad x\longmapsto ax
+\]
+는 $R$-선형사상이다.
+
+\begin{definition}[대각합과 원소계의 판별식]
+$\mu_a$의 행렬의 대각합을
+\[
+  \operatorname{Tr}_{A/R}(a)
+  :=\operatorname{tr}(\mu_a)
+\]
+라 한다. 원소 $x_1,\dots,x_n\in A$의 $A/R$에 관한 판별식을
+\[
+  D_{A/R}(x_1,\dots,x_n)
+  :=\det\bigl(
+  \operatorname{Tr}_{A/R}(x_ix_j)
+  \bigr)_{1\le i,j\le n}
+\]
+로 정의한다.
+\end{definition}
+
+행렬의 대각합은 기저 선택과 무관하므로 $\operatorname{Tr}_{A/R}(a)$도 잘 정의된다.
+
+\begin{proposition}[기저변환]
+$\mathbf x=(x_1,\dots,x_n)$과 $\mathbf y=(y_1,\dots,y_n)$가
+\[
+  (y_1,\dots,y_n)=(x_1,\dots,x_n)C
+\]
+인 행렬 $C\in M_n(R)$로 연결되면
+\[
+  D_{A/R}(\mathbf y)
+  =\det(C)^2D_{A/R}(\mathbf x).
+\]
+따라서 두 자유기저 사이에서는 판별식이 단위원의 제곱만큼 변한다.
+\end{proposition}
+
+\begin{proof}
+대각합 쌍선형형의 그람행렬을 각각 $G_{\mathbf x},G_{\mathbf y}$라 하면
+\[
+  G_{\mathbf y}=C^{\mathsf T}G_{\mathbf x}C.
+\]
+행렬식을 취하면 결론이 나온다.
+\end{proof}
+
+\begin{theorem}[다항식 판별식과 거듭제곱 기저]
+\label{thm:power-basis-discriminant}
+$f\in R[X]$가 일계수 $n$차다항식이고
+\[
+  A=R[X]/(f),
+  \qquad x=X+(f)
+\]
+라 하자. 그러면
+\[
+  \boxed{
+  \Disc(f)
+  =D_{A/R}(1,x,x^2,\dots,x^{n-1})
+  }.
+\]
+\end{theorem}
+
+\begin{proofidea}
+보편 계수다항식으로 줄인 뒤 분수체와 분해체로 이동한다. 대각합 행렬은 근들의 거듭제곱으로 만든 반데르몬드 행렬의 전치와 자신의 곱이 되고, 그 행렬식은 근 차이들의 제곱곱이다.
+\end{proofidea}
+
+\begin{proof}
+두 변은 계수환의 준동형과 호환되며 $f$의 계수들에 관한 정수계수 다항식이다. 따라서 보편적인 경우
+\[
+  R_0=\Z[s_1,\dots,s_n],
+  \qquad
+  f_0=X^n-s_1X^{n-1}+\cdots+(-1)^ns_n
+\]
+를 증명하면 충분하다. $s_i$들은 대수적으로 독립이므로 $R_0$을 분수체
+\[
+  K=\Q(s_1,\dots,s_n)
+\]
+에 넣을 수 있다. 일반다항식 $f_0$은 $K$ 위에서 분리 기약이고, 그 근을 분해체에서 $\alpha_1,\dots,\alpha_n$이라 하자.
+
+분리 단순확장의 대각합은 모든 $K$-매장에 의한 상의 합이므로
+\[
+  \operatorname{Tr}_{A/K}(x^r)
+  =\sum_{k=1}^n\alpha_k^r.
+\]
+따라서 거듭제곱 기저의 그람행렬은
+\[
+  G=\left(
+  \sum_{k=1}^n\alpha_k^{i+j}
+  \right)_{0\le i,j<n}.
+\]
+반데르몬드 행렬
+\[
+  V=(\alpha_k^i)_{
+  \substack{0\le i<n\\1\le k\le n}}
+\]
+를 쓰면
+\[
+  G=VV^{\mathsf T}.
+\]
+그러므로
+\[
+  \det G=(\det V)^2
+  =\prod_{i<j}(\alpha_i-\alpha_j)^2
+  =\Disc(f_0).
+\]
+보편 계수환에서 성립한 항등식을 임의의 $R$로 특수화하면 결론이 따른다.
+\end{proof}
+
+\begin{remark}
+판별식이 $0$이면 대각합 쌍선형형이 퇴화한다. 체 위의 유한 분리확장에서는 반대로 대각합 쌍선형형이 비퇴화한다. 이 사실은 정수환의 기저, 수체의 판별식과 대수적 정수론으로 이어진다.
+\end{remark}
+
+\subsection{계산 절차}
+
+다항식의 판별식이나 두 다항식의 공통근을 조사할 때 다음 순서를 사용할 수 있다.
+
+\begin{enumerate}
+  \item \textbf{계수환과 차수 확인}: 일계수인지, 종결식의 실제 차수가 무엇인지 확인한다.
+  \item \textbf{목표 구분}: 한 다항식의 중근이면 $\Disc(f)$ 또는 $\Res(f,f')$, 두 다항식의 공통근이면 $\Res(f,g)$를 계산한다.
+  \item \textbf{낮은 차수 공식 활용}: 이차·삼차·특별한 사차식은 이미 정리된 공식을 사용한다.
+  \item \textbf{실베스터 행렬 구성}: 계수행의 이동 횟수와 행렬 크기 $m+n$을 확인한다.
+  \item \textbf{행연산}: 행렬식을 보존하는 행연산으로 크기를 줄인다.
+  \item \textbf{결과 해석}: 값이 $0$인지, 제곱인지, 갈루아군을 어느 부분군으로 제한하는지 구분한다.
+  \item \textbf{독립 검산}: 가능하면 근 공식, 최대공약수 또는 법 $p$ 인수분해로 결과를 다시 확인한다.
+\end{enumerate}
+
+\begin{chapterreview}
+\begin{itemize}
+  \item 일반 가환환 위에서도 모든 대칭다항식은 기본대칭식의 다항식으로 유일하게 표현된다.
+  \item $R[T_1,\dots,T_n]$은 $R[s_1,\dots,s_n]$ 위의 계수 $n!$ 자유모듈이다.
+  \item 반데르몬드 곱의 제곱은 대칭이므로 판별식은 계수들의 정수계수 다항식이다.
+  \item 체 위에서 $\Disc(f)=0$인 것은 $f$가 중근을 갖는 것과 동치이다.
+  \item 표수가 $2$가 아닐 때 판별식이 제곱이면 갈루아군은 $A_n$ 안에 들어간다.
+  \item 종결식은 실베스터 행렬의 행렬식이며 $\Res(f,g)=pf+qg$인 베주 항등식을 준다.
+  \item 체 위에서 $\Res(f,g)=0$인 것은 두 다항식이 공통근을 갖는 것과 동치이다.
+  \item 종결식은 몫환에서 곱셈사상의 노름이자 근에서의 평가값들의 곱이다.
+  \item 일계수 $n$차다항식에 대해
+  \[
+    \Disc(f)=(-1)^{n(n-1)/2}\Res(f,f')
+  \]
+  이다.
+  \item 다항식 판별식은 몫환의 거듭제곱 기저에 대한 대각합 판별식과 같다.
+\end{itemize}
+\end{chapterreview}
+
+\subsection*{복습 카드}
+
+\begin{itemize}
+  \item \textbf{대칭다항식의 기본정리는?} $R[\mathbf T]^{S_n}=R[s_1,\dots,s_n]$.
+  \item \textbf{판별식의 근 공식은?} $\Disc(f)=\prod_{i<j}(\alpha_i-\alpha_j)^2$.
+  \item \textbf{판별식의 중근 판정은?} 체 위에서 $\Disc(f)=0$ iff $f$가 중근을 가짐.
+  \item \textbf{종결식은?} 실베스터 행렬의 행렬식.
+  \item \textbf{종결식의 공통근 판정은?} 체 위에서 $\Res(f,g)=0$ iff 공통근이 존재.
+  \item \textbf{종결식의 근 공식은?} $\Res(f,g)=a^n\prod_i g(\alpha_i)$.
+  \item \textbf{판별식-종결식 공식은?} $\Disc(f)=(-1)^{n(n-1)/2}\Res(f,f')$.
+  \item \textbf{우울형 삼차식의 판별식은?} $\Disc(X^3+pX+q)=-4p^3-27q^2$.
+\end{itemize}
