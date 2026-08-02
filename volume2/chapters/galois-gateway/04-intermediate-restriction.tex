@@ -1,0 +1,115 @@
+\clearpage
+\section{중간체와 제한 사상}
+\label{sec:galois-intermediate-restriction}
+
+\begin{learninggoal}
+갈루아 확장의 중간체 $E$에 대해 $L/E$가 다시 갈루아임을 보인다. $E/K$도 갈루아일 때 자동동형의 제한 사상과 그 핵을 계산하고, 부분군의 고정체를 정의한다.
+\end{learninggoal}
+
+갈루아 확장 $L/K$ 안에서 중간체
+\[
+  K\subseteq E\subseteq L
+\]
+를 택하면 두 개의 작은 확장 $L/E$와 $E/K$가 생긴다. 위쪽 확장 $L/E$는 언제나 갈루아이지만, 아래쪽 확장 $E/K$는 정규일 필요가 없다.
+
+\begin{theorem}[중간체 위의 갈루아 확장]
+$L/K$가 갈루아 확장이고 $E$가 중간체라 하자.
+\begin{enumerate}[label=(\roman*)]
+  \item $L/E$는 갈루아 확장이고
+  \[
+    \Gal(L/E)\le\Gal(L/K)
+  \]
+  이다.
+  \item $E/K$도 갈루아 확장이면 제한 사상
+  \[
+    \operatorname{res}_E:\Gal(L/K)\longrightarrow\Gal(E/K),
+    \qquad
+    \sigma\longmapsto\sigma|_E
+  \]
+  는 전사 군준동형이며
+  \[
+    \ker(\operatorname{res}_E)=\Gal(L/E).
+  \]
+  따라서
+  \[
+    \Gal(L/K)/\Gal(L/E)
+    \cong\Gal(E/K).
+  \]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+$L/K$가 정규이면 기준체를 $E$로 확대한 $L/E$도 정규이다. 또한 $L/K$가 분리이면 $L/E$도 분리이다. 따라서 $L/E$는 갈루아 확장이다. $E$를 고정하는 자동동형은 특히 $K$를 고정하므로 갈루아군의 부분군을 이룬다.
+
+이제 $E/K$도 갈루아라고 하자. $\sigma\in\Gal(L/K)$에 대해 $\sigma|_E$는 $E$의 $K$-매장이다. $E/K$의 정규성 때문에 $\sigma(E)=E$이고, 따라서 제한은 $\Gal(E/K)$의 원소이다. 제한이 합성과 호환되므로 군준동형이다.
+
+임의의 $\tau\in\Gal(E/K)$를 택하자. 매장 연장 정리에 의해 $\tau$는 $L$의 $K$-매장 $\widetilde\tau:L\to\overline K$로 연장된다. $L/K$가 정규이므로 $\widetilde\tau(L)=L$이고, 따라서 $\widetilde\tau\in\Gal(L/K)$이다. 그러므로 제한 사상은 전사이다. 그 핵은 $E$를 점별로 고정하는 자동동형들의 집합이므로 $\Gal(L/E)$이다. 마지막 동형은 군준동형의 기본정리에서 따른다.
+\end{proof}
+
+\begin{example}[이중이차확장의 제한 사상]
+$L=\Q(\sqrt2,\sqrt3)$와 $E=\Q(\sqrt2)$를 생각하자. 두 확장은 모두 $\Q$ 위 갈루아이다. 제한 사상
+\[
+  \Gal(L/\Q)\longrightarrow\Gal(E/\Q)
+\]
+은 $\sqrt2$의 부호 변화만 기록한다. 그 핵은 $\sqrt2$를 고정하고 $\sqrt3$의 부호만 바꾸는
+\[
+  \{\id,\sigma_3\}=\Gal(L/E)
+\]
+이고
+\[
+  V_4/\langle\sigma_3\rangle\cong C_2
+\]
+이다.
+\end{example}
+
+\begin{pitfall}[중간체가 항상 정규인 것은 아니다]
+$L=\Q(\sqrt[3]{2},\omega)$는 $\Q$ 위 갈루아이지만
+\[
+  E=\Q(\sqrt[3]{2})
+\]
+는 $\Q$ 위 정규가 아니다. 실제로 $L$의 어떤 자동동형은 $\sqrt[3]{2}$를 $\omega\sqrt[3]{2}$로 보내므로 $E$를 자기 자신으로 보존하지 않는다. 따라서 모든 $\sigma\in\Gal(L/\Q)$를 $E$에 제한하여 $E$의 자동동형을 얻는다는 표현 자체가 성립하지 않는다.
+\end{pitfall}
+
+\subsection{부분군이 고정하는 체}
+
+\begin{definition}[고정체]
+체 $L$과 $H\le\Aut(L)$에 대해
+\[
+  L^H
+  :=\{a\in L:\sigma(a)=a\text{ for all }\sigma\in H\}
+\]
+를 $H$의 \emph{고정체}(fixed field)라 한다.
+\end{definition}
+
+\begin{proposition}
+$H\le\Aut(L)$에 대해 $L^H$는 $L$의 부분체이다. 또한 부분군 $H_1,H_2$에 대해
+\[
+  H_1\subseteq H_2
+  \quad\Longrightarrow\quad
+  L^{H_2}\subseteq L^{H_1}.
+\]
+즉 부분군 포함관계와 고정체 포함관계는 방향이 반대이다. 더 나아가
+\[
+  H\le\Gal(L/L^H).
+\]
+\end{proposition}
+
+\begin{proof}
+모든 $\sigma\in H$는 덧셈, 곱셈과 역원을 보존한다. 따라서 $a,b\in L^H$이면
+\[
+  a-b,\quad ab,\quad a^{-1}\ (a\ne0)
+\]
+도 모든 $\sigma\in H$에 의해 고정되므로 $L^H$는 체이다. 더 많은 자동동형을 동시에 고정해야 할수록 원소의 조건이 강해지므로 포함관계는 반대로 된다. 마지막 포함은 $H$의 모든 원소가 정의상 $L^H$를 점별로 고정한다는 뜻이다.
+\end{proof}
+
+\begin{remark}
+일반적으로 $H$가 $\Gal(L/L^H)$ 전체와 같다고 즉시 말할 수는 없다. 유한부분군에 대해서는 다음 절의 아르틴 고정체 정리가 정확히 그 등호를 보장한다. 무한 갈루아 확장에서는 위상과 닫힌 부분군이 필요하다.
+\end{remark}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $L/E$가 항상 갈루아이지만 $E/K$는 아닐 수 있는 이유를 정규성의 방향으로 설명하라.
+  \item $L=\Q(\sqrt2,\sqrt3)$에서 $H=\langle\sigma_2\rangle$의 고정체를 구하라.
+  \item $H_1\subseteq H_2$일 때 고정체 포함관계가 뒤집히는 이유를 한 문장으로 설명하라.
+\end{enumerate}
+\end{checkpoint}
