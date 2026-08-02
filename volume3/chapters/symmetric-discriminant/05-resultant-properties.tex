@@ -1,0 +1,234 @@
+\clearpage
+\section{종결식의 핵심 성질}
+\label{sec:resultant-properties}
+
+\begin{learninggoal}
+종결식이 베주 항등식의 상수항을 제공함을 증명한다. 체 위에서 공통근의 존재를 종결식의 소멸과 연결하고, 몫환의 노름 및 근들의 곱으로 종결식을 계산한다.
+\end{learninggoal}
+
+\begin{theorem}[종결식이 주는 베주 항등식]
+\label{thm:resultant-bezout}
+형식적 차수가 각각 $m,n$인 $f,g\in R[X]$에 대해 $m+n\ge1$이라 하자. 그러면
+\[
+  \Res_{m,n}(f,g)=p(X)f(X)+q(X)g(X)
+\]
+를 만족하는 $p,q\in R[X]$가 존재하며
+\[
+  \deg p<n,
+  \qquad
+  \deg q<m
+\]
+으로 택할 수 있다.
+\end{theorem}
+
+\begin{proof}
+앞 절의 실베스터 사상
+\[
+  \Phi:R[X]_{<n}\oplus R[X]_{<m}	o R[X]_{<m+n}
+\]
+의 행렬을 $S^{\mathsf T}$라 하자. 행렬의 수반행렬에 대한 항등식
+\[
+  S^{\mathsf T}\operatorname{adj}(S^{\mathsf T})
+  =\det(S)\,I
+\]
+를 사용한다. 공역의 상수다항식 $1$에 대응하는 기저벡터에 수반행렬을 적용하여 얻은 정의역 원소를 $(p,q)$라 하자. 그러면
+\[
+  \Phi(p,q)=\det(S)\cdot1
+  =\Res_{m,n}(f,g).
+\]
+정의역의 조건에서 자동으로 $\deg p<n$, $\deg q<m$이다.
+\end{proof}
+
+\begin{corollary}
+$f$와 $g$가 어떤 환확장 $R\subseteq S$에서 공통근 $\alpha$를 가지면
+\[
+  \Res(f,g)=0
+\]
+이다.
+\end{corollary}
+
+\begin{proof}
+베주 항등식에 $X=\alpha$를 대입하면 오른쪽이 $0$이 된다.
+\end{proof}
+
+환이 일반적이면 역이 성립하지 않을 수 있다. 최고차계수가 영인자가 되거나, 형식적 차수가 실제 차수보다 크게 잡힌 경우가 있기 때문이다. 그러나 체 위에서 실제 차수를 사용하면 완전한 동치가 된다.
+
+\begin{theorem}[체 위의 공통근 판정]
+\label{thm:resultant-common-root}
+$K$가 체이고 $f,g\in K[X]$가 영이 아닌 다항식이라 하자. 실제 차수에 대한 종결식에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $\Res(f,g)=0$이다.
+  \item $f$와 $g$는 $K[X]$에서 상수가 아닌 공약수를 갖는다.
+  \item $f$와 $g$는 대수적 폐포 $\overline K$에서 공통근을 갖는다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(ii)와 (iii)는 $K[X]$가 유일인수분해정역이고 모든 비상수다항식이 $\overline K$에서 일차인수로 분해된다는 사실에서 동치이다. (iii)$\Rightarrow$(i)는 앞의 따름정리이다.
+
+(i)$\Rightarrow$(ii)를 보자. 실베스터 사상의 행렬식이 $0$이므로 체 위의 선형사상 $\Phi_{f,g}$는 단사가 아니다. 따라서 영이 아닌 $(u,v)$가 존재하여
+\[
+  uf+vg=0,
+  \qquad
+  \deg u<\deg g,\quad \deg v<\deg f.
+\]
+$f$와 $g$가 서로소라고 가정하면 $f\mid vg$에서 $f\mid v$가 따른다. 그러나 $\deg v<\deg f$이므로 $v=0$이고, 이어서 $u=0$이 되어 모순이다. 따라서 $f,g$는 서로소가 아니다.
+\end{proof}
+
+\subsection{몫환의 노름으로 보는 종결식}
+
+\begin{proposition}[노름 해석]
+\label{prop:resultant-norm}
+$f\in R[X]$가 일계수 $m$차다항식이고
+\[
+  A=R[X]/(f),
+  \qquad x=X+(f)
+\]
+라 하자. 그러면 $A$는 $R$ 위의 자유모듈이고
+\[
+  1,x,\dots,x^{m-1}
+\]
+이 기저이다. $g\in R[X]$에 대해 곱셈사상
+\[
+  \mu_{g(x)}:A\to A,
+  \qquad a\longmapsto g(x)a
+\]
+의 행렬식을
+\[
+  \operatorname N_{A/R}(g(x))
+  :=\det(\mu_{g(x)})
+\]
+라 쓰면
+\[
+  \Res(f,g)=\operatorname N_{A/R}(g(x)).
+\]
+오른쪽은 $g$에 선택한 형식적 차수와 무관하다.
+\end{proposition}
+
+\begin{proof}
+$f$가 일계수이므로 나눗셈 알고리즘에서 모든 잉여류는 차수 $<m$인 다항식으로 유일하게 표현된다. 따라서 $1,x,\dots,x^{m-1}$이 자유기저이다.
+
+실베스터 사상의 공역 $R[X]_{<m+n}$에서
+\[
+  fX^{n-1},\dots,f,
+  X^{m-1},\dots,1
+\]
+도 자유기저이며 표준기저로의 기저변환 행렬식은 $1$이다. 이 기저에서 실베스터 사상은 앞의 $n$개 기저벡터를 고정하고, 나머지 $m$개에는 $g$를 곱한다. $(f)$로 나눈 몫에서는 바로 $A$ 위의 곱셈사상 $\mu_{g(x)}$가 되므로 행렬식이 같다.
+\end{proof}
+
+\begin{corollary}[곱셈성]
+$f$가 일계수이면
+\[
+  \Res(f,g_1g_2)
+  =\Res(f,g_1)\Res(f,g_2).
+\]
+일반 다항식들에 대해서도 실제 차수를 사용하면
+\[
+  \Res(f_1f_2,g)
+  =\Res(f_1,g)\Res(f_2,g),
+\]
+\[
+  \Res(f,g_1g_2)
+  =\Res(f,g_1)\Res(f,g_2)
+\]
+가 성립한다.
+\end{corollary}
+
+\begin{proof}
+첫 등식은 곱셈사상
+\[
+  \mu_{g_1(x)g_2(x)}
+  =\mu_{g_1(x)}\circ\mu_{g_2(x)}
+\]
+과 행렬식의 곱셈성에서 따른다. 일반 경우는 최고차계수를 묶어 일계수인 경우로 옮기거나, 두 다항식을 보편적인 계수변수로 둔 뒤 정수계수 다항식 항등식으로 특수화하면 된다. 첫 번째 변수에 관한 공식은
+\[
+  \Res(f,g)=(-1)^{(\deg f)(\deg g)}\Res(g,f)
+\]
+도 함께 사용한다.
+\end{proof}
+
+\subsection{근들의 곱 공식}
+
+\begin{theorem}[종결식의 근 공식]
+\label{thm:resultant-root-product}
+어떤 환확장 $R\subseteq S$에서
+\[
+  f=a\prod_{i=1}^m(X-\alpha_i),
+  \qquad
+  g=b\prod_{j=1}^n(X-\beta_j)
+\]
+로 분해된다고 하자. 그러면
+\[
+  \Res(f,g)
+  =a^n\prod_{i=1}^m g(\alpha_i)
+  =a^n b^m
+  \prod_{i=1}^m\prod_{j=1}^n(\alpha_i-\beta_j).
+\]
+동치로
+\[
+  \Res(f,g)
+  =(-1)^{mn}b^m\prod_{j=1}^n f(\beta_j).
+\]
+근들은 중복도를 포함하여 나열한다.
+\end{theorem}
+
+\begin{proof}
+먼저 일차식에 대해 실베스터 행렬을 직접 계산하면
+\[
+  \Res(X-\alpha,g)=g(\alpha)
+\]
+이다. 종결식의 곱셈성을 $f$의 일차인수들에 반복 적용하고 최고차계수의 스케일링 공식을 사용하면
+\[
+  \Res(f,g)=a^n\prod_i g(\alpha_i)
+\]
+를 얻는다. 각 $g(\alpha_i)$에 분해식을 대입하면 두 번째 공식이 나온다.
+\end{proof}
+
+\begin{example}
+\[
+  f=X^2-2,
+  \qquad
+  g=X^2-3
+\]
+이라 하자. $f$의 근은 $\pm\sqrt2$이므로
+\[
+  \Res(f,g)
+  =g(\sqrt2)g(-\sqrt2)
+  =(-1)(-1)=1.
+\]
+실제로 두 다항식은 공통근을 갖지 않는다.
+\end{example}
+
+\begin{example}
+\[
+  f=X^2-2,
+  \qquad
+  g=X^3-2X=X(X^2-2)
+\]
+이면 공통인수 $X^2-2$가 있으므로
+\[
+  \Res(f,g)=0.
+\]
+근 공식에서도 $g(\sqrt2)=g(-\sqrt2)=0$이다.
+\end{example}
+
+\begin{keyidea}
+종결식은 세 가지 얼굴을 가진다.
+\[
+  \boxed{
+  \begin{array}{c}
+  \text{실베스터 행렬의 행렬식}\\
+  =\text{몫환에서 곱셈사상의 노름}\\
+  =\text{한 다항식의 근들에서 다른 다항식을 평가한 곱}
+  \end{array}}
+\]
+행렬 계산, 환론과 근 계산이 같은 불변량을 표현한다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Res(X^2-a,X-b)$를 계산하라.
+  \item $f$와 $g$가 서로소이면 실베스터 사상이 왜 동형인지 설명하라.
+  \item $\Res(f,g)$의 근 공식에서 $f$와 $g$를 바꾸면 부호 $(-1)^{mn}$이 나타나는 이유를 확인하라.
+\end{enumerate}
+\end{checkpoint}
