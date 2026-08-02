@@ -1,0 +1,299 @@
+\clearpage
+\section{판별식과 종결식의 결합}
+\label{sec:discriminant-resultant-relation}
+
+\begin{learninggoal}
+판별식을 다항식과 도함수의 종결식으로 계산한다. 이차·삼차·특별한 사차식의 판별식 공식을 유도하고, 곱의 판별식 공식을 증명한다.
+\end{learninggoal}
+
+\begin{theorem}[판별식-종결식 공식]
+\label{thm:discriminant-resultant}
+$R$이 가환환이고 $f\in R[X]$가 일계수 $n$차다항식이며 $n>0$이라 하자. 그러면
+\[
+  \boxed{
+  \Disc(f)
+  =(-1)^{n(n-1)/2}\Res(f,f')
+  }
+\]
+이다. 여기서 종결식은 형식적 차수 $(n,n-1)$에 대해 계산한다.
+\end{theorem}
+
+\begin{proof}
+계수를 보존하는 환확장에서 두 식이 함께 옮겨지므로, 근들을 모두 포함하는 환으로 확대해도 된다. 따라서
+\[
+  f(X)=\prod_{i=1}^n(X-\alpha_i)
+\]
+라 가정한다. 종결식의 근 공식으로
+\[
+  \Res(f,f')=\prod_{i=1}^n f'(\alpha_i).
+\]
+곱의 미분법에서
+\[
+  f'(\alpha_i)=\prod_{j\ne i}(\alpha_i-\alpha_j)
+\]
+이므로
+\[
+  \Res(f,f')
+  =\prod_{i\ne j}(\alpha_i-\alpha_j).
+\]
+각 $i<j$에 대해 두 인수
+\[
+  (\alpha_i-\alpha_j)(\alpha_j-\alpha_i)
+  =-(\alpha_i-\alpha_j)^2
+\]
+를 묶으면 부호 $(-1)^{n(n-1)/2}$가 나오고
+\[
+  \Res(f,f')
+  =(-1)^{n(n-1)/2}\Disc(f).
+\]
+두 부호는 서로 역이면서 같으므로 결론을 얻는다.
+\end{proof}
+
+\begin{corollary}
+체 $K$ 위의 일계수다항식 $f$에 대해
+\[
+  \Disc(f)\ne0
+  \quad\Longleftrightarrow\quad
+  \Res(f,f')\ne0
+  \quad\Longleftrightarrow\quad
+  \gcd(f,f')=1.
+\]
+\end{corollary}
+
+이 공식은 판별식을 근을 구하지 않고 계수만으로 계산하게 해 준다. 실베스터 행렬의 크기는 $2n-1$이지만, 행연산을 잘 선택하면 훨씬 작은 행렬식으로 줄일 수 있다.
+
+\subsection{낮은 차수의 공식}
+
+\begin{example}[이차식]
+$f=X^2+aX+b$이면 $f'=2X+a$이고
+\[
+  \Disc(f)
+  =-\Res(f,f')
+  =a^2-4b.
+\]
+\end{example}
+
+\begin{theorem}[우울형 삼차식]
+\label{thm:depressed-cubic-discriminant}
+\[
+  f=X^3+pX+q
+\]
+이면
+\[
+  \boxed{\Disc(f)=-4p^3-27q^2}.
+\]
+\end{theorem}
+
+\begin{proof}
+$f'=3X^2+p$이고
+\[
+  \Disc(f)=-\Res(f,f').
+\]
+실베스터 행렬은
+\[
+  \begin{pmatrix}
+  1&0&p&q&0\\
+  0&1&0&p&q\\
+  3&0&p&0&0\\
+  0&3&0&p&0\\
+  0&0&3&0&p
+  \end{pmatrix}.
+\]
+셋째 행에서 첫째 행의 세 배를 빼고, 넷째 행에서 둘째 행의 세 배를 빼면 첫 두 열을 이용하여 행렬식을 축소할 수 있다. 남는 행렬식은
+\[
+  \Res(f,f')=4p^3+27q^2
+\]
+이고 부호를 붙이면 원하는 공식이 나온다.
+\end{proof}
+
+\begin{example}
+\[
+  f=X^3-X+1
+\]
+이면
+\[
+  \Disc(f)=4-27=-23.
+\]
+유리근이 없으므로 기약이고, $-23$은 $\Q$에서 제곱이 아니다. 따라서 분해체의 갈루아군은 $S_3$이다.
+\end{example}
+
+\begin{example}
+\[
+  f=X^3-3X+1
+\]
+이면
+\[
+  \Disc(f)=108-27=81=9^2.
+\]
+유리근이 없으므로 기약이고 판별식이 제곱이므로 갈루아군은
+\[
+  A_3\cong C_3
+\]
+이다. 분해체의 차수는 $3$이다.
+\end{example}
+
+\begin{theorem}[일반 삼차식]
+\label{thm:general-cubic-discriminant}
+\[
+  f=X^3+aX^2+bX+c
+\]
+이면
+\[
+  \boxed{
+  \Disc(f)
+  =a^2b^2-4b^3-4a^3c-27c^2+18abc
+  }.
+\]
+\end{theorem}
+
+\begin{proof}
+$3$이 가역인 보편 계수체 $\Q(a,b,c)$에서
+\[
+  X=Y-\frac a3
+\]
+를 대입하면
+\[
+  f(X)=Y^3+pY+q,
+\]
+\[
+  p=b-\frac{a^2}{3},
+  \qquad
+  q=c-\frac{ab}{3}+\frac{2a^3}{27}.
+\]
+평행이동은 판별식을 바꾸지 않으므로 앞 정리에 $p,q$를 대입하고 정리하면 표시된 식을 얻는다. 양변은 $\Z[a,b,c]$의 다항식 항등식이므로 임의의 가환환으로 특수화해도 성립한다.
+\end{proof}
+
+\begin{theorem}[순수항이 적은 일반 차수식]
+$m\ge2$이고
+\[
+  f=X^m+aX+b
+\]
+라 하자. 그러면
+\[
+  \Disc(f)
+  =(-1)^{m(m-1)/2}
+  \left((1-m)^{m-1}a^m+m^m b^{m-1}\right).
+\]
+\end{theorem}
+
+\begin{proofidea}
+$f'=mX^{m-1}+a$의 근에서 $X^m=-aX/m$을 이용하고, 그 평가값들의 곱을 $X^{m-1}+a/m$의 근 곱으로 계산한다. 마지막으로 판별식-종결식 공식을 적용한다.
+\end{proofidea}
+
+\begin{proof}
+먼저 보편 계수체 $\Q(a,b)$에서 계산한다. $d=m-1$이라 두고 $f'$의 근들을 $\beta_1,\dots,\beta_d$라 하자. 각 근은
+\[
+  \beta_j^d=-\frac am
+\]
+을 만족하므로
+\[
+\begin{aligned}
+  f(\beta_j)
+  &=\beta_j^m+a\beta_j+b\\
+  &=\left(1-\frac1m\right)a\beta_j+b.
+\end{aligned}
+\]
+$c=(m-1)a/m$이라 두면 $\beta_j$들은
+\[
+  H(X)=X^d+\frac am
+\]
+의 근이다. 따라서
+\[
+\begin{aligned}
+  \prod_{j=1}^d(b+c\beta_j)
+  &=c^d\prod_{j=1}^d\left(\frac bc+\beta_j\right)\\
+  &=c^d(-1)^dH\left(-\frac bc\right)\\
+  &=b^d+(-1)^d c^d\frac am\\
+  &=b^{m-1}
+    +\frac{(-1)^{m-1}(m-1)^{m-1}a^m}{m^m}.
+\end{aligned}
+\]
+$f'$의 최고차계수는 $m$이고 $m(m-1)$은 짝수이므로 종결식의 근 공식에서
+\[
+\begin{aligned}
+  \Res(f,f')
+  &=m^m\prod_{j=1}^{m-1}f(\beta_j)\\
+  &=m^m b^{m-1}
+    +(1-m)^{m-1}a^m.
+\end{aligned}
+\]
+판별식-종결식 공식을 적용하면 표시된 판별식 공식을 얻는다. 양변은 $\Z[a,b]$의 다항식이므로 보편 계수체에서 얻은 항등식은 임의의 가환환으로 특수화된다.
+\end{proof}
+
+\begin{theorem}[이차항만 남긴 사차식]
+\label{thm:depressed-quartic-discriminant}
+\[
+  f=X^4+aX^2+bX+c
+\]
+이면
+\[
+  \boxed{
+  \begin{aligned}
+  \Disc(f)={}&256c^3-128a^2c^2+144ab^2c
+  -27b^4\\
+  &+16a^4c-4a^3b^2.
+  \end{aligned}}
+\]
+\end{theorem}
+
+\begin{proof}
+$f'=4X^3+2aX+b$와의 $7\times7$ 실베스터 행렬을 만들고, $f$의 계수행을 이용해 도함수 블록의 최고차항을 제거하면 $4\times4$ 행렬식으로 줄어든다. 그 행렬식을 전개하고
+\[
+  \Disc(f)=\Res(f,f')
+\]
+를 사용한다. 사차에서는 $(-1)^{4\cdot3/2}=1$이다.
+\end{proof}
+
+\begin{remark}
+사차식의 전체 판별식 공식은 길지만, 다음 장에서 삼차분해식과 함께 갈루아군을 판정하는 핵심 입력이 된다. 계산에서는 직접 전개보다 컴퓨터 대수계로 실베스터 행렬식을 구한 뒤, 수학적으로 기약성·분리성과 군론적 조건을 별도로 검증하는 방식이 안전하다.
+\end{remark}
+
+\subsection{곱의 판별식}
+
+\begin{theorem}[곱의 판별식 공식]
+\label{thm:discriminant-product}
+$f,g\in R[X]$가 일계수다항식이면
+\[
+  \boxed{
+  \Disc(fg)
+  =\Disc(f)\Disc(g)\Res(f,g)^2
+  }.
+\]
+\end{theorem}
+
+\begin{proof}
+근을 모두 포함하는 환으로 확대하고
+\[
+  f=\prod_i(X-\alpha_i),
+  \qquad
+  g=\prod_j(X-\beta_j)
+\]
+라 쓰자. $fg$의 근 차이들은 세 종류로 나뉜다.
+\begin{itemize}
+  \item $\alpha_i-\alpha_{i'}$들의 제곱곱은 $\Disc(f)$이다.
+  \item $\beta_j-\beta_{j'}$들의 제곱곱은 $\Disc(g)$이다.
+  \item 서로 다른 두 묶음 사이의 차이들의 제곱곱은
+  \[
+    \prod_{i,j}(\alpha_i-\beta_j)^2
+    =\Res(f,g)^2
+  \]
+  이다.
+\end{itemize}
+세 곱을 합치면 결론을 얻는다.
+\end{proof}
+
+\begin{corollary}
+체 위에서 분리인 두 일계수다항식 $f,g$에 대해 $fg$가 분리일 필요충분조건은
+\[
+  \Res(f,g)\ne0
+\]
+이다. 즉 두 다항식이 서로 공통근을 갖지 않아야 한다.
+\end{corollary}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $X^3-2$의 판별식을 계산하고 갈루아군이 $S_3$임을 다시 확인하라.
+  \item $X^4-2$의 판별식을 $X^m+aX+b$ 공식으로 계산하라.
+  \item $f=(X^2-2)(X^2-3)$의 판별식을 곱의 공식으로 계산하라.
+\end{enumerate}
+\end{checkpoint}
