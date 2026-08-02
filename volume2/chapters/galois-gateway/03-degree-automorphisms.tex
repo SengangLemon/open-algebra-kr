@@ -1,0 +1,150 @@
+\clearpage
+\section{자동동형의 수와 확장차수}
+\label{sec:galois-degree-automorphisms}
+
+\begin{learninggoal}
+유한확장이 갈루아일 필요충분조건을 자동동형의 수로 표현한다. 원시원의 켤레근과 갈루아군 원소를 일대일로 대응시키고, 궤도-안정자 공식을 중간체의 차수와 연결한다.
+\end{learninggoal}
+
+유한확장 $L/K$에 대해 자동동형의 수는 언제나 확장차수 이하이다. 갈루아 확장에서는 이 상계가 정확히 달성된다.
+
+\begin{proposition}[유한 정규확장의 자동동형 수]
+$L/K$가 유한 정규확장이면
+\[
+  |\Aut_K(L)|=[L:K]_{\mathrm s}\le [L:K].
+\]
+따라서 유한 정규확장에서 자동동형의 수가 확장차수와 같은 것은 $L/K$가 분리확장인 것과 동치이다.
+\end{proposition}
+
+\begin{proof}
+정규성에 의해 모든 $K$-매장 $L\to\overline K$의 상은 $L$이다. 따라서
+\[
+  \Hom_K(L,\overline K)=\Aut_K(L)
+\]
+로 식별할 수 있고, 왼쪽 집합의 크기가 분리차수이다. 마지막 명제는
+\[
+  [L:K]_{\mathrm s}=[L:K]
+\]
+가 유한확장의 분리성과 동치라는 사실에서 따른다.
+\end{proof}
+
+\begin{theorem}[자동동형 개수에 의한 갈루아 판정]
+유한 대수적 확장 $L/K$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $L/K$는 갈루아 확장이다.
+  \item $|\Aut_K(L)|=[L:K]$이다.
+  \item 모든 $K$-매장 $L\to\overline K$가 $L$의 $K$-자동동형이고, 그 수가 $[L:K]$이다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i)$\Rightarrow$(ii)는 앞의 명제에서 따른다. (ii)를 가정하면
+\[
+  |\Aut_K(L)|
+  \le [L:K]_{\mathrm s}
+  \le [L:K]
+\]
+에서 양 끝이 같으므로 모든 부등식이 등호이다. 따라서 $L/K$는 분리이고, 모든 $K$-매장이 이미 자동동형이므로 정규이다. 즉 (iii)와 (i)가 함께 따른다. (iii)$\Rightarrow$(ii)는 자명하다.
+\end{proof}
+
+\begin{corollary}
+유한 갈루아 확장에서는
+\[
+  |\Gal(L/K)|=[L:K].
+\]
+따라서 체확장의 차수는 그 확장이 가진 기준체 대칭의 정확한 개수이다.
+\end{corollary}
+
+\subsection{원시원 하나로 모든 자동동형을 기록하기}
+
+\begin{theorem}[원시원과 갈루아군]
+$L/K$가 차수 $n$의 유한 갈루아 확장이라 하자. 원시원 정리에 의해 $L=K(\theta)$인 $\theta\in L$를 택할 수 있다. $\theta$의 $K$ 위 최소다항식의 서로 다른 근을
+\[
+  \theta_1=\theta,\theta_2,\dots,\theta_n
+\]
+라 하면, 각 $i$에 대해 유일한 자동동형
+\[
+  \sigma_i\in\Gal(L/K)
+\]
+가 존재하여
+\[
+  \sigma_i(\theta)=\theta_i
+\]
+이고
+\[
+  \Gal(L/K)=\{\sigma_1,\dots,\sigma_n\}.
+\]
+\end{theorem}
+
+\begin{proof}
+$L/K$는 분리이므로 최소다항식은 $n$개의 서로 다른 근을 갖고, 정규이므로 그 근들은 모두 $L$ 안에 있다. 단순확장의 매장 정리에 의해 각 근 $\theta_i$는 유일한 $K$-매장
+\[
+  K(\theta)\longrightarrow\overline K,
+  \qquad
+  \theta\longmapsto\theta_i
+\]
+를 정한다. 정규성 때문에 이 매장은 $L$의 자동동형이다. 자동동형은 $\theta$의 상으로 유일하게 정해지므로 이들이 전부이다.
+\end{proof}
+
+\begin{remark}
+구체적으로 $x=h(\theta)\in L$이면
+\[
+  \sigma_i(x)=h(\theta_i)
+\]
+이다. 따라서 원시원과 그 켤레근을 알면 모든 자동동형을 계산할 수 있다.
+\end{remark}
+
+\subsection{궤도-안정자와 단순 중간체}
+
+$G=\Gal(L/K)$라 하고 $\alpha\in L$를 택하자. 안정자를
+\[
+  \operatorname{Stab}_G(\alpha)
+  :=\{\sigma\in G:\sigma(\alpha)=\alpha\}
+\]
+라 한다.
+
+\begin{proposition}
+유한 갈루아 확장 $L/K$와 $\alpha\in L$에 대해
+\[
+  G\cdot\alpha
+  =\operatorname{Conj}_K(\alpha)
+\]
+이고
+\[
+  [K(\alpha):K]
+  =|G\cdot\alpha|
+  =[G:\operatorname{Stab}_G(\alpha)].
+\]
+또한
+\[
+  \operatorname{Stab}_G(\alpha)
+  =\Aut_{K(\alpha)}(L).
+\]
+\end{proposition}
+
+\begin{proof}
+정규성 때문에 자동동형 궤도는 $\alpha$의 모든 $K$-켤레를 포함하고, 분리성 때문에 그 켤레들의 수는 최소다항식의 차수 $[K(\alpha):K]$와 같다. 두 번째 등식은 군작용의 궤도-안정자 정리이다. 마지막으로 $K$를 고정하는 자동동형이 $\alpha$를 고정하는 것은 $K(\alpha)$의 모든 원소를 고정하는 것과 동치이다.
+\end{proof}
+
+\begin{example}
+$L=\Q(\sqrt2,\sqrt3)$와 $G\cong V_4$를 생각하자.
+\begin{itemize}
+  \item $\sqrt2$의 궤도는 $\{\sqrt2,-\sqrt2\}$이고 안정자는 $\{\id,\sigma_3\}$이다. 따라서
+  \[
+    [\Q(\sqrt2):\Q]=2=4/2.
+  \]
+  \item $\theta=\sqrt2+\sqrt3$의 궤도는 네 개의 부호 조합이고 안정자는 항등원뿐이다. 따라서
+  \[
+    [\Q(\theta):\Q]=4
+  \]
+  이며 $L=\Q(\theta)$이다.
+\end{itemize}
+\end{example}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 유한확장의 자동동형 수가 확장차수보다 클 수 없는 이유를 분리차수로 설명하라.
+  \item $\F_{q^n}/\F_q$에서 $|\Gal(\F_{q^n}/\F_q)|=n$임을 확인하라.
+  \item $S_3$ 확장에서 $\alpha=\sqrt[3]{2}$의 궤도와 안정자 크기를 구하라.
+\end{enumerate}
+\end{checkpoint}

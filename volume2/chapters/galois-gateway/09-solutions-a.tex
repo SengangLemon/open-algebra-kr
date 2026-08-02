@@ -1,0 +1,256 @@
+\section{선별 문제 풀이 I}
+\label{sec:galois-gateway-solutions-a}
+
+\subsection*{문제 \thechapter.1: 이차 갈루아 확장}
+
+\begin{solution}
+$d$가 $\Q$에서 제곱이 아니므로 $X^2-d$는 기약이고
+\[
+  [L:\Q]=2.
+\]
+그 두 근 $\pm\sqrt d$가 모두 $L$에 들어 있으며 표수 $0$에서 분리이므로 $L/\Q$는 갈루아 확장이다.
+
+$\Q$-자동동형은 $\sqrt d$를 최소다항식의 근으로 보내야 하므로
+\[
+  \id:\sqrt d\mapsto\sqrt d,
+  \qquad
+  \sigma:\sqrt d\mapsto-\sqrt d
+\]
+뿐이다. $\sigma^2=\id$이므로
+\[
+  \Gal(L/\Q)\cong C_2.
+\]
+부분군은 $\{\id\}$와 전체 군뿐이고
+\[
+  L^{\{\id\}}=L,
+  \qquad
+  L^{\Gal(L/\Q)}=\Q.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.2: $\Q(i,\sqrt2)$}
+
+\begin{solution}
+$\Q(\sqrt2)\subseteq\R$이고 $i\notin\R$이므로 $i\notin\Q(\sqrt2)$. 따라서
+\[
+  [L:\Q]
+  =[L:\Q(\sqrt2)]\,[\Q(\sqrt2):\Q]
+  =2\cdot2=4.
+\]
+$L$은 $(X^2+1)(X^2-2)$의 분해체이므로 갈루아 확장이다.
+
+자동동형은 $i$와 $\sqrt2$의 부호를 독립적으로 바꿀 수 있다.
+\[
+\begin{array}{c|cc}
+ & i & \sqrt2\\
+\hline
+\id&i&\sqrt2\\
+c&-i&\sqrt2\\
+s&i&-\sqrt2\\
+cs&-i&-\sqrt2
+\end{array}
+\]
+모든 비항등원은 위수 $2$이고 서로 교환하므로
+\[
+  \Gal(L/\Q)\cong V_4.
+\]
+세 위수 $2$ 부분군의 고정체는
+\[
+  L^{\langle c\rangle}=\Q(\sqrt2),
+  \qquad
+  L^{\langle s\rangle}=\Q(i),
+  \qquad
+  L^{\langle cs\rangle}=\Q(i\sqrt2)=\Q(\sqrt{-2}).
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.3: $\F_{16}/\F_2$}
+
+\begin{solution}
+$16=2^4$이므로
+\[
+  \Gal(\F_{16}/\F_2)
+  =\langle\varphi\rangle,
+  \qquad
+  \varphi(a)=a^2,
+\]
+이고 $\varphi$의 위수는 $4$이다. 따라서 갈루아군은 $C_4$이다.
+
+$C_4$의 부분군과 고정체는 다음과 같다.
+\[
+\begin{array}{c|c|c}
+H & |H| & \F_{16}^H\\
+\hline
+\{1\} & 1 & \F_{16}\\
+\langle\varphi^2\rangle & 2 & \F_4\\
+\langle\varphi\rangle & 4 & \F_2
+\end{array}
+\]
+실제로 $\varphi^2(a)=a^4$이고 그 고정원소들은 $a^4=a$를 만족하는 네 원소, 즉 $\F_4$이다. 따라서
+\[
+  \Gal(\F_{16}/\F_4)=\langle\varphi^2\rangle.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.5: $X^3-2$ 분해체의 자동동형}
+
+\begin{solution}
+먼저
+\[
+  [\Q(\alpha):\Q]=3
+\]
+이고 $\omega\notin\R$이므로 $\omega\notin\Q(\alpha)$. 따라서
+\[
+  [L:\Q]=6,
+  \qquad
+  [L:\Q(\omega)]=3.
+\]
+$\alpha$의 $\Q(\omega)$ 위 최소다항식은 $X^3-2$이고 $\omega\alpha$도 그 근이므로
+\[
+  \alpha\longmapsto\omega\alpha,
+  \qquad
+  \omega\longmapsto\omega
+\]
+는 $\Q(\omega)$-자동동형 $\sigma$를 정의한다. $\tau$는 복소켤레이므로
+\[
+  \tau(\alpha)=\alpha,
+  \qquad
+  \tau(\omega)=\omega^2
+\]
+인 $\Q$-자동동형이다.
+
+직접 계산하면
+\[
+  \sigma^3=\id,
+  \qquad
+  \tau^2=\id.
+\]
+또한
+\[
+  \tau\sigma\tau(\alpha)
+  =\tau\sigma(\alpha)
+  =\tau(\omega\alpha)
+  =\omega^2\alpha
+  =\sigma^{-1}(\alpha)
+\]
+이고 $\omega$에 대해서도 두 사상의 값이 같으므로
+\[
+  \tau\sigma\tau=\sigma^{-1}.
+\]
+따라서 모든 곱은
+\[
+  \id,\ \sigma,\ \sigma^2,
+  \ \tau,\ \tau\sigma,\ \tau\sigma^2
+\]
+가운데 하나로 정리된다. 이 여섯 사상은 $\alpha$와 $\omega$의 상이 서로 달라 모두 구별되며, 확장차수가 $6$이므로 이것이 모든 자동동형이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.6: $S_3$의 확인}
+
+\begin{solution}
+세 근을
+\[
+  \alpha_1=\alpha,
+  \quad
+  \alpha_2=\omega\alpha,
+  \quad
+  \alpha_3=\omega^2\alpha
+\]
+라 하자. 그러면
+\[
+  \sigma=(123)
+\]
+이고, 복소켤레 $\tau$는 $\alpha_1$을 고정하고 $\alpha_2,\alpha_3$을 바꾸므로
+\[
+  \tau=(23)
+\]
+이다. $3$-순환과 한 전치는 $S_3$를 생성한다. 근 집합에 대한 작용은 충실하고 갈루아군의 원소가 여섯 개이므로
+\[
+  \Gal(L/\Q)\cong S_3.
+\]
+
+위수 $3$의 유일한 부분군은
+\[
+  A_3=\langle\sigma\rangle
+  =\{1,\sigma,\sigma^2\}
+\]
+이다. 세 위수 $2$ 부분군은
+\[
+  \langle\tau\rangle,
+  \quad
+  \sigma\langle\tau\rangle\sigma^{-1},
+  \quad
+  \sigma^2\langle\tau\rangle\sigma^{-2}
+\]
+이며 세 전치에 대응한다.
+\end{solution}
+
+\subsection*{문제 \thechapter.8: 이중이차확장의 모든 중간체}
+
+\begin{solution}
+$G\cong V_4$의 부분군은 자명부분군, 세 개의 위수 $2$ 부분군, 전체 군이다. 고정체를 계산하면
+\[
+\begin{array}{c|c|c|c}
+H & L^H & [L:L^H] & [L^H:\Q]\\
+\hline
+\{1\}&L&1&4\\
+\langle\sigma_2\rangle&\Q(\sqrt3)&2&2\\
+\langle\sigma_3\rangle&\Q(\sqrt2)&2&2\\
+\langle\sigma_{23}\rangle&\Q(\sqrt6)&2&2\\
+G&\Q&4&1
+\end{array}
+\]
+이다. 갈루아 대응이 전단사이므로 이 표에 없는 중간체는 존재하지 않는다.
+\end{solution}
+
+\subsection*{문제 \thechapter.10: 네 확장의 갈루아성}
+
+\begin{solution}
+(a) $\Q(\sqrt[3]{2})/\Q$는 표수 $0$이므로 분리이지만 다른 두 켤레근을 포함하지 않아 정규가 아니다. 따라서 갈루아가 아니다.
+
+(b) $\Q(\sqrt[3]{2},\omega)$는 $X^3-2$의 분해체이고 다항식이 분리이므로 갈루아이다. 앞 문제에서
+\[
+  \Gal(L/\Q)\cong S_3,
+  \qquad |G|=6
+\]
+임을 보였다.
+
+(c) $\F_p(t)/\F_p(t^p)$는 순수비분리 정규확장이지만 분리되지 않는다. 따라서 갈루아가 아니다.
+
+(d) $\alpha=\sqrt[4]{2}$라 하자. $X^4-2$의 근은
+\[
+  \alpha,\ -\alpha,\ i\alpha,\ -i\alpha
+\]
+이고 그 분해체는 $L=\Q(\alpha,i)$이다. $\Q(\alpha)$는 실수체이므로 $i\notin\Q(\alpha)$이고
+\[
+  [L:\Q]=2\cdot4=8.
+\]
+다항식이 분리이므로 $L/\Q$는 갈루아이다.
+
+다음 자동동형을 정의한다.
+\[
+  r(\alpha)=i\alpha,
+  \quad r(i)=i,
+  \qquad
+  s(\alpha)=\alpha,
+  \quad s(i)=-i.
+\]
+그러면
+\[
+  r^4=s^2=1,
+  \qquad
+  srs=r^{-1}.
+\]
+또한
+\[
+  1,r,r^2,r^3,s,sr,sr^2,sr^3
+\]
+는 서로 다른 여덟 자동동형이다. 따라서
+\[
+  \Gal(L/\Q)
+  \cong
+  \langle r,s\mid r^4=s^2=1,\ srs=r^{-1}\rangle
+  \cong D_4,
+\]
+여기서 $D_4$는 정사각형의 대칭군인 위수 $8$의 이면군이다.
+\end{solution}

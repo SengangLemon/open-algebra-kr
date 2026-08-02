@@ -1,0 +1,260 @@
+\section{연습문제}
+\label{sec:galois-gateway-exercises}
+
+문제는 A, B, C의 세 단계로 나뉜다. 별표 문제는 다음 두 절에 상세 풀이가 있다.
+
+\subsection*{A. 계산과 판정}
+
+\begin{exercise}[*]
+$d$가 제곱이 아닌 정수라고 하자. $L=\Q(\sqrt d)$에 대해
+\begin{enumerate}[label=(\alph*)]
+  \item $L/\Q$가 갈루아임을 보여라.
+  \item $\Gal(L/\Q)$의 모든 원소와 군구조를 구하라.
+  \item 각 부분군의 고정체를 구하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+$L=\Q(i,\sqrt2)$라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item $[L:\Q]$를 구하라.
+  \item 모든 $\Q$-자동동형을 $i$와 $\sqrt2$의 상으로 나타내라.
+  \item 갈루아군의 군구조와 세 이차 중간체를 구하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+$L=\F_{16}$을 $\F_2$의 확장으로 보자.
+\begin{enumerate}[label=(\alph*)]
+  \item $\Gal(L/\F_2)$의 생성원과 위수를 구하라.
+  \item 모든 부분군과 그 고정체를 구하라.
+  \item $\F_4$를 고정하는 자동동형군을 구하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$\zeta_3$가 원시 삼차단위근이라고 하자. $\Q(\zeta_3)/\Q$의 갈루아군을 구하고, 각 자동동형이 $\zeta_3$을 어디로 보내는지 적어라.
+\end{exercise}
+
+\begin{exercise}[*]
+$\alpha=\sqrt[3]{2}$, $\omega^2+\omega+1=0$, $L=\Q(\alpha,\omega)$라 하자. 다음 두 사상
+\[
+  \sigma(\alpha)=\omega\alpha,\quad\sigma(\omega)=\omega,
+  \qquad
+  \tau(\alpha)=\alpha,\quad\tau(\omega)=\omega^2
+\]
+이 $L$의 $\Q$-자동동형임을 보이고
+\[
+  \sigma^3=\tau^2=1,
+  \qquad
+  \tau\sigma\tau=\sigma^{-1}
+\]
+을 확인하라. 여섯 자동동형을 모두 적어라.
+\end{exercise}
+
+\begin{exercise}[*]
+문제 \thechapter.5의 자동동형들이 $X^3-2$의 세 근에 작용하는 순열을 구하고
+\[
+  \Gal(L/\Q)\cong S_3
+\]
+임을 증명하라. $A_3$와 세 개의 위수 $2$ 부분군도 식별하라.
+\end{exercise}
+
+\begin{exercise}
+$L=\Q(\sqrt2,\sqrt3)$와 $G=\Gal(L/\Q)$에 대해 다음 원소의 $G$-궤도와 안정자를 구하라.
+\[
+  \sqrt2,\qquad \sqrt6,\qquad \sqrt2+\sqrt3.
+\]
+각 경우 궤도-안정자 공식과 최소다항식 차수를 비교하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$L=\Q(\sqrt2,\sqrt3)$의 모든 중간체를 $G\cong V_4$의 부분군을 이용하여 구하라. 부분군과 고정체, 각 확장차수를 하나의 표로 정리하라.
+\end{exercise}
+
+\begin{exercise}
+$L=\F_{q^{12}}$, $K=\F_q$, $\varphi=\Frob_q$라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item $L^{\langle\varphi^3\rangle}$와 $L^{\langle\varphi^4\rangle}$를 구하라.
+  \item 두 고정체의 교집합과 합성체를 구하라.
+  \item 관련 부분군의 생성부분군과 교집합을 계산하여 포함관계가 어떻게 뒤집히는지 설명하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+다음 확장이 갈루아인지 판정하라. 갈루아인 경우 군의 위수와 구조를 가능한 한 구체적으로 적어라.
+\begin{enumerate}[label=(\alph*)]
+  \item $\Q(\sqrt[3]{2})/\Q$,
+  \item $\Q(\sqrt[3]{2},\omega)/\Q$,
+  \item $\F_p(t)/\F_p(t^p)$,
+  \item $\Q(\sqrt[4]{2},i)/\Q$.
+\end{enumerate}
+마지막 경우 갈루아군이 위수 $8$의 이면군 $D_4$와 동형임을 보여라.
+\end{exercise}
+
+\subsection*{B. 핵심 정리의 증명}
+
+\begin{exercise}
+유한확장 $L/K$가 갈루아일 필요충분조건이 $L$이 어떤 분리다항식의 분해체인 것임을 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+유한 대수적 확장 $L/K$에 대해
+\[
+  L/K\text{가 갈루아}
+  \quad\Longleftrightarrow\quad
+  |\Aut_K(L)|=[L:K]
+\]
+임을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+$L/K$가 유한 갈루아이고 $L=K(\theta)$라 하자. $\theta$의 최소다항식의 각 근이 유일한 $K$-자동동형 $L\to L$을 정함을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+$f\in K[X]$가 분리 기약다항식이고 $L$이 그 분해체라 하자. $\Gal(L/K)$가 $f$의 근 집합에 충실하고 추이적으로 작용함을 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$L/K$가 갈루아이고 $E$가 중간체라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item $L/E$가 갈루아이고 $\Gal(L/E)\le\Gal(L/K)$임을 증명하라.
+  \item $E/K$도 갈루아이면 제한 사상이 전사이고 핵이 $\Gal(L/E)$임을 증명하라.
+  \item 몫군 동형을 유도하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$H\le\Aut(L)$에 대해 $L^H$가 부분체임을 증명하라. 또한
+\[
+  H_1\subseteq H_2
+  \Longrightarrow
+  L^{H_2}\subseteq L^{H_1}
+\]
+임을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+유한 $H\le\Aut(L)$와 $a\in L$에 대해 궤도다항식
+\[
+  P_{a,H}(X)=\prod_{b\in H\cdot a}(X-b)
+\]
+이 $L^H[X]$에 속하고 분리다항식임을 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+아르틴의 고정체 정리를 증명하라. 즉 유한 $H\le\Aut(L)$와 $K=L^H$에 대해
+\[
+  L/K\text{가 유한 갈루아},
+  \qquad
+  [L:K]=|H|,
+  \qquad
+  \Gal(L/K)=H
+\]
+임을 보여라.
+\end{exercise}
+
+\begin{exercise}[*]
+아르틴의 고정체 정리를 이용하여 유한 갈루아 이론의 기본정리를 증명하라. 특히
+\[
+  H\longmapsto L^H,
+  \qquad
+  E\longmapsto\Gal(L/E)
+\]
+가 서로 역인 대응임을 보여라.
+\end{exercise}
+
+\begin{exercise}
+유한 갈루아 확장 $L/K$와 $G=\Gal(L/K)$에 대해
+\[
+  [L:L^H]=|H|,
+  \qquad
+  [L^H:K]=[G:H]
+\]
+를 증명하고, 포함관계가 뒤집힘을 중간체 쪽과 부분군 쪽 모두에서 서술하라.
+\end{exercise}
+
+\subsection*{C. 구조와 응용}
+
+\begin{exercise}[*]
+유한 갈루아 확장 $L/K$, $G=\Gal(L/K)$와 $H\le G$에 대해 다음 동치를 증명하라.
+\[
+  H\trianglelefteq G
+  \quad\Longleftrightarrow\quad
+  L^H/K\text{가 갈루아}.
+\]
+이 경우
+\[
+  G/H\cong\Gal(L^H/K)
+\]
+임을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+$L/K$가 순환 갈루아 확장이고 $[L:K]=n$이라 하자. 각 약수 $d\mid n$에 대해 차수 $d$인 중간체가 정확히 하나 존재함을 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$L=\Q(\sqrt[3]{2},\omega)$의 $S_3$ 부분군 격자를 이용하여 모든 중간체를 구하라. 각 중간체의 차수와 $\Q$ 위 정규성 여부를 판정하고, 정상인 경우 몫군을 계산하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$L=\F_{q^n}$, $K=\F_q$라 하자. 유한 갈루아 대응만을 이용하여 다음을 증명하라.
+\begin{enumerate}[label=(\alph*)]
+  \item 중간체는 정확히 $\F_{q^d}$, $d\mid n$이다.
+  \item $\Gal(L/\F_{q^d})=\langle\Frob_q^d\rangle$이다.
+  \item 모든 중간체가 $K$ 위 갈루아이다.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$L/K$가 소수 $p$차 유한 갈루아 확장이라 하자. $\Gal(L/K)\cong C_p$이고 $K$와 $L$ 사이에 진부분체가 없음을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+$L/K$가 차수 $4$의 유한 갈루아 확장이라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item 갈루아군이 $C_4$ 또는 $V_4$와 동형임을 보여라.
+  \item $C_4$인 경우 이차 중간체가 하나이고, $V_4$인 경우 세 개임을 보여라.
+  \item 중간체의 개수만으로 두 경우를 구별할 수 있음을 설명하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+유한 갈루아 확장 $L/K$, $G=\Gal(L/K)$와 $\alpha\in L$에 대해
+\[
+  K(\alpha)=L^{\operatorname{Stab}_G(\alpha)}
+\]
+임을 증명하고
+\[
+  [K(\alpha):K]=|G\cdot\alpha|
+\]
+를 갈루아 대응으로 다시 유도하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$\zeta_5$가 원시 오차단위근이고 $L=\Q(\zeta_5)$라 하자. 복소켤레
+\[
+  c:\zeta_5\longmapsto\zeta_5^{-1}
+\]
+의 고정체를 구하라. 특히
+\[
+  L^{\langle c\rangle}
+  =\Q(\zeta_5+\zeta_5^{-1})
+  =\Q(\sqrt5)
+\]
+임을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+$L=\Q(\sqrt[3]{2},\omega)$에서 $E=\Q(\sqrt[3]{2})$에 대응하는 부분군을 구하라. 그 부분군이 $S_3$에서 정규가 아님을 보이고, 이것이 $E/\Q$의 비정규성과 일치함을 설명하라.
+\end{exercise}
+
+\begin{exercise}
+차수가 $1$보다 크지만 자동동형군이 자명한 유한 분리확장의 예를 제시하라. 이 예가
+\[
+  |\Aut_K(L)|=[L:K]
+\]
+판정에서 정규성의 역할을 어떻게 보여주는지 설명하라.
+\end{exercise}
