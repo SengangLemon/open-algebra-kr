@@ -1,0 +1,187 @@
+\clearpage
+\section{실베스터 행렬과 종결식}
+\label{sec:sylvester-resultant}
+
+\begin{learninggoal}
+두 다항식의 계수로 실베스터 행렬을 만들고 그 행렬식으로 종결식을 정의한다. 형식적 차수의 역할, 기본 계산법과 선형사상 해석을 이해한다.
+\end{learninggoal}
+
+판별식은 한 다항식의 중근을 탐지한다. 두 다항식이 공통근을 갖는지를 계수만으로 탐지하는 양이 \emph{종결식}(resultant)이다.
+
+\begin{definition}[형식적 차수]
+가환환 $R$ 위에서
+\[
+  f=a_0X^m+a_1X^{m-1}+\cdots+a_m,
+  \qquad
+  g=b_0X^n+b_1X^{n-1}+\cdots+b_n
+\]
+라고 쓸 때, $a_0$ 또는 $b_0$가 $0$이어도 $m,n$을 각각 $f,g$의 \emph{형식적 차수}(formal degree)라 부를 수 있다. 종결식은 다항식뿐 아니라 선택한 형식적 차수에도 의존하여 정의된다.
+\end{definition}
+
+보통 $f,g$가 영이 아니면 실제 차수를 형식적 차수로 택한다. 형식적 차수를 따로 지정하는 이유는 계수의 특수화로 최고차항이 사라지는 상황에서도 하나의 보편 행렬식을 사용할 수 있기 때문이다.
+
+\begin{definition}[실베스터 행렬과 종결식]
+위 다항식의 형식적 차수가 $(m,n)$이라 하자. $f$의 계수행을 오른쪽으로 한 칸씩 이동하여 $n$개 놓고, $g$의 계수행을 같은 방식으로 $m$개 놓아 얻는 $(m+n)\times(m+n)$ 행렬
+\[
+  \mathrm{Syl}_{m,n}(f,g)=
+  \begin{pmatrix}
+  a_0&a_1&\cdots&a_m&0&\cdots&0\\
+  0&a_0&a_1&\cdots&a_m&\ddots&\vdots\\
+  \vdots&\ddots&\ddots&\ddots&&\ddots&0\\
+  0&\cdots&0&a_0&a_1&\cdots&a_m\\[2pt]
+  b_0&b_1&\cdots&b_n&0&\cdots&0\\
+  0&b_0&b_1&\cdots&b_n&\ddots&\vdots\\
+  \vdots&\ddots&\ddots&\ddots&&\ddots&0\\
+  0&\cdots&0&b_0&b_1&\cdots&b_n
+  \end{pmatrix}
+\]
+을 \emph{실베스터 행렬}(Sylvester matrix)이라 한다. 위쪽 블록에는 $n$개의 행, 아래쪽 블록에는 $m$개의 행이 있다. 형식적 차수 $(m,n)$에 대한 \emph{종결식}을
+\[
+  \Res_{m,n}(f,g)
+  :=\det\mathrm{Syl}_{m,n}(f,g)
+  \in R
+\]
+로 정의한다. 실제 차수를 사용할 때는 아래첨자를 생략하여 $\Res(f,g)$라 쓴다.
+\end{definition}
+
+$m=n=0$이면 빈 행렬의 행렬식을 $1$로 정하여
+\[
+  \Res_{0,0}(f,g)=1
+\]
+로 둔다.
+
+\begin{example}[일차식 두 개]
+\[
+  f=a_0X+a_1,
+  \qquad
+  g=b_0X+b_1
+\]
+이면
+\[
+  \mathrm{Syl}_{1,1}(f,g)
+  =\begin{pmatrix}a_0&a_1\\b_0&b_1\end{pmatrix}
+\]
+이고
+\[
+  \Res(f,g)=a_0b_1-a_1b_0.
+\]
+두 일차식이 같은 근을 갖는 것은 두 계수벡터가 비례하는 것과 같고, 바로 이 행렬식이 $0$인 조건이다.
+\end{example}
+
+\begin{example}[상수다항식]
+$f$의 형식적 차수가 $m$이고 $c\in R$를 형식적 차수 $0$의 상수다항식으로 보면
+\[
+  \Res_{m,0}(f,c)=c^m.
+\]
+마찬가지로 형식적 차수 $0$의 상수 $a$와 형식적 차수 $n$의 $g$에 대해
+\[
+  \Res_{0,n}(a,g)=a^n.
+\]
+\end{example}
+
+\begin{example}[이차식과 일차식]
+\[
+  f=aX^2+bX+c,
+  \qquad
+  g=uX+v
+\]
+이면
+\[
+  \Res(f,g)
+  =\det
+  \begin{pmatrix}
+  a&b&c\\
+  u&v&0\\
+  0&u&v
+  \end{pmatrix}
+  =av^2-buv+cu^2.
+\]
+$u$가 단위원이면 $g$의 근은 $-v/u$이고
+\[
+  \Res(f,g)=u^2f(-v/u)
+\]
+임도 확인할 수 있다.
+\end{example}
+
+\subsection{행렬식에서 바로 나오는 성질}
+
+\begin{proposition}[종결식의 기본 성질]
+형식적 차수가 각각 $m,n$인 $f,g\in R[X]$에 대해 다음이 성립한다.
+\begin{enumerate}[label=(\roman*)]
+  \item
+  \[
+    \Res_{m,n}(f,g)
+    =(-1)^{mn}\Res_{n,m}(g,f).
+  \]
+  \item $a,b\in R$에 대해
+  \[
+    \Res_{m,n}(af,bg)
+    =a^n b^m\Res_{m,n}(f,g).
+  \]
+  \item 환준동형 $\varphi:R\to S$로 계수를 옮기면
+  \[
+    \Res_{m,n}(f^\varphi,g^\varphi)
+    =\varphi\bigl(\Res_{m,n}(f,g)\bigr).
+  \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i)는 실베스터 행렬에서 위쪽 $n$개 행과 아래쪽 $m$개 행의 블록을 바꾸는 데 필요한 $mn$번의 행 교환에서 나온다. (ii)는 $f$에 해당하는 각 행에서 $a$를, $g$에 해당하는 각 행에서 $b$를 묶어 내면 된다. (iii)는 행렬식이 행렬 성분들의 정수계수 다항식이라는 사실에서 따른다.
+\end{proof}
+
+\subsection{선형사상으로 보는 실베스터 행렬}
+
+$R[X]_{<d}$를 차수가 $d$보다 작은 다항식들이 이루는 자유 $R$-모듈이라 하자. 기저를 높은 차수부터
+\[
+  X^{d-1},X^{d-2},\dots,1
+\]
+의 순서로 잡는다.
+
+\begin{proposition}[실베스터 사상]
+\label{prop:sylvester-linear-map}
+형식적 차수가 $(m,n)$인 $f,g$에 대해
+\[
+  \Phi_{f,g}:
+  R[X]_{<n}\oplus R[X]_{<m}
+  \longrightarrow R[X]_{<m+n},
+  \qquad
+  (u,v)\longmapsto uf+vg
+\]
+를 생각하자. 위의 표준기저들에 관한 $\Phi_{f,g}$의 행렬은 실베스터 행렬의 전치이다. 따라서
+\[
+  \det\Phi_{f,g}=\Res_{m,n}(f,g).
+\]
+\end{proposition}
+
+\begin{proof}
+정의역의 기저
+\[
+  (X^{n-1},0),\dots,(1,0),
+  (0,X^{m-1}),\dots,(0,1)
+\]
+의 상은
+\[
+  X^{n-1}f,\dots,f,
+  X^{m-1}g,\dots,g
+\]
+이다. 이 다항식들의 계수벡터가 실베스터 행렬의 행들이므로, 선형사상의 열벡터 관례에서는 전치행렬이 나타난다. 전치는 행렬식을 바꾸지 않는다.
+\end{proof}
+
+이 해석은 종결식이 단순한 계산 장치가 아니라
+\[
+  uf+vg
+\]
+꼴의 조합이 어느 정도까지 모든 다항식을 만들어 내는지를 측정하는 행렬식임을 보여 준다.
+
+\begin{pitfall}
+형식적 차수를 실제 차수보다 크게 잡으면 종결식이 달라질 수 있다. 특히 두 최고차계수가 특수화 과정에서 동시에 $0$이 되면 종결식이 사라질 수 있는데, 이것은 유한한 공통근 때문이 아니라 ``무한대에서의 공통근''을 반영하는 형식적 현상이다. 체 위의 공통근 판정에는 보통 실제 차수를 사용한다.
+\end{pitfall}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Res(X-a,X-b)$를 계산하라.
+  \item $\Res(X^2+c,d)$를 실제 차수 $(2,0)$으로 계산하라.
+  \item $\Phi_{f,g}$의 정의역과 공역의 자유모듈 계수가 모두 $m+n$인 이유를 설명하라.
+\end{enumerate}
+\end{checkpoint}
