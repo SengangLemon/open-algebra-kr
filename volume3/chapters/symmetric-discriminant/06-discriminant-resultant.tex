@@ -177,26 +177,47 @@ $m\ge2$이고
 \end{theorem}
 
 \begin{proofidea}
-$f'=mX^{m-1}+a$의 근에서 $X^m=-aX/m$을 이용하거나, 실베스터 행렬을 행연산으로 줄인 뒤 판별식-종결식 공식을 적용한다. 계산은 계수들의 정수계수 다항식 항등식이므로 먼저 보편 계수체에서 수행해도 된다.
+$f'=mX^{m-1}+a$의 근에서 $X^m=-aX/m$을 이용하고, 그 평가값들의 곱을 $X^{m-1}+a/m$의 근 곱으로 계산한다. 마지막으로 판별식-종결식 공식을 적용한다.
 \end{proofidea}
 
 \begin{proof}
-보편 계수체에서 $a,m$을 가역이라 하고 $f'$의 근들을 $\beta_1,\dots,\beta_{m-1}$라 하자. 각 근은
+먼저 보편 계수체 $\Q(a,b)$에서 계산한다. $d=m-1$이라 두고 $f'$의 근들을 $\beta_1,\dots,\beta_d$라 하자. 각 근은
 \[
-  m\beta_j^{m-1}+a=0
+  \beta_j^d=-\frac am
 \]
 을 만족하므로
 \[
+\begin{aligned}
   f(\beta_j)
-  =\beta_j^m+a\beta_j+b
-  =\left(1-\frac1m\right)a\beta_j+b.
+  &=\beta_j^m+a\beta_j+b\\
+  &=\left(1-\frac1m\right)a\beta_j+b.
+\end{aligned}
 \]
-종결식의 근 공식과 $f'$의 최고차계수를 사용하여 이 값들의 곱을 계산하면
+$c=(m-1)a/m$이라 두면 $\beta_j$들은
 \[
-  \Res(f,f')
-  =(1-m)^{m-1}a^m+m^m b^{m-1}.
+  H(X)=X^d+\frac am
 \]
-정리의 부호를 곱하면 공식이 나온다. 양변은 $\Z[a,b]$의 다항식이므로 모든 가환환에서 성립한다.
+의 근이다. 따라서
+\[
+\begin{aligned}
+  \prod_{j=1}^d(b+c\beta_j)
+  &=c^d\prod_{j=1}^d\left(\frac bc+\beta_j\right)\\
+  &=c^d(-1)^dH\left(-\frac bc\right)\\
+  &=b^d+(-1)^d c^d\frac am\\
+  &=b^{m-1}
+    +\frac{(-1)^{m-1}(m-1)^{m-1}a^m}{m^m}.
+\end{aligned}
+\]
+$f'$의 최고차계수는 $m$이고 $m(m-1)$은 짝수이므로 종결식의 근 공식에서
+\[
+\begin{aligned}
+  \Res(f,f')
+  &=m^m\prod_{j=1}^{m-1}f(\beta_j)\\
+  &=m^m b^{m-1}
+    +(1-m)^{m-1}a^m.
+\end{aligned}
+\]
+판별식-종결식 공식을 적용하면 표시된 판별식 공식을 얻는다. 양변은 $\Z[a,b]$의 다항식이므로 보편 계수체에서 얻은 항등식은 임의의 가환환으로 특수화된다.
 \end{proof}
 
 \begin{theorem}[이차항만 남긴 사차식]
