@@ -1,0 +1,134 @@
+\documentclass[11pt,openany]{book}
+
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{fontspec}
+\usepackage{kotex}
+\setmainhangulfont{UnBatang}[AutoFakeSlant=0.2,AutoFakeBold=2]
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{longtable,array}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=green!40!black,
+  urlcolor=blue!60!black,
+  pdftitle={Open Algebra KR, Volume 3},
+  pdfauthor={Sunghyun Park},
+  pdfsubject={Galois groups of equations and applications},
+  pdfkeywords={Galois theory, polynomial equations, permutation groups, discriminant, cubic equations, quartic equations}
+}
+
+\newtheorem{theorem}{정리}[chapter]
+\newtheorem{proposition}[theorem]{명제}
+\newtheorem{lemma}[theorem]{보조정리}
+\newtheorem{corollary}[theorem]{따름정리}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{정의}
+\newtheorem{example}[theorem]{예제}
+\newtheorem{exercise}{연습문제}[chapter]
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{설명}
+
+\newtcolorbox{learninggoal}{
+  colback=blue!3,
+  colframe=blue!45!black,
+  title=학습 목표,
+  breakable,
+  before={\par\Needspace{7\baselineskip}}
+}
+
+\newtcolorbox{pitfall}{
+  colback=red!3,
+  colframe=red!55!black,
+  title=자주 하는 실수,
+  breakable
+}
+
+\newtcolorbox{keyidea}{
+  colback=green!3,
+  colframe=green!45!black,
+  title=핵심 아이디어,
+  breakable
+}
+
+\newtcolorbox{proofidea}{
+  colback=yellow!5,
+  colframe=orange!65!black,
+  title=증명 전략,
+  breakable
+}
+
+\newtcolorbox{checkpoint}{
+  colback=violet!3,
+  colframe=violet!45!black,
+  title=이해 점검,
+  breakable
+}
+
+\newtcolorbox{chapterreview}{
+  colback=black!2,
+  colframe=black!60,
+  title=장 요약,
+  breakable,
+  before={\par\Needspace{8\baselineskip}}
+}
+
+\renewcommand{\proofname}{증명}
+\newenvironment{solution}{\begin{proof}[풀이]}{\end{proof}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\charac}{\operatorname{char}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Disc}{\operatorname{Disc}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\Stab}{\operatorname{Stab}}
+\newcommand{\Orb}{\operatorname{Orb}}
+\newcommand{\Frob}{\operatorname{Frob}}
+
+\pdfstringdefDisableCommands{%
+  \def\Z{Z}%
+  \def\Q{Q}%
+  \def\R{R}%
+  \def\C{C}%
+  \def\F{F}%
+  \def\N{N}%
+}
+
+\title{\Huge Open Algebra KR\\[8pt]\Large 갈루아 이론으로 배우는 현대대수학\\[18pt]\large Volume 3: 갈루아 이론과 방정식}
+\author{Sunghyun Park}
+\date{Draft 0.1 --- 방정식의 갈루아군 1차 검수본}
+
+\begin{document}
+\frontmatter
+\maketitle
+\input{frontmatter/copyright}
+\tableofcontents
+\input{frontmatter/preface}
+
+\mainmatter
+\part{방정식의 대칭}
+\setcounter{chapter}{-1}
+\input{chapters/00-motivation}
+\input{chapters/01-galois-group-equation}
+
+\backmatter
+\input{backmatter/notation}
+\input{backmatter/references}
+\end{document}

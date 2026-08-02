@@ -1,0 +1,158 @@
+\clearpage
+\section{특별한 사차방정식과 두 종류의 군}
+\label{sec:biquadratic-quartics}
+
+\begin{learninggoal}
+짝수차 항만 가진 특별한 사차다항식의 분해체를 계산한다. 비슷한 모양의 다항식에서도 이면군과 클라인 네 군처럼 서로 다른 갈루아군이 나타남을 확인한다.
+\end{learninggoal}
+
+일반 사차다항식의 갈루아군을 분류하려면 삼차분해식과 판별식이 필요하다. 여기서는 근을 직접 쓸 수 있는 이중이차형
+\[
+  f=(X^2-a)^2-b
+\]
+을 통해 사차 갈루아군 계산의 핵심 절차를 익힌다.
+
+\subsection{실근과 비실근이 섞인 경우}
+
+$a,b\in\Q$이고 $b>a^2$라 하자. $f=(X^2-a)^2-b$가 $\Q$ 위에서 기약이라고 가정한다. 양의 제곱근을 택하여
+\[
+  \alpha=\sqrt{a+\sqrt b},
+  \qquad
+  \beta=\sqrt{a-\sqrt b}
+\]
+라 두면 $\alpha$는 실수이고 $\beta$는 비실수이다. 네 근은
+\[
+  \alpha,\ -\alpha,\ \beta,\ -\beta
+\]
+이다.
+
+\begin{theorem}[이면군이 나타나는 이중이차형]
+위 가정 아래 $L=\Q(\alpha,\beta)$는 $f$의 분해체이고
+\[
+  [L:\Q]=8.
+\]
+또한
+\[
+  \Gal(f/\Q)\cong D_4,
+\]
+여기서 $D_4$는 위수 $8$인 정사각형의 대칭군이다.
+\end{theorem}
+
+\begin{proof}
+$f$가 기약 사차식이고 $\alpha$가 한 근이므로
+\[
+  [\Q(\alpha):\Q]=4.
+\]
+$\Q(\alpha)$는 실수체 안에 있지만 $\beta$는 비실수이므로 $\beta\notin\Q(\alpha)$. 한편
+\[
+  \beta^2=a-\sqrt b\in\Q(\alpha)
+\]
+이므로 $[L:\Q(\alpha)]=2$이고 탑 법칙에서 $[L:\Q]=8$이다.
+
+갈루아군은 네 근을 순열하지만
+\[
+  \sigma(-\alpha)=-\sigma(\alpha),
+  \qquad
+  \sigma(-\beta)=-\sigma(\beta)
+\]
+를 만족해야 한다. $\sigma(\alpha)$를 택하는 방법은 네 가지이고, 그 뒤 $\sigma(\beta)$는 남은 부호쌍에서 두 가지이므로 이런 관계를 만족하는 순열은 많아야 여덟 개이다. 이미 갈루아군 위수가 $[L:\Q]=8$이므로 이 여덟 순열이 모두 실현된다.
+
+다음 두 자동동형을 택할 수 있다.
+\[
+  r:\alpha\mapsto\beta,\ \beta\mapsto-\alpha,
+  \qquad
+  s:\alpha\mapsto-\alpha,\ \beta\mapsto\beta.
+\]
+이들은
+\[
+  r^4=s^2=1,
+  \qquad
+  srs=r^{-1}
+\]
+을 만족하고 여덟 원소를 생성한다. 따라서 갈루아군은 $D_4$와 동형이다.
+\end{proof}
+
+\begin{example}
+$f=X^4-2$는
+\[
+  f=(X^2)^2-2
+\]
+이고 아이젠슈타인 판정법으로 기약이다. 여기서
+\[
+  \alpha=\sqrt[4]{2},
+  \qquad
+  \beta=i\sqrt[4]{2}
+\]
+이므로 분해체는 $\Q(\sqrt[4]{2},i)$이고 갈루아군은 $D_4$이다.
+\end{example}
+
+\subsection{한 근이 이미 모든 근을 생성하는 경우}
+
+외형이 비슷해도 분해체 차수가 $4$로 줄어들 수 있다.
+
+\begin{example}[클라인 네 군이 나타나는 사차식]
+\[
+  f=X^4-4X^2+16\in\Q[X]
+\]
+를 생각하자. $\zeta=e^{2\pi i/12}$라 하면 네 근은
+\[
+  2\zeta,\quad 2\zeta^5,\quad 2\zeta^7,\quad 2\zeta^{11}
+\]
+이다. 따라서 한 근 $2\zeta$를 첨가하면
+\[
+  L=\Q(\zeta)
+\]
+가 되어 모든 근이 들어온다. $\zeta$는 원시 $12$차 단위근이고
+\[
+  [L:\Q]=\varphi(12)=4.
+\]
+자동동형은
+\[
+  \zeta\longmapsto\zeta^a,
+  \qquad
+  a\in(\Z/12\Z)^\times=\{1,5,7,11\}
+\]
+로 주어진다. 모든 비항등 원소의 제곱이 항등이고 군은 가환이므로
+\[
+  \Gal(f/\Q)
+  \cong(\Z/12\Z)^\times
+  \cong C_2\times C_2=V_4.
+\]
+\end{example}
+
+\begin{remark}
+두 예제의 근 집합은 모두 $\{\pm\alpha,\pm\beta\}$ 꼴이지만 핵심 차이는 체 관계이다.
+\begin{itemize}
+  \item $X^4-2$에서는 실근 하나를 첨가해도 비실근이 들어오지 않아 분해체 차수가 $8$이다.
+  \item $X^4-4X^2+16$에서는 한 비실근이 원시 단위근을 함께 담아 모든 근을 생성하므로 차수가 $4$이다.
+\end{itemize}
+\end{remark}
+
+\subsection{사차식 계산에서 확인할 항목}
+
+기약 사차다항식 $f$의 갈루아군은 $S_4$의 추이적 부분군이다. 가능한 군에는
+\[
+  C_4,\quad V_4,\quad D_4,\quad A_4,\quad S_4
+\]
+등이 있다. 특별한 형태에서는 근과 분해체를 직접 계산할 수 있지만, 일반적으로는 다음 정보가 필요하다.
+
+\begin{enumerate}
+  \item $f$의 기약성,
+  \item 판별식이 제곱인지 여부,
+  \item 삼차분해식의 인수분해 형태,
+  \item 분해체의 차수 또는 한 근의 안정자 구조.
+\end{enumerate}
+
+이 가운데 판별식과 삼차분해식은 뒤의 장에서 체계적으로 전개한다.
+
+\begin{pitfall}
+근들의 모양이 $\pm\alpha,\pm\beta$라고 해서 갈루아군이 자동으로 $D_4$가 되는 것은 아니다. 실제 분해체 차수와 근들 사이의 체 관계를 확인해야 한다.
+\end{pitfall}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $X^4-2$의 분해체 차수가 $8$인 이유를 실수체와 비실근을 이용해 설명하라.
+  \item $(\Z/12\Z)^\times$의 모든 원소의 위수를 구하여 $V_4$임을 확인하라.
+  \item 기약 사차다항식의 갈루아군이 왜 추이적 부분군이어야 하는가?
+\end{enumerate}
+\end{checkpoint}

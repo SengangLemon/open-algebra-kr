@@ -4,9 +4,9 @@
 
 한국어권 독학자와 대학 학부생을 위한 오픈 현대대수학 교재 프로젝트입니다. 군, 환, 다항식, 체확장, 갈루아 이론을 하나의 흐름으로 연결하고, 각 개념을 동기·직관·예제·엄밀한 증명·연습문제·해설의 순서로 설명합니다.
 
-> **Status: Volume 1 Draft 0.3 검수 완료 · Volume 2 Draft 0.6 전권 1차 통합 초고 완료**
+> **Status: Volume 1 Draft 0.3 검수 완료 · Volume 2 Draft 0.6 전권 초고 완료 · Volume 3 Draft 0.1 집필 중**
 
-Volume 1의 군론·환론·다항식론은 첫 번째 수학·통합 검수 패스를 마쳤습니다. Volume 2는 표수와 최소다항식에서 시작하여 분해체, 분리성, 유한체, 정규확장을 거쳐 유한 갈루아 대응까지 이어지는 전권 초고를 완성했습니다. 두 권 모두 아직 정식 출판본은 아니며 외부 수학 검토와 문장·디자인 교정이 남아 있습니다.
+Volume 1은 군론·환론·다항식론의 첫 수학·통합 검수 패스를 마쳤습니다. Volume 2는 표수와 최소다항식에서 유한 갈루아 대응까지 이어지는 전권 초고를 완성했습니다. Volume 3에서는 방정식의 갈루아군 계산, 판별식, 원분체, 근호확장과 가해군을 전개합니다. 모든 권은 아직 정식 출판본이 아니며 외부 수학 검토와 문장·디자인 교정이 남아 있습니다.
 
 ## 현재 범위
 
@@ -21,27 +21,30 @@ Volume 1의 군론·환론·다항식론은 첫 번째 수학·통합 검수 패
 
 ### Volume 2 — 대수적 체확장
 
-- 근을 담는 새로운 수의 세계
 - 표수·소체·프로베니우스 준동형
-- 체확장의 차수와 탑 법칙
-- 대수적 원소·최소다항식·단순확장
-- 근의 첨가와 분해체
-- 대수적으로 닫힌 체와 대수적 폐포
-- 중근과 분리다항식
-- 체매장과 분리차수
-- 원시원 정리와 완전체
-- 순수비분리 확장과 분리폐포
-- 유한체의 존재·유일성과 부분체 분류
-- 유한체 곱셈군과 상대 프로베니우스
-- 유한체 위 기약다항식의 분해와 개수
+- 체확장의 차수, 대수적 원소와 최소다항식
+- 근의 첨가, 분해체와 대수적 폐포
+- 분리성과 순수비분리 확장
+- 유한체와 상대 프로베니우스
 - 정규확장, 켤레원소와 정상폐포
-- 자동동형 궤도와 순수비분리 고정체
 - 갈루아 확장과 근의 순열
 - 아르틴 고정체 정리
 - 유한 갈루아 대응, 정규부분군과 몫군
 - A/B/C 난이도별 연습문제와 선별 상세 풀이
 
-Volume 2 전체 계획과 완료 상태는 [`notes/roadmaps/volume-02-roadmap.md`](notes/roadmaps/volume-02-roadmap.md)에 기록합니다. 장별 수학 검수 기록은 [`notes/qa/`](notes/qa/)에, Volume 1 전체 품질 상태는 [`notes/quality-assurance.md`](notes/quality-assurance.md)에 있습니다.
+### Volume 3 — 갈루아 이론과 방정식
+
+- 다항식의 갈루아군과 대칭군 안의 순열표현
+- 기약성과 근 집합 작용의 추이성
+- 기약인수와 갈루아 궤도의 대응
+- 이차·삼차다항식의 갈루아군 계산
+- 삼차 판별식에 의한 $C_3/S_3$ 판정
+- 특별한 사차다항식의 $D_4$와 $V_4$ 계산
+- 일반 $n$차방정식과 전체 대칭군
+- 기본대칭식과 대칭 유리함수
+- A/B/C 난이도별 연습문제와 선별 상세 풀이
+
+각 권의 계획과 상태는 [`notes/roadmaps/`](notes/roadmaps/)에 기록합니다. 장별 수학 검수 기록은 [`notes/qa/`](notes/qa/)에, Volume 1 전체 품질 상태는 [`notes/quality-assurance.md`](notes/quality-assurance.md)에 있습니다.
 
 ## 목표
 
@@ -56,17 +59,18 @@ Volume 2 전체 계획과 완료 상태는 [`notes/roadmaps/volume-02-roadmap.md
 
 1. **Volume 1: 군, 환, 다항식** — Draft 0.3
 2. **Volume 2: 대수적 체확장** — Draft 0.6, 전권 1차 통합 초고 완료
-3. **Volume 3: 갈루아 이론과 방정식** — 계획
+3. **Volume 3: 갈루아 이론과 방정식** — Draft 0.1 집필 중
 
 ## 저장소 구조
 
 ```text
 book/        Volume 1 LaTeX 원고
 volume2/     Volume 2 LaTeX 원고
+volume3/     Volume 3 LaTeX 원고
 workbook/    독립 워크북 자료
 notes/       로드맵·편집 지침·검수 기록
 anki/        복습 카드 자료
-.github/     두 권의 자동 PDF 빌드
+.github/     세 권의 자동 PDF 빌드
 ```
 
 ## 빌드
@@ -81,9 +85,13 @@ latexmk -xelatex main.tex
 # Volume 2
 cd ../volume2
 latexmk -xelatex main.tex
+
+# Volume 3
+cd ../volume3
+latexmk -xelatex main.tex
 ```
 
-Pull request에서는 GitHub Actions가 Volume 1과 Volume 2를 각각 컴파일하고 별도의 PDF artifact를 생성합니다.
+Pull request에서는 GitHub Actions가 Volume 1·2·3을 각각 컴파일하고 별도의 PDF artifact를 생성합니다.
 
 ## 편집 원칙
 

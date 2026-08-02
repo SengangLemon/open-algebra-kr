@@ -1,0 +1,102 @@
+\clearpage
+\section{다항식의 갈루아군과 근의 순열}
+\label{sec:equation-galois-group-definition}
+
+\begin{learninggoal}
+분리다항식의 갈루아군을 정의하고, 그 군이 근들의 대칭군에 단사적으로 들어감을 증명한다. 분해체 차수가 $n!$을 나눈다는 기본 상계를 얻는다.
+\end{learninggoal}
+
+\begin{definition}[방정식의 갈루아군]
+$f\in K[X]$가 비상수 분리다항식이고 $L$이 $f$의 $K$ 위 분해체라 하자. 유한 갈루아 확장 $L/K$의 갈루아군
+\[
+  \Gal(f/K):=\Gal(L/K)
+\]
+을 $f$의 $K$ 위 \emph{갈루아군}, 또는 방정식 $f(x)=0$의 갈루아군이라 한다.
+\end{definition}
+
+분해체는 $K$-동형까지 유일하므로 갈루아군도 추상군의 동형까지 분해체 선택에 의존하지 않는다. 다만 근에 대한 구체적인 순열표현은 근의 번호와 분해체의 실현에 따라 달라질 수 있다.
+
+\begin{theorem}[근 순열 표현]
+$f\in K[X]$가 분리인 $n$차다항식이고 $L$이 그 분해체라 하자. 서로 다른 근들을
+\[
+  R_f=\{\alpha_1,\dots,\alpha_n\}
+\]
+라 쓰면
+\[
+  \rho_f:\Gal(f/K)\longrightarrow\Sym(R_f),
+  \qquad
+  \sigma\longmapsto\sigma|_{R_f}
+\]
+는 단사 군준동형이다. 근에 번호를 붙이면
+\[
+  \Gal(f/K)\hookrightarrow S_n
+\]
+로 볼 수 있다.
+\end{theorem}
+
+\begin{proof}
+$\sigma\in\Gal(L/K)$와 $\alpha_i\in R_f$에 대해 $f$의 계수가 $K$에 있으므로
+\[
+  f(\sigma(\alpha_i))
+  =\sigma(f(\alpha_i))=0.
+\]
+따라서 $\sigma$는 근 집합을 자기 자신으로 보낸다. 자동동형은 전단사이므로 그 제한은 순열이다. 제한은 합성과 호환되므로 $\rho_f$는 군준동형이다.
+
+$\rho_f(\sigma)$가 항등순열이면 $\sigma$는 모든 근을 고정한다. 그런데
+\[
+  L=K(\alpha_1,\dots,\alpha_n)
+\]
+이므로 $\sigma$는 $L$ 전체를 고정하고 $\sigma=\id$이다. 따라서 핵이 자명하여 $\rho_f$는 단사이다.
+\end{proof}
+
+\begin{corollary}
+위 상황에서
+\[
+  [L:K]=|\Gal(f/K)|\mid n!.
+\]
+특히 분해체의 차수는 $n!$ 이하이다.
+\end{corollary}
+
+\begin{proof}
+유한 갈루아 확장에서 군의 위수는 확장차수와 같다. 또한 유한군의 부분군 위수는 전체 군의 위수를 나누므로 라그랑주 정리를 적용하면 된다.
+\end{proof}
+
+\begin{remark}[순열표현은 무엇을 보존하는가]
+$S_n$의 임의의 원소는 근들을 단순히 재배열한다. 그러나 갈루아군의 순열은 모든 $K$-계수 다항식 관계를 보존한다. 즉
+\[
+  P(\alpha_1,\dots,\alpha_n)=0,
+  \qquad P\in K[X_1,\dots,X_n]
+\]
+이면 모든 $\sigma\in\Gal(f/K)$에 대해
+\[
+  P(\sigma(\alpha_1),\dots,\sigma(\alpha_n))=0
+\]
+이다. 이것이 전체 대칭군보다 작은 부분군이 나타나는 근본 이유이다.
+\end{remark}
+
+\begin{example}[이차방정식]
+$f=X^2-d\in\Q[X]$이고 $d$가 제곱이 아니라고 하자. 근은 $\pm\sqrt d$이고 분해체는 $L=\Q(\sqrt d)$이다. 비항등 자동동형은 두 근을 바꾸므로
+\[
+  \Gal(f/\Q)\cong S_2\cong C_2.
+\]
+\end{example}
+
+\begin{example}[네 근의 모든 순열이 불가능한 경우]
+$f=X^4-2$의 근을
+\[
+  \alpha,\ -\alpha,\ i\alpha,\ -i\alpha
+\]
+라 하자. 자동동형은 $\sigma(-\alpha)=-\sigma(\alpha)$를 만족해야 한다. 따라서 $\alpha$와 $-\alpha$를 서로 무관하게 보낼 수 없으며 갈루아군은 $S_4$ 전체가 아니다. 실제 군의 위수는 $8$이다.
+\end{example}
+
+\begin{pitfall}
+``$f$가 $n$차이므로 갈루아군은 $S_n$이다''는 결론은 일반적으로 거짓이다. 올바른 결론은 갈루아군이 $S_n$의 부분군이라는 것뿐이다. 전체 대칭군임을 보이려면 충분한 순열이 실제 자동동형에서 온다는 추가 논증이 필요하다.
+\end{pitfall}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 분해체가 근들로 생성된다는 사실이 단사성 증명에서 어디에 쓰이는가?
+  \item 분리성이 없으면 근 집합을 $n$개의 서로 다른 원소로 볼 수 없는 이유를 설명하라.
+  \item $5$차 분리다항식의 분해체 차수가 가질 수 있는 값은 왜 $120$의 약수여야 하는가?
+\end{enumerate}
+\end{checkpoint}
