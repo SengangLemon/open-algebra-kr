@@ -22,8 +22,8 @@
   urlcolor=blue!60!black,
   pdftitle={Open Algebra KR, Volume 3},
   pdfauthor={Sunghyun Park},
-  pdfsubject={Galois groups of equations and applications},
-  pdfkeywords={Galois theory, polynomial equations, permutation groups, discriminant, cubic equations, quartic equations}
+  pdfsubject={Galois groups, symmetric polynomials, discriminants, and resultants},
+  pdfkeywords={Galois theory, polynomial equations, permutation groups, symmetric polynomials, discriminant, resultant, Sylvester matrix}
 }
 
 \newtheorem{theorem}{정리}[chapter]
@@ -97,6 +97,8 @@
 \newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\Sym}{\operatorname{Sym}}
 \newcommand{\Disc}{\operatorname{Disc}}
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\Tr}{\operatorname{Tr}}
 \newcommand{\sgn}{\operatorname{sgn}}
 \newcommand{\Stab}{\operatorname{Stab}}
 \newcommand{\Orb}{\operatorname{Orb}}
@@ -113,7 +115,7 @@
 
 \title{\Huge Open Algebra KR\\[8pt]\Large 갈루아 이론으로 배우는 현대대수학\\[18pt]\large Volume 3: 갈루아 이론과 방정식}
 \author{Sunghyun Park}
-\date{Draft 0.1 --- 방정식의 갈루아군 1차 검수본}
+\date{Draft 0.2 --- 대칭다항식, 판별식과 종결식 초고}
 
 \begin{document}
 \frontmatter
@@ -127,6 +129,7 @@
 \setcounter{chapter}{-1}
 \input{chapters/00-motivation}
 \input{chapters/01-galois-group-equation}
+\input{chapters/02-symmetric-discriminant-resultant}
 
 \backmatter
 \input{backmatter/notation}
