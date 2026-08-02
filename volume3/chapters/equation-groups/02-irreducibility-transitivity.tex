@@ -1,0 +1,107 @@
+\clearpage
+\section{기약성과 추이성, 인수와 궤도}
+\label{sec:irreducibility-transitivity}
+
+\begin{learninggoal}
+분리다항식의 기약성과 갈루아군 작용의 추이성이 동치임을 증명한다. 더 일반적으로 기약인수와 근 집합의 갈루아 궤도가 일대일로 대응함을 보인다.
+\end{learninggoal}
+
+갈루아군이 근을 어떻게 묶는지는 다항식의 인수분해와 정확히 일치한다. 계수체 위에서 구별할 수 없는 근들은 하나의 궤도에 놓인다.
+
+\begin{theorem}[기약성과 추이성]
+$f\in K[X]$가 분리다항식이고 $L$이 그 분해체라 하자. 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $f$는 $K[X]$에서 기약이다.
+  \item $\Gal(f/K)$는 $f$의 근 집합 위에서 추이적으로 작용한다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+$f$가 기약이고 $\alpha,\beta$가 두 근이라고 하자. 두 원소의 $K$ 위 최소다항식은 모두 $f$이므로
+\[
+  K(\alpha)\longrightarrow K(\beta),
+  \qquad
+  \alpha\longmapsto\beta
+\]
+인 $K$-동형이 존재한다. 이를 대수적 폐포의 $K$-자동동형으로 연장한다. $L/K$가 정규이므로 이 자동동형은 $L$을 보존하고, 제한하면 $\alpha$를 $\beta$로 보내는 $\Gal(L/K)$의 원소를 얻는다. 따라서 작용은 추이적이다.
+
+반대로 $f=gh$가 $K[X]$에서 두 비상수 다항식의 곱으로 분해된다고 하자. $f$가 분리이므로 $g$와 $h$의 근 집합은 서로 겹치지 않게 잡을 수 있다. 임의의 $K$-자동동형은 $g$의 계수를 고정하므로 $g$의 근을 다시 $g$의 근으로 보낸다. 따라서 $g$의 근 집합은 비어 있지 않은 진부분 불변집합이고 전체 근 집합 위의 작용은 추이적이지 않다.
+\end{proof}
+
+\begin{theorem}[기약인수와 궤도의 대응]
+$f\in K[X]$가 분리다항식이고
+\[
+  f=c f_1\cdots f_r
+\]
+가 서로 다른 일계수 기약다항식들의 곱이라 하자. $L$을 $f$의 분해체, $G=\Gal(L/K)$라 하면 $f_i$의 근 집합들은 정확히 $G$가 전체 근 집합에 작용할 때의 궤도들이다.
+\end{theorem}
+
+\begin{proof}
+각 $f_i$의 근 집합은 계수가 $K$에 있으므로 $G$에 의해 보존된다. 앞 정리를 $f_i$에 적용하면 $G$의 작용은 그 근들 위에서 추이적이다. 따라서 각 근 집합은 하나의 궤도이고, 모든 근은 정확히 하나의 기약인수에 속하므로 이들이 모든 궤도이다.
+\end{proof}
+
+\begin{corollary}
+$f$가 분리다항식이고 $\alpha$가 한 근이면, $\alpha$가 속한 갈루아 궤도의 크기는
+\[
+  [K(\alpha):K]
+\]
+와 같다. 또한
+\[
+  |G\cdot\alpha|
+  =[G:\Stab_G(\alpha)].
+\]
+\end{corollary}
+
+\begin{proof}
+$\alpha$가 속한 궤도는 최소다항식의 모든 근으로 이루어지고, 분리성 때문에 그 수는 최소다항식의 차수이다. 두 번째 등식은 궤도-안정자 정리이다.
+\end{proof}
+
+\begin{example}[인수분해를 궤도로 읽기]
+\[
+  f=(X^2-2)(X^3-3)\in\Q[X]
+\]
+라 하자. 두 인수는 기약이고 표수 $0$에서 분리이다. 분해체의 갈루아군이 다섯 근 전체에 작용할 때 궤도는
+\[
+  \{\sqrt2,-\sqrt2\}
+\]
+와
+\[
+  \{\sqrt[3]{3},\omega\sqrt[3]{3},\omega^2\sqrt[3]{3}\}
+\]
+의 두 개이다. 따라서 작용은 전체 다섯 근 위에서 추이적이지 않다.
+\end{example}
+
+\begin{example}[추이적 부분군의 제약]
+$f$가 $\Q$ 위 기약인 소수차 $p$의 분리다항식이라 하자. 갈루아군 $G\le S_p$는 추이적이므로 궤도-안정자 정리에서
+\[
+  p\mid |G|.
+\]
+코시 정리에 의해 $G$는 위수 $p$인 원소를 포함하고, $S_p$에서 그런 원소는 $p$-순환이다. 따라서 기약 소수차 다항식의 갈루아군은 반드시 $p$-순환을 포함한다.
+\end{example}
+
+\begin{proposition}[고정한 근과 안정자]
+$f$가 분리 기약다항식이고 $L$이 분해체, $G=\Gal(L/K)$라 하자. 한 근 $\alpha$에 대해
+\[
+  \Stab_G(\alpha)=\Gal(L/K(\alpha))
+\]
+이고
+\[
+  [K(\alpha):K]=[G:\Stab_G(\alpha)].
+\]
+\end{proposition}
+
+\begin{proof}
+$K$를 고정하는 자동동형이 $\alpha$를 고정하는 것은 $K(\alpha)$의 모든 원소를 고정하는 것과 동치이다. 차수 공식은 갈루아 대응 또는 궤도-안정자 정리에서 따른다.
+\end{proof}
+
+\begin{keyidea}
+기약인수는 계수체 $K$가 서로 구별할 수 있는 근들의 묶음이고, 갈루아 궤도는 자동동형이 서로 이동시킬 수 있는 근들의 묶음이다. 두 묶음은 정확히 같다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 분리 기약 사차다항식의 갈루아군은 왜 $S_4$의 추이적 부분군이어야 하는가?
+  \item $f$가 일차인수와 기약 삼차인수의 곱이면 근 집합의 궤도 크기는 어떻게 되는가?
+  \item 기약 $5$차다항식의 갈루아군이 반드시 $5$-순환을 포함하는 이유를 설명하라.
+\end{enumerate}
+\end{checkpoint}
