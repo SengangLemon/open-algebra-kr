@@ -1,0 +1,144 @@
+\clearpage
+\section{대응표와 다음 단계}
+\label{sec:galois-examples-review}
+
+\begin{learninggoal}
+$V_4$, $S_3$와 유한체의 순환 갈루아군에서 부분군-중간체 대응을 실제로 작성한다. Volume 2의 체확장론을 하나의 흐름으로 정리하고 다음 권의 문제들을 전망한다.
+\end{learninggoal}
+
+\subsection{$V_4$ 확장의 완전한 대응표}
+
+$L=\Q(\sqrt2,\sqrt3)$와
+\[
+  G=\Gal(L/\Q)
+  =\{\id,\sigma_2,\sigma_3,\sigma_{23}\}
+  \cong V_4
+\]
+를 생각하자. 각 자동동형의 정의는 앞 절과 같다.
+
+\[
+\begin{array}{c|c|c|c}
+H\le G & L^H & [L^H:\Q] & \Q\text{ 위 갈루아?}\\
+\hline
+\{\id\} & L & 4 & \text{예}\\
+\langle\sigma_2\rangle & \Q(\sqrt3) & 2 & \text{예}\\
+\langle\sigma_3\rangle & \Q(\sqrt2) & 2 & \text{예}\\
+\langle\sigma_{23}\rangle & \Q(\sqrt6) & 2 & \text{예}\\
+G & \Q & 1 & \text{예}
+\end{array}
+\]
+
+$V_4$는 아벨군이므로 모든 부분군이 정규이다. 따라서 모든 중간체가 $\Q$ 위 갈루아이다. 세 개의 위수 $2$ 부분군이 세 개의 이차 중간체에 정확히 대응한다.
+
+\subsection{$S_3$ 확장에서 정규성이 갈라지는 방식}
+
+$\alpha=\sqrt[3]{2}$, $\omega^2+\omega+1=0$이라 하고
+\[
+  L=\Q(\alpha,\omega),
+  \qquad
+  G=\Gal(L/\Q)\cong S_3
+\]
+라 하자. $\sigma$는 세 세제곱근을 순환하고 $\tau$는 복소켤레이다.
+
+\[
+\begin{array}{c|c|c|c}
+H\le G & L^H & [L^H:\Q] & H\trianglelefteq G?\\
+\hline
+\{\id\} & L & 6 & \text{예}\\
+\langle\tau\rangle & \Q(\alpha) & 3 & \text{아니오}\\
+\sigma\langle\tau\rangle\sigma^{-1}
+& \Q(\omega\alpha) & 3 & \text{아니오}\\
+\sigma^2\langle\tau\rangle\sigma^{-2}
+& \Q(\omega^2\alpha) & 3 & \text{아니오}\\
+\langle\sigma\rangle=A_3 & \Q(\omega) & 2 & \text{예}\\
+G & \Q & 1 & \text{예}
+\end{array}
+\]
+
+세 위수 $2$ 부분군은 서로 켤레이며 정규가 아니다. 따라서 대응하는 세 삼차체는 $\Q$ 위 정규가 아니다. 반면 $A_3$는 지수 $2$인 정규부분군이고
+\[
+  S_3/A_3\cong C_2
+  \cong\Gal(\Q(\omega)/\Q).
+\]
+체의 정규성이 군의 정규부분군 조건으로 정확히 번역되는 첫 비가환 예제이다.
+
+\subsection{유한체 확장의 대응}
+
+\[
+  L=\F_{q^n},
+  \qquad
+  K=\F_q,
+  \qquad
+  G=\langle\Frob_q\rangle\cong C_n
+\]
+라 하자. $d\mid n$에 대해
+\[
+  H_d=\langle\Frob_q^d\rangle
+\]
+는 위수 $n/d$인 부분군이고
+\[
+  L^{H_d}=\F_{q^d}.
+\]
+따라서
+\[
+  \{d:d\mid n\}
+  \longleftrightarrow
+  \{\F_{q^d}:d\mid n\}
+\]
+가 유한체의 모든 중간체를 준다. 순환군에는 각 위수의 부분군이 하나뿐이므로 차수 $d$인 중간체도 하나뿐이다.
+
+\begin{example}
+$\F_{q^{12}}/\F_q$에서
+\[
+  L^{\langle\Frob_q^3\rangle}=\F_{q^3},
+  \qquad
+  L^{\langle\Frob_q^4\rangle}=\F_{q^4}.
+\]
+또한
+\[
+  \F_{q^3}\cap\F_{q^4}=\F_q,
+  \qquad
+  \F_{q^3}\F_{q^4}=\F_{q^{12}}.
+\]
+이는 부분군의 생성과 교집합이 고정체의 교집합과 합성체로 뒤집혀 나타나는 현상의 한 예이다.
+\end{example}
+
+\subsection{Volume 3에서 이어질 질문}
+
+이 장에서 갈루아 이론의 기본 사전을 얻었다. 다음 권에서는 이 사전을 방정식에 본격적으로 적용한다.
+
+\begin{itemize}
+  \item 주어진 다항식의 갈루아군을 $S_n$의 부분군으로 어떻게 계산하는가?
+  \item 판별식과 근들의 관계는 갈루아군을 어떻게 제한하는가?
+  \item 순환확장과 원분체는 어떤 구조를 갖는가?
+  \item 군의 가해성과 근호에 의한 방정식의 해법은 왜 서로 대응하는가?
+  \item 무한 갈루아 확장에서 닫힌 부분군과 크룰 위상은 왜 필요한가?
+\end{itemize}
+
+\begin{chapterreview}
+\begin{itemize}
+  \item 갈루아 확장은 정규이면서 분리인 대수적 확장이다.
+  \item 유한 갈루아 확장은 분리다항식의 분해체와 같다.
+  \item 갈루아군은 분해체의 근 집합에 충실하게 작용한다.
+  \item 기약다항식의 근들에 대한 갈루아군 작용은 추이적이다.
+  \item 유한확장은 자동동형의 수가 확장차수와 같을 때 정확히 갈루아이다.
+  \item 유한 갈루아 확장에서 $|\Gal(L/K)|=[L:K]$이다.
+  \item 중간체 $E$에 대해 $L/E$는 항상 갈루아이고 $\Gal(L/E)$는 부분군이다.
+  \item 유한 자동동형군 $H$에 대해 $L/L^H$는 갈루아이고 갈루아군은 정확히 $H$이다.
+  \item 유한 갈루아 대응은 부분군과 중간체를 포함관계를 뒤집어 일대일 대응시킨다.
+  \item 정규부분군은 기준체 위 갈루아인 중간체에 대응하며 몫군이 그 갈루아군이 된다.
+\end{itemize}
+\end{chapterreview}
+
+\subsection*{복습 카드}
+
+\begin{itemize}
+  \item \textbf{갈루아 확장이란?} 정규이면서 분리인 대수적 확장.
+  \item \textbf{유한 갈루아 판정은?} $|\Aut_K(L)|=[L:K]$.
+  \item \textbf{갈루아군의 근 작용은?} 분해체의 근들을 순열하는 충실한 작용.
+  \item \textbf{고정체는?} $L^H=\{a:\sigma(a)=a\text{ for all }\sigma\in H\}$.
+  \item \textbf{아르틴 고정체 정리는?} 유한 $H$에 대해 $[L:L^H]=|H|$이고 $\Gal(L/L^H)=H$.
+  \item \textbf{갈루아 대응의 차수 공식은?} $[L^H:K]=[G:H]$.
+  \item \textbf{정규부분군의 의미는?} 대응하는 중간체가 기준체 위 갈루아라는 뜻.
+  \item \textbf{몫군 공식은?} $G/H\cong\Gal(L^H/K)$ when $H\trianglelefteq G$.
+\end{itemize}
