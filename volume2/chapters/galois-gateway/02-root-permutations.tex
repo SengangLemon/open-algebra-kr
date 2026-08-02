@@ -1,0 +1,152 @@
+\clearpage
+\section{근의 순열로 보는 갈루아군}
+\label{sec:galois-root-permutations}
+
+\begin{learninggoal}
+분해체의 자동동형이 다항식의 근들을 순열한다는 사실을 증명한다. 이 작용이 충실함을 보이고, 이중이차확장과 $X^3-2$의 분해체에서 갈루아군을 구체적으로 계산한다.
+\end{learninggoal}
+
+갈루아군의 원소는 추상적인 함수이지만, 분해체가 근들로 생성된다는 사실을 이용하면 근들의 순열로 볼 수 있다.
+
+\begin{theorem}[근 집합에 대한 충실한 작용]
+$f\in K[X]$가 분리다항식이고 $L$이 $f$의 $K$ 위 분해체라 하자. $R\subseteq L$을 $f$의 근 집합이라 하면 각 $\sigma\in\Gal(L/K)$는 $R$을 순열하며
+\[
+  \rho:\Gal(L/K)\longrightarrow\operatorname{Sym}(R),
+  \qquad
+  \sigma\longmapsto\sigma|_R
+\]
+는 단사 군준동형이다. 또한 $f$가 기약이면 이 작용은 추이적이다.
+\end{theorem}
+
+\begin{proof}
+$f$의 계수는 $K$에 있으므로 $\alpha\in R$와 $\sigma\in\Gal(L/K)$에 대해
+\[
+  f(\sigma(\alpha))
+  =\sigma(f(\alpha))=0.
+\]
+따라서 $\sigma$는 $R$을 자기 자신으로 보내며, 역자동동형이 있으므로 실제로 순열한다. 합성은 순열의 합성과 호환되므로 $\rho$는 군준동형이다.
+
+$\rho(\sigma)$가 항등순열이면 $\sigma$는 $f$의 모든 근을 고정한다. 그런데 $L$은 그 근들로 생성되므로 $\sigma=\id$이다. 따라서 $\rho$는 단사이다.
+
+마지막으로 $f$가 기약이고 $\alpha,\beta\in R$라 하자. 두 근은 $K$-켤레이므로
+\[
+  K(\alpha)\longrightarrow K(\beta),
+  \qquad
+  \alpha\longmapsto\beta
+\]
+인 $K$-동형이 존재한다. 이를 대수적 폐포의 $K$-자동동형으로 연장한 뒤 $L$에 제한하면, $L/K$의 정규성 때문에 $L$의 $K$-자동동형을 얻는다. 이 자동동형은 $\alpha$를 $\beta$로 보내므로 작용은 추이적이다.
+\end{proof}
+
+\begin{corollary}
+$f$가 분리인 $n$차다항식이고 $L$이 그 분해체이면
+\[
+  \Gal(L/K)\hookrightarrow S_n.
+\]
+따라서 $|\Gal(L/K)|$는 $n!$을 넘지 않는다. $f$가 기약이면 갈루아군은 $n$개의 근 위에서 추이적으로 작용한다.
+\end{corollary}
+
+\begin{pitfall}
+근들의 모든 순열이 자동동형이 되는 것은 아니다. 자동동형은 근들 사이의 모든 덧셈·곱셈 관계도 보존해야 한다. 갈루아군은 전체 대칭군의 부분군으로 들어갈 뿐이며, 실제로 어떤 부분군이 되는지가 방정식의 핵심 정보이다.
+\end{pitfall}
+
+\subsection{이중이차확장과 클라인 네 군}
+
+\begin{example}
+\[
+  L=\Q(\sqrt2,\sqrt3)
+\]
+라 하자. $L$은 분리다항식 $(X^2-2)(X^2-3)$의 분해체이므로 갈루아 확장이다. $\Q$-자동동형은 두 제곱근의 부호를 독립적으로 선택한다.
+\[
+\begin{array}{c|cc}
+ & \sqrt2 & \sqrt3\\
+\hline
+\id & \sqrt2 & \sqrt3\\
+\sigma_2 & -\sqrt2 & \sqrt3\\
+\sigma_3 & \sqrt2 & -\sqrt3\\
+\sigma_{23} & -\sqrt2 & -\sqrt3
+\end{array}
+\]
+각 비항등원은 제곱하면 항등원이 되고
+\[
+  \sigma_2\sigma_3=\sigma_3\sigma_2=\sigma_{23}
+\]
+이다. 따라서
+\[
+  \Gal(L/\Q)\cong C_2\times C_2=:V_4,
+\]
+즉 클라인 네 군이다.
+\end{example}
+
+이 예제에서 자동동형은 단순히 제곱근의 부호를 바꾸는 연산이다. 그러나 세제곱방정식의 분해체에서는 처음으로 비가환 갈루아군이 나타난다.
+
+\subsection{$X^3-2$의 분해체와 $S_3$}
+
+\begin{example}[첫 비가환 갈루아군]
+$\alpha=\sqrt[3]{2}$를 양의 실근, $\omega$를
+\[
+  \omega^2+\omega+1=0,
+  \qquad \omega\ne1
+\]
+인 원시 삼차단위근이라 하자. $X^3-2$의 세 근은
+\[
+  \alpha,\quad\omega\alpha,\quad\omega^2\alpha
+\]
+이고 분해체는
+\[
+  L=\Q(\alpha,\omega)
+\]
+이다. $[\Q(\alpha):\Q]=3$이고 $\omega\notin\R$이므로
+\[
+  [L:\Q]=6.
+\]
+
+다음 두 자동동형을 생각하자.
+\[
+\begin{aligned}
+  \sigma(\alpha)&=\omega\alpha,
+  &\sigma(\omega)&=\omega,\\
+  \tau(\alpha)&=\alpha,
+  &\tau(\omega)&=\omega^2.
+\end{aligned}
+\]
+$\sigma$는 세 근을 순환시키고, $\tau$는 복소켤레이다. 이들은
+\[
+  \sigma^3=\tau^2=\id,
+  \qquad
+  \tau\sigma\tau=\sigma^{-1}
+\]
+을 만족한다. 따라서
+\[
+  \id,\ \sigma,\ \sigma^2,\ \tau,\ \tau\sigma,\ \tau\sigma^2
+\]
+의 여섯 자동동형을 얻는다. 자동동형의 수는 확장차수보다 클 수 없으므로 이것이 전부이다.
+
+근들을
+\[
+  \alpha_1=\alpha,
+  \quad \alpha_2=\omega\alpha,
+  \quad \alpha_3=\omega^2\alpha
+\]
+라 번호 붙이면
+\[
+  \sigma=(123),
+  \qquad
+  \tau=(23)
+\]
+로 작용한다. 이 두 순열은 $S_3$를 생성하므로
+\[
+  \Gal(L/\Q)\cong S_3.
+\]
+\end{example}
+
+\begin{keyidea}
+다항식의 갈루아군을 구한다는 것은 그 근들을 허용 가능한 방식으로 순열하는 대칭군을 구한다는 뜻이다. 이중이차확장에서는 부호 변화가 $V_4$를 만들고, 일반적인 삼차방정식의 분해체에서는 세 근의 대칭이 $S_3$를 만든다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Q(i,\sqrt2)/\Q$의 자동동형을 $i$와 $\sqrt2$의 상으로 나타내라.
+  \item 위 $S_3$ 예제에서 $\tau\sigma\tau(\alpha)=\sigma^{-1}(\alpha)$임을 직접 계산하라.
+  \item 기약 사차다항식의 분해체 갈루아군이 왜 $S_4$의 추이적 부분군으로 들어가는지 설명하라.
+\end{enumerate}
+\end{checkpoint}
