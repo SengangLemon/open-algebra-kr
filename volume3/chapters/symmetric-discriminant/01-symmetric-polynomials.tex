@@ -1,0 +1,252 @@
+\clearpage
+\section{대칭다항식의 기본정리}
+\label{sec:fundamental-symmetric-polynomials}
+
+\begin{learninggoal}
+일반 가환환을 계수환으로 허용하여 대칭다항식을 정의한다. 모든 대칭다항식이 기본대칭식의 다항식으로 유일하게 표현됨을 증명하고, 다항식환의 자유모듈 구조까지 설명한다.
+\end{learninggoal}
+
+이 장 전체에서 $R$은 항등원을 가진 가환환이고
+\[
+  R[\mathbf T]=R[T_1,\dots,T_n]
+\]
+이라 쓴다. 순열 $\pi\in S_n$은 변수들을
+\[
+  T_i\longmapsto T_{\pi(i)}
+\]
+로 보내는 $R$-대수 자동동형으로 작용한다.
+
+\begin{definition}[대칭다항식]
+다항식 $f\in R[\mathbf T]$가 모든 $\pi\in S_n$에 대해
+\[
+  f(T_{\pi(1)},\dots,T_{\pi(n)})
+  =f(T_1,\dots,T_n)
+\]
+을 만족하면 $f$를 \emph{대칭다항식}(symmetric polynomial)이라 한다.
+\end{definition}
+
+\begin{definition}[기본대칭식]
+변수 $T_1,\dots,T_n$의 $j$번째 \emph{기본대칭식}(elementary symmetric polynomial)을
+\[
+  s_j=
+  \sum_{1\le i_1<\cdots<i_j\le n}
+  T_{i_1}\cdots T_{i_j}
+  \qquad(1\le j\le n)
+\]
+로 정의하고 $s_0=1$로 둔다. 이들은 항등식
+\[
+  \prod_{i=1}^n(X-T_i)
+  =\sum_{j=0}^n(-1)^j s_jX^{n-j}
+\]
+의 계수들이다.
+\end{definition}
+
+예를 들어 세 변수에서는
+\[
+  s_1=T_1+T_2+T_3,
+  \qquad
+  s_2=T_1T_2+T_1T_3+T_2T_3,
+  \qquad
+  s_3=T_1T_2T_3.
+\]
+근을 순열해도 다항식의 계수가 변하지 않는다는 사실이 기본대칭식이 갈루아 이론에 등장하는 이유이다.
+
+\subsection{사전식 순서와 최고항}
+
+지수벡터
+\[
+  \lambda=(\lambda_1,\dots,\lambda_n)\in\N^n
+\]
+에 대해
+\[
+  \mathbf T^\lambda=T_1^{\lambda_1}\cdots T_n^{\lambda_n}
+\]
+라 쓰자. 사전식 순서에서는 왼쪽에서 처음으로 다른 성분을 비교한다. 즉 $\lambda>_{\mathrm{lex}}\mu$는 어떤 $r$에 대해
+\[
+  \lambda_1=\mu_1,\dots,\lambda_{r-1}=\mu_{r-1},
+  \qquad
+  \lambda_r>\mu_r
+\]
+라는 뜻이다.
+
+대칭다항식의 최고 단항식의 지수는 반드시
+\[
+  \lambda_1\ge\lambda_2\ge\cdots\ge\lambda_n
+\]
+을 만족한다. 그렇지 않으면 어떤 $i<j$에 대해 $\lambda_i<\lambda_j$이고, 두 변수를 바꾸어 더 큰 사전식 단항식을 만들 수 있기 때문이다.
+
+\begin{lemma}[최고항을 만드는 기본대칭식]
+\label{lem:symmetric-leading-monomial}
+$\lambda_1\ge\cdots\ge\lambda_n\ge0$라 하고 $\lambda_{n+1}=0$으로 두자. 그러면
+\[
+  M_\lambda
+  :=s_1^{\lambda_1-\lambda_2}
+    s_2^{\lambda_2-\lambda_3}\cdots
+    s_n^{\lambda_n}
+\]
+의 사전식 최고 단항식은
+\[
+  \mathbf T^\lambda
+  =T_1^{\lambda_1}\cdots T_n^{\lambda_n}
+\]
+이고 그 계수는 $1$이다.
+\end{lemma}
+
+\begin{proof}
+$s_j$의 사전식 최고 단항식은 $T_1\cdots T_j$이다. 따라서 $M_\lambda$의 최고 단항식은
+\[
+  \prod_{j=1}^n
+  (T_1\cdots T_j)^{\lambda_j-\lambda_{j+1}}.
+\]
+$T_i$의 지수는
+\[
+  (\lambda_i-\lambda_{i+1})+
+  (\lambda_{i+1}-\lambda_{i+2})+\cdots+\lambda_n
+  =\lambda_i
+\]
+이고, 각 최고항의 계수가 $1$이므로 전체 계수도 $1$이다.
+\end{proof}
+
+\begin{theorem}[대칭다항식의 기본정리]
+\label{thm:fundamental-symmetric-polynomials}
+$R[T_1,\dots,T_n]$의 기본대칭식을 $s_1,\dots,s_n$이라 하자.
+\begin{enumerate}[label=(\roman*)]
+  \item 대칭다항식 전체가 이루는 부분환은 정확히
+  \[
+    R[s_1,\dots,s_n]
+  \]
+  이다.
+  \item $s_1,\dots,s_n$은 $R$ 위에서 대수적으로 독립이다. 따라서
+  \[
+    R[Y_1,\dots,Y_n]
+    \xrightarrow{\sim}
+    R[s_1,\dots,s_n],
+    \qquad
+    Y_i\longmapsto s_i
+  \]
+  는 $R$-대수 동형이다.
+  \item
+  \[
+    \mathcal B_n=
+    \left\{
+    T_1^{\nu_1}\cdots T_n^{\nu_n}:
+    0\le\nu_i<i
+    \right\}
+  \]
+  는 $R[T_1,\dots,T_n]$을 $R[s_1,\dots,s_n]$ 위의 모듈로 볼 때 자유기저이다.
+\end{enumerate}
+특히 모든 대칭다항식은 기본대칭식의 다항식으로 \emph{유일하게} 표현된다.
+\end{theorem}
+
+\begin{proof}
+먼저 (i)를 증명한다. $f$가 영이 아닌 대칭다항식이고 사전식 최고항이
+\[
+  c\mathbf T^\lambda
+\]
+라 하자. 앞의 관찰에 의해 $\lambda_1\ge\cdots\ge\lambda_n$이다. 보조정리의 $M_\lambda$를 사용하면
+\[
+  f-cM_\lambda
+\]
+는 $f$보다 사전식 최고항이 작다. 이 과정을 반복한다. 전체차수는 처음의 $\deg f$를 넘지 않으므로 등장할 수 있는 지수벡터는 유한개이고, 과정은 반드시 끝난다. 따라서
+\[
+  f\in R[s_1,\dots,s_n].
+\]
+역포함은 각 $s_i$가 대칭다항식이라는 사실에서 자명하다.
+
+(ii)를 보자. 영이 아닌 다항식
+\[
+  F(Y_1,\dots,Y_n)=
+  \sum_{\mathbf a}c_{\mathbf a}Y_1^{a_1}\cdots Y_n^{a_n}
+  \in R[Y_1,\dots,Y_n]
+\]
+을 택한다. 단항식 $Y_1^{a_1}\cdots Y_n^{a_n}$를 대입하면
+\[
+  s_1^{a_1}\cdots s_n^{a_n}
+\]
+의 최고 단항식 지수는
+\[
+  \lambda_i=a_i+a_{i+1}+\cdots+a_n.
+\]
+사상
+\[
+  (a_1,\dots,a_n)\longmapsto
+  (a_1+\cdots+a_n,a_2+\cdots+a_n,\dots,a_n)
+\]
+은 단사이다. 따라서 $F(s_1,\dots,s_n)$에서 가장 큰 최고 단항식은 다른 항과 상쇄될 수 없고 그 계수는 대응하는 $c_{\mathbf a}\ne0$이다. 그러므로
+\[
+  F(s_1,\dots,s_n)\ne0.
+\]
+즉 $s_1,\dots,s_n$은 대수적으로 독립이다. (i)와 함께 표현의 유일성도 따른다.
+
+(iii)를 위해 다음 사실을 사용한다. 가환환 $A$와 일계수 $d$차다항식
+\[
+  h=X^d+c_1X^{d-1}+\cdots+c_d\in A[X]
+\]
+에 대해 $A[X]$는 $A[h]$ 위의 자유모듈이고
+\[
+  1,X,\dots,X^{d-1}
+\]
+이 그 기저이다. 실제로 $h$로 반복하여 나누면 임의의 $q\in A[X]$를
+\[
+  q=r_0+r_1h+\cdots+r_mh^m,
+  \qquad \deg r_j<d
+\]
+로 쓸 수 있다. 유일성은 $h$에 대한 나눗셈의 유일성을 차례로 적용하면 얻어진다.
+
+이제 $n$에 대한 귀납법을 쓴다. $n=1$에서는 $s_1=T_1$이고 명제가 자명하다. $T_1,\dots,T_{n-1}$의 기본대칭식을 $s'_1,\dots,s'_{n-1}$이라 하자. 관계
+\[
+  s_j=s'_j+s'_{j-1}T_n
+  \qquad(1\le j\le n-1)
+\]
+에서 재귀적으로
+\[
+  R[s'_1,\dots,s'_{n-1},T_n]
+  =R[s_1,\dots,s_{n-1},T_n]
+\]
+을 얻는다.
+
+귀납가정에 의해 $R[T_1,\dots,T_n]$은 이 환 위에서
+\[
+  T_1^{\nu_1}\cdots T_{n-1}^{\nu_{n-1}},
+  \qquad 0\le\nu_i<i
+\]
+를 기저로 갖는다. 한편 항등식
+\[
+  T_n^n-s_1T_n^{n-1}+s_2T_n^{n-2}-\cdots
+  +(-1)^{n-1}s_{n-1}T_n+(-1)^ns_n=0
+\]
+에서 $(-1)^{n+1}s_n$은 $T_n$에 관한 일계수 $n$차다항식이다. 앞의 반복나눗셈 사실을
+\[
+  A=R[s_1,\dots,s_{n-1}],
+  \qquad X=T_n
+\]
+에 적용하면
+\[
+  1,T_n,\dots,T_n^{n-1}
+\]
+가 $R[s_1,\dots,s_{n-1},T_n]$을 $R[s_1,\dots,s_n]$ 위에서 생성하는 자유기저가 된다. 두 자유기저를 곱하면 정확히 $\mathcal B_n$을 얻는다.
+\end{proof}
+
+\begin{remark}
+자유기저 $\mathcal B_n$의 원소 수는
+\[
+  1\cdot2\cdots n=n!
+\]
+이다. 체 $k$에 대해 분수체로 올라가면
+\[
+  [k(T_1,\dots,T_n):k(s_1,\dots,s_n)]=n!
+\]
+가 되어, 일반 $n$차방정식의 갈루아군이 $S_n$이라는 앞 장의 결과와 정확히 맞아떨어진다.
+\end{remark}
+
+\begin{pitfall}
+기본대칭식 정리는 계수환이 체일 때만 성립하는 정리가 아니다. 판별식을 \emph{모든 계수환}에서 계수들의 다항식으로 정의하려면 정수환을 포함한 일반 가환환 위의 정리가 필요하다.
+\end{pitfall}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 두 변수에서 $\mathcal B_2$를 적어라.
+  \item 세 변수에서 $T_1^2T_2+T_1^2T_3+T_2^2T_1+T_2^2T_3+T_3^2T_1+T_3^2T_2$의 사전식 최고항을 찾고 대응하는 $M_\lambda$를 적어라.
+  \item $R[T_1,T_2,T_3]$의 $R[s_1,s_2,s_3]$ 위 자유기저가 여섯 원소를 갖는지 확인하라.
+\end{enumerate}
+\end{checkpoint}
