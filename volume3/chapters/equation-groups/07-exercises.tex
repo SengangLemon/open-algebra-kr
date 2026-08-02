@@ -1,0 +1,210 @@
+\section{연습문제}
+\label{sec:equation-groups-exercises}
+
+문제는 A, B, C의 세 단계로 나뉜다. 별표 문제는 다음 두 절에 상세 풀이가 있다.
+
+\subsection*{A. 계산과 판정}
+
+\begin{exercise}[*]
+다음 다항식의 $\Q$ 위 갈루아군을 구하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $X^2-5$,
+  \item $X^2+4X+1$,
+  \item $X^2-4$.
+\end{enumerate}
+각 경우 분해체와 근에 대한 순열을 함께 적어라.
+\end{exercise}
+
+\begin{exercise}[*]
+다음 삼차다항식의 기약성, 판별식과 갈루아군을 구하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $X^3-2$,
+  \item $X^3-X+1$,
+  \item $X^3-3X+1$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+다음 분리 삼차다항식의 인수분해형과 갈루아군을 구하고 근 집합의 궤도를 적어라.
+\begin{enumerate}[label=(\alph*)]
+  \item $X^3-4X$,
+  \item $(X-1)(X^2-2)$,
+  \item $(X-1)(X-2)(X-3)$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$f=X^3+6X^2+11X+7$을 평행이동으로 우울형 삼차식으로 바꾸고, 기약성과 판별식을 이용하여 $\Gal(f/\Q)$를 구하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$f=X^3+3X^2-1$의 $\Q$ 위 갈루아군을 구하라. 이차항을 제거한 뒤 판별식을 계산하라.
+\end{exercise}
+
+\begin{exercise}
+$f=X^3-3X-1$이 $\Q$ 위에서 기약임을 보이고 갈루아군을 구하라. 분해체 차수와 한 실근을 첨가한 체의 차수를 비교하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$\alpha=\sqrt[4]{2}$라 하고 $L=\Q(\alpha,i)$라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item $L$이 $X^4-2$의 분해체이고 $[L:\Q]=8$임을 보여라.
+  \item $r(\alpha)=i\alpha$, $r(i)=i$, $s(\alpha)=\alpha$, $s(i)=-i$로 주어진 자동동형이
+  \[
+    r^4=s^2=1,\qquad srs=r^{-1}
+  \]
+  을 만족함을 보여라.
+  \item 갈루아군이 $D_4$와 동형임을 결론내려라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$f=X^4-4X^2+16$의 네 복소근을 구하고, 분해체가 $\Q(\zeta_{12})$임을 보여라. 갈루아군을 $(\Z/12\Z)^\times$와 식별하라.
+\end{exercise}
+
+\begin{exercise}
+$f=(X^2-3)^2-13$이 $\Q$ 위에서 기약이라고 가정하자. 근을 $\pm\alpha,\pm\beta$로 쓰고 분해체 차수와 갈루아군을 구하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$f=(X^2-2)(X^3-3)$의 분해체를 $L$이라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item 근 집합의 갈루아 궤도를 구하라.
+  \item $[L:\Q]$를 구하라.
+  \item $\Gal(L/\Q)$의 군구조를 구하라.
+\end{enumerate}
+\end{exercise}
+
+\subsection*{B. 핵심 명제의 증명}
+
+\begin{exercise}
+분리 $n$차다항식 $f\in K[X]$의 분해체 $L$에 대해
+\[
+  \Gal(f/K)\hookrightarrow S_n
+\]
+인 단사 군준동형을 구성하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$f\in K[X]$가 분리다항식이고 $L$이 분해체라 하자. $f$가 기약일 필요충분조건이 $\Gal(L/K)$가 모든 근 위에서 추이적으로 작용하는 것임을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+$f=c f_1\cdots f_r$가 서로 다른 일계수 기약다항식들의 곱인 분리다항식이라 하자. 각 $f_i$의 근 집합이 정확히 하나의 갈루아 궤도임을 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$f$가 $K$ 위 기약인 소수차 $p$의 분리다항식이라 하자. $\Gal(f/K)$가 $p$-순환을 포함함을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+$f=X^3+aX+b$가 $\charac K\ne2,3$인 체 위의 분리다항식이고 근들이 $\alpha_1,\alpha_2,\alpha_3$라 하자. 
+\[
+  \delta=(\alpha_1-\alpha_2)(\alpha_1-\alpha_3)(\alpha_2-\alpha_3)
+\]
+에 대해 $\sigma(\delta)=\sgn(\sigma)\delta$임을 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$\charac K\ne2,3$이고 $f=X^3+aX+b\in K[X]$가 기약이라 하자. 다음을 증명하라.
+\[
+  \Gal(f/K)\cong C_3
+  \quad\Longleftrightarrow\quad
+  -4a^3-27b^2\text{가 }K\text{의 제곱}.
+\]
+제곱이 아닌 경우 갈루아군이 $S_3$임도 증명하라.
+\end{exercise}
+
+\begin{exercise}
+기약 삼차다항식 $f$의 갈루아군이 $S_3$이고 분해체가 $L$이라 하자. $K(\sqrt{\Delta_f})$가 $L/K$의 유일한 이차 중간체임을 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+체 $k$와 독립변수 $T_1,\dots,T_n$에 대해
+\[
+  L=k(T_1,\dots,T_n)
+\]
+라 하자. $S_n$의 변수 순열 작용이 충실함을 보이고
+\[
+  [L:L^{S_n}]=n!
+\]
+임을 아르틴 고정체 정리로 증명하라.
+\end{exercise}
+
+\begin{exercise}
+기본대칭식 $s_1,\dots,s_n$에 대해
+\[
+  k(s_1,\dots,s_n)\subseteq k(T_1,\dots,T_n)^{S_n}
+\]
+임을 보이고, 분해체 차수 상계를 이용하여 등호임을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+다음 대칭다항식을 기본대칭식으로 표현하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $T_1^3+T_2^3$,
+  \item $T_1^2+T_2^2+T_3^2$,
+  \item $T_1^2T_2^2+T_1^2T_3^2+T_2^2T_3^2$.
+\end{enumerate}
+\end{exercise}
+
+\subsection*{C. 구조와 응용}
+
+\begin{exercise}[*]
+$f\in K[X]$가 분리 기약다항식이고 $L$이 분해체, $G=\Gal(L/K)$라 하자. 한 근 $\alpha$에 대해
+\[
+  \Stab_G(\alpha)=\Gal(L/K(\alpha)),
+  \qquad
+  [K(\alpha):K]=[G:\Stab_G(\alpha)]
+\]
+를 증명하라.
+\end{exercise}
+
+\begin{exercise}
+$f$가 기약 $n$차다항식이고 $|\Gal(f/K)|=n$이라 하자. 한 근 $\alpha$에 대해 $K(\alpha)$가 이미 분해체임을 증명하라. 역이 성립하는지도 논하라.
+\end{exercise}
+
+\begin{exercise}[*]
+기약 삼차다항식 $f=X^3+aX+b\in\Q[X]$의 판별식이 음수라고 하자. $\Gal(f/\Q)\cong S_3$임을 증명하고, 근의 실수·비실수 개수와 연결하여 설명하라.
+\end{exercise}
+
+\begin{exercise}
+$K$가 유한체이고 $f\in K[X]$가 기약 $n$차다항식이라 하자. $f$의 분해체 갈루아군이 순환군임을 보이고, 근 위의 작용이 하나의 $n$-순환으로 생성됨을 설명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$P(X)=X^n+S_1X^{n-1}+\cdots+S_n$을 $k(S_1,\dots,S_n)$ 위의 일반다항식이라 하자. $P$가 분리 기약이고 갈루아군이 $S_n$임을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+일반 $n$차다항식의 갈루아군이 $S_n$이라는 사실이 모든 수치계수 $n$차다항식에 대해 성립하지 않는 이유를 예제 두 개로 설명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$L/\Q$가 $X^3-X+1$의 분해체라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item $\Gal(L/\Q)\cong S_3$임을 보여라.
+  \item 모든 중간체의 차수와 정규성 여부를 구하라.
+  \item 유일한 이차 중간체를 구하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$f=X^4-2$의 갈루아군 $D_4$가 네 근 위에서 작용할 때 한 근의 안정자와 궤도를 구하라. 이로부터 $[\Q(\sqrt[4]{2}):\Q]=4$를 다시 얻어라.
+\end{exercise}
+
+\begin{exercise}[*]
+$f=X^4-4X^2+16$의 분해체 $L=\Q(\zeta_{12})$에 대해 모든 중간체를 구하라. 각 부분군의 고정체를 적고 왜 모든 중간체가 $\Q$ 위 갈루아인지 설명하라.
+\end{exercise}
+
+\begin{exercise}
+$f\in\Q[X]$가 기약 $5$차다항식이고 갈루아군의 위수가 $10$이라고 하자. 갈루아군이 $D_5$와 동형임을 보이기 위해 추가로 어떤 군론적 정보를 확인해야 하는지 설명하라. 단순히 위수만으로 군을 결정할 수 없는 이유도 적어라.
+\end{exercise}
+
+\begin{exercise}[*]
+분리다항식 $f\in K[X]$의 기약인수 차수들이 $d_1,\dots,d_r$라 하자. 갈루아군의 근 집합 작용이 크기 $d_1,\dots,d_r$인 궤도들을 가짐을 증명하고, 역으로 궤도 크기만으로 인수 차수를 복원할 수 있음을 보여라. 이를
+\[
+  (X^2-2)(X^3-3)(X-1)
+\]
+에 적용하라.
+\end{exercise}
