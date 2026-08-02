@@ -1,0 +1,143 @@
+\clearpage
+\section{유한 갈루아 대응의 첫 모습}
+\label{sec:finite-galois-correspondence}
+
+\begin{learninggoal}
+유한 갈루아 확장의 부분군과 중간체가 고정체를 통해 일대일로 대응함을 증명한다. 포함관계와 차수의 대응, 정규부분군과 갈루아 중간확장의 대응을 정리한다.
+\end{learninggoal}
+
+이제 체확장과 군론 사이의 핵심 사전을 완성할 수 있다. 부분군은 고정체를 만들고, 중간체는 그 체를 고정하는 자동동형군을 만든다.
+
+\begin{theorem}[유한 갈루아 이론의 기본정리]
+$L/K$가 유한 갈루아 확장이고
+\[
+  G=\Gal(L/K)
+\]
+라 하자. 다음 두 사상은 서로 역인 전단사이다.
+\[
+\begin{array}{ccc}
+\{H:H\le G\}
+&\longleftrightarrow&
+\{E:K\subseteq E\subseteq L\}\\[4pt]
+H&\longmapsto&L^H\\
+\Gal(L/E)&\longmapsfrom&E
+\end{array}
+\]
+즉
+\[
+  \Gal(L/L^H)=H,
+  \qquad
+  L^{\Gal(L/E)}=E.
+\]
+이 대응은 포함관계를 뒤집으며
+\[
+  [L:L^H]=|H|,
+  \qquad
+  [L^H:K]=[G:H]
+\]
+이다. 동치적으로 중간체 $E$에 대해
+\[
+  |\Gal(L/E)|=[L:E],
+  \qquad
+  [E:K]=[G:\Gal(L/E)].
+\]
+\end{theorem}
+
+\begin{proof}
+부분군 $H\le G$를 택하면 아르틴의 고정체 정리에 의해
+\[
+  \Gal(L/L^H)=H
+\]
+이고 $[L:L^H]=|H|$이다.
+
+반대로 중간체 $E$를 택하자. 앞 절에서 $L/E$는 유한 갈루아 확장임을 보였다. 그 전체 갈루아군의 고정체는 기준체이므로
+\[
+  L^{\Gal(L/E)}=E.
+\]
+따라서 두 사상은 서로 역이다.
+
+포함관계가 뒤집힌다는 것은 이미 고정체의 정의에서 확인했다. 차수 공식은
+\[
+  [L:K]=|G|
+\]
+와 탑 법칙을 사용하면 얻어진다.
+\end{proof}
+
+\begin{keyidea}
+\[
+  \boxed{
+  \text{큰 부분군}
+  \longleftrightarrow
+  \text{작은 고정체}
+  }
+\]
+부분군에 더 많은 자동동형이 들어갈수록 동시에 고정되는 원소는 줄어든다. 군의 지수는 대응하는 중간체의 기준체 위 차수가 되고, 부분군의 위수는 전체체의 중간체 위 차수가 된다.
+\end{keyidea}
+
+\subsection{정규부분군과 몫군}
+
+\begin{theorem}[정규성의 군론적 판정]
+위와 같은 유한 갈루아 확장 $L/K$에서 $H\le G$와 $E=L^H$를 대응시키자. 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $E/K$는 갈루아 확장이다.
+  \item $E/K$는 정규확장이다.
+  \item $H$는 $G$의 정규부분군이다.
+\end{enumerate}
+이 조건들이 성립하면 제한 사상이 동형
+\[
+  G/H\xrightarrow{\sim}\Gal(E/K),
+  \qquad
+  \sigma H\longmapsto\sigma|_E
+\]
+을 유도한다.
+\end{theorem}
+
+\begin{proof}
+$E/K$는 $L/K$의 부분확장이므로 이미 분리확장이다. 따라서 (i)와 (ii)는 동치이다.
+
+(ii)$\Rightarrow$(iii)를 보자. $E/K$가 정규이면 모든 $\sigma\in G$가 $E$를 자기 자신으로 보낸다. $\tau\in H$와 $a\in E$에 대해
+\[
+  (\sigma\tau\sigma^{-1})(a)
+  =\sigma\bigl(\tau(\sigma^{-1}(a))\bigr)
+  =\sigma(\sigma^{-1}(a))=a
+\]
+이다. 여기서 $\sigma^{-1}(a)\in E$를 사용했다. 따라서 $\sigma H\sigma^{-1}\subseteq H$이고, $\sigma^{-1}$에도 같은 논증을 적용하면 등호가 된다. 즉 $H\trianglelefteq G$이다.
+
+(iii)$\Rightarrow$(ii)를 보자. $H$가 정규이고 $a\in E=L^H$, $\sigma\in G$라 하자. 임의의 $\tau\in H$에 대해
+\[
+  \tau(\sigma(a))
+  =\sigma\bigl((\sigma^{-1}\tau\sigma)(a)\bigr)
+  =\sigma(a),
+\]
+왜냐하면 $\sigma^{-1}\tau\sigma\in H$이기 때문이다. 따라서 $\sigma(a)\in L^H=E$이고 $\sigma(E)=E$이다. 모든 $K$-매장 $E\to\overline K$는 $L$의 $K$-자동동형으로 연장되므로 그 상이 다시 $E$이다. 따라서 $E/K$는 정규이다.
+
+조건들이 성립하면 제한 사상
+\[
+  G\longrightarrow\Gal(E/K)
+\]
+은 전사이고 그 핵은 $E$를 점별로 고정하는 군
+\[
+  \Gal(L/E)=H
+\]
+이다. 군준동형의 기본정리로 몫군 동형을 얻는다.
+\end{proof}
+
+\begin{corollary}
+$G$가 아벨군이면 모든 부분군이 정규이므로 유한 갈루아 확장 $L/K$의 모든 중간체 $E$가 $K$ 위 갈루아이다.
+\end{corollary}
+
+\begin{corollary}
+$G$가 순환군이면 각 약수에 대응하는 부분군이 유일하다. 따라서 $d\mid[L:K]$인 각 $d$에 대해 차수 $d$인 중간체가 정확히 하나 존재한다.
+\end{corollary}
+
+\begin{pitfall}
+중간체와 부분군의 대응은 단순히 원소 개수를 맞추는 규칙이 아니다. 핵심은 \emph{고정} 관계이다. 또한 유한성은 중요하다. 무한 갈루아 확장에서는 모든 부분군이 아니라 닫힌 부분군만 중간체와 정확히 대응한다.
+\end{pitfall}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $|G|=12$이고 $|H|=3$이면 $[L^H:K]$와 $[L:L^H]$를 구하라.
+  \item $H_1\subseteq H_2$일 때 대응하는 두 중간체의 포함관계를 적어라.
+  \item $E/K$가 갈루아일 때 $\Gal(E/K)$가 왜 몫군으로 나타나는지 설명하라.
+\end{enumerate}
+\end{checkpoint}
