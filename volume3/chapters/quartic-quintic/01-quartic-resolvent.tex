@@ -146,13 +146,64 @@ $f=X^4+pX^2+qX+r$의 근들로 위의 $z_1,z_2,z_3$을 정의하면 이들은
 가 성립한다. 세 식을 제곱하여 곱하면 네 근 사이의 여섯 차이의 제곱곱을 정확히 얻는다.
 \end{proof}
 
+\subsection{삼차분해식의 근에서 사차식의 근 복원하기}
+
+\begin{proposition}[근의 복원 공식]
+\label{prop:quartic-root-reconstruction}
+\[
+  y_1=x_1+x_2,
+  \qquad
+  y_2=x_1+x_3,
+  \qquad
+  y_3=x_1+x_4
+\]
+라 두자. 그러면
+\[
+  y_i^2=-z_i
+  \qquad(1\le i\le3),
+  \qquad
+  y_1y_2y_3=-q,
+\]
+이고 네 근은
+\[
+\begin{aligned}
+  x_1&=\frac{y_1+y_2+y_3}{2},\\
+  x_2&=\frac{y_1-y_2-y_3}{2},\\
+  x_3&=\frac{-y_1+y_2-y_3}{2},\\
+  x_4&=\frac{-y_1-y_2+y_3}{2}.
+\end{aligned}
+\]
+특히
+\[
+  F:=K(z_1,z_2,z_3)
+\]
+라 하면
+\[
+  \boxed{
+  L=F(y_1,y_2,y_3)
+   =F\bigl(\sqrt{-z_1},\sqrt{-z_2},\sqrt{-z_3}\bigr)
+  }
+\]
+이다. 마지막 표기에서 제곱근은 실제 합 $y_i$를 뜻한다.
+\end{proposition}
+
+\begin{proof}
+$y_i^2=-z_i$는 정의에서 바로 나오고, 앞 정리의 증명에서
+\[
+  y_1y_2y_3
+  =(x_1+x_2)(x_1+x_3)(x_1+x_4)=-q
+\]
+를 이미 계산했다. 또한
+\[
+  y_1+y_2+y_3
+  =3x_1+x_2+x_3+x_4=2x_1
+\]
+이고, 나머지 세 식도 같은 방식으로 얻는다. 따라서 $F(y_1,y_2,y_3)$는 네 근을 모두 포함하여 $L$을 포함한다. 역포함은 $F\subseteq L$과 $y_i\in L$에서 자명하다.
+\end{proof}
+
 \subsection{분해체와 고정체}
 
-$G=\Gal(L/K)\le S_4$라 하고
-\[
-  F=K(z_1,z_2,z_3)
-\]
-라 하자. $F$는 $R_f$의 분해체이다.
+$G=\Gal(L/K)\le S_4$라 하자. 위에서 정의한 $F$는 $R_f$의 분해체이다.
 
 \begin{theorem}[분해식이 측정하는 몫군]
 \label{thm:quartic-resolvent-fixed-field}
