@@ -1,0 +1,191 @@
+\clearpage
+\section{선별 문제 풀이 II}
+\label{sec:quartic-quintic-solutions-b}
+
+\subsection*{문제 \thechapter.12: 추이적 사차부분군의 분류}
+
+\begin{solution}
+$G\le S_4$가 추이적이고 $\rho:S_4\to S_3$가 문제 \thechapter.11의 준동형이라 하자. $N=G\cap V_4$라 두면
+\[
+  G/N\cong\rho(G).
+\]
+
+$\rho(G)=1$이면 $G\subseteq V_4$이다. 추이성에서 $4\mid|G|$이므로 $G=V_4$이다.
+
+$\rho(G)=C_3$이면 $G\subseteq\rho^{-1}(A_3)=A_4$이다. 또한 $3\mid|G|$, $4\mid|G|$이므로 $12\mid|G|$이고 $G=A_4$이다.
+
+$\rho(G)=S_3$이면 $6\mid|G|$와 $4\mid|G|$에서 $12\mid|G|$이다. $|G|=12$라면 $G$는 지수 $2$ 부분군이라 정규이고, $S_4$의 유일한 지수 $2$ 부분군 $A_4$여야 한다. 그러나 $\rho(A_4)=A_3$이므로 모순이다. 따라서 $G=S_4$이다.
+
+마지막으로 $\rho(G)=C_2$이면
+\[
+  |G|=2|N|.
+\]
+$N\subseteq V_4$와 추이성에서 $|N|=2$ 또는 $4$이다. 첫 경우 $|G|=4$이고 $G\ne V_4$이므로 $G=C_4$이다. 둘째 경우 $|G|=8$이고, $S_4$의 위수 $8$ 부분군은 $2$-실로우 부분군으로 모두 켤레이며 정사각형 대칭군 $D_4$와 동형이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.13: 삼차분해식의 고정체}
+
+\begin{solution}
+삼차분해식의 세 근을 $z_1,z_2,z_3$이라 하고
+\[
+  F=K(z_1,z_2,z_3)
+\]
+라 하자. $f$가 분리이므로
+\[
+  \Disc(R_f)=\Disc(f)\ne0
+\]
+이고 세 $z_i$는 서로 다르다.
+
+$g\in G$가 $F$를 고정하는 것은 세 $z_i$를 각각 고정하는 것과 동치이다. $z_i$는 세 쌍분할과 일대일로 대응하고 서로 다르므로, 이는 $g$가 세 쌍분할을 모두 고정한다는 뜻이다. $S_4\to S_3$ 작용의 핵이 $V_4$이므로
+\[
+  \Gal(L/F)=G\cap V_4.
+\]
+유한 갈루아 대응에서
+\[
+  F=L^{G\cap V_4}.
+\]
+또한 제한사상의 핵이 $G\cap V_4$이고 상은 $\Gal(F/K)$이므로
+\[
+  \Gal(F/K)\cong G/(G\cap V_4).
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.15: 유한체 프로베니우스 궤도}
+
+\begin{solution}
+$g$의 한 근을 $\alpha$라 하고 $d=\deg g$라 하자. 그러면
+\[
+  \F_p(\alpha)\cong\F_{p^d}
+\]
+이므로 $\alpha^{p^d}=\alpha$이다. $\alpha^{p^e}=\alpha$인 가장 작은 양의 정수 $e$를 택하면 $\alpha\in\F_{p^e}$이고
+\[
+  \F_p(\alpha)\subseteq\F_{p^e}.
+\]
+따라서 $d\mid e$. 한편 $e\le d$이므로 $e=d$이다.
+
+그러므로
+\[
+  \alpha,\alpha^p,\dots,\alpha^{p^{d-1}}
+\]
+는 서로 다르고 모두 $g$의 근이다. 근의 개수가 $d$이므로 이들이 전부이다. 여러 서로 다른 기약인수 $g_i$가 있으면 프로베니우스는 각 $g_i$의 근 집합에서 길이 $\deg g_i$인 하나의 순환으로 작용한다. 따라서 전체 순환형은 인수차수들의 목록이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.16: 추이적 오차부분군의 분류}
+
+\begin{solution}
+$G\le S_5$가 추이적이면 $5\mid|G|$이다. $25\nmid120$이므로 $5$-실로우 부분군 $P$는 위수 $5$이고 $5$-순환으로 생성된다.
+
+$P\trianglelefteq G$이면
+\[
+  G\subseteq N_{S_5}(P)\cong F_{20}.
+\]
+몫 $N_{S_5}(P)/P\cong C_4$의 부분군은 위수 $1,2,4$인 것뿐이므로
+\[
+  G=C_5,D_5,F_{20}
+\]
+중 하나이다.
+
+$P$가 정규가 아니면 $5$-실로우 부분군의 개수 $n_5$는
+\[
+  n_5\equiv1\pmod5,
+  \qquad n_5\mid24
+\]
+를 만족하므로 $n_5=6$이다. 서로 다른 위수 $5$ 부분군은 항등원 외에는 만나지 않으므로 $G$는 $6\cdot4=24$개의 모든 $5$-순환을 포함한다. 모든 $5$-순환이 생성하는 군은 $A_5$이므로
+\[
+  A_5\subseteq G\subseteq S_5.
+\]
+따라서 $G=A_5$ 또는 $S_5$이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.18: 부분군 분해식 판정}
+
+\begin{solution}
+분해식의 한 근을
+\[
+  \theta_\tau=(\tau\Theta)(\alpha_1,\dots,\alpha_n)
+\]
+라 하자. $\theta_\tau\in K$이면 모든 $g\in G$가 이를 고정한다. 즉
+\[
+  (g\tau\Theta)(\boldsymbol\alpha)
+  =(\tau\Theta)(\boldsymbol\alpha).
+\]
+분해식 값들이 서로 다르므로 두 값의 일치는 잉여류의 일치
+\[
+  g\tau H=\tau H
+\]
+를 뜻한다. 따라서
+\[
+  \tau^{-1}g\tau\in H
+\]
+이고 모든 $g\in G$에 대해 성립하므로
+\[
+  G\subseteq\tau H\tau^{-1}.
+\]
+
+반대로 이 포함이 성립하면 모든 $g\in G$가 $\tau H$를 고정하고 따라서 $\theta_\tau$를 고정한다. 분해체에서 $G$의 고정체는 $K$이므로 $\theta_\tau\in K$이고 분해식은 $K$에 근을 갖는다.
+\end{solution}
+
+\subsection*{문제 \thechapter.20: 오각형 불변량의 안정자}
+
+\begin{solution}
+$\Theta_D$의 다섯 단항식
+\[
+  T_1T_2,T_2T_3,T_3T_4,T_4T_5,T_5T_1
+\]
+을 오각형 그래프의 다섯 변으로 본다. 변수의 순열이 $\Theta_D$를 고정하려면 이 다섯 단항식의 집합, 즉 변의 집합을 보존해야 한다. 따라서 안정자는 오각형 그래프의 자동동형군이다.
+
+오각형의 자동동형은 한 꼭짓점의 상을 다섯 가지로 정한 뒤 그 이웃 둘의 순서를 두 가지로 정하면 유일하게 결정된다. 따라서 위수는 $5\cdot2=10$이고, 회전 다섯 개와 반사 다섯 개로 이루어진
+\[
+  D_5
+\]
+이다. 그러므로
+\[
+  \deg\mathcal R_{D_5,f}
+  =[S_5:D_5]=\frac{120}{10}=12.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.25: $C_5$ 원분 예제}
+
+\begin{solution}
+$\theta=\zeta+\zeta^{-1}$라 하고
+\[
+  u_m=\zeta^m+\zeta^{-m}
+\]
+라 두자. 그러면
+\[
+  u_0=2,\qquad u_1=\theta,\qquad
+  u_{m+1}=\theta u_m-u_{m-1}.
+\]
+재귀적으로
+\[
+\begin{aligned}
+  u_2&=\theta^2-2,\\
+  u_3&=\theta^3-3\theta,\\
+  u_4&=\theta^4-4\theta^2+2,\\
+  u_5&=\theta^5-5\theta^3+5\theta.
+\end{aligned}
+\]
+원시 $11$차 단위근의 관계
+\[
+  1+\zeta+\zeta^2+\cdots+\zeta^{10}=0
+\]
+에서 역지수끼리 묶으면
+\[
+  1+u_1+u_2+u_3+u_4+u_5=0.
+\]
+위 식들을 대입하여 정리하면
+\[
+  \theta^5+\theta^4-4\theta^3-3\theta^2+3\theta+1=0.
+\]
+
+이 다항식은 $X=Y+2$ 뒤 소수 $11$에 대한 아이젠슈타인 판정법으로 기약이므로 $[\Q(\theta):\Q]=5$이다. 한편
+\[
+  \Gal(\Q(\zeta)/\Q)\cong(\Z/11\Z)^\times\cong C_{10}
+\]
+이고 복소켤레 부분군 $\{\pm1\}$의 고정체가 $\Q(\theta)$이다. 따라서
+\[
+  \Gal(\Q(\theta)/\Q)\cong C_{10}/C_2\cong C_5.
+\]
+다섯 켤레 $\zeta^a+\zeta^{-a}$가 모두 이 체 안에 있으므로 최소다항식은 여기에서 완전히 분해되고, $\Q(\theta)$가 분해체이다.
+\end{solution}
