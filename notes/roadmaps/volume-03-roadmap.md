@@ -46,11 +46,17 @@ Volume 3는 Volume 2에서 완성한 유한 갈루아 대응을 실제 방정식
 
 ### Chapter 3. 사차와 오차다항식의 갈루아군
 
-- 사차다항식의 삼차분해식
+- 세 쌍분할과 $S_4/V_4\cong S_3$
+- 우울형 사차식의 삼차분해식
 - $V_4$, $C_4$, $D_4$, $A_4$, $S_4$ 판정
-- 소수에서의 인수분해형과 순환형
-- 기약 오차다항식의 추이적 부분군
-- 계산 예제와 알고리즘
+- 다섯 사차군의 구체적 예제
+- 좋은 소수와 프로베니우스 순환형
+- $S_5$의 추이적 부분군 $C_5,D_5,F_{20},A_5,S_5$
+- 일반 부분군 분해식과 $D_5$-분해식
+- 다섯 오차군의 구체적 예제
+- 재현 가능한 계산 절차와 증명서
+
+상태: **Draft 0.3 집필·1차 검수 중**
 
 ### Chapter 4. 원분체와 순환확장
 
@@ -106,4 +112,4 @@ Volume 3는 Volume 2에서 완성한 유한 갈루아 대응을 실제 방정식
 
 ## 참고 범위
 
-Bosch의 Chapter 4 `Galois Theory`와 Chapter 6 `Solvability of Algebraic Equations`를 주요 구조 참고점으로 삼는다. 계산과 문제 체계는 Open Algebra KR의 독학 흐름에 맞게 다시 설계하며, Artin, Dummit–Foote, Lang, Roman의 표준 서술과 대조한다.
+Bosch의 Chapter 4 `Galois Theory`와 Chapter 6 `Solvability of Algebraic Equations`를 주요 구조 참고점으로 삼는다. 계산과 문제 체계는 Open Algebra KR의 독학 흐름에 맞게 다시 설계하며, Artin, Dummit–Foote, Lang, Roman의 표준 서술과 대조한다. 좋은 소수의 프로베니우스 순환형은 대수적 정수론의 데데킨트–프로베니우스 정리를 계산 도구로 사용하되, 현재 권에서는 적용 범위와 증명 개요만 명시한다.
