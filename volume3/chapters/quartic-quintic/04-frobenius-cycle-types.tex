@@ -1,0 +1,148 @@
+\clearpage
+\section{좋은 소수에서 읽는 순환형}
+\label{sec:frobenius-cycle-types}
+
+\begin{learninggoal}
+정수계수다항식을 좋은 소수로 축소했을 때 기약인수의 차수들이 갈루아군 원소의 순환형을 알려 준다는 원리를 사용한다. 이 원리의 적용 범위와 한계를 분명히 구분한다.
+\end{learninggoal}
+
+정수계수다항식의 갈루아군을 계산할 때 가장 빠른 정보원 가운데 하나는 법 $p$ 인수분해이다. 핵심은 유한체에서 프로베니우스가 근들을 순환시키는 방식이다.
+
+\subsection{유한체에서 인수차수와 궤도길이}
+
+$\bar f\in\F_p[X]$가 분리다항식이고 분해체가 $\F_{p^m}$ 안에 있다고 하자. 프로베니우스
+\[
+  \varphi:\alpha\longmapsto\alpha^p
+\]
+는 근 집합을 순열한다.
+
+\begin{proposition}[유한체 프로베니우스의 궤도]
+\label{prop:finite-field-factor-cycle}
+$g\in\F_p[X]$가 일계수 기약다항식이고 $\alpha$가 한 근이면, $d=\deg g$에 대해
+\[
+  \alpha,\alpha^p,\alpha^{p^2},\dots,
+  \alpha^{p^{d-1}}
+\]
+가 $g$의 서로 다른 모든 근이다. 따라서 $\varphi$는 이 근들 위에서 길이 $d$의 순환으로 작용한다.
+\end{proposition}
+
+\begin{proof}
+$\F_p(\alpha)$는 원소 수 $p^d$인 체이고, $\alpha^{p^d}=\alpha$이다. $\alpha^{p^e}=\alpha$인 가장 작은 양의 정수 $e$는 $\alpha\in\F_{p^e}$라는 뜻이다. 그러면 $d=[\F_p(\alpha):\F_p]$가 $e$를 나누고, 반대로 $e\le d$이므로 $e=d$이다. 따라서 프로베니우스 궤도의 길이는 $d$이고, 최소다항식의 모든 근을 정확히 한 번씩 지난다.
+\end{proof}
+
+그러므로
+\[
+  \bar f=\bar f_1\cdots\bar f_r,
+  \qquad
+  \deg\bar f_i=d_i
+\]
+가 서로 다른 기약인수의 곱이면, 유한체의 프로베니우스는 근 집합 위에서 순환형
+\[
+  (d_1)(d_2)\cdots(d_r)
+\]
+을 갖는다.
+
+\begin{remark}[자료 범위와 보강]
+첨부 원자료는 유한체의 상대 프로베니우스와 방정식의 갈루아군을 각각 전개하지만, 정수계수다항식의 법 $p$ 인수분해를 수체의 갈루아군 원소와 연결하는 데데킨트--프로베니우스 정리를 별도로 증명하지는 않는다. 아래 정리는 계산을 위한 표준 보강으로 사용한다. 완전한 증명에는 대수적 정수환에서 소아이디얼의 분해와 비분기 소수의 프로베니우스 원소가 필요하므로 대수적 정수론에서 다룬다.
+\end{remark}
+
+\begin{theorem}[데데킨트--프로베니우스 순환형 원리]
+\label{thm:dedekind-frobenius-cycle}
+$f\in\Z[X]$가 일계수 분리다항식이고 $L/\Q$가 그 분해체이며
+\[
+  G=\Gal(L/\Q)\le S_n
+\]
+라 하자. 소수 $p$가
+\[
+  p\nmid\Disc(f)
+\]
+를 만족하고
+\[
+  \bar f=\bar f_1\cdots\bar f_r\in\F_p[X]
+\]
+가 서로 다른 일계수 기약다항식들의 곱이며 $\deg\bar f_i=d_i$라 하자. 그러면 $G$에는 순환형
+\[
+  d_1+d_2+\cdots+d_r
+\]
+을 갖는 원소가 존재한다.
+\end{theorem}
+
+\begin{proofidea}
+$p\nmid\Disc(f)$이면 법 $p$에서 근들이 충돌하지 않으므로 $p$는 분해체에서 비분기이다. $p$ 위의 소아이디얼 하나를 택하면 잉여체에 프로베니우스 $x\mapsto x^p$가 작용하고, 이를 들어 올린 갈루아군 원소가 존재한다. 명제 \ref{prop:finite-field-factor-cycle}에 따라 각 기약인수의 차수가 그 원소의 순환길이가 된다.
+\end{proofidea}
+
+\begin{definition}[좋은 소수]
+위 정리를 적용할 수 있는 소수, 즉 일계수 $f\in\Z[X]$에 대해
+\[
+  p\nmid\Disc(f)
+\]
+인 소수를 이 장에서는 $f$에 대한 \emph{좋은 소수}라 부른다.
+\end{definition}
+
+좋은 소수에서는 $\bar f$가 자동으로 제곱인수를 갖지 않는다. 반대로 판별식을 나누는 소수에서는 근이 충돌할 수 있으므로 인수차수만으로 순환형을 읽어서는 안 된다.
+
+\subsection{오차식의 인수분해형 사전}
+
+분리 오차다항식의 법 $p$ 인수분해형과 대응하는 순환형은 다음과 같다.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lll}
+\toprule
+법 $p$ 인수차수 & 순환형 & 순열의 부호 \\
+\midrule
+$5$ & $(5)$ & 짝 \\
+$4+1$ & $(4)(1)$ & 홀 \\
+$3+2$ & $(3)(2)$ & 홀 \\
+$3+1+1$ & $(3)(1)(1)$ & 짝 \\
+$2+2+1$ & $(2)(2)(1)$ & 짝 \\
+$2+1+1+1$ & $(2)(1)(1)(1)$ & 홀 \\
+$1+1+1+1+1$ & 항등원 & 짝 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{corollary}[강한 순환형의 즉시 판정]
+$f\in\Z[X]$가 기약인 분리 오차다항식이라 하자.
+\begin{enumerate}[label=(\roman*)]
+  \item 어떤 좋은 소수에서 $2+1+1+1$형이 나타나면 $G\cong S_5$이다.
+  \item 어떤 좋은 소수에서 $3+2$형이 나타나면 $G\cong S_5$이다.
+  \item 어떤 좋은 소수에서 $3+1+1$형이 나타나면
+  \[
+    G\cong A_5\quad\text{또는}\quad S_5.
+  \]
+  이때 판별식이 제곱이면 $A_5$, 아니면 $S_5$이다.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+기약성 때문에 $G$는 추이적이다. 뒤의 정리 \ref{thm:transitive-subgroups-s5}에 따르면 추이적 부분군은
+\[
+  C_5,D_5,F_{20},A_5,S_5
+\]
+뿐이다. 이들 가운데 전치를 포함하는 군은 $S_5$뿐이고, $3$-순환을 포함하는 군은 $A_5,S_5$뿐이다. $3+2$형은 위수 $6$인 홀순열이므로 역시 $S_5$에만 들어간다.
+\end{proof}
+
+\begin{example}
+\[
+  f=X^5-4X+2
+\]
+를 법 $7$로 줄이면
+\[
+  \bar f
+  =(X^2-3X-1)(X^3+3X^2+3X-2)
+\]
+이고 두 인수는 각각 기약이다. 판별식은 $-212144$로 $7$의 배수가 아니므로 좋은 소수이다. 따라서 갈루아군은 $3+2$형 원소를 포함하고, $f$가 기약이면 곧 $S_5$가 된다.
+\end{example}
+
+\begin{pitfall}
+한 소수에서 얻은 순환형은 갈루아군에 그런 원소가 \emph{존재한다}는 정보만 준다. 예를 들어 $2+2+1$형은 $D_5,F_{20},A_5,S_5$ 모두에서 나타날 수 있다. 여러 좋은 소수의 정보와 판별식, 필요하면 부분군 분해식을 함께 사용해야 한다.
+\end{pitfall}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 법 $p$ 인수분해형 $4+1$이 주는 순열의 위수와 부호를 구하라.
+  \item 판별식을 나누는 소수에서 정리 \ref{thm:dedekind-frobenius-cycle}를 바로 적용할 수 없는 이유를 설명하라.
+  \item $3+1+1$형과 제곱 판별식이 함께 주어질 때 가능한 오차 갈루아군을 구하라.
+\end{enumerate}
+\end{checkpoint}
