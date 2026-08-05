@@ -1,0 +1,278 @@
+\clearpage
+\section{연습문제}
+\label{sec:quartic-quintic-exercises}
+
+문제는 A, B, C의 세 단계로 나뉜다. 별표 문제는 다음 두 절에 상세 풀이가 있다. 좋은 소수의 순환형을 사용하는 문제에서는 정리 \ref{thm:dedekind-frobenius-cycle}를 계산 도구로 사용할 수 있다.
+
+\subsection*{A. 계산과 판정}
+
+\begin{exercise}[*]
+다음 기약 사차다항식에 대해 삼차분해식과 판별식을 계산하고 갈루아군을 구하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $X^4-10X^2+1$,
+  \item $X^4-4X^2+2$,
+  \item $X^4-2$,
+  \item $X^4-7X^2-3X+1$,
+  \item $X^4+X^2+X+1$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+$f=X^4+aX^3+bX^2+cX+d$에서 $X=Y-a/4$를 대입하여
+\[
+  Y^4+pY^2+qY+r
+\]
+꼴로 바꾸고 $p,q,r$을 $a,b,c,d$로 나타내라. 이어서 삼차분해식을 적어라.
+\end{exercise}
+
+\begin{exercise}
+다음 삼차분해식의 인수분해형만으로 가능한 사차 갈루아군 후보를 적어라.
+\begin{enumerate}[label=(\alph*)]
+  \item $(Z-1)(Z-2)(Z-3)$,
+  \item 기약 삼차식,
+  \item $(Z-1)(Z^2+Z+2)$, 여기서 이차식은 기약이다.
+\end{enumerate}
+각 경우 판별식 또는 분해체 차수 중 무엇을 더 알아야 하는지도 설명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+다음 두 분해체를 직접 구성하고 차수를 계산하여 $C_4$와 $D_4$를 구분하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $X^4-4X^2+2$,
+  \item $X^4-2$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+다음 법 $p$ 인수분해형이 오차 갈루아군에 어떤 순환형 원소를 보장하는지 적어라.
+\[
+  5,\quad4+1,\quad3+2,\quad3+1+1,
+  \quad2+2+1,\quad2+1+1+1.
+\]
+각 순환형의 위수와 부호도 구하라.
+\end{exercise}
+
+\begin{exercise}
+기약 오차다항식의 판별식과 좋은 소수 정보가 다음과 같을 때 가능한 갈루아군을 모두 적어라.
+\begin{enumerate}[label=(\alph*)]
+  \item 판별식이 제곱이고 $2+2+1$형만 발견됨,
+  \item 판별식이 제곱이고 $3+1+1$형이 발견됨,
+  \item 판별식이 비제곱이고 $4+1$형이 발견됨,
+  \item 판별식이 비제곱이고 $3+2$형이 발견됨.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+\[
+  f=X^5-4X+2
+\]
+의 갈루아군이 $S_5$임을 다음 두 방법으로 증명하라.
+\begin{enumerate}[label=(\alph*)]
+  \item 실근의 개수와 복소켤레를 사용한다.
+  \item 법 $7$ 인수분해
+  \[
+    f\equiv(X^2-3X-1)(X^3+3X^2+3X-2)\pmod7
+  \]
+  을 사용한다.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+\[
+  f=X^5-5X+12
+\]
+에 대해 다음 자료를 사용하여 갈루아군을 구하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $f(Y-2)$에 아이젠슈타인 판정법을 적용하라.
+  \item $D_5$-분해식에 인수 $Y^2-25$가 있음을 사용하라.
+  \item 법 $3$에서
+  \[
+    f\equiv X(X^2+X-1)(X^2-X-1)
+  \]
+  로 분해됨을 사용하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+\[
+  f=X^5+X^4+X^3-2X^2+X+1
+\]
+에 대해 다음을 확인하여 갈루아군을 구하라.
+\begin{enumerate}[label=(\alph*)]
+  \item 법 $2$ 축소가 기약이다.
+  \item $\Disc(f)=207^2$이다.
+  \item 법 $11$ 인수분해형이 $1+1+3$이다.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$L$을 $X^5-2$의 분해체라 하자. $L=\Q(\sqrt[5]2,\zeta_5)$임을 보이고 $[L:\Q]$와 갈루아군을 구하라. 생성원들의 켤레관계
+\[
+  \tau\sigma\tau^{-1}=\sigma^2
+\]
+도 확인하라.
+\end{exercise}
+
+\subsection*{B. 핵심 정리의 증명}
+
+\begin{exercise}[*]
+$S_4$가 네 원소의 세 쌍분할에 작용하여 주는 준동형
+\[
+  \rho:S_4\to S_3
+\]
+가 전사이고 핵이 $V_4$임을 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$S_4$의 추이적 부분군이 켤레를 제외하면
+\[
+  V_4,C_4,D_4,A_4,S_4
+\]
+뿐임을 $\rho$의 상과 핵의 크기로 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+기약 분리 사차식의 분해체를 $L$, 삼차분해식의 분해체를 $F$, 갈루아군을 $G$라 하자. 다음을 증명하라.
+\[
+  F=L^{G\cap V_4},
+  \qquad
+  \Gal(F/K)\cong G/(G\cap V_4).
+\]
+\end{exercise}
+
+\begin{exercise}
+삼차분해식이 $1+2$형이고 $q\ne0$인 기약 우울형 사차식에 대해, $z_0\in K$를 분해식의 유리근, $F$를 분해식의 분해체라 하자. 다음 동치를 증명하라.
+\[
+  G\cong C_4
+  \quad\Longleftrightarrow\quad
+  -z_0\in F^{\times2}.
+\]
+\end{exercise}
+
+\begin{exercise}[*]
+$g\in\F_p[X]$가 $d$차 기약다항식이고 $\alpha$가 한 근이라 하자. 프로베니우스 궤도
+\[
+  \alpha,\alpha^p,\dots,\alpha^{p^{d-1}}
+\]
+가 $g$의 모든 근을 정확히 한 번씩 지난다는 것을 증명하라. 여러 기약인수의 경우 인수차수와 순환형의 대응을 유도하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$S_5$의 추이적 부분군이 켤레를 제외하면
+\[
+  C_5,D_5,F_{20},A_5,S_5
+\]
+뿐임을 $5$-실로우 부분군의 정규성에 따라 증명하라.
+\end{exercise}
+
+\begin{exercise}
+다섯 군 $C_5,D_5,F_{20},A_5,S_5$에 나타나는 순환형을 각각 구하라. 특히 다음을 증명하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $D_5\subseteq A_5$,
+  \item $F_{20}$에는 $4+1$형이 있지만 삼순환은 없다,
+  \item 전치를 포함하는 추이적 후보는 $S_5$뿐이다.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+$H\le S_n$이고 $\Theta$의 안정자가 $H$라 하자. 부분군 분해식의 값들이 서로 다를 때
+\[
+  \mathcal R_{H,f}\text{가 }K\text{에 근을 가짐}
+  \quad\Longleftrightarrow\quad
+  G\subseteq\tau H\tau^{-1}
+\]
+인 $\tau\in S_n$이 존재함을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+임의의 부분군 $H\le S_n$에 대해 안정자가 정확히 $H$인 다항식 $\Theta\in\Z[T_1,\dots,T_n]$가 존재함을 보여라. 힌트: 서로 다른 큰 지수를 가진 단항식 $M$을 택하고
+\[
+  \Theta=\sum_{h\in H}h(M)
+\]
+를 생각하라.
+\end{exercise}
+
+\begin{exercise}[*]
+\[
+  \Theta_D=T_1T_2+T_2T_3+T_3T_4+T_4T_5+T_5T_1
+\]
+의 $S_5$ 안의 안정자가 $D_5$임을 증명하라. 이로부터 분해식의 차수가 $12$임을 구하라.
+\end{exercise}
+
+\subsection*{C. 구조와 응용}
+
+\begin{exercise}
+사차식의 세 원소 $z_1,z_2,z_3$에 대해
+\[
+  z_1+z_2+z_3=2p,
+  \quad
+  z_1z_2+z_1z_3+z_2z_3=p^2-4r,
+  \quad
+  z_1z_2z_3=-q^2
+\]
+를 기본대칭식으로 직접 유도하라.
+\end{exercise}
+
+\begin{exercise}
+관계
+\[
+\begin{aligned}
+  z_1-z_2&=-(x_1-x_4)(x_2-x_3),\\
+  z_1-z_3&=-(x_1-x_3)(x_2-x_4),\\
+  z_2-z_3&=-(x_1-x_2)(x_3-x_4)
+\end{aligned}
+\]
+를 증명하고 사차식과 삼차분해식의 판별식이 같음을 보여라.
+\end{exercise}
+
+\begin{exercise}
+$X^4-10X^2+1$의 네 근을 직접 구하고 분해체의 모든 중간체를 구하라. 삼차분해식이 완전히 분해되는 현상과 비교하라.
+\end{exercise}
+
+\begin{exercise}
+$X^4-4X^2+2$의 한 근 $\alpha=\sqrt{2+\sqrt2}$가 다른 세 근을 모두 생성함을 보이고, 분해체의 자동동형 하나가 네 근을 순환시키는 방식을 구하라.
+\end{exercise}
+
+\begin{exercise}[*]
+원시 $11$차 단위근 $\zeta$와 $\theta=\zeta+\zeta^{-1}$에 대해
+\[
+  \theta^5+\theta^4-4\theta^3-3\theta^2+3\theta+1=0
+\]
+을 유도하라. $\Q(\theta)/\Q$가 갈루아이고 갈루아군이 $C_5$임을 원분체의 결과를 이용하여 증명하라.
+\end{exercise}
+
+\begin{exercise}
+예제 \ref{ex:quintic-d5}의 $D_5$-분해식 인수분해가 다음 조건을 모두 만족하는지 검산하라.
+\begin{enumerate}[label=(\alph*)]
+  \item 전체 차수는 $12$이다.
+  \item 세 인수의 곱을 전개하면 홀수차항이 모두 사라진다.
+  \item $Y=\pm5$ 외의 중복근이 없다.
+  \item 법 $3$ 순환형이 $C_5$를 배제한다.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+예제 \ref{ex:quintic-a5}에서 법 $11$의 삼차인수
+\[
+  X^3-4X^2+4X+2
+\]
+가 기약임을 직접 확인하라. 판별식 제곱 조건 없이 이 정보만으로 남는 후보도 적어라.
+\end{exercise}
+
+\begin{exercise}
+기약 오차다항식의 좋은 소수 인수분해에서 다음 두 자료가 함께 발견되었다고 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item $4+1$형과 $3+1+1$형,
+  \item $2+2+1$형과 $3+2$형,
+  \item $5$형과 $2+2+1$형, 그리고 제곱 판별식.
+\end{enumerate}
+각 경우 갈루아군을 가능한 한 결정하라.
+\end{exercise}
+
+\begin{exercise}
+서로 다른 두 기약 오차다항식이 검사한 처음 몇 개 좋은 소수에서 같은 인수분해형을 보일 수 있음을 설명하라. 유한개의 소수 자료만으로 일반적으로 갈루아군이 자동 결정되지 않는 이유를 한 문단으로 서술하라.
+\end{exercise}
+
+\begin{exercise}
+정확한 정수연산만을 사용하는 사차·오차 갈루아군 계산 프로그램의 의사코드를 작성하라. 입력 검증, 판별식, 좋은 소수 선택, 유한체 인수분해, 후보군 갱신, 부분군 분해식과 출력 증명서를 포함하라.
+\end{exercise}
