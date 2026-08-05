@@ -1,0 +1,190 @@
+\clearpage
+\section{사차식의 세 쌍과 삼차분해식}
+\label{sec:quartic-resolvent}
+
+\begin{learninggoal}
+네 근을 두 쌍으로 나누는 세 가지 방법에서 자연스러운 $S_4\to S_3$ 작용을 구성한다. 그 핵이 클라인 네 군 $V_4$임을 증명하고, 사차식의 삼차분해식이 이 작용을 계수로 기록한다는 사실을 이해한다.
+\end{learninggoal}
+
+이 절에서는 $K$를 표수가 $2,3$이 아닌 체라 하고, 분리인 일계수 사차다항식의 분해체를 $L$이라 한다. 일반 일계수 사차식은 변수의 평행이동으로 삼차항을 없앨 수 있으므로 우선
+\[
+  f(X)=X^4+pX^2+qX+r\in K[X]
+\]
+를 생각한다. 근을 $x_1,x_2,x_3,x_4\in L$이라 쓰면
+\[
+  x_1+x_2+x_3+x_4=0.
+\]
+
+\subsection{네 점을 두 쌍으로 나누는 세 가지 방법}
+
+집합 $\{1,2,3,4\}$을 두 원소짜리 두 부분집합으로 나누는 방법은 다음 세 가지뿐이다.
+\[
+  P_1=\{\{1,2\},\{3,4\}\},\qquad
+  P_2=\{\{1,3\},\{2,4\}\},\qquad
+  P_3=\{\{1,4\},\{2,3\}\}.
+\]
+$S_4$는 지표를 순열하여 집합 $\{P_1,P_2,P_3\}$에 작용한다. 따라서 군준동형
+\[
+  \rho:S_4\longrightarrow S_3
+\]
+를 얻는다.
+
+\begin{proposition}
+\label{prop:s4-to-s3-kernel}
+준동형 $\rho$는 전사이고
+\[
+  \ker\rho
+  =V_4
+  =\{1,(12)(34),(13)(24),(14)(23)\}.
+\]
+특히
+\[
+  S_4/V_4\cong S_3.
+\]
+\end{proposition}
+
+\begin{proof}
+예를 들어 $(12)$는 $P_1$을 고정하고 $P_2,P_3$을 맞바꾸므로 $\rho((12))$는 전치이다. 또한 $(123)$은 $P_1,P_2,P_3$을 순환시키므로 $\rho((123))$는 삼순환이다. 전치와 삼순환이 $S_3$을 생성하므로 $\rho$는 전사이다.
+
+$V_4$의 네 원소는 각 $P_i$를 집합으로서 고정하므로 $V_4\subseteq\ker\rho$이다. 전사성에서
+\[
+  |\ker\rho|=\frac{|S_4|}{|S_3|}=\frac{24}{6}=4
+\]
+이므로 두 군은 같다.
+\end{proof}
+
+\subsection{세 쌍에서 얻는 세 원소}
+
+각 쌍분할에 다음 원소를 대응시킨다.
+\[
+\begin{aligned}
+  z_1&=(x_1+x_2)(x_3+x_4),\\
+  z_2&=(x_1+x_3)(x_2+x_4),\\
+  z_3&=(x_1+x_4)(x_2+x_3).
+\end{aligned}
+\]
+근의 합이 $0$이므로
+\[
+  z_1=-(x_1+x_2)^2,
+  \qquad
+  z_2=-(x_1+x_3)^2,
+  \qquad
+  z_3=-(x_1+x_4)^2.
+\]
+갈루아군은 $z_1,z_2,z_3$을 정확히 쌍분할 $P_1,P_2,P_3$과 같은 방식으로 순열한다.
+
+\begin{theorem}[사차식의 삼차분해식]
+\label{thm:quartic-resolvent-cubic}
+$f=X^4+pX^2+qX+r$의 근들로 위의 $z_1,z_2,z_3$을 정의하면 이들은
+\[
+  \boxed{
+  R_f(Z)=Z^3-2pZ^2+(p^2-4r)Z+q^2
+  }
+\]
+의 세 근이다. 이 다항식을 $f$의 \emph{삼차분해식}(resolvent cubic)이라 한다.
+\end{theorem}
+
+\begin{proof}
+비에타 공식으로
+\[
+  \sum_i x_i=0,
+  \quad
+  \sum_{i<j}x_ix_j=p,
+  \quad
+  \sum_{i<j<k}x_ix_jx_k=-q,
+  \quad
+  x_1x_2x_3x_4=r
+\]
+이다. 직접 전개하면
+\[
+  z_1+z_2+z_3=2\sum_{i<j}x_ix_j=2p.
+\]
+또한 대칭식 정리 또는 직접 전개로
+\[
+  z_1z_2+z_1z_3+z_2z_3=p^2-4r
+\]
+를 얻는다.
+
+마지막으로
+\[
+\begin{aligned}
+ &(x_1+x_2)(x_1+x_3)(x_1+x_4)\\
+ &\qquad=x_1^2(x_1+x_2+x_3+x_4)
+ +\sum_{i<j<k}x_ix_jx_k=-q.
+\end{aligned}
+\]
+각 $z_i$가 대응하는 합의 음의 제곱이므로
+\[
+  z_1z_2z_3
+  =-\bigl((x_1+x_2)(x_1+x_3)(x_1+x_4)\bigr)^2
+  =-q^2.
+\]
+따라서 $z_1,z_2,z_3$의 기본대칭식은
+\[
+  2p,\qquad p^2-4r,\qquad -q^2
+\]
+이고 표시된 삼차식이 나온다.
+\end{proof}
+
+\begin{proposition}[두 판별식의 일치]
+\label{prop:quartic-resolvent-discriminant}
+\[
+  \Disc(R_f)=\Disc(f).
+\]
+특히 $f$가 분리이면 $R_f$도 분리이다.
+\end{proposition}
+
+\begin{proof}
+근들 사이에는
+\[
+\begin{aligned}
+  z_1-z_2&=-(x_1-x_4)(x_2-x_3),\\
+  z_1-z_3&=-(x_1-x_3)(x_2-x_4),\\
+  z_2-z_3&=-(x_1-x_2)(x_3-x_4)
+\end{aligned}
+\]
+가 성립한다. 세 식을 제곱하여 곱하면 네 근 사이의 여섯 차이의 제곱곱을 정확히 얻는다.
+\end{proof}
+
+\subsection{분해체와 고정체}
+
+$G=\Gal(L/K)\le S_4$라 하고
+\[
+  F=K(z_1,z_2,z_3)
+\]
+라 하자. $F$는 $R_f$의 분해체이다.
+
+\begin{theorem}[분해식이 측정하는 몫군]
+\label{thm:quartic-resolvent-fixed-field}
+$f$가 분리이면
+\[
+  F=L^{G\cap V_4},
+\]
+그리고 제한사상은 동형
+\[
+  \Gal(F/K)
+  \cong G/(G\cap V_4)
+  \cong \rho(G)\le S_3
+\]
+를 준다.
+\end{theorem}
+
+\begin{proof}
+$f$가 분리이므로 앞 명제에서 $z_1,z_2,z_3$은 서로 다르다. 따라서 $\sigma\in G$가 세 $z_i$를 모두 고정하는 것은 세 쌍분할 $P_i$를 모두 고정하는 것과 동치이다. 명제 \ref{prop:s4-to-s3-kernel}에 의해 그런 원소들은 정확히 $G\cap V_4$이다. 그러므로
+\[
+  \Gal(L/F)=G\cap V_4.
+\]
+유한 갈루아 대응과 제1동형정리를 적용하면 나머지 결론이 따른다.
+\end{proof}
+
+\begin{keyidea}
+사차식의 삼차분해식은 임의로 만들어 낸 보조다항식이 아니다. 네 근 자체가 아니라, 네 근을 두 쌍으로 나누는 세 가지 방법에 대한 갈루아군의 작용을 기록한다. 따라서 삼차분해식의 인수분해형은 $G$의 몫군 $G/(G\cap V_4)$을 보여 준다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $(1234)$가 $P_1,P_2,P_3$에 유도하는 순열을 계산하라.
+  \item $z_1z_2z_3=-q^2$를 $z_i=-(x_1+x_j)^2$에서 직접 확인하라.
+  \item $R_f$가 완전히 분해되면 왜 $G\subseteq V_4$인지 설명하라.
+\end{enumerate}
+\end{checkpoint}
