@@ -1,0 +1,268 @@
+\clearpage
+\section{오차 갈루아군의 다섯 표준 예제}
+\label{sec:quintic-worked-examples}
+
+\begin{learninggoal}
+$C_5,D_5,F_{20},A_5,S_5$가 실제 정수계수 오차다항식에서 나타남을 증명한다. 기약성, 판별식, 좋은 소수의 순환형과 부분군 분해식을 결합한다.
+\end{learninggoal}
+
+\subsection{순환 오차군: 11차 원분체의 실부분체}
+
+\begin{example}
+\label{ex:quintic-c5}
+\[
+  f_C=X^5+X^4-4X^3-3X^2+3X+1
+\]
+의 갈루아군은 $C_5$이다.
+\end{example}
+
+\begin{proof}
+먼저 변수 $X=Y+2$를 대입하면
+\[
+  f_C(Y+2)
+  =Y^5+11Y^4+44Y^3+77Y^2+55Y+11.
+\]
+소수 $11$에 대한 아이젠슈타인 판정법으로 $f_C$는 $\Q$ 위에서 기약이다.
+
+이제 $\zeta=\zeta_{11}$을 원시 $11$차 단위근이라 하고
+\[
+  \theta=\zeta+\zeta^{-1}
+\]
+라 두자. 관계 $1+\zeta+\cdots+\zeta^{10}=0$과 재귀
+\[
+  (\zeta^m+\zeta^{-m})\theta
+  =(\zeta^{m+1}+\zeta^{-(m+1)})
+  +(\zeta^{m-1}+\zeta^{-(m-1)})
+\]
+를 사용하면 $f_C(\theta)=0$을 확인할 수 있다. 기약성 때문에 $f_C$는 $\theta$의 최소다항식이다.
+
+원분체의 표준 결과
+\[
+  \Gal(\Q(\zeta_{11})/\Q)
+  \cong(\Z/11\Z)^\times\cong C_{10}
+\]
+를 사용하자. 복소켤레는 $\zeta\mapsto\zeta^{-1}$이고, 그 고정체
+\[
+  L=\Q(\zeta+\zeta^{-1})
+\]
+는 차수 $5$의 갈루아 확장이다. 따라서
+\[
+  \Gal(L/\Q)\cong C_{10}/C_2\cong C_5.
+\]
+$f_C$의 다섯 켤레근은 $\zeta^a+\zeta^{-a}$, $a\in(\Z/11\Z)^\times/\{\pm1\}$이므로 $L$이 분해체이다.
+\end{proof}
+
+\begin{remark}
+원분체의 갈루아군과 실부분체는 다음 장에서 체계적으로 증명한다. 여기서는 $C_5$의 구체적 예를 미리 보기 위해 그 결과를 사용했다. 판별식은
+\[
+  \Disc(f_C)=14641=11^4=121^2
+\]
+이다.
+\end{remark}
+
+\subsection{이면체 오차군: 오각형 분해식}
+
+\begin{example}
+\label{ex:quintic-d5}
+\[
+  f_D=X^5-5X+12
+\]
+의 갈루아군은 $D_5$이다.
+\end{example}
+
+\begin{proof}
+$X=Y-2$를 대입하면
+\[
+  f_D(Y-2)
+  =Y^5-10Y^4+40Y^3-80Y^2+75Y-10.
+\]
+소수 $5$에 대한 아이젠슈타인 판정법으로 $f_D$는 기약이다.
+
+절 \ref{sec:subgroup-resolvents}의 오각형 불변량 $\Theta_D$에 대한 차수 $12$의 분해식을 정확히 계산하면
+\[
+\begin{aligned}
+ \mathcal R_{D_5,f_D}(Y)
+ ={}&(Y^2-25)\\
+ &\cdot(Y^5-5Y^4+50Y^3-250Y^2+1625Y-125)\\
+ &\cdot(Y^5+5Y^4+50Y^3+250Y^2+1625Y+125).
+\end{aligned}
+\]
+세 인수는 서로소이고 각 인수는 제곱인수를 갖지 않으므로 분해식의 열두 근은 서로 다르다. 유리근 $\pm5$가 있으므로 정리 \ref{thm:subgroup-resolvent-criterion}에서
+\[
+  G\subseteq D_5
+\]
+의 켤레이다.
+
+법 $3$에서는
+\[
+  \bar f_D
+  =X(X^2+X-1)(X^2-X-1),
+\]
+이고 두 이차인수는 기약이다. 또한 $3\nmid\Disc(f_D)$이므로 좋은 소수이고, $G$는 $2+2+1$형 원소를 포함한다. $C_5$에는 이런 원소가 없으므로
+\[
+  G\cong D_5.
+\]
+실제로
+\[
+  \Disc(f_D)=64000000=8000^2.
+\]
+\end{proof}
+
+\subsection{위수 20의 아핀군: 순수 오차식}
+
+\begin{example}
+\label{ex:quintic-f20}
+\[
+  f_F=X^5-2
+\]
+의 갈루아군은 $F_{20}$이다.
+\end{example}
+
+\begin{proof}
+$\alpha=\sqrt[5]{2}$와 원시 $5$차 단위근 $\zeta$를 택하면 근들은
+\[
+  \alpha,\zeta\alpha,\zeta^2\alpha,
+  \zeta^3\alpha,\zeta^4\alpha
+\]
+이고 분해체는
+\[
+  L=\Q(\alpha,\zeta)
+\]
+이다. 아이젠슈타인 판정법으로
+\[
+  [\Q(\alpha):\Q]=5,
+\]
+원분다항식 $\Phi_5=X^4+X^3+X^2+X+1$에서
+\[
+  [\Q(\zeta):\Q]=4.
+\]
+두 부분체의 교집합 차수는 $5$와 $4$를 모두 나누므로 $1$이다. 따라서
+\[
+  [L:\Q]=20.
+\]
+
+자동동형
+\[
+  \sigma:\alpha\mapsto\zeta\alpha,\quad\zeta\mapsto\zeta,
+\]
+\[
+  \tau:\alpha\mapsto\alpha,\quad\zeta\mapsto\zeta^2
+\]
+를 생각하면
+\[
+  \sigma^5=\tau^4=1,
+  \qquad
+  \tau\sigma\tau^{-1}=\sigma^2.
+\]
+따라서
+\[
+  \Gal(L/\Q)
+  \cong C_5\rtimes C_4
+  =F_{20}.
+\]
+판별식은 $50000$으로 제곱이 아니다.
+\end{proof}
+
+\subsection{교대 오차군: 제곱 판별식과 삼순환}
+
+\begin{example}
+\label{ex:quintic-a5}
+\[
+  f_A=X^5+X^4+X^3-2X^2+X+1
+\]
+의 갈루아군은 $A_5$이다.
+\end{example}
+
+\begin{proof}
+법 $2$로 줄이면
+\[
+  \bar f_A=X^5+X^4+X^3+X+1.
+\]
+이 다항식은 $0,1$을 근으로 갖지 않는다. $\F_2[X]$의 유일한 일계수 기약 이차다항식 $X^2+X+1$로 나눈 나머지는 $X+1$이다. 따라서 $1+4$ 또는 $2+3$ 인수분해가 불가능하고 $\bar f_A$는 기약이다. 그러므로 $f_A$도 $\Q$ 위에서 기약이다.
+
+판별식은
+\[
+  \Disc(f_A)=42849=207^2
+\]
+이므로 $G\subseteq A_5$이다. 한편 법 $11$에서
+\[
+  \bar f_A
+  =(X+2)(X+3)(X^3-4X^2+4X+2),
+\]
+마지막 삼차인수는 $\F_{11}$에서 근을 갖지 않아 기약이다. $11$은 좋은 소수이므로 $G$는 $3+1+1$형, 즉 삼순환을 포함한다.
+
+$A_5$ 안의 추이적 후보 $C_5,D_5,A_5$ 가운데 삼순환을 포함하는 것은 $A_5$뿐이다. 따라서
+\[
+  G\cong A_5.
+\]
+\end{proof}
+
+\subsection{대칭 오차군: 세 실근과 한 켤레쌍}
+
+\begin{example}
+\label{ex:quintic-s5}
+\[
+  f_S=X^5-4X+2
+\]
+의 갈루아군은 $S_5$이다.
+\end{example}
+
+\begin{proof}[첫 번째 풀이: 실근과 복소켤레]
+소수 $2$에 대한 아이젠슈타인 판정법으로 $f_S$는 기약이다. 따라서 갈루아군은 추이적이고 $5$-순환을 포함한다.
+
+도함수는
+\[
+  f_S'=5X^4-4
+\]
+이고 실수 임계점은
+\[
+  \pm a,
+  \qquad a=(4/5)^{1/4}
+\]
+이다. $a>5/8$이므로
+\[
+  f_S(a)=2-\frac{16a}{5}<0,
+  \qquad
+  f_S(-a)=2+\frac{16a}{5}>0.
+\]
+무한대에서의 부호와 함께 보면 $f_S$는 정확히 세 실근과 한 쌍의 비실 켤레근을 갖는다. 복소켤레는 세 실근을 고정하고 비실 두 근을 맞바꾸므로 갈루아군에 전치가 들어간다. $5$-순환과 전치를 포함하는 추이적 부분군은 $S_5$이므로
+\[
+  G\cong S_5.
+\]
+\end{proof}
+
+\begin{proof}[두 번째 풀이: 좋은 소수]
+법 $7$에서
+\[
+  \bar f_S
+  =(X^2-3X-1)(X^3+3X^2+3X-2)
+\]
+이고 두 인수는 각각 기약이다. 판별식
+\[
+  \Disc(f_S)=-212144
+\]
+는 $7$의 배수가 아니므로, $G$에는 $3+2$형 원소가 존재한다. 정리 \ref{thm:transitive-subgroups-s5}의 다섯 후보 중 이런 원소를 갖는 군은 $S_5$뿐이다.
+\end{proof}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{llll}
+\toprule
+$f$ & 핵심 증거 & 판별식 & 갈루아군 \\
+\midrule
+$f_C$ & $11$차 원분체 실부분체 & $121^2$ & $C_5$ \\
+$f_D$ & $D_5$-분해식과 $2+2+1$ & $8000^2$ & $D_5$ \\
+$f_F$ & $\Q(\sqrt[5]2,\zeta_5)$의 차수 $20$ & $50000$ & $F_{20}$ \\
+$f_A$ & 제곱 판별식과 삼순환 & $207^2$ & $A_5$ \\
+$f_S$ & 전치 또는 $3+2$형 & $-212144$ & $S_5$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $f_D$의 법 $3$ 이차인수들이 기약임을 판별식으로 확인하라.
+  \item $f_A$의 판별식만 알았을 때 남는 세 후보를 적고, 법 $11$ 정보가 어떻게 둘을 제거하는지 설명하라.
+  \item $f_S$에서 복소켤레가 전치로 작용하는 이유를 설명하라.
+\end{enumerate}
+\end{checkpoint}

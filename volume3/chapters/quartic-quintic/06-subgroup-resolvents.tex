@@ -1,0 +1,181 @@
+\clearpage
+\section{부분군을 탐지하는 분해식}
+\label{sec:subgroup-resolvents}
+
+\begin{learninggoal}
+특정 부분군의 불변량에서 분해식을 만들어 갈루아군이 그 부분군의 켤레 안에 포함되는지를 판정한다. 오차식의 $D_5$ 판정에 쓰이는 오각형 불변량을 구성한다.
+\end{learninggoal}
+
+삼차분해식은 $V_4\trianglelefteq S_4$가 고정하는 세 쌍분할을 사용했다. 같은 생각을 일반화하면, 원하는 부분군 $H\le S_n$을 고정자로 갖는 식을 택하여 $G\le S_n$이 $H$의 켤레 안에 들어가는지 검사할 수 있다.
+
+\subsection{일반 부분군 분해식}
+
+$T_1,\dots,T_n$을 독립인 변수라 하고 $S_n$이 변수들을 순열한다고 하자. $\Theta\in\Z[T_1,\dots,T_n]$의 안정자를
+\[
+  \Stab_{S_n}(\Theta)
+  =\{\sigma\in S_n:\sigma(\Theta)=\Theta\}
+\]
+라 쓴다.
+
+\begin{definition}[부분군 분해식]
+$H\le S_n$이고
+\[
+  \Stab_{S_n}(\Theta)=H
+\]
+인 다항식 $\Theta$를 택하자. 분리다항식 $f\in K[X]$의 근을 $\alpha_1,\dots,\alpha_n$이라 할 때
+\[
+  \mathcal R_{H,f}(Y)
+  :=\prod_{\tau H\in S_n/H}
+  \left(Y-(\tau\Theta)(\alpha_1,\dots,\alpha_n)\right)
+\]
+를 $\Theta$에 붙인 $H$-\emph{분해식}(subgroup resolvent)이라 한다.
+\end{definition}
+
+좌잉여류 대신 우잉여류를 사용해도 일관되게 정의하면 같은 종류의 판정이 나온다. 분해식의 차수는
+\[
+  [S_n:H]
+\]
+이다.
+
+\begin{proposition}
+\label{prop:subgroup-resolvent-coefficients}
+$\mathcal R_{H,f}(Y)$의 계수는 $K$에 속한다.
+\end{proposition}
+
+\begin{proof}
+$S_n$은 인수들의 집합을 순열하므로 곱 전체를 고정한다. 따라서 각 계수는 $\alpha_1,\dots,\alpha_n$의 대칭다항식이다. 대칭다항식의 기본정리와 비에타 공식에 의해 $f$의 계수들의 다항식으로 표현되므로 $K$에 속한다.
+\end{proof}
+
+분해식의 서로 다른 잉여류 값이 우연히 같아질 수 있다. 다음 판정에는 충돌이 없다는 조건이 필요하다.
+
+\begin{theorem}[부분군 포함 판정]
+\label{thm:subgroup-resolvent-criterion}
+$f$가 분리이고 $G=\Gal(f/K)\le S_n$라 하자. $\mathcal R_{H,f}$의 모든 근이 서로 다르다고 가정한다. 그러면 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $\mathcal R_{H,f}$가 $K$에 근을 갖는다.
+  \item 어떤 $\tau\in S_n$에 대해
+  \[
+    G\subseteq\tau H\tau^{-1}
+  \]
+  이다.
+\end{enumerate}
+더 일반적으로, $\mathcal R_{H,f}$의 기약인수 차수들은 $G$가 잉여류 공간 $S_n/H$에 작용할 때의 궤도 크기들이다.
+\end{theorem}
+
+\begin{proof}
+분해식의 한 근을
+\[
+  \theta_\tau=(\tau\Theta)(\alpha_1,\dots,\alpha_n)
+\]
+라 하자. 이 값이 $K$에 속한다는 것은 모든 $g\in G$가 이를 고정한다는 뜻이다. 충돌이 없으므로
+\[
+  g\tau H=\tau H
+\]
+이고, 이는
+\[
+  \tau^{-1}g\tau\in H
+\]
+와 동치이다. 따라서 $G\subseteq\tau H\tau^{-1}$이다. 역방향도 같은 계산으로 따른다.
+
+마지막 명제는 갈루아군의 궤도와 기약인수의 대응을 잉여류 값들에 적용한 것이다.
+\end{proof}
+
+\begin{pitfall}
+분해식에 중근이 있으면 ``$K$-유리근이 있다''는 사실만으로 부분군 포함을 결론 내릴 수 없다. 실제 계산에서는
+\[
+  \gcd(\mathcal R_{H,f},\mathcal R_{H,f}')=1
+\]
+을 확인하거나, 충돌을 피하도록 $\Theta$를 조금 변형한 뒤 다시 계산한다.
+\end{pitfall}
+
+\subsection{정오각형 대칭군을 고정자로 갖는 불변량}
+
+다섯 변수를 정오각형의 꼭짓점 순서로 놓고
+\[
+  \Theta_D
+  =T_1T_2+T_2T_3+T_3T_4+T_4T_5+T_5T_1
+\]
+라 하자.
+
+\begin{proposition}
+\label{prop:d5-invariant-stabilizer}
+\[
+  \Stab_{S_5}(\Theta_D)=D_5.
+\]
+따라서 $D_5$-분해식의 차수는
+\[
+  [S_5:D_5]=12
+\]
+이다.
+\end{proposition}
+
+\begin{proof}
+$\Theta_D$의 다섯 단항식은 오각형의 다섯 변에 정확히 대응한다. 변들의 집합을 보존하는 꼭짓점 순열은 오각형 그래프의 자동동형이고, 이는 회전과 반사로 이루어진 $D_5$이다. 반대로 모든 오각형 대칭은 변들의 합을 보존한다.
+\end{proof}
+
+근을 $\alpha_1,\dots,\alpha_5$라 하면, $12$개의 무방향 해밀턴 순환마다 인접한 근들의 곱의 합 하나가 생긴다. 이 값들을 근으로 갖는 다항식이 $D_5$-분해식이다.
+
+\begin{corollary}[$D_5$ 판정]
+\label{cor:d5-resolvent-test}
+$f\in K[X]$가 기약인 분리 오차다항식이고 $D_5$-분해식이 분리라고 하자. 이 분해식이 $K$에 근을 가지면
+\[
+  \Gal(f/K)\cong C_5\quad\text{또는}\quad D_5.
+\]
+추가로 갈루아군에 $2+2+1$형 원소가 존재하면
+\[
+  \Gal(f/K)\cong D_5.
+\]
+\end{corollary}
+
+\begin{proof}
+유리근 조건과 정리 \ref{thm:subgroup-resolvent-criterion}에서 $G$가 $D_5$의 켤레 안에 들어간다. 기약성에서 $G$는 추이적이고 $5$-순환을 포함하므로 가능한 군은 $C_5,D_5$뿐이다. $C_5$에는 $2+2+1$형 원소가 없으므로 추가 조건이 두 군을 구별한다.
+\end{proof}
+
+\subsection{분해식의 계산}
+
+부분군 분해식은 정의상 근을 사용하지만, 계수들은 대칭식이므로 원래 다항식의 계수만으로 계산된다. 손계산에서는 차수가 빠르게 커지므로 다음 방법을 사용한다.
+
+\begin{enumerate}
+  \item $S_n/H$의 잉여류 대표를 정확히 생성한다.
+  \item 각 대표에 대해 $\tau\Theta$를 만든다.
+  \item
+  \[
+    \prod_{\tau H}(Y-\tau\Theta)
+  \]
+  를 전개한다.
+  \item 각 계수를 기본대칭식으로 바꾼 뒤 비에타 공식으로 특수화한다.
+  \item 최종 다항식의 제곱없음과 필요한 인수분해를 정확한 유리수 연산으로 확인한다.
+\end{enumerate}
+
+컴퓨터 대수계를 사용했다면 원고에는 최소한 다음 검증자료를 남기는 것이 좋다.
+
+\begin{itemize}
+  \item 사용한 불변량 $\Theta$와 그 안정자,
+  \item 분해식의 예상 차수 $[S_n:H]$,
+  \item 정수계수 또는 유리수계수의 정확한 결과,
+  \item 인수들의 곱이 원래 분해식과 일치한다는 확인,
+  \item 제곱없음 또는 충돌 여부,
+  \item 최종 군 판정에 사용한 추가 순환형.
+\end{itemize}
+
+\begin{keyidea}
+삼차분해식과 $D_5$-분해식은 같은 원리의 두 사례이다.
+\[
+  \boxed{
+  \text{부분군 }H
+  \longleftrightarrow
+  \text{$H$가 고정하는 식 }\Theta
+  \longleftrightarrow
+  \text{잉여류 궤도를 기록하는 분해식}
+  }
+\]
+분해식은 갈루아군을 직접 나열하지 않고도 특정 부분군 안에 들어가는지를 탐지한다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Theta_D$의 안정자가 왜 위수 $10$인지 그래프의 자동동형으로 설명하라.
+  \item $D_5$-분해식의 차수가 $12$인 이유를 구하라.
+  \item 부분군 분해식의 값들이 충돌할 때 판정 정리가 왜 약해지는지 설명하라.
+\end{enumerate}
+\end{checkpoint}

@@ -1,0 +1,181 @@
+\clearpage
+\section{오차식에 나타나는 다섯 추이적 부분군}
+\label{sec:transitive-quintic-subgroups}
+
+\begin{learninggoal}
+$S_5$의 추이적 부분군을 $5$-실로우 부분군의 정규성으로 분류한다. 각 군의 위수·순환형·판별식 조건을 계산에 사용할 수 있도록 정리한다.
+\end{learninggoal}
+
+$f\in K[X]$가 기약인 분리 오차다항식이면 갈루아군
+\[
+  G=\Gal(f/K)\le S_5
+\]
+는 다섯 근 위에서 추이적으로 작용한다. 따라서 $5$가 $|G|$를 나누고, $G$는 반드시 $5$-순환을 포함한다.
+
+\subsection{위수 20의 아핀군}
+
+집합 $\F_5$ 위의 아핀변환
+\[
+  x\longmapsto ax+b,
+  \qquad a\in\F_5^\times,\quad b\in\F_5
+\]
+전체는 합성에 대해 위수 $5\cdot4=20$인 군을 이룬다.
+
+\begin{definition}[프로베니우스군 $F_{20}$]
+\[
+  F_{20}:=\operatorname{AGL}(1,5)
+  =\F_5\rtimes\F_5^\times
+  \cong C_5\rtimes C_4
+\]
+를 위수 $20$인 오차 프로베니우스군이라 한다. 자연스러운 다섯 점 작용으로 $F_{20}\le S_5$라 본다.
+\end{definition}
+
+평행이동 $x\mapsto x+1$은 $5$-순환이고, 확대 $x\mapsto2x$는 한 점을 고정하는 $4$-순환이다. $a=-1$인 아핀변환은 한 점을 고정하고 나머지 네 점을 두 쌍으로 바꾸므로 $2+2+1$형이다.
+
+\begin{lemma}[$5$-순환의 정규화군]
+\label{lem:normalizer-five-cycle}
+$P=\langle(1\,2\,3\,4\,5)\rangle\le S_5$라 하면
+\[
+  N_{S_5}(P)\cong F_{20}
+\]
+이고 $|N_{S_5}(P)|=20$이다.
+\end{lemma}
+
+\begin{proof}
+$P$를 $\F_5$의 평행이동군으로 식별한다. $P$를 정규화하는 순열은 평행이동 생성원을 다른 생성원으로 보내므로
+\[
+  x\mapsto ax+b
+\]
+꼴의 아핀변환이 된다. $b$는 다섯 가지, $a\in\F_5^\times$는 네 가지이므로 위수는 $20$이다.
+\end{proof}
+
+\subsection{추이적 부분군의 분류}
+
+\begin{theorem}[$S_5$의 추이적 부분군]
+\label{thm:transitive-subgroups-s5}
+켤레를 제외하면 $S_5$의 추이적 부분군은 정확히
+\[
+  C_5,\qquad D_5,\qquad F_{20},\qquad A_5,\qquad S_5
+\]
+이다. 여기서 $D_5$는 위수 $10$인 정오각형의 대칭군이다.
+\end{theorem}
+
+\begin{proof}
+$G\le S_5$가 추이적이라 하자. 궤도-안정자 정리에 의해 $5\mid|G|$이다. $25\nmid|S_5|$이므로 $G$의 $5$-실로우 부분군 $P$는 위수 $5$이고, 생성원은 $5$-순환이다.
+
+먼저 $P\trianglelefteq G$라 하자. 그러면
+\[
+  G\subseteq N_{S_5}(P)\cong F_{20}.
+\]
+또한 $P\subseteq G$이고
+\[
+  N_{S_5}(P)/P\cong C_4.
+\]
+따라서 $G/P$는 $C_4$의 부분군이며 위수 $1,2,4$ 중 하나이다. 이에 따라 $G$는 각각
+\[
+  C_5,\qquad D_5=C_5\rtimes C_2,\qquad
+  F_{20}=C_5\rtimes C_4
+\]
+이다.
+
+이제 $P$가 $G$에서 정규가 아니라고 하자. $5$-실로우 부분군의 개수 $n_5$는
+\[
+  n_5\equiv1\pmod5,
+  \qquad
+  n_5\mid\frac{|G|}{5}\mid24
+\]
+를 만족하므로 $n_5=6$이다. 서로 다른 위수 $5$ 부분군은 항등원 외에는 만나지 않으므로, 이 여섯 부분군은 $S_5$의 $24$개 $5$-순환을 모두 포함한다.
+
+이제 $G$가 $A_5$ 전체를 포함함을 직접 확인하자. 오른쪽 순열을 먼저 작용시키는 관례에서
+\[
+  (1\,3\,4\,2\,5)(1\,4\,3\,5\,2)
+  =(1\,2\,3)
+\]
+이고 왼쪽의 두 인수는 모두 $5$-순환이므로 $G$에 속한다. 이 항등식을 $S_5$의 임의의 순열로 켤레시키면 모든 $3$-순환이 두 $5$-순환의 곱으로 표현된다. $G$는 모든 $5$-순환을 포함하므로 모든 $3$-순환을 포함한다. 교대군은 $3$-순환들로 생성되므로
+\[
+  A_5\subseteq G\subseteq S_5.
+\]
+따라서 $G=A_5$ 또는 $S_5$이다.
+\end{proof}
+
+\subsection{순환형과 판별식 표}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.22}
+\begin{tabular}{llll}
+\toprule
+군 & 위수 & 가능한 비자명 순환형 & $A_5$ 포함 여부 \\
+\midrule
+$C_5$ & $5$ & $5$ & 포함 \\
+$D_5$ & $10$ & $5$, $2+2+1$ & 포함 \\
+$F_{20}$ & $20$ & $5$, $4+1$, $2+2+1$ & 불포함 \\
+$A_5$ & $60$ & $5$, $3+1+1$, $2+2+1$ & 포함 \\
+$S_5$ & $120$ & 모든 분할형 & 불포함 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+$D_5$가 $A_5$에 들어간다는 점은 처음에는 의외일 수 있다. 오각형의 반사는 다섯 꼭짓점 위에서 한 점을 고정하고 두 쌍을 맞바꾸는 $2+2+1$형이므로 짝순열이다.
+
+\begin{corollary}[판별식에 따른 첫 분기]
+\label{cor:quintic-discriminant-first-split}
+$f\in K[X]$가 기약인 분리 오차다항식이고 $\charac K\ne2$라 하자.
+\begin{enumerate}[label=(\roman*)]
+  \item $\Disc(f)\in K^{\times2}$이면
+  \[
+    G\in\{C_5,D_5,A_5\}.
+  \]
+  \item $\Disc(f)\notin K^{\times2}$이면
+  \[
+    G\in\{F_{20},S_5\}.
+  \]
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+판별식의 교대군 판정에서 제곱인 경우와 아닌 경우는 각각 $G\subseteq A_5$와 $G\not\subseteq A_5$에 해당한다. 위 표와 정리 \ref{thm:transitive-subgroups-s5}를 적용한다.
+\end{proof}
+
+\begin{corollary}[순환형으로 후보 줄이기]
+기약 오차다항식의 좋은 소수 인수분해에서 다음 순환형을 발견했다고 하자.
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+발견한 순환형 & 남는 후보 \\
+\midrule
+$4+1$ & $F_{20},S_5$ \\
+$3+1+1$ & $A_5,S_5$ \\
+$2+2+1$ & $D_5,F_{20},A_5,S_5$ \\
+$2+1+1+1$ & $S_5$ \\
+$3+2$ & $S_5$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+판별식 조건을 함께 쓰면 후보가 더 줄어든다.
+\end{corollary}
+
+\subsection{가해성과 오차방정식}
+
+$C_5,D_5,F_{20}$은 순환군과 그 반직접곱으로 이루어져 가해군이다. 반면 $A_5$는 비가환 단순군이고, $S_5$는 $A_5$를 정규부분군으로 포함하므로 두 군은 가해군이 아니다. 따라서 오차다항식의 갈루아군을 위 다섯 군 중 하나로 판정하는 일은 근호해법 가능성을 결정하는 일과 직접 연결된다. 이 대응의 완전한 증명은 Chapter 6과 Chapter 7에서 다룬다.
+
+\begin{keyidea}
+기약 오차식의 갈루아군 후보가 다섯 개뿐이라는 사실은 $5$-실로우 부분군이 정규인지 아닌지에 의해 갈린다.
+\[
+  \boxed{
+  \begin{array}{c}
+  P\trianglelefteq G
+  \Rightarrow C_5,D_5,F_{20},\\[2pt]
+  P\not\trianglelefteq G
+  \Rightarrow A_5,S_5.
+  \end{array}}
+\]
+판별식과 좋은 소수의 순환형은 이 두 갈래 안에서 실제 군을 찾아낸다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $F_{20}$의 원소 $x\mapsto2x+1$이 갖는 순환형을 $\F_5$에서 계산하라.
+  \item 추이적 부분군 $G\le S_5$의 $5$-실로우 부분군이 정규가 아니면 왜 $G$가 모든 $5$-순환을 포함하는가?
+  \item 판별식이 제곱이고 좋은 소수에서 $3+1+1$형이 나타나면 군이 무엇인지 판정하라.
+\end{enumerate}
+\end{checkpoint}

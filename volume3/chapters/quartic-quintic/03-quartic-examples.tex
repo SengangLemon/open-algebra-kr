@@ -1,0 +1,226 @@
+\clearpage
+\section{사차 갈루아군의 다섯 표준 예제}
+\label{sec:quartic-worked-examples}
+
+\begin{learninggoal}
+삼차분해식·판별식·분해체 차수를 함께 사용하여 $V_4,C_4,D_4,A_4,S_4$의 예를 완전히 계산한다. 하나의 불변량만으로 결론을 서두르지 않는 계산 습관을 익힌다.
+\end{learninggoal}
+
+\subsection{클라인 네 군: 두 독립인 제곱근}
+
+\begin{example}
+\label{ex:quartic-v4}
+\[
+  f=X^4-10X^2+1
+\]
+의 갈루아군은 $V_4$이다.
+\end{example}
+
+\begin{proof}
+$\alpha=\sqrt3+\sqrt2$라 두면
+\[
+  \alpha^{-1}=\sqrt3-\sqrt2
+\]
+이고
+\[
+  \sqrt3=\frac{\alpha+\alpha^{-1}}2,
+  \qquad
+  \sqrt2=\frac{\alpha-\alpha^{-1}}2.
+\]
+따라서
+\[
+  \Q(\alpha)=\Q(\sqrt2,\sqrt3)
+\]
+이고 이 체의 차수는 $4$이다. $f$의 근은
+\[
+  \pm(\sqrt3+\sqrt2),
+  \qquad
+  \pm(\sqrt3-\sqrt2)
+\]
+이므로 이 체가 분해체이다. 갈루아군은 두 제곱근의 부호를 독립적으로 바꾸는 군
+\[
+  C_2\times C_2\cong V_4
+\]
+이다.
+
+계산 절차로도 확인할 수 있다. 여기서 $p=-10,q=0,r=1$이고
+\[
+  R_f(Z)=Z^3+20Z^2+96Z
+  =Z(Z+8)(Z+12)
+\]
+는 완전히 분해된다. 또한
+\[
+  \Disc(f)=147456=384^2.
+\]
+\end{proof}
+
+\subsection{순환 사차군: 이미 한 근이 모든 근을 담는 경우}
+
+\begin{example}
+\label{ex:quartic-c4}
+\[
+  f=X^4-4X^2+2
+\]
+의 갈루아군은 $C_4$이다.
+\end{example}
+
+\begin{proof}
+$f$는 소수 $2$에 대한 아이젠슈타인 판정법으로 기약이다. $\alpha$를
+\[
+  \alpha^2=2+\sqrt2
+\]
+를 만족하는 근으로 택한다. 그러면
+\[
+  \sqrt2=\alpha^2-2\in\Q(\alpha).
+\]
+다른 양의 제곱근을 $\beta=\sqrt{2-\sqrt2}$라 하면
+\[
+  \alpha\beta=\sqrt2,
+  \qquad
+  \beta=\frac{\sqrt2}{\alpha}\in\Q(\alpha).
+\]
+따라서 네 근 $\pm\alpha,\pm\beta$가 모두 $\Q(\alpha)$ 안에 있고, 기약성에서
+\[
+  [\Q(\alpha):\Q]=4.
+\]
+즉 분해체 차수가 $4$이다.
+
+삼차분해식은
+\[
+  R_f(Z)=Z(Z^2+8Z+8)
+\]
+로 $1+2$형이고, 판별식은
+\[
+  \Disc(f)=2048
+\]
+로 유리수의 제곱이 아니다. 따라서 위수 $4$의 갈루아군은 $V_4$가 아니라
+\[
+  C_4
+\]
+이다. 실제로 $R_f$의 분해체는 $F=\Q(\sqrt2)$이고 $[L:F]=2$이다.
+\end{proof}
+
+\subsection{이면체 사차군: 네제곱근과 허수단위}
+
+\begin{example}
+\label{ex:quartic-d4}
+\[
+  f=X^4-2
+\]
+의 갈루아군은 $D_4$이다.
+\end{example}
+
+\begin{proof}
+$a=\sqrt[4]{2}>0$라 두면 근은
+\[
+  a,\quad ia,\quad -a,\quad -ia
+\]
+이고 분해체는
+\[
+  L=\Q(a,i)
+\]
+이다. $f$는 아이젠슈타인 판정법으로 기약이므로 $[\Q(a):\Q]=4$이다. $\Q(a)$는 실수체이므로 $i\notin\Q(a)$이고
+\[
+  [L:\Q]=8.
+\]
+네 근 위에서 추이적으로 작용하는 $S_4$의 위수 $8$ 부분군은 $D_4$이다.
+
+한편 $p=q=0,r=-2$이므로
+\[
+  R_f(Z)=Z(Z^2+8).
+\]
+그 분해체는 $F=\Q(\sqrt{-2})$이고
+\[
+  [L:F]=4,
+\]
+여기서도 $D_4$ 판정이 나온다. 판별식은
+\[
+  \Disc(f)=-2048.
+\]
+\end{proof}
+
+\subsection{교대 사차군: 기약 분해식과 제곱 판별식}
+
+\begin{example}
+\label{ex:quartic-a4}
+\[
+  f=X^4-7X^2-3X+1
+\]
+의 갈루아군은 $A_4$이다.
+\end{example}
+
+\begin{proof}
+유리근은 없다. 만약 $f$가 두 일계수 이차식의 곱이라면 가우스 보조정리에 의해
+\[
+  f=(X^2+aX+b)(X^2-aX+d)
+  \qquad(a,b,d\in\Z)
+\]
+로 쓸 수 있다. 상수항에서 $bd=1$이므로 $b=d=1$ 또는 $b=d=-1$이다. 그러면 일차항 $a(d-b)$가 $0$이 되어 실제 일차항 $-3X$와 모순이다. 따라서 $f$는 기약이다.
+
+삼차분해식은
+\[
+  R_f(Z)=Z^3+14Z^2+45Z+9.
+\]
+유리근 정리에 따라 가능한 근 $\pm1,\pm3,\pm9$를 대입하면 어느 것도 근이 아니므로 이 삼차식은 기약이다. 판별식은
+\[
+  \Disc(f)=33489=183^2.
+\]
+따라서 정리 \ref{thm:quartic-galois-decision}에서
+\[
+  \Gal(f/\Q)\cong A_4.
+\]
+\end{proof}
+
+\subsection{대칭 사차군: 기약 분해식과 비제곱 판별식}
+
+\begin{example}
+\label{ex:quartic-s4}
+\[
+  f=X^4+X^2+X+1
+\]
+의 갈루아군은 $S_4$이다.
+\end{example}
+
+\begin{proof}
+법 $3$으로 줄인
+\[
+  X^4+X^2+X+1\in\F_3[X]
+\]
+은 근을 갖지 않고 세 개의 일계수 기약 이차다항식 어느 것으로도 나누어지지 않는다. 따라서 $f$는 $\Q$ 위에서 기약이다.
+
+삼차분해식은
+\[
+  R_f(Z)=Z^3-2Z^2-3Z+1
+\]
+이고 가능한 유리근 $\pm1$이 모두 실패하므로 기약이다. 판별식은
+\[
+  \Disc(f)=257
+\]
+이며 유리수의 제곱이 아니다. 따라서
+\[
+  \Gal(f/\Q)\cong S_4.
+\]
+\end{proof}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.22}
+\begin{tabular}{llll}
+\toprule
+$f$ & $R_f$의 형 & $\Disc(f)$ & 갈루아군 \\
+\midrule
+$X^4-10X^2+1$ & $1+1+1$ & $384^2$ & $V_4$ \\
+$X^4-4X^2+2$ & $1+2$ & $2048$ & $C_4$ \\
+$X^4-2$ & $1+2$ & $-2048$ & $D_4$ \\
+$X^4-7X^2-3X+1$ & $3$ & $183^2$ & $A_4$ \\
+$X^4+X^2+X+1$ & $3$ & $257$ & $S_4$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 예제 \ref{ex:quartic-c4}에서 $\Q(\alpha)$의 비자명한 자동동형 하나를 구체적으로 적어라.
+  \item $X^4-2$의 갈루아군 생성원을 근의 순열로 나타내라.
+  \item $A_4$ 예제와 $S_4$ 예제에서 삼차분해식의 기약성이 하는 역할을 비교하라.
+\end{enumerate}
+\end{checkpoint}
