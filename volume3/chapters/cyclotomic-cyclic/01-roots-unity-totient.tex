@@ -1,0 +1,198 @@
+\clearpage
+\section{단위근과 오일러 함수}
+\label{sec:roots-unity-totient}
+
+\begin{learninggoal}
+$n$차 단위근의 군구조를 표수에 따라 구분한다. 원시 단위근을 지수의 합동류로 기술하고, 오일러 함수 $\varphi(n)$가 원시 단위근의 수와 원분체의 차수를 동시에 측정한다는 사실을 이해한다.
+\end{learninggoal}
+
+체 $K$의 대수적 폐포 $\overline K$를 하나 고정하자. 다항식
+\[
+  X^n-1\in K[X]
+\]
+의 근을 \emph{$n$차 단위근}(nth roots of unity)이라 한다. 이들은 곱셈에 대해 유한부분군을 이루며
+\[
+  \mu_n(\overline K)
+  :=\{\zeta\in\overline K^\times:\zeta^n=1\}
+\]
+로 쓴다. 기준 대수적 폐포가 분명할 때에는 간단히 $\mu_n$이라 쓴다.
+
+\subsection{표수가 단위근에 미치는 영향}
+
+\begin{proposition}[서로 다른 단위근의 수]
+\label{prop:number-distinct-roots-unity}
+$\charac K=p\ge0$라 하자.
+\begin{enumerate}[label=(\roman*)]
+  \item $p=0$이거나 $p\nmid n$이면 $X^n-1$은 분리다항식이고
+  \[
+    |\mu_n|=n.
+  \]
+  \item $p>0$이고 $n=p^rm$이며 $p\nmid m$이면
+  \[
+    X^n-1=(X^m-1)^{p^r},
+    \qquad
+    \mu_n=\mu_m.
+  \]
+  따라서 서로 다른 $n$차 단위근은 $m$개뿐이다.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+도함수는
+\[
+  (X^n-1)'=nX^{n-1}
+\]
+이다. $p\nmid n$이면 $X^n-1$과 도함수는 공통근을 갖지 않으므로 분리이다. $p\mid n$인 경우에는 표수 $p$의 이항공식으로
+\[
+  X^{p^rm}-1=(X^m-1)^{p^r}
+\]
+이고, 두 다항식의 근 집합은 같다.
+\end{proof}
+
+따라서 원시 $n$차 단위근을 연구할 때에는 보통
+\[
+  \charac K\nmid n
+\]
+을 가정한다. 이 조건이 없으면 $p\mid n$일 때 위수 $n$인 원소 자체가 존재하지 않는다.
+
+\begin{theorem}[단위근 군의 순환성]
+\label{thm:roots-unity-cyclic}
+$\charac K\nmid n$이면 $\mu_n$은 위수 $n$인 순환군이다.
+\end{theorem}
+
+\begin{proof}
+체의 곱셈군의 유한부분군은 순환군이다. 이를 간단히 확인하자. 유한 아벨군 $H\subseteq\overline K^\times$의 지수를 $e$라 하면 모든 $h\in H$가 $h^e=1$을 만족한다. 유한 아벨군의 기본구조에 의해 위수가 $e$인 원소가 존재한다. 한편 $H$의 모든 원소는 $X^e-1$의 근이므로
+\[
+  |H|\le e.
+\]
+항상 $e\le|H|$이므로 $e=|H|$이고, 위수 $|H|$인 원소가 $H$ 전체를 생성한다. 이제 $H=\mu_n$에 적용한다.
+\end{proof}
+
+\begin{definition}[원시 단위근]
+$\mu_n$을 생성하는 원소를 \emph{원시 $n$차 단위근}(primitive $n$th root of unity)이라 한다. 복소수에서는
+\[
+  \zeta_n=e^{2\pi i/n}
+\]
+을 표준 원시 $n$차 단위근으로 택할 수 있다.
+\end{definition}
+
+\begin{example}
+$\mu_8(\C)$의 원소는
+\[
+  1,\ \zeta_8,\ i,\ \zeta_8^3,\ -1,
+  \ \zeta_8^5,\ -i,\ \zeta_8^7
+\]
+이고, 원시 단위근은
+\[
+  \zeta_8,\ \zeta_8^3,\ \zeta_8^5,\ \zeta_8^7
+\]
+이다. 지수 $1,3,5,7$은 정확히 $8$과 서로소인 합동류이다.
+\end{example}
+
+\subsection{오일러의 $\varphi$ 함수}
+
+\begin{definition}[오일러 함수]
+양의 정수 $n$에 대해
+\[
+  \varphi(n):=\bigl|(\Z/n\Z)^\times\bigr|
+\]
+로 정의한다. 즉 $0\le a<n$ 중 $\gcd(a,n)=1$인 정수의 개수이다.
+\end{definition}
+
+\begin{proposition}[오일러 함수의 계산]
+\label{prop:euler-totient-formula}
+서로 다른 소수 $p_1,\dots,p_r$와 양의 정수 $e_1,\dots,e_r$에 대해
+\[
+  n=p_1^{e_1}\cdots p_r^{e_r}
+\]
+이면
+\[
+  \boxed{
+  \varphi(n)
+  =\prod_{j=1}^r p_j^{e_j-1}(p_j-1)
+  =n\prod_{p\mid n}\left(1-\frac1p\right)}.
+\]
+또한 $\gcd(m,n)=1$이면
+\[
+  \varphi(mn)=\varphi(m)\varphi(n).
+\]
+\end{proposition}
+
+\begin{proof}
+중국인의 나머지 정리에서
+\[
+  (\Z/mn\Z)^\times
+  \cong(\Z/m\Z)^\times\times(\Z/n\Z)^\times
+\]
+이므로 서로소인 두 수에 대해 곱셈성이 성립한다. 한편 $p^e$개의 합동류 중 단원이 아닌 것은 $p$의 배수인 $p^{e-1}$개이므로
+\[
+  \varphi(p^e)=p^e-p^{e-1}=p^{e-1}(p-1).
+\]
+두 결과를 결합하면 된다.
+\end{proof}
+
+\begin{theorem}[원시 단위근의 개수]
+\label{thm:number-primitive-roots-unity}
+$\charac K\nmid n$이고 $\zeta_n$이 원시 $n$차 단위근이라 하자. 그러면
+\[
+  \zeta_n^a\text{가 원시 }n\text{차 단위근}
+  \quad\Longleftrightarrow\quad
+  \gcd(a,n)=1.
+\]
+따라서 원시 $n$차 단위근은 정확히 $\varphi(n)$개이다.
+\end{theorem}
+
+\begin{proof}
+순환군 $\mu_n=\langle\zeta_n\rangle$에서 원소 $\zeta_n^a$의 위수는
+\[
+  \frac{n}{\gcd(a,n)}
+\]
+이다. 이 값이 $n$일 필요충분조건은 $\gcd(a,n)=1$이다.
+\end{proof}
+
+\begin{corollary}
+모든 양의 정수 $n$에 대해
+\[
+  \boxed{\sum_{d\mid n}\varphi(d)=n}.
+\]
+\end{corollary}
+
+\begin{proof}
+위수 $n$인 순환군의 각 원소를 그 정확한 위수 $d\mid n$에 따라 분류한다. 정확한 위수가 $d$인 원소가 $\varphi(d)$개이므로 전체 원소 수 $n$이 표시된 합과 같다.
+\end{proof}
+
+\subsection{서로소인 차수의 단위근}
+
+\begin{proposition}
+\label{prop:coprime-roots-unity-product}
+$\gcd(m,n)=1$이고 $\charac K\nmid mn$이라 하자. 곱셈은 군동형
+\[
+  \mu_m\times\mu_n\longrightarrow\mu_{mn},
+  \qquad(\xi,\eta)\longmapsto\xi\eta
+\]
+을 준다. 특히 $\xi,\eta$가 각각 원시 $m$차, $n$차 단위근이면 $\xi\eta$는 원시 $mn$차 단위근이다.
+\end{proposition}
+
+\begin{proof}
+$\xi$와 $\eta$의 위수가 서로소이므로 $(\xi,\eta)$의 위수와 $\xi\eta$의 위수는 모두 $mn$이다. 양쪽 군의 위수가 $mn$이고 생성원이 생성원으로 보내지므로 동형이다.
+\end{proof}
+
+\begin{keyidea}
+단위근의 지수는 합동류로 계산된다.
+\[
+  \boxed{
+  \mu_n\cong\Z/n\Z,
+  \qquad
+  \operatorname{Aut}(\mu_n)
+  \cong(\Z/n\Z)^\times.}
+\]
+다음 절에서는 이 대응이 원분다항식과 원분체의 갈루아군으로 그대로 올라가는 과정을 살펴본다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 표수 $3$에서 $X^{18}-1$이 갖는 서로 다른 근의 개수를 구하라.
+  \item 원시 $20$차 단위근은 몇 개인가? $\zeta_{20}^a$ 꼴로 모두 기술하라.
+  \item $\varphi(45)$와 $\sum_{d\mid12}\varphi(d)$를 계산하라.
+\end{enumerate}
+\end{checkpoint}
