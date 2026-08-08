@@ -1,0 +1,131 @@
+\clearpage
+\section{계산 절차와 장 요약}
+\label{sec:norm-trace-workflow-review}
+
+\begin{learninggoal}
+주어진 정보에 따라 행렬, 최소다항식, 체매장, 탑 공식, 유한체 공식을 선택하는 계산 절차를 정리한다. 노름과 대각합의 역할을 비교하고 다음 장의 근호확장과 가해군으로 연결한다.
+\end{learninggoal}
+
+\subsection{어떤 계산법을 선택할 것인가}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{p{0.25\textwidth}p{0.30\textwidth}p{0.34\textwidth}}
+\toprule
+주어진 정보 & 우선 사용할 도구 & 핵심 공식 \\
+\midrule
+기저와 곱셈표 &
+곱셈행렬 &
+$\Tr(a)=\operatorname{tr}(M_a)$,
+$\Nm(a)=\det(M_a)$ \\
+
+최소다항식 &
+계수 읽기 &
+$\Tr(\alpha)=-c_1$,
+$\Nm(\alpha)=(-1)^n c_n$ \\
+
+원소가 작은 부분체 생성 &
+거듭제곱 공식 &
+$\Tr_{L/K}(a)=[L:K(a)]\Tr_{K(a)/K}(a)$ \\
+
+분리확장 또는 갈루아군 &
+켤레들의 합과 곱 &
+$\Tr(a)=\sum\sigma(a)$,
+$\Nm(a)=\prod\sigma(a)$ \\
+
+중간체의 탑 &
+추이성 &
+$\Tr_{L/K}=\Tr_{E/K}\circ\Tr_{L/E}$,
+$\Nm_{L/K}=\Nm_{E/K}\circ\Nm_{L/E}$ \\
+
+유한체 &
+프로베니우스 &
+$\Tr(a)=\sum a^{q^j}$,
+$\Nm(a)=a^{(q^n-1)/(q-1)}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{검산 순서}
+
+노름과 대각합 계산에서는 다음 검산이 유용하다.
+\begin{enumerate}
+  \item \textbf{차수 확인}: 사용한 특성다항식의 차수가 $[L:K]$인지 확인한다.
+  \item \textbf{부호 확인}: 일계수 $n$차다항식의 상수항 $c_n$에 대해
+  \[
+    \Nm(\alpha)=(-1)^n c_n
+  \]
+  이다.
+  \item \textbf{기준체 원소 확인}: $c\in K$이면
+  \[
+    \Tr(c)=nc,\qquad\Nm(c)=c^n.
+  \]
+  \item \textbf{곱셈성 확인}: 복잡한 원소가 곱으로 분해되면 노름을 따로 계산한다.
+  \item \textbf{탑 검산}: 중간체가 있으면 두 단계 계산과 직접 계산을 비교한다.
+  \item \textbf{켤레 검산}: 분리확장에서는 모든 켤레의 합과 곱을 직접 확인한다.
+  \item \textbf{판별식 검산}: 기저의 대각합 행렬식이 영이 아닌지 확인한다.
+\end{enumerate}
+
+\begin{pitfall}
+최소다항식과 원소의 $L/K$-특성다항식을 항상 같은 것으로 착각하면 안 된다.
+두 다항식이 같은 것은 $L=K(a)$일 때이다. 일반적으로
+\[
+  \chi_{a,L/K}(X)
+  =m_{a,K}(X)^{[L:K(a)]}.
+\]
+\end{pitfall}
+
+\begin{chapterreview}
+\begin{itemize}
+  \item $a\in L$은 곱셈사상 $m_a$를 통해 $K$-선형사상이 된다.
+  \item
+  \[
+    \Tr_{L/K}(a)=\Tr(m_a),
+    \qquad
+    \Nm_{L/K}(a)=\det(m_a).
+  \]
+  \item 대각합은 $K$-선형이고 노름은 곱셈적이다.
+  \item $L=K(\alpha)$이면 $\alpha$의 특성다항식과 최소다항식이 같다.
+  \item 임의의 $a\in L$에 대해
+  \[
+    \chi_{a,L/K}
+    =m_{a,K}^{[L:K(a)]}.
+  \]
+  \item 서로 다른 캐릭터와 서로 다른 체매장은 선형독립이다.
+  \item 분리차수 $r$, 비분리차수 $q$에 대해
+  \[
+    \Tr(a)=q\sum_{i=1}^r\sigma_i(a),
+    \qquad
+    \Nm(a)=\left(\prod_{i=1}^r\sigma_i(a)\right)^q.
+  \]
+  \item 중간체 $K\subseteq E\subseteq L$에 대해 노름과 대각합은 추이적이다.
+  \item 비분리 유한확장에서는 대각합이 영사상이다.
+  \item 유한확장이 분리일 필요충분조건은 대각합 쌍이 비퇴화하는 것이다.
+  \item 분리확장의 모든 기저는 유일한 대각합 쌍대기저를 갖는다.
+  \item 유한체 확장에서 노름과 대각합은 프로베니우스의 곱과 합이다.
+  \item 유한체의 노름과 대각합은 모두 전사이다.
+  \item 서로소인 확장차수와 근의 지수 사이에서는 새로운 근이 생기지 않는다.
+\end{itemize}
+\end{chapterreview}
+
+\subsection*{복습 카드}
+
+\begin{itemize}
+  \item \textbf{노름의 정의는?}
+  $m_a$의 행렬식.
+  \item \textbf{대각합의 정의는?}
+  $m_a$의 대각합.
+  \item \textbf{단순확장에서 최소다항식의 계수는?}
+  $X^n+c_1X^{n-1}+\cdots+c_n$이면
+  $\Tr(\alpha)=-c_1$, $\Nm(\alpha)=(-1)^nc_n$.
+  \item \textbf{갈루아 확장에서의 공식은?}
+  모든 자동동형상들의 합과 곱.
+  \item \textbf{탑 공식은?}
+  상대 대각합·노름을 먼저 계산한 뒤 아래 체로 다시 적용한다.
+  \item \textbf{분리성의 대각합 판정은?}
+  대각합 쌍이 비퇴화할 필요충분조건이 분리성이다.
+  \item \textbf{유한체의 노름 지수는?}
+  $(q^n-1)/(q-1)$.
+  \item \textbf{유한체 대각합의 핵 크기는?}
+  $q^{n-1}$.
+\end{itemize}
