@@ -10,7 +10,7 @@
 
 \begin{center}
 \renewcommand{\arraystretch}{1.25}
-\begin{tabular}{p{0.25\textwidth}p{0.30\textwidth}p{0.34\textwidth}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.30\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}}
 \toprule
 주어진 정보 & 우선 사용할 도구 & 핵심 공식 \\
 \midrule
@@ -68,10 +68,10 @@ $\Nm(a)=a^{(q^n-1)/(q-1)}$ \\
 
 \begin{pitfall}
 최소다항식과 원소의 $L/K$-특성다항식을 항상 같은 것으로 착각하면 안 된다.
-두 다항식이 같은 것은 $L=K(a)$일 때이다. 일반적으로
+두 다항식이 같은 것은 $L=K(a)$일 때이다. $f_{a,K}$를 $a$의 최소다항식이라 하면 일반적으로
 \[
   \chi_{a,L/K}(X)
-  =m_{a,K}(X)^{[L:K(a)]}.
+  =f_{a,K}(X)^{[L:K(a)]}.
 \]
 \end{pitfall}
 
@@ -89,7 +89,7 @@ $\Nm(a)=a^{(q^n-1)/(q-1)}$ \\
   \item 임의의 $a\in L$에 대해
   \[
     \chi_{a,L/K}
-    =m_{a,K}^{[L:K(a)]}.
+    =f_{a,K}^{[L:K(a)]}.
   \]
   \item 서로 다른 캐릭터와 서로 다른 체매장은 선형독립이다.
   \item 분리차수 $r$, 비분리차수 $q$에 대해
