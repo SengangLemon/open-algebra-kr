@@ -1,0 +1,178 @@
+\clearpage
+\section{켤레원소와 체매장으로 보는 공식}
+\label{sec:conjugates-embeddings-norm-trace}
+
+\begin{learninggoal}
+분리확장에서 노름과 대각합을 모든 체매장이 만드는 켤레들의 곱과 합으로 표현한다. 단순확장, 갈루아 확장, 중간체에 속한 원소의 경우를 하나의 공식으로 통합한다.
+\end{learninggoal}
+
+행렬 정의는 모든 유한확장에서 작동한다. 그러나 분리확장에서는 더 기하적인 공식이 있다. 하나의 원소를 모든 가능한 $K$-매장으로 보내 얻은 켤레들을 더하거나 곱하면 각각 대각합과 노름이 된다.
+
+\subsection{분리확장의 매장 공식}
+
+\begin{theorem}[켤레들의 합과 곱]
+\label{thm:norm-trace-embeddings}
+$L/K$가 차수 $n$의 유한 분리확장이고
+\[
+  \sigma_1,\dots,\sigma_n:L\longrightarrow\overline K
+\]
+가 모든 $K$-매장이라고 하자. 그러면 모든 $\alpha\in L$에 대해
+\[
+  \boxed{
+  \Tr_{L/K}(\alpha)
+  =\sum_{i=1}^n\sigma_i(\alpha),
+  \qquad
+  \operatorname N_{L/K}(\alpha)
+  =\prod_{i=1}^n\sigma_i(\alpha).}
+\]
+더 정확히,
+\[
+  \boxed{
+  P_{\alpha,L/K}(T)
+  =\prod_{i=1}^n\bigl(T-\sigma_i(\alpha)\bigr).}
+\]
+\end{theorem}
+
+\begin{proofidea}
+$E=K(\alpha)$라 두고 $\alpha$의 서로 다른 켤레를 먼저 센다. $E$의 각 $K$-매장은 $L$의 매장으로 정확히 $[L:E]$가지 방식으로 연장되므로, 각 켤레는 전체 매장 목록에서 같은 횟수만큼 반복된다.
+\end{proofidea}
+
+\begin{proof}
+$E=K(\alpha)$, $d=[E:K]$, $r=[L:E]$라 하자. $L/K$가 분리이므로 $E/K$와 $L/E$도 분리이다. $\alpha$의 최소다항식 $f_\alpha$는 서로 다른 근
+\[
+  \alpha_1,\dots,\alpha_d
+\]
+를 가지며, $E$의 $K$-매장들은 $\alpha$를 이 근들로 보내는 사상들이다.
+
+분리확장에서 매장의 연장정리에 의해 $E$의 각 $K$-매장은 $L$의 $K$-매장으로 정확히 $r$가지 방식으로 연장된다. 따라서 목록
+\[
+  \sigma_1(\alpha),\dots,\sigma_n(\alpha)
+\]
+에서는 각 $\alpha_j$가 정확히 $r$번 나타난다. 그러므로
+\[
+\begin{aligned}
+  \prod_{i=1}^n(T-\sigma_i(\alpha))
+  &=\prod_{j=1}^d(T-\alpha_j)^r\\
+  &=f_\alpha(T)^r.
+\end{aligned}
+\]
+정리 \ref{thm:characteristic-minimal-power}에 의해 오른쪽은 $P_{\alpha,L/K}(T)$이다. $T^{n-1}$의 계수와 상수항을 비교하면 합과 곱 공식을 얻는다.
+\end{proof}
+
+\begin{corollary}[갈루아 확장의 공식]
+\label{cor:norm-trace-galois-sum-product}
+$L/K$가 유한 갈루아 확장이면
+\[
+  \boxed{
+  \Tr_{L/K}(\alpha)
+  =\sum_{\sigma\in\Gal(L/K)}\sigma(\alpha),
+  \qquad
+  \operatorname N_{L/K}(\alpha)
+  =\prod_{\sigma\in\Gal(L/K)}\sigma(\alpha).}
+\]
+\end{corollary}
+
+\begin{proof}
+유한 갈루아 확장에서는 모든 $K$-매장이 $L$의 $K$-자동동형이고, 그 전체가 $\Gal(L/K)$이다.
+\end{proof}
+
+\begin{corollary}[갈루아 불변성]
+\label{cor:norm-trace-galois-invariance}
+$L/K$가 유한 갈루아 확장이고 $\tau\in\Gal(L/K)$이면
+\[
+  \Tr_{L/K}(\tau(\alpha))=\Tr_{L/K}(\alpha),
+  \qquad
+  \operatorname N_{L/K}(\tau(\alpha))=\operatorname N_{L/K}(\alpha).
+\]
+특히 두 값은 $K$에 속한다.
+\end{corollary}
+
+\begin{proof}
+$\sigma$가 갈루아군 전체를 움직일 때 $\sigma\tau$도 갈루아군 전체를 한 번씩 움직인다. 따라서 합과 곱의 항들이 순열될 뿐이다.
+\end{proof}
+
+\subsection{중간체에 속한 원소}
+
+\begin{proposition}
+\label{prop:norm-trace-element-in-intermediate-field}
+$K\subseteq E\subseteq L$이고 $L/K$가 유한 분리확장이라고 하자. $r=[L:E]$이면 $\alpha\in E$에 대해
+\[
+  \Tr_{L/K}(\alpha)=r\Tr_{E/K}(\alpha),
+  \qquad
+  \operatorname N_{L/K}(\alpha)
+  =\operatorname N_{E/K}(\alpha)^r.
+\]
+\end{proposition}
+
+\begin{proof}
+각 $K$-매장 $E\to\overline K$가 $L$의 $K$-매장으로 정확히 $r$가지 방식으로 연장된다. 따라서 $\alpha$의 각 $E/K$-켤레가 합과 곱에서 $r$번씩 나타난다. 정리 \ref{thm:norm-trace-embeddings}를 적용한다.
+\end{proof}
+
+이 명제는 정리 \ref{thm:characteristic-minimal-power}에서 얻은 공식을 체매장 관점으로 다시 설명한다.
+
+\begin{example}[이중 이차확장]
+$L=\Q(\sqrt2,\sqrt3)$의 네 자동동형은 두 제곱근의 부호를 독립적으로 바꾼다. $\alpha=\sqrt2+\sqrt3$의 켤레는
+\[
+  \sqrt2+\sqrt3,
+  \quad\sqrt2-\sqrt3,
+  \quad-\sqrt2+\sqrt3,
+  \quad-\sqrt2-\sqrt3.
+\]
+따라서
+\[
+  \Tr_{L/\Q}(\alpha)=0
+\]
+이고
+\[
+\begin{aligned}
+  \operatorname N_{L/\Q}(\alpha)
+  &=(\sqrt2+\sqrt3)(\sqrt2-\sqrt3)\\
+  &\qquad\cdot(-\sqrt2+\sqrt3)(-\sqrt2-\sqrt3)\\
+  &=(-1)(-1)=1.
+\end{aligned}
+\]
+\end{example}
+
+\begin{example}[원분체]
+$p$가 소수이고 $\zeta_p$가 원시 $p$차 단위근이라 하자. 갈루아군은
+\[
+  \zeta_p\longmapsto\zeta_p^a
+  \qquad(1\le a\le p-1)
+\]
+로 작용한다. 따라서
+\[
+  \Tr_{\Q(\zeta_p)/\Q}(\zeta_p)
+  =\zeta_p+\zeta_p^2+\cdots+\zeta_p^{p-1}=-1.
+\]
+또한
+\[
+\begin{aligned}
+  \operatorname N_{\Q(\zeta_p)/\Q}(1-\zeta_p)
+  &=\prod_{a=1}^{p-1}(1-\zeta_p^a)\\
+  &=\Phi_p(1)=p.
+\end{aligned}
+\]
+\end{example}
+
+\subsection{대칭성과 기준체}
+
+정리 \ref{thm:norm-trace-embeddings}의 합과 곱은 모든 $K$-매장에 의해 불변이다. 정규폐포 안에서 갈루아군이 켤레들을 순열하므로 결과는 기준체 $K$에 속한다. 이는 ``대칭식은 계수체로 내려온다''는 원리가 체확장에서 나타난 모습이다.
+
+\begin{keyidea}
+분리확장에서 노름과 대각합은 모든 켤레를 한꺼번에 모으는 가장 기본적인 대칭량이다.
+\[
+  \boxed{
+  \Tr(\alpha)=\text{켤레들의 합},
+  \qquad
+  \operatorname N(\alpha)=\text{켤레들의 곱}.}
+\]
+행렬 정의와 켤레 공식은 서로 다른 정의가 아니라 같은 특성다항식을 두 관점에서 본 것이다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Q(\sqrt2,\sqrt3)/\Q$에서 $1+\sqrt2$의 노름과 대각합을 켤레 공식으로 구하라.
+  \item $\Q(\zeta_5)/\Q$에서 $\zeta_5+\zeta_5^{-1}$의 대각합을 구하라.
+  \item $L/K$가 갈루아이고 $E$가 중간체일 때 $\alpha\in E$의 $L/K$ 노름에서 같은 켤레가 반복되는 이유를 설명하라.
+\end{enumerate}
+\end{checkpoint}
