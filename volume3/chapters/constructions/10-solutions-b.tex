@@ -1,0 +1,163 @@
+\clearpage
+\section{선별 문제 풀이 II}
+\label{sec:construction-solutions-b}
+
+\subsection*{문제 \thechapter.17: 기약 사차식의 작도가능성}
+
+\begin{solution}
+기약 사차다항식의 갈루아군은 근 네 개에 추이적으로 작용하므로
+\[
+  V_4,C_4,D_4,A_4,S_4
+\]
+중 하나이다. 각 위수는
+\[
+  4,4,8,12,24
+\]
+이다. 근 $\alpha$의 최소다항식의 분해체를 $N$이라 하면
+\[
+  \alpha\text{가 작도가능}
+  \quad\Longleftrightarrow\quad
+  [N:\Q]=|\Gal(N/\Q)|
+  \text{가 }2\text{의 거듭제곱}
+\]
+이다. 따라서 정확히 $V_4,C_4,D_4$의 경우에 작도가능하고, $A_4,S_4$의 경우에는 불가능하다.
+\end{solution}
+
+\subsection*{문제 \thechapter.19: 정다각형과 오일러 함수}
+
+\begin{solution}
+정$n$각형은 단위원 위의 원시 $n$차 단위근 $\zeta_n$을 작도할 수 있을 때 정확히 작도가능하다. $\zeta_n$의 최소다항식은 $\Phi_n$이고 그 분해체는 원분체
+\[
+  N=\Q(\zeta_n)
+\]
+이다. 원분체는 갈루아 확장이며
+\[
+  [N:\Q]=\varphi(n),
+  \qquad
+  \Gal(N/\Q)\cong(\Z/n\Z)^\times.
+\]
+최소다항식의 분해체 판정에 의해
+\[
+  \zeta_n\text{가 작도가능}
+  \quad\Longleftrightarrow\quad
+  [N:\Q]=\varphi(n)\text{이 }2\text{의 거듭제곱}
+\]
+이다.
+
+충분조건의 기하학적 의미도 분명하다. 갈루아군이 $2$-군이면 지수 $2$ 부분군열이 있고, 갈루아 대응으로 원분체까지의 이차확장 탑을 얻는다. 각 이차확장은 제곱근 첨가로 실현되므로 $\zeta_n$을 작도할 수 있다.
+\end{solution}
+
+\subsection*{문제 \thechapter.21: 표준 작도가능체}
+
+\begin{solution}
+임의의 $\alpha\in\mathcal C_0$에 대해 정상폐포 판정으로 $\alpha$를 포함하는 유한 갈루아 $2$-확장 $N_\alpha/\Q$가 존재한다. 따라서
+\[
+  \mathcal C_0
+  =\bigcup_{\alpha\in\mathcal C_0}N_\alpha
+\]
+로 볼 수 있다. 두 유한 갈루아 $2$-확장의 합성체도 갈루아 $2$-확장이므로 이 합집합은 유한 부분집합을 함께 포함하는 방향집합의 합집합으로 정리할 수 있다.
+
+모든 원소가 대수적이므로 $\mathcal C_0/\Q$는 대수적이다. $\alpha$의 모든 $\Q$-켤레는 그 분해체 $N_\alpha$ 안에 있으므로 $\mathcal C_0$에 속한다. 따라서 확장은 정상이고, 표수 $0$이므로 분리이다. 즉 $\mathcal C_0/\Q$는 무한 갈루아 확장이다.
+
+무한성은 예를 들어
+\[
+  \Q(\zeta_{2^r})\subseteq\mathcal C_0
+\]
+이고
+\[
+  [\Q(\zeta_{2^r}):\Q]=2^{r-1}
+\]
+가 임의로 커진다는 사실에서 따른다.
+\end{solution}
+
+\subsection*{문제 \thechapter.23: 최대공약수와 최소공배수 정다각형}
+
+\begin{solution}
+(a) 가우스--방첼 꼴을 사용하자. $m$과 $n$의 홀수 소인수는 모두 서로 다른 페르마 소수이고 각 소수의 지수는 $1$이다. 따라서 $\gcd(m,n)$과 $\operatorname{lcm}(m,n)$도 같은 형태
+\[
+  2^a\prod p_i
+\]
+를 갖는다. 그러므로 두 정다각형 모두 작도가능하다.
+
+(b) $d=\gcd(m,n)$, $\ell=\operatorname{lcm}(m,n)$이라 하자. $\zeta_m$이 작도가능하면
+\[
+  \zeta_d=\zeta_m^{m/d}
+\]
+도 작도가능하므로 정$d$각형이 가능하다.
+
+또한
+\[
+  \Q(\zeta_m,\zeta_n)=\Q(\zeta_\ell).
+\]
+실제로 $\zeta_m=\zeta_\ell^{\ell/m}$와 $\zeta_n=\zeta_\ell^{\ell/n}$이고
+\[
+  \gcd(\ell/m,\ell/n)=1
+\]
+이므로 베주 항등식으로 $a\ell/m+b\ell/n=1$인 정수 $a,b$를 택하면
+\[
+  \zeta_\ell=\zeta_m^a\zeta_n^b.
+\]
+두 작도가능 원분체의 합성체는 갈루아 $2$-확장이므로 $\zeta_\ell$도 작도가능하다.
+\end{solution}
+
+\subsection*{문제 \thechapter.25: 정구각형과 각의 삼등분}
+
+\begin{solution}
+$v=2\cos(2\pi/9)=2\cos40^\circ$라 하자. 삼중각 공식에서
+\[
+  v^3-3v=2\cos120^\circ=-1
+\]
+이므로
+\[
+  v^3-3v+1=0.
+\]
+유리근 후보 $\pm1$은 근이 아니어서 이 다항식은 기약이고 $[\Q(v):\Q]=3$이다. 따라서 $v$와 정구각형은 작도가능하지 않다.
+
+정구각형이 작도가능하면 중심각 $40^\circ$를 작도하고 이를 이등분하여 $20^\circ$를 얻는다. 따라서 $60^\circ$를 삼등분할 수 있게 된다. 반대로 $60^\circ$를 삼등분하여 $20^\circ$를 얻을 수 있다면 두 배하여 $40^\circ$를 만들고 단위원 위에 이 각을 반복하여 정구각형을 작도할 수 있다. 그러므로 두 불가능 문제는 같은 차수 $3$ 장애를 표현한다.
+\end{solution}
+
+\subsection*{문제 \thechapter.27: $A_4$ 갈루아군과 작도 불가능성}
+
+\begin{solution}
+기약 사차다항식의 삼차분해식이 기약이면 갈루아군의 $S_4/V_4\cong S_3$ 상이 추이적이다. 따라서 추이적 사차군 가운데 가능한 것은 $A_4$와 $S_4$뿐이다.
+
+판별식이 $\Q$의 제곱이면 갈루아군은 $A_4$ 안에 들어간다. 그러므로
+\[
+  \Gal(f/\Q)\cong A_4.
+\]
+분해체 차수는
+\[
+  |A_4|=12
+\]
+이고 $2$의 거듭제곱이 아니다. 따라서 최소다항식의 분해체 판정으로 어떤 근도 작도가능하지 않다.
+\end{solution}
+
+\subsection*{문제 \thechapter.29: 종합 판정}
+
+\begin{solution}
+(a)
+\[
+  \sqrt2+\sqrt3\in\Q(\sqrt2,\sqrt3)
+\]
+이고
+\[
+  \Q\subset\Q(\sqrt2)\subset\Q(\sqrt2,\sqrt3)
+\]
+는 이차확장 탑이므로 작도가능하다.
+
+(b) $X^3-2$가 기약이어서 $\sqrt[3]2$의 차수는 $3$이다. 따라서 작도 불가능하다.
+
+(c) $2\cos(2\pi/17)$은 원분체의 최대 실부분체
+\[
+  \Q(\zeta_{17}+\zeta_{17}^{-1})
+\]
+에 속한다. 이 체의 갈루아군은
+\[
+  (\Z/17\Z)^\times/\{\pm1\}\cong C_8
+\]
+이고 차수는 $8$이다. 따라서 갈루아 $2$-확장이며 해당 수는 작도가능하다.
+
+(d) $X^4-X-1$의 갈루아군은 $S_4$이고 분해체 차수는 $24$이다. 따라서 그 근은 작도가능하지 않다.
+
+(e) $\pi$는 초월수이므로 $\sqrt\pi$도 초월수이다. 모든 작도가능수는 대수적이므로 $\sqrt\pi$는 작도가능하지 않다.
+\end{solution}
