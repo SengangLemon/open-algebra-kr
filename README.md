@@ -4,9 +4,17 @@
 
 한국어권 독학자와 대학 학부생을 위한 오픈 현대대수학 교재 프로젝트입니다. 군, 환, 다항식, 체확장, 갈루아 이론을 하나의 흐름으로 연결하고, 각 개념을 동기·직관·예제·엄밀한 증명·연습문제·해설의 순서로 설명합니다.
 
-> **Status: Volume 1 Draft 0.3 검수 완료 · Volume 2 Draft 0.6 전권 초고 완료 · Volume 3 Draft 0.9 전권 2차 통합 검수 완료**
+> **Status: Volume 1 Draft 0.3 검수 완료 · Volume 2 Draft 0.6 전권 초고 완료 · Volume 3 Draft 0.10 외부 검토용 판본 공개**
 
-Volume 1은 군론·환론·다항식론의 첫 수학·통합 검수 패스를 마쳤습니다. Volume 2는 표수와 최소다항식에서 유한 갈루아 대응까지 이어지는 전권 초고를 완성했습니다. Volume 3는 방정식의 갈루아군에서 아벨--루피니 정리와 자와 컴퍼스 작도까지 계획된 Chapter 0–8의 전권 초고를 완성한 뒤, 장간 용어·정리 의존관계·반복 설명·문제 번호·전면부와 전권 PDF를 다시 점검하는 2차 통합 검수를 마쳤습니다. 모든 권은 아직 정식 출판본이 아니어서 외부 수학 검토와 문장·디자인 교정이 남아 있습니다.
+Volume 1은 군론·환론·다항식론의 첫 수학·통합 검수 패스를 마쳤습니다. Volume 2는 표수와 최소다항식에서 유한 갈루아 대응까지 이어지는 전권 초고를 완성했습니다. Volume 3는 방정식의 갈루아군에서 아벨--루피니 정리와 자와 컴퍼스 작도까지 Chapter 0–8의 전권 초고와 두 차례의 내부 통합 검수를 마치고, 독립적인 수학 검토와 전문 한국어 교열·판면 검수를 받기 위한 Draft 0.10을 공개했습니다. 모든 권은 아직 정식 출판본이 아닙니다.
+
+## Volume 3 외부 검토
+
+- 검토 지침: [`notes/reviews/volume-03-external-review-guide.md`](notes/reviews/volume-03-external-review-guide.md)
+- 검토 상태: [`notes/reviews/volume-03-review-status.md`](notes/reviews/volume-03-review-status.md)
+- 오류 보고: [GitHub Issues](https://github.com/SengangLemon/open-algebra-kr/issues)
+
+수학적 정확성, 한국어 문장·용어, 판면·접근성을 각각 보고할 수 있는 이슈 양식을 제공합니다. 내부 QA 기록은 외부 검토 완료로 계산하지 않으며, 검토자의 전문 범위와 실제 확인 범위를 별도로 기록합니다.
 
 ## 현재 범위
 
@@ -57,7 +65,7 @@ Volume 1은 군론·환론·다항식론의 첫 수학·통합 검수 패스를 
 - 전권 선수개념·의존관계·목적별 학습경로를 정리한 독자 안내
 - A/B/C 난이도별 연습문제와 선별 상세 풀이
 
-각 권의 계획과 상태는 [`notes/roadmaps/`](notes/roadmaps/)에 기록합니다. 장별 및 전권 수학 검수 기록은 [`notes/qa/`](notes/qa/)에, Volume 1 전체 품질 상태는 [`notes/quality-assurance.md`](notes/quality-assurance.md)에 있습니다.
+각 권의 계획과 상태는 [`notes/roadmaps/`](notes/roadmaps/)에 기록합니다. 장별 및 전권 수학 검수 기록은 [`notes/qa/`](notes/qa/)에, 외부 검토 기록은 [`notes/reviews/`](notes/reviews/)에 있습니다.
 
 ## 목표
 
@@ -72,7 +80,7 @@ Volume 1은 군론·환론·다항식론의 첫 수학·통합 검수 패스를 
 
 1. **Volume 1: 군, 환, 다항식** — Draft 0.3
 2. **Volume 2: 대수적 체확장** — Draft 0.6, 전권 1차 통합 초고 완료
-3. **Volume 3: 갈루아 이론과 방정식** — Draft 0.9, 전권 2차 통합 검수 완료
+3. **Volume 3: 갈루아 이론과 방정식** — Draft 0.10, 외부 검토용 판본
 
 ## 저장소 구조
 
@@ -81,9 +89,9 @@ book/        Volume 1 LaTeX 원고
 volume2/     Volume 2 LaTeX 원고
 volume3/     Volume 3 LaTeX 원고
 workbook/    독립 워크북 자료
-notes/       로드맵·편집 지침·검수 기록
+notes/       로드맵·편집 지침·내부 QA·외부 검토 기록
 anki/        복습 카드 자료
-.github/     세 권의 자동 PDF 빌드
+.github/     세 권의 자동 PDF 빌드와 이슈 양식
 ```
 
 ## 빌드
@@ -123,6 +131,7 @@ Pull request에서는 GitHub Actions가 Volume 1·2·3을 각각 컴파일하고
 
 - 저자 및 유지관리: Sunghyun Park ([@SengangLemon](https://github.com/SengangLemon))
 - AI 도구는 초안 작성, 계산 검토, 문장 교정, 코드와 조판 보조에 사용됩니다.
+- 내부 QA와 독립 외부 검토는 구분하여 기록합니다.
 - 최종 내용의 선택, 검수와 공개 책임은 프로젝트 유지관리자에게 있습니다.
 
 ## 라이선스
