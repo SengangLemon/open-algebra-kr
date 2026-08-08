@@ -1,0 +1,331 @@
+\clearpage
+\section{선별 문제 풀이 I}
+\label{sec:norm-trace-solutions-a}
+
+\subsection*{문제 \thechapter.1: 이차확장의 행렬 계산}
+
+\begin{solution}
+$u=3+2\sqrt5$라 하자. 기저 $(1,\sqrt5)$에 대해
+\[
+  u\cdot1=3+2\sqrt5,
+\]
+\[
+  u\cdot\sqrt5=10+3\sqrt5.
+\]
+따라서
+\[
+  M_u=
+  \begin{pmatrix}
+    3&10\\
+    2&3
+  \end{pmatrix}.
+\]
+특성다항식은
+\[
+\begin{aligned}
+  \chi_u(X)
+  &=\det
+  \begin{pmatrix}
+    X-3&-10\\
+    -2&X-3
+  \end{pmatrix}\\
+  &=(X-3)^2-20\\
+  &=X^2-6X-11.
+\end{aligned}
+\]
+그러므로
+\[
+  \boxed{\Tr_{L/\Q}(u)=6},
+  \qquad
+  \boxed{\Nm_{L/\Q}(u)=-11}.
+\]
+비자명한 켤레는 $3-2\sqrt5$이므로
+\[
+  (3+2\sqrt5)+(3-2\sqrt5)=6,
+\]
+\[
+  (3+2\sqrt5)(3-2\sqrt5)=9-20=-11
+\]
+로 검산된다.
+\end{solution}
+
+\subsection*{문제 \thechapter.3: 순수 삼차확장}
+
+\begin{solution}
+$X^3-2$는 아이젠슈타인 판정으로 $\Q$ 위에서 기약이다.
+따라서 $[L:\Q]=3$이고 $\alpha$의 최소다항식은 $X^3-2$이다.
+\[
+  \boxed{\Tr(\alpha)=0,\qquad \Nm(\alpha)=2.}
+\]
+
+$\alpha^2$는 $(\alpha^2)^3=4$를 만족한다. $X^3-4$도
+$2$에 대한 아이젠슈타인 판정으로 기약이므로 최소다항식은 $X^3-4$이다.
+\[
+  \boxed{\Tr(\alpha^2)=0,\qquad \Nm(\alpha^2)=4.}
+\]
+
+$\beta=1+\alpha$라 두면 $\alpha=\beta-1$이므로
+\[
+  (\beta-1)^3-2=0.
+\]
+따라서 $\beta$의 최소다항식은
+\[
+  X^3-3X^2+3X-3.
+\]
+차수가 이미 $3$이므로
+\[
+  \boxed{\Tr(1+\alpha)=3,\qquad \Nm(1+\alpha)=3.}
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.4: 이중 이차확장의 탑 계산}
+
+\begin{solution}
+$E=\Q(\sqrt2)$라 하자. $[L:E]=2$이고 $L/E$의 비자명한 자동동형은
+$\sqrt3$의 부호를 바꾸며 $\sqrt2$를 고정한다.
+
+먼저 $\sqrt2\in E$이므로
+\[
+  \Tr_{L/E}(\sqrt2)=2\sqrt2,
+  \qquad
+  \Nm_{L/E}(\sqrt2)=2.
+\]
+탑 공식을 적용하면
+\[
+  \Tr_{L/\Q}(\sqrt2)
+  =\Tr_{E/\Q}(2\sqrt2)=0,
+\]
+\[
+  \Nm_{L/\Q}(\sqrt2)
+  =\Nm_{E/\Q}(2)=2^2=4.
+\]
+
+이제 $u=\sqrt2+\sqrt3$에 대해
+\[
+  \Tr_{L/E}(u)
+  =(\sqrt2+\sqrt3)+(\sqrt2-\sqrt3)
+  =2\sqrt2,
+\]
+\[
+  \Nm_{L/E}(u)
+  =(\sqrt2+\sqrt3)(\sqrt2-\sqrt3)
+  =-1.
+\]
+따라서
+\[
+  \boxed{\Tr_{L/\Q}(u)=0},
+  \qquad
+  \boxed{\Nm_{L/\Q}(u)=1}.
+\]
+
+직접 제곱하면
+\[
+  u^2=5+2\sqrt6,\qquad
+  (u^2-5)^2=24,
+\]
+이므로
+\[
+  u^4-10u^2+1=0.
+\]
+$u$가 $L$을 생성하므로 최소다항식은 $X^4-10X^2+1$이고,
+그 계수에서도 같은 대각합과 노름을 읽을 수 있다.
+\end{solution}
+
+\subsection*{문제 \thechapter.5: $\F_8/\F_2$의 대각합과 노름}
+
+\begin{solution}
+$\alpha^3=\alpha+1$이고
+\[
+  \alpha^4=\alpha^2+\alpha,\quad
+  \alpha^5=\alpha^2+\alpha+1,\quad
+  \alpha^6=\alpha^2+1,\quad
+  \alpha^7=1.
+\]
+대각합은
+\[
+  \Tr(x)=x+x^2+x^4
+\]
+이다. $\F_2$-선형성을 이용하면
+\[
+  \Tr(1)=1,\qquad
+  \Tr(\alpha)=0,\qquad
+  \Tr(\alpha^2)=0.
+\]
+따라서 다음 표를 얻는다.
+\[
+\begin{array}{c|cccccccc}
+x&0&1&\alpha&\alpha^2&
+1+\alpha&1+\alpha^2&
+\alpha+\alpha^2&1+\alpha+\alpha^2\\
+\hline
+\Tr(x)&0&1&0&0&1&1&0&1
+\end{array}
+\]
+그러므로
+\[
+  \boxed{
+  \ker\Tr
+  =\{0,\alpha,\alpha^2,\alpha+\alpha^2\}.}
+\]
+
+한편 $\F_8^\times$의 위수는 $7$이고
+\[
+  \Nm_{\F_8/\F_2}(x)=x^{1+2+4}=x^7.
+\]
+따라서 모든 $x\ne0$에 대해
+\[
+  \boxed{\Nm(x)=1},
+\]
+그리고 $\Nm(0)=0$이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.8: 이차확장의 쌍대기저}
+
+\begin{solution}
+기저 $(1,\sqrt d)$에 대해
+\[
+  \Tr(1)=2,\qquad
+  \Tr(\sqrt d)=0,\qquad
+  \Tr(d)=2d.
+\]
+따라서 그람행렬은
+\[
+  G=
+  \begin{pmatrix}
+    2&0\\
+    0&2d
+  \end{pmatrix},
+\qquad
+  \det G=4d.
+\]
+$d\ne0$이고 $\charac K\ne2$이므로 판별식은 영이 아니다.
+
+$y_1=a+b\sqrt d$가
+\[
+  \Tr(y_1)=1,\qquad
+  \Tr(\sqrt d\,y_1)=0
+\]
+을 만족해야 한다. 첫 식은 $2a=1$, 둘째 식은 $2bd=0$이므로
+\[
+  y_1=\frac12.
+\]
+마찬가지로 $y_2=a+b\sqrt d$에 대해
+\[
+  \Tr(y_2)=0,\qquad
+  \Tr(\sqrt d\,y_2)=1
+\]
+에서 $a=0$, $2bd=1$이므로
+\[
+  y_2=\frac{\sqrt d}{2d}.
+\]
+따라서
+\[
+  \boxed{
+  \left(\frac12,\frac{\sqrt d}{2d}\right)}
+\]
+가 쌍대기저이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.11: 아르틴의 선형독립 정리}
+
+\begin{solution}
+서로 다른 캐릭터들 사이에 비자명한 선형관계가 있다고 가정하고,
+그 가운데 항의 수 $r$이 최소인 것을
+\[
+  c_1\chi_1+\cdots+c_r\chi_r=0
+\]
+로 택한다. 최소성에서 모든 $c_i\ne0$이다.
+
+$\chi_1\ne\chi_2$이므로 어떤 $g\in G$에 대해
+$\chi_1(g)\ne\chi_2(g)$이다. 원래 관계를 $gh$에 적용하면
+\[
+  \sum_{i=1}^r c_i\chi_i(g)\chi_i(h)=0
+\]
+이고, 이는 함수관계
+\[
+  \sum_{i=1}^r c_i\chi_i(g)\chi_i=0
+\]
+를 뜻한다. 원래 관계에 $\chi_1(g)$를 곱한 것에서 이 관계를 빼면
+\[
+  \sum_{i=2}^r
+  c_i\bigl(\chi_1(g)-\chi_i(g)\bigr)\chi_i=0.
+\]
+$\chi_2$의 계수
+\[
+  c_2\bigl(\chi_1(g)-\chi_2(g)\bigr)
+\]
+는 영이 아니므로 길이 $r-1$의 비자명한 관계를 얻는다.
+이는 $r$의 최소성에 모순이다. 따라서 서로 다른 캐릭터는 선형독립이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.14: 최소다항식에서 노름과 대각합 읽기}
+
+\begin{solution}
+모든 $h\in K[X]$에 대해
+\[
+  h(m_\alpha)=m_{h(\alpha)}
+\]
+이다. 따라서 $h(\alpha)=0$이면 $h(m_\alpha)=0$이다.
+반대로 $h(m_\alpha)=0$이면 이를 $1$에 적용하여
+\[
+  h(\alpha)=h(m_\alpha)(1)=0
+\]
+을 얻는다. 그러므로 $\alpha$와 $m_\alpha$의 최소다항식은 같다.
+
+$L=K(\alpha)$이고 차수가 $n$이므로 이 최소다항식의 차수는 $n$이다.
+한편 $m_\alpha$의 특성다항식도 $n$차이고 최소다항식으로 나누어지므로
+두 다항식은 같다.
+\[
+  \chi_{\alpha,L/K}(X)
+  =X^n+c_1X^{n-1}+\cdots+c_n.
+\]
+특성다항식의 일반형
+\[
+  X^n-\Tr(\alpha)X^{n-1}
+  +\cdots+(-1)^n\Nm(\alpha)
+\]
+과 비교하면
+\[
+  \boxed{\Tr_{L/K}(\alpha)=-c_1},
+  \qquad
+  \boxed{\Nm_{L/K}(\alpha)=(-1)^nc_n}.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.16: 체매장에 의한 공식}
+
+\begin{solution}
+먼저 $L=K(a)$라 하자. 서로 다른 $K$-매장의 수를 $r$,
+비분리차수를 $q$라 하면 $a$의 최소다항식은
+\[
+  m_{a,K}(X)
+  =\prod_{i=1}^r(X-\sigma_i(a))^q.
+\]
+이는 각 서로 다른 켤레가 정확히 비분리차수 $q$만큼의 중복도를
+갖기 때문이다. $L=K(a)$이므로 이 최소다항식은 $a$의
+$L/K$-특성다항식과 같다. $X^{[L:K]-1}$의 계수와 상수항을 비교하면
+\[
+  \Tr_{L/K}(a)
+  =q\sum_{i=1}^r\sigma_i(a),
+\]
+\[
+  \Nm_{L/K}(a)
+  =\left(\prod_{i=1}^r\sigma_i(a)\right)^q.
+\]
+
+이제 일반적인 $a\in L$에 대해 $E=K(a)$, $s=[L:E]$라 하자.
+블록대각행렬 계산에서
+\[
+  \Tr_{L/K}(a)=s\Tr_{E/K}(a),
+  \qquad
+  \Nm_{L/K}(a)=\Nm_{E/K}(a)^s.
+\]
+각 $K$-매장 $E\to\overline K$는 정확히 $[L:E]_{\mathrm s}$개의
+$K$-매장 $L\to\overline K$로 연장되고, 모든 연장은 $a$에서 같은 값을 갖는다.
+또한
+\[
+  s=[L:E]_{\mathrm s}[L:E]_{\mathrm i}
+\]
+이고 비분리차수는 탑에서 곱셈적이다. 따라서 $E/K$에서 이미 얻은
+합과 곱의 공식에 이 중복도를 반영하면 동일한 두 공식을 $L/K$에 대해 얻는다.
+\end{solution}
