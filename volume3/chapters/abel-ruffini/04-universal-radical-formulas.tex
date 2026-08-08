@@ -1,0 +1,132 @@
+\clearpage
+\section{보편 근호공식의 정확한 의미}
+\label{sec:universal-radical-formulas}
+
+\begin{learninggoal}
+``계수로부터 사칙연산과 근호만 사용해 근을 표현한다''는 말을 근호탑의 언어로 엄밀하게 바꾼다. 보편식, 개별 방정식, 특수화와 근호 선택을 구분하고 아벨--루피니 정리의 논리적 대상을 명확히 한다.
+\end{learninggoal}
+
+이차공식은 계수 $a,b,c$에 대한 하나의 표현으로 모든 이차방정식을 다룬다. 삼차와 사차에서도 표현은 훨씬 복잡하지만 같은 의미의 계수 보편식이 존재한다. 오차에서 묻는 질문도 ``주어진 한 다항식의 근을 구할 수 있는가''가 아니라 ``임의의 계수에 동시에 적용되는 유한한 근호 절차가 존재하는가''이다.
+
+이 절에서는 표수 $0$인 체 $k$를 기준으로 한다. 따라서 근호 단계에는 단위근과 순수근호만 필요하고 아르틴--슈라이어 단계는 나타나지 않는다.
+
+\subsection{근호식과 근호탑}
+
+\begin{definition}[근호식]
+체 $K$의 원소들에서 출발하여 유한번의
+\[
+  +,\quad-,\quad\times,\quad\div,
+  \quad\text{그리고}\quad m\text{제곱근 선택}
+\]
+을 적용해 얻은 표현을 $K$ 위의 \emph{근호식}이라 한다. 필요한 단위근은 상수로 첨가하는 것을 허용한다.
+\end{definition}
+
+근호식 하나를 계산할 때마다 현재 체의 어떤 원소 $a$에 대해
+\[
+  \alpha^m=a
+\]
+인 원소를 첨가한다. 따라서 모든 중간값은 근호탑
+\[
+  K=E_0\subseteq E_1\subseteq\cdots\subseteq E_r
+\]
+의 마지막 체에 들어간다.
+
+\begin{proposition}[식에서 체로]
+\label{prop:radical-expressions-give-tower}
+유한개의 근호식으로 얻은 원소들은 어떤 유한 근호탑의 마지막 체에 모두 들어간다.
+\end{proposition}
+
+\begin{proof}
+표현에 등장하는 연산을 계산 순서대로 읽는다. 사칙연산은 현재 체 안에서 끝난다. 새로운 $m$제곱근이 등장할 때마다 그 값을 $\alpha$라 하고 현재 체 $E_i$에 첨가하여
+\[
+  E_{i+1}=E_i(\alpha),
+  \qquad
+  \alpha^m\in E_i
+\]
+로 둔다. 필요한 단위근도 같은 방식으로 먼저 첨가한다. 표현이 유한하므로 유한 근호탑을 얻는다.
+\end{proof}
+
+\begin{remark}
+역으로 근호탑의 원소는 기저와 최소다항식을 사용하여 근호식으로 추적할 수 있다. 따라서 갈루아 이론에서 ``근호로 풀린다''는 체론적 정의는 고전적인 유한 근호 표현의 존재를 정확히 포착한다. 다만 실제 표현은 매우 길 수 있고 여러 근호 선택이 서로 연동될 수 있다.
+\end{remark}
+
+\subsection{보편 근호공식}
+
+일반다항식
+\[
+  P_n(X)=X^n+C_1X^{n-1}+\cdots+C_n
+\]
+의 계수체를
+\[
+  K_n=k(C_1,\dots,C_n)
+\]
+라 하자.
+
+\begin{definition}[보편 근호공식]
+\label{def:universal-radical-formula}
+$P_n$의 모든 근을 포함하는 근호확장 $E/K_n$이 존재할 때, 차수 $n$의 일계수다항식에 대한 \emph{보편 근호공식}이 존재한다고 말한다.
+\end{definition}
+
+이 정의는 계수변수 $C_i$에 사칙연산과 근호를 유한번 적용하여 일반다항식의 근들을 얻을 수 있다는 뜻이다. 식의 모양을 하나의 긴 문자열로 고정하는 대신, 그 식들이 들어가는 근호탑 자체를 기록한다.
+
+\begin{theorem}
+\label{thm:universal-formula-equivalent-generic-solvable}
+표수 $0$에서 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item 차수 $n$의 보편 근호공식이 존재한다.
+  \item 일반다항식 $P_n$의 분해체가 $K_n$ 위에서 근호로 풀린다.
+  \item $\Gal(P_n/K_n)$이 가해군이다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i)와 (ii)는 정의와 명제 \ref{prop:radical-expressions-give-tower}에서 같은 내용이다. (ii)와 (iii)의 동치는 앞 장의 갈루아 근호해법 판정이다.
+\end{proof}
+
+\subsection{특수화에서 생기는 현상}
+
+계수변수에 실제 값을 대입하면 일반다항식에서 개별 다항식으로 내려간다. 그러나 이 과정에서는 다음 현상이 생길 수 있다.
+
+\begin{enumerate}[label=(\arabic*)]
+  \item 분모가 $0$이 되어 특정 형태의 식을 그대로 사용할 수 없을 수 있다.
+  \item 판별식이 $0$이 되어 서로 다른 일반근들이 합쳐질 수 있다.
+  \item 일반 갈루아군 $S_n$이 더 작은 부분군으로 줄어들 수 있다.
+  \item 여러 $m$제곱근의 가지를 서로 독립적으로 고르면 잘못된 근 조합이 나올 수 있다.
+\end{enumerate}
+
+이러한 예외는 보편 정리의 의미를 바꾸지 않는다. 보편 근호공식이 존재한다면 계수들이 대수적으로 독립인 가장 일반적인 상황에서도 작동해야 한다. 따라서 일반다항식 하나가 근호로 풀리지 않는다는 사실만으로 모든 계수에 적용되는 공식의 존재를 배제할 수 있다.
+
+\begin{example}[특수화로 군이 줄어드는 경우]
+일반 오차다항식의 갈루아군은 $S_5$이지만
+\[
+  X^5-2
+\]
+의 갈루아군은
+\[
+  C_5\rtimes C_4
+\]
+이고 가해군이다. 계수에 특별한 관계를 부여하면 일반적인 $S_5$ 대칭이 크게 줄어들 수 있다.
+\end{example}
+
+\begin{pitfall}
+``보편 근호공식이 없다''는 말은 다음 어느 것과도 같지 않다.
+\begin{enumerate}[label=(\alph*)]
+  \item 모든 오차다항식이 근호로 풀리지 않는다.
+  \item 오차다항식의 근을 수치적으로 계산할 수 없다.
+  \item 근을 특수함수나 무한급수로 표현할 수 없다.
+  \item 특정 오차다항식에 우연히 간단한 근이 존재할 수 없다.
+\end{enumerate}
+아벨--루피니 정리가 금지하는 것은 계수에 대한 유한한 사칙연산과 근호만으로 이루어진 \emph{일반 공식}이다.
+\end{pitfall}
+
+\begin{keyidea}
+근호식은 문법이고 근호탑은 그 문법의 대수적 의미이다. 복잡한 식의 모양을 직접 추적하는 대신, 식들이 만드는 체확장의 갈루아군을 조사하면 보편 공식의 가능성을 판정할 수 있다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 이차공식이 만드는 근호탑을 계수체 $k(a,b,c)$ 위에 적어라.
+  \item Cardano 공식에서 두 세제곱근을 독립적으로 고를 수 없는 이유를 근호탑과 근의 순열 관점에서 설명하라.
+  \item $X^5-2$가 근호로 풀린다는 사실이 일반 오차공식의 존재를 뜻하지 않는 이유를 설명하라.
+\end{enumerate}
+\end{checkpoint}
