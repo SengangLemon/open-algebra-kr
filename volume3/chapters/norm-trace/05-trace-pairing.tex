@@ -1,0 +1,217 @@
+\clearpage
+\section{대각합 쌍과 분리성}
+\label{sec:trace-pairing-separability}
+
+\begin{learninggoal}
+대각합을 이용해 체확장 위에 대칭쌍선형형식을 만든다. 그 비퇴화성이 분리성과 동치임을 아르틴의 선형독립 정리로 증명하고, 쌍대기저·판별식·대각합 방정식으로 연결한다.
+\end{learninggoal}
+
+노름은 곱셈군의 정보를 압축하고, 대각합은 벡터공간의 쌍대성을 만든다. 두 원소를 곱한 뒤 대각합을 취하면 체확장의 분리성을 정확히 감지하는 쌍선형형식이 생긴다.
+
+\begin{definition}[대각합 쌍]
+\label{def:trace-pairing}
+유한확장 $L/K$에 대해
+\[
+  B_{L/K}:L\times L\longrightarrow K,
+  \qquad
+  B_{L/K}(x,y)=\Tr_{L/K}(xy)
+\]
+를 $L/K$의 \emph{대각합 쌍}(trace pairing)이라 한다.
+\end{definition}
+
+곱셈의 교환법칙과 대각합의 선형성에서 $B_{L/K}$는 대칭 $K$-쌍선형형식이다.
+
+\begin{theorem}[분리성의 대각합 판정]
+\label{thm:trace-pairing-separable-criterion}
+유한 체확장 $L/K$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $L/K$는 분리확장이다.
+  \item 대각합 쌍 $B_{L/K}$는 비퇴화이다.
+  \item 임의의 $0\ne x\in L$에 대해 어떤 $y\in L$가 존재하여
+  \[
+    \Tr_{L/K}(xy)\ne0
+  \]
+  이다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proofidea}
+분리확장에서 $\Tr(xy)$를 모든 매장의 합으로 쓴다. 이것이 모든 $y$에 대해 $0$이라면 계수 $\sigma(x)$를 가진 체매장들의 선형관계가 생긴다. 아르틴의 선형독립 정리가 이를 금지한다. 비분리확장에서는 대각합 사상 자체가 영이므로 쌍이 퇴화한다.
+\end{proofidea}
+
+\begin{proof}
+(i)$\Rightarrow$(iii)를 보자. $L/K$의 모든 $K$-매장을
+\[
+  \sigma_1,\dots,\sigma_n:L\to\overline K
+\]
+라 하자. $0\ne x\in L$에 대해 모든 $y\in L$가
+\[
+  \Tr_{L/K}(xy)=0
+\]
+을 만족한다고 가정하자. 정리 \ref{thm:norm-trace-embeddings}에 의해
+\[
+  \sum_{i=1}^n\sigma_i(x)\sigma_i(y)=0
+  \qquad\text{for all }y\in L.
+\]
+이는 함수로서
+\[
+  \sigma_1(x)\sigma_1+\cdots+\sigma_n(x)\sigma_n=0
+\]
+이라는 뜻이다. 체매장은 영이 아닌 원소를 영이 아닌 원소로 보내므로 모든 $\sigma_i(x)$가 영이 아니다. 이는 따름정리 \ref{cor:embedding-linear-independence}에 모순이다. 따라서 적당한 $y$가 존재한다.
+
+(iii)는 비퇴화의 정의이므로 (ii)와 동치이다. 마지막으로 $L/K$가 비분리이면 따름정리 \ref{cor:inseparable-trace-zero}에 의해 $\Tr_{L/K}=0$이고 $B_{L/K}$는 영형식이다. 따라서 (ii)는 성립할 수 없다.
+\end{proof}
+
+\subsection{대각합 사상의 전사성}
+
+\begin{corollary}[분리확장의 대각합은 전사]
+\label{cor:trace-surjective-separable}
+유한 분리확장 $L/K$에서
+\[
+  \Tr_{L/K}:L\longrightarrow K
+\]
+는 전사 $K$-선형사상이다. 특히 차수 $n=[L:K]$에 대해
+\[
+  \dim_K\ker\Tr_{L/K}=n-1.
+\]
+\end{corollary}
+
+\begin{proof}
+대각합 사상이 영이라면 대각합 쌍도 영이 되어 앞 정리와 모순이다. 따라서 대각합의 상은 $K$의 영이 아닌 $K$-부분공간이다. $K$는 자신 위에서 1차원이므로 상은 $K$ 전체이다. 차원정리를 적용하면 핵의 차원은 $n-1$이다.
+\end{proof}
+
+\begin{remark}
+$\Tr_{L/K}(1)=[L:K]$가 $0$이더라도 전사성은 유지될 수 있다. 예를 들어 $\F_{p^p}/\F_p$는 분리확장이므로 대각합은 전사이지만
+\[
+  \Tr(1)=p=0.
+\]
+따라서 대각합이 영인지 판단하려면 한 원소 $1$만 보아서는 안 된다.
+\end{remark}
+
+\begin{corollary}[대각합 방정식의 구조]
+\label{cor:trace-equation-affine-hyperplane}
+$L/K$가 차수 $n$의 유한 분리확장이고 $b\in K$라 하자. 방정식
+\[
+  \Tr_{L/K}(x)=b
+\]
+는 항상 해를 가지며, 한 해를 $x_0$라 하면 모든 해는
+\[
+  x_0+\ker\Tr_{L/K}
+\]
+이다. 따라서 해집합은 $K$-아핀공간으로 차원 $n-1$이다.
+\end{corollary}
+
+\subsection{대각합 쌍대기저}
+
+\begin{definition}[대각합 쌍대기저]
+$L/K$의 $K$-기저 $b_1,\dots,b_n$에 대해 원소 $b_1^*,\dots,b_n^*\in L$가
+\[
+  \Tr_{L/K}(b_i b_j^*)=\delta_{ij}
+\]
+를 만족하면 이를 $b_1,\dots,b_n$의 \emph{대각합 쌍대기저}라 한다.
+\end{definition}
+
+\begin{corollary}
+\label{cor:trace-dual-basis-exists}
+$L/K$가 유한 분리확장이면 모든 $K$-기저는 유일한 대각합 쌍대기저를 갖는다.
+\end{corollary}
+
+\begin{proof}
+대각합 쌍이 비퇴화이므로 선형사상
+\[
+  \Phi:L\longrightarrow\operatorname{Hom}_K(L,K),
+  \qquad
+  y\longmapsto\bigl(x\mapsto\Tr_{L/K}(xy)\bigr)
+\]
+는 단사이다. 양쪽 차원이 같으므로 동형이다. 보통의 쌍대기저 함수들을 $\Phi^{-1}$로 옮기면 원하는 원소들이 존재하고 유일하다.
+\end{proof}
+
+\begin{example}[이차확장의 쌍대기저]
+$\charac K\ne2$, $L=K(\sqrt d)$라 하자. 기저 $(1,\sqrt d)$에 대한 대각합 행렬은
+\[
+  \begin{pmatrix}
+    \Tr(1)&\Tr(\sqrt d)\\
+    \Tr(\sqrt d)&\Tr(d)
+  \end{pmatrix}
+  =\begin{pmatrix}
+    2&0\\
+    0&2d
+  \end{pmatrix}.
+\]
+따라서 쌍대기저는
+\[
+  \boxed{
+  \frac12,
+  \qquad
+  \frac{\sqrt d}{2d}=\frac1{2\sqrt d}.}
+\]
+\end{example}
+
+\subsection{판별식과의 연결}
+
+\begin{definition}[기저의 판별식]
+$L/K$의 원소 $b_1,\dots,b_n$에 대해
+\[
+  \operatorname{disc}_{L/K}(b_1,\dots,b_n)
+  :=\det\bigl(\Tr_{L/K}(b_i b_j)\bigr)_{i,j}
+\]
+로 정의한다.
+\end{definition}
+
+\begin{proposition}
+\label{prop:trace-discriminant-separability}
+$L/K$가 차수 $n$의 유한확장이고 $b_1,\dots,b_n$이 $K$-기저라 하자. 그러면
+\[
+  L/K\text{가 분리}
+  \quad\Longleftrightarrow\quad
+  \operatorname{disc}_{L/K}(b_1,\dots,b_n)\ne0.
+\]
+또한 다른 기저 $c_j=\sum_i p_{ij}b_i$로 바꾸면
+\[
+  \operatorname{disc}(c_1,\dots,c_n)
+  =\det(P)^2\operatorname{disc}(b_1,\dots,b_n).
+\]
+\end{proposition}
+
+\begin{proof}
+첫 동치는 대각합 쌍의 행렬이 가역일 필요충분조건과 정리 \ref{thm:trace-pairing-separable-criterion}을 결합하면 된다. 기저변환 뒤의 그람행렬은
+\[
+  P^{\mathsf T}GP
+\]
+이므로 행렬식은 $\det(P)^2\det(G)$가 된다.
+\end{proof}
+
+\begin{remark}
+제2장에서 다항식의 판별식을 근 차이들의 제곱곱으로 정의했다. $L=K(\alpha)$가 분리 단순확장이고 거듭제곱 기저
+\[
+  1,\alpha,\dots,\alpha^{n-1}
+\]
+를 사용하면 위 대각합 판별식은 최소다항식의 판별식과 일치한다. 체매장 행렬
+\[
+  (\sigma_i(\alpha^{j-1}))_{i,j}
+\]
+이 반데르몬드 행렬이기 때문이다.
+\end{remark}
+
+\begin{keyidea}
+대각합 쌍은 분리성을 선형대수적으로 측정한다.
+\[
+  \boxed{
+  L/K\text{ finite separable}
+  \quad\Longleftrightarrow\quad
+  (x,y)\mapsto\Tr_{L/K}(xy)\text{ is nondegenerate}.}
+\]
+캐릭터의 선형독립이 체매장들의 독립을 보장하고, 그 독립이 대각합 쌍의 비퇴화성으로 바뀐다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $L/K$가 분리이고 $\Tr(u)=1$인 $u\in L$를 택했을 때
+  \[
+    L=Ku\oplus\ker\Tr
+  \]
+  임을 보여라.
+  \item $K(\sqrt d)/K$에서 기저 $(1,1+\sqrt d)$의 판별식을 계산하고 $(1,\sqrt d)$의 판별식과 비교하라.
+  \item 순수비분리확장에서 대각합 쌍대기저가 존재할 수 없는 이유를 설명하라.
+\end{enumerate}
+\end{checkpoint}
