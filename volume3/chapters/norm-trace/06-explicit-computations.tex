@@ -1,0 +1,302 @@
+\clearpage
+\section{계산 도구와 대표 예제}
+\label{sec:norm-trace-explicit-computations}
+
+\begin{learninggoal}
+행렬, 최소다항식, 종결식, 갈루아 켤레, 유한체 프로베니우스 가운데 상황에 맞는 계산법을 선택한다. 이차체·단순확장·유한체·원분체에서 노름과 대각합을 실제로 계산한다.
+\end{learninggoal}
+
+노름과 대각합은 정의는 하나이지만 계산 경로가 여러 개이다. 가장 좋은 방법은 주어진 데이터에 따라 달라진다.
+
+\subsection{단순확장과 종결식}
+
+\begin{theorem}[노름과 종결식]
+\label{thm:norm-resultant}
+$L=K(\alpha)$이고 $\alpha$의 일계수 최소다항식이 $f\in K[T]$라고 하자. 임의의 $g\in K[T]$에 대해
+\[
+  \boxed{
+  \operatorname N_{L/K}(g(\alpha))
+  =\Res(f,g).}
+\]
+특히 $c\in K$에 대해
+\[
+  \boxed{
+  \operatorname N_{L/K}(\alpha-c)
+  =(-1)^n f(c),
+  \qquad n=\deg f.}
+\]
+\end{theorem}
+
+\begin{proof}
+대수적 폐포에서 $f$의 근들을 중복도를 포함하여
+\[
+  \alpha_1,\dots,\alpha_n
+\]
+이라 하자. 정리 \ref{thm:norm-trace-inseparable-embeddings} 또는 특성다항식의 근 공식에 의해
+\[
+  \operatorname N_{L/K}(g(\alpha))
+  =\prod_{i=1}^n g(\alpha_i).
+\]
+$f$가 일계수일 때 종결식의 근 공식이 바로
+\[
+  \Res(f,g)=\prod_{i=1}^n g(\alpha_i)
+\]
+이므로 첫 식을 얻는다. $g(T)=T-c$를 대입하면
+\[
+  \prod_i(\alpha_i-c)
+  =(-1)^n\prod_i(c-\alpha_i)
+  =(-1)^n f(c)
+\]
+이다.
+\end{proof}
+
+\begin{example}
+$\theta^3=2$, $L=\Q(\theta)$라 하자. $f(T)=T^3-2$이므로
+\[
+  \operatorname N_{L/\Q}(1+\theta)
+  =\operatorname N(\theta-(-1))
+  =(-1)^3f(-1)=3.
+\]
+행렬을 만들거나 세 복소근을 직접 곱할 필요가 없다.
+\end{example}
+
+\begin{example}
+$f(T)=T^3-T-1$의 한 근을 $\alpha$라 하고 $L=\Q(\alpha)$라 하자. 그러면
+\[
+  \Tr(\alpha)=0,
+  \qquad
+  \operatorname N(\alpha)=1
+\]
+이고
+\[
+  \operatorname N(1+\alpha)
+  =-f(-1)=1.
+\]
+또한
+\[
+  \operatorname N(2-\alpha)=f(2)=5
+\]
+이다. 마지막 식에서는 $2-\alpha=-(\alpha-2)$이고 차수가 $3$임을 함께 반영한 결과이다.
+\end{example}
+
+\subsection{대각합과 뉴턴 합}
+
+$L=K(\alpha)$가 차수 $n$의 분리 단순확장이고
+\[
+  f(T)=T^n+a_1T^{n-1}+\cdots+a_n
+\]
+가 $\alpha$의 최소다항식이라고 하자. 켤레들을 $\alpha_1,\dots,\alpha_n$이라 두고
+\[
+  s_m:=\sum_{i=1}^n\alpha_i^m
+  =\Tr_{L/K}(\alpha^m)
+\]
+이라 쓰면 뉴턴 항등식에서 다음 재귀식을 얻는다.
+
+\begin{proposition}[대각합의 뉴턴 재귀]
+\label{prop:trace-newton-sums}
+$1\le m\le n$이면
+\[
+  s_m+a_1s_{m-1}+\cdots+a_{m-1}s_1+ma_m=0,
+\]
+$m>n$이면
+\[
+  s_m+a_1s_{m-1}+\cdots+a_ns_{m-n}=0.
+\]
+\end{proposition}
+
+\begin{example}
+$f(T)=T^4+aT^3+bT^2+cT+d$의 근 $\alpha$가 생성하는 차수 $4$ 확장에서
+\[
+  \Tr(\alpha)=-a,
+\]
+\[
+  \Tr(\alpha^2)=a^2-2b,
+\]
+\[
+  \Tr(\alpha^3)=-a^3+3ab-3c.
+\]
+근을 실제로 구하지 않고 계수만으로 거듭제곱의 대각합을 계산할 수 있다.
+\end{example}
+
+\subsection{이차체와 노름 방정식}
+
+$L=K(\sqrt d)$, $\charac K\ne2$에서
+\[
+  \operatorname N(x+y\sqrt d)=x^2-dy^2,
+  \qquad
+  \Tr(x+y\sqrt d)=2x.
+\]
+따라서 노름 방정식은 이차곡선으로 바뀐다.
+
+\begin{example}
+$\Q(i)/\Q$에서
+\[
+  \operatorname N(x+yi)=x^2+y^2.
+\]
+따라서 $-1$은 노름이 될 수 없다. 이 예는 유한 분리확장에서도 노름 사상이 항상 전사인 것은 아님을 보여준다.
+\end{example}
+
+\begin{example}
+$\Q(\sqrt2)/\Q$에서
+\[
+  \operatorname N(3+2\sqrt2)=9-8=1.
+\]
+더 일반적으로 정수해
+\[
+  x^2-2y^2=1
+\]
+는 노름이 $1$인 대수적 정수 $x+y\sqrt2$를 준다. 펠 방정식은 이차체의 단위원을 연구하는 노름 방정식이다.
+\end{example}
+
+\subsection{유한체}
+
+\begin{theorem}[유한체의 노름과 대각합]
+\label{thm:finite-field-norm-trace}
+$L=\F_{q^n}$, $K=\F_q$라 하자. 그러면
+\[
+  \boxed{
+  \Tr_{L/K}(x)
+  =x+x^q+x^{q^2}+\cdots+x^{q^{n-1}}}
+\]
+이고
+\[
+  \boxed{
+  \operatorname N_{L/K}(x)
+  =x^{1+q+\cdots+q^{n-1}}
+  =x^{(q^n-1)/(q-1)}.}
+\]
+또한
+\[
+  \Tr_{L/K}:L\to K
+\]
+와
+\[
+  \operatorname N_{L/K}:L^\times\to K^\times
+\]
+는 모두 전사이고
+\[
+  |\ker\Tr_{L/K}|=q^{n-1},
+  \qquad
+  |\ker\operatorname N_{L/K}|
+  =\frac{q^n-1}{q-1}.
+\]
+\end{theorem}
+
+\begin{proof}
+갈루아군은 프로베니우스
+\[
+  \Frob_q:x\mapsto x^q
+\]
+로 생성되는 위수 $n$의 순환군이다. 따름정리 \ref{cor:norm-trace-galois-sum-product}를 적용하면 합과 곱 공식을 얻는다.
+
+대각합은 유한체 확장이 분리이므로 따름정리 \ref{cor:trace-surjective-separable}에 의해 전사이다. 그 핵은 $n$차원 $K$-벡터공간에서 1차원 공간으로 가는 전사선형사상의 핵이므로 원소가 $q^{n-1}$개이다.
+
+노름의 전사성을 보이기 위해 $L^\times$의 생성원 $g$를 택한다. 그러면
+\[
+  \operatorname N(g)=g^{(q^n-1)/(q-1)}
+\]
+의 위수는 $q-1$이므로 $K^\times$를 생성한다. 군준동형의 제1동형정리에서 핵의 크기를 얻는다.
+\end{proof}
+
+\begin{example}[$\F_8/\F_2$]
+$\theta^3+\theta+1=0$이라 하자. $\theta^3=\theta+1$이고
+\[
+  \theta^4=\theta^2+\theta
+\]
+이므로
+\[
+  \Tr(\theta)=\theta+\theta^2+\theta^4=0.
+\]
+같은 방식으로 $\Tr(\theta^2)=0$이고 $\Tr(1)=1$이다. 따라서
+\[
+  \Tr(a+b\theta+c\theta^2)=a
+  \qquad(a,b,c\in\F_2).
+\]
+한편 $\F_2^\times=\{1\}$이므로 모든 $x\ne0$에 대해
+\[
+  \operatorname N_{\F_8/\F_2}(x)=1.
+\]
+\end{example}
+
+\begin{example}[$\F_9/\F_3$]
+$u^2=-1$이라 두면 $\F_9=\F_3(u)$이고 $u^3=-u$이다. 따라서
+\[
+  \Tr(a+bu)=(a+bu)+(a-bu)=2a=-a
+\]
+이고
+\[
+  \operatorname N(a+bu)=(a+bu)(a-bu)=a^2+b^2.
+\]
+예를 들어 $\operatorname N(1+u)=2=-1$이고 $\Tr(1+u)=2$이다.
+\end{example}
+
+\subsection{원분체}
+
+\begin{proposition}
+\label{prop:cyclotomic-norm-one-minus-zeta}
+$n>1$이고 $\zeta_n$이 원시 $n$차 단위근이면
+\[
+  \boxed{
+  \operatorname N_{\Q(\zeta_n)/\Q}(1-\zeta_n)
+  =\Phi_n(1).}
+\]
+특히 소수 $p$와 $r\ge1$에 대해
+\[
+  \operatorname N_{\Q(\zeta_{p^r})/\Q}(1-\zeta_{p^r})=p.
+\]
+\end{proposition}
+
+\begin{proof}
+$1-\zeta_n$의 갈루아 켤레는 $1-\zeta_n^a$이며 $a$는 $(\Z/n\Z)^\times$를 움직인다. 그 곱은 원분다항식의 정의에서 $\Phi_n(1)$이다. 소수거듭제곱에서는
+\[
+  \Phi_{p^r}(T)
+  =1+T^{p^{r-1}}+\cdots+T^{(p-1)p^{r-1}}
+\]
+이므로 $T=1$을 대입하면 $p$이다.
+\end{proof}
+
+\begin{example}[최대 실부분체]
+$t=\zeta_5+\zeta_5^{-1}$이면
+\[
+  t^2+t-1=0.
+\]
+따라서 $E=\Q(t)$에서
+\[
+  \Tr_{E/\Q}(t)=-1,
+  \qquad
+  \operatorname N_{E/\Q}(t)=-1.
+\]
+또한
+\[
+  \operatorname N_{E/\Q}(2-t)
+  =(2-t)(2-t')=5,
+\]
+여기서 $t'$는 다른 켤레이다. 최소다항식에 정리 \ref{thm:norm-resultant}를 적용해도 같은 값을 얻는다.
+\end{example}
+
+\begin{keyidea}
+계산법을 데이터에 맞추어 고른다.
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{ll}
+\toprule
+주어진 정보 & 가장 빠른 도구 \\
+\midrule
+기저와 곱셈표 & 곱셈행렬의 행렬식·대각합 \\
+최소다항식 & 특성다항식과 계수 \\
+$g(\alpha)$의 노름 & 종결식 $\Res(f,g)$ \\
+갈루아군·켤레 & 자동동형들의 합과 곱 \\
+확장탑 & 노름·대각합의 추이성 \\
+유한체 & 프로베니우스 합과 지수 공식 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $f(T)=T^3-3T+1$의 근 $\alpha$에 대해 $\operatorname N(2-\alpha)$와 $\Tr(\alpha^2)$을 구하라.
+  \item $\F_{16}/\F_4$에서 노름의 지수와 핵의 크기를 구하라.
+  \item $\operatorname N_{\Q(\zeta_8)/\Q}(1-\zeta_8)$을 $\Phi_8(1)$로 계산하라.
+\end{enumerate}
+\end{checkpoint}
