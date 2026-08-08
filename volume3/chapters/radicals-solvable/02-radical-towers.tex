@@ -1,0 +1,202 @@
+\clearpage
+\section{근호탑과 가해확장}
+\label{sec:radical-towers}
+
+\begin{learninggoal}
+근호로 풀린다는 말을 체확장의 탑으로 엄밀하게 정의한다. 양의 표수에서 아르틴--슈라이어 근을 함께 허용해야 하는 이유를 이해한다. 가해확장의 정의와 기준체 확대·확장탑에 대한 보존 성질을 증명한다.
+\end{learninggoal}
+
+고전적인 근호공식은 사칙연산과 $n$제곱근을 유한번 반복한다. 체론적으로는 기준체에서 시작해 원소를 하나씩 첨가하는 탑으로 이를 기록한다. 그러나 두 가지 주의가 필요하다.
+
+첫째, $X^n-a$의 한 근만 첨가한 확장은 일반적으로 정규확장이 아니다. 예를 들어
+\[
+  \Q(\sqrt[3]{2})/\Q
+\]
+는 근호로 얻어지지만 갈루아확장이 아니다. 둘째, 표수 $p>0$에서 분리인 순환 $p$차확장은 $p$제곱근이 아니라 아르틴--슈라이어 다항식
+\[
+  X^p-X-a
+\]
+의 근으로 기술된다. 따라서 모든 표수에서 정확한 정리를 얻으려면 이 두 현상을 정의에 반영해야 한다.
+
+\subsection{허용되는 한 단계}
+
+\begin{definition}[근호 단계]
+유한 체확장 $E'/E$가 다음 세 유형 가운데 하나이면 이를 \emph{근호 단계}(radical step)라 한다.
+\begin{enumerate}[label=(\roman*)]
+  \item $E'=E(\zeta)$이고 $\zeta$가 단위근이다.
+  \item $E'=E(\alpha)$이고
+  \[
+    \alpha^n=a\in E,
+    \qquad
+    \charac E\nmid n.
+  \]
+  \item $\charac E=p>0$이고 $E'=E(\alpha)$이며
+  \[
+    \alpha^p-\alpha=a\in E.
+  \]
+\end{enumerate}
+\end{definition}
+
+유형 (ii)의 조건 $\charac E\nmid n$은 $X^n-a$가 분리다항식이 되게 한다. 유형 (iii)은 양의 표수에서 순환 $p$차확장을 담당한다. 이 책에서는 유형 (iii)의 근도 넓은 의미의 ``근호''에 포함한다. 그래야 분리방정식에 대해 군론적 가해성과 근호해법이 모든 표수에서 정확히 일치한다.
+
+\begin{definition}[근호탑]
+체확장의 유한 사슬
+\[
+  K=E_0\subseteq E_1\subseteq\cdots\subseteq E_m
+\]
+에서 각 $E_{i+1}/E_i$가 근호 단계이면 이를 $K$ 위의 \emph{근호탑}(radical tower)이라 한다.
+\end{definition}
+
+\begin{definition}[근호로 풀리는 확장]
+유한확장 $L/K$에 대해, $L$을 포함하는 어떤 유한확장 $E/K$가 존재하여
+\[
+  K=E_0\subseteq E_1\subseteq\cdots\subseteq E_m=E
+\]
+가 근호탑이면 $L/K$를 \emph{근호로 풀리는 확장}(solvable by radicals)이라 한다.
+\end{definition}
+
+마지막 체가 정확히 $L$일 필요는 없다. 실제 공식에는 원래 근들과 함께 보조적인 단위근, 판별식의 제곱근, 분해식의 근이 나타날 수 있기 때문이다.
+
+\begin{proposition}
+근호로 풀리는 유한확장은 분리확장이다.
+\end{proposition}
+
+\begin{proof}
+유형 (i)의 단위근은 어떤 $X^n-1$의 근이며, 표수가 $n$을 나누는 부분을 제거하면 같은 서로 다른 단위근들을 분리다항식의 근으로 볼 수 있다. 유형 (ii)에서는
+\[
+  (X^n-a)'=nX^{n-1}\ne0
+\]
+이고 $a\ne0$인 비자명한 경우 공통근이 없으므로 분리이다. 유형 (iii)에서는
+\[
+  (X^p-X-a)'=-1
+\]
+이므로 분리이다. 분리성은 확장탑에서 추이적이고 부분확장으로 내려가므로 결론이 따른다.
+\end{proof}
+
+\begin{pitfall}
+$\alpha^n\in K$라고 해서 $K(\alpha)/K$가 자동으로 순환 갈루아확장이 되는 것은 아니다. 필요한 $n$차 단위근이 기준체에 들어 있고 $X^n-\alpha^n$이 적절한 차수를 가질 때에만 Kummer형 순환확장이 된다.
+\end{pitfall}
+
+\subsection{가해확장}
+
+\begin{definition}[가해확장]
+유한확장 $L/K$에 대해, $L$을 포함하는 체 $E$가 존재하여
+\[
+  E/K
+\]
+가 유한 갈루아확장이고 $\Gal(E/K)$가 가해군이면 $L/K$를 \emph{가해확장}(solvable extension)이라 한다.
+\end{definition}
+
+$L/K$ 자체가 갈루아확장이면 다음이 성립한다.
+
+\begin{proposition}
+유한 갈루아확장 $L/K$는 가해확장일 필요충분조건이
+\[
+  \Gal(L/K)
+\]
+가 가해군인 것이다.
+\end{proposition}
+
+\begin{proof}
+갈루아군이 가해이면 정의에서 $E=L$을 택하면 된다. 반대로 $L\subseteq E$이고 $E/K$가 가해 갈루아확장이라 하자. $L/K$도 갈루아라고 가정했으므로 제한사상
+\[
+  \Gal(E/K)\longrightarrow\Gal(L/K)
+\]
+은 전사이다. 가해군의 몫군은 가해이므로 $\Gal(L/K)$도 가해군이다.
+\end{proof}
+
+분리다항식 $f\in K[X]$의 분해체를 $L$이라 하자. 방정식 $f(x)=0$이 \emph{가해} 또는 \emph{근호로 풀린다}는 말은 각각 $L/K$가 그 성질을 갖는다는 뜻으로 사용한다.
+
+\subsection{기준체 확대}
+
+\begin{lemma}[기준체 확대]
+\label{lem:solvability-base-change}
+$L/K$가 유한확장이고 $F/K$가 임의의 체확장이라 하자. 공통 대수적 폐포 안의 합성체를 $FL$이라 쓰면 다음이 성립한다.
+\begin{enumerate}[label=(\roman*)]
+  \item $L/K$가 가해확장이면 $FL/F$도 가해확장이다.
+  \item $L/K$가 근호로 풀리면 $FL/F$도 근호로 풀린다.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i)에서 $L$을 더 큰 가해 갈루아확장 $E/K$ 안에 넣는다. 그러면 $FE/F$는 유한 갈루아확장이고 제한사상으로
+\[
+  \Gal(FE/F)\hookrightarrow\Gal(E/K)
+\]
+가 주어진다. 가해군의 부분군은 가해이므로 $FE/F$는 가해 갈루아확장이고 $FL/F$는 가해확장이다.
+
+(ii)에서 $K=E_0\subseteq\cdots\subseteq E_m$이 $L$을 포함하는 근호탑이라 하자. 각 단계에 $F$를 합성하면
+\[
+  F=FE_0\subseteq FE_1\subseteq\cdots\subseteq FE_m
+\]
+을 얻는다. 단위근, $n$제곱근, 아르틴--슈라이어 근을 첨가한다는 관계는 기준체를 확대해도 그대로 유지된다.
+\end{proof}
+
+\subsection{확장탑에서의 보존}
+
+\begin{theorem}[탑 성질]
+\label{thm:solvability-tower-property}
+유한확장탑
+\[
+  K\subseteq L\subseteq M
+\]
+에 대해 다음이 성립한다.
+\begin{enumerate}[label=(\roman*)]
+  \item $M/K$가 가해이면 $L/K$와 $M/L$도 가해이다.
+  \item $L/K$와 $M/L$가 모두 가해이면 $M/K$도 가해이다.
+  \item 위 두 명제에서 ``가해''를 ``근호로 풀림''으로 바꾸어도 성립한다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proofidea}
+내려가는 방향은 부분군과 몫군의 가해성에서 나온다. 올라가는 방향은 두 가해 갈루아확장을 합성하고 정상폐포를 취한 뒤, 갈루아군을 가해군들의 직접곱의 부분군과 가해 몫군으로 분석한다. 근호탑은 기준체 확대 보조정리로 두 탑을 이어 붙인다.
+\end{proofidea}
+
+\begin{proof}
+$M/K$를 포함하는 유한 가해 갈루아확장 $E/K$를 택한다. 그러면 $L/K$는 정의상 가해이다. 또한 $EL/L$은 유한 갈루아확장이고
+\[
+  \Gal(EL/L)\le\Gal(E/K)
+\]
+이므로 가해이다. 따라서 $M/L$도 가해이다.
+
+역방향을 보자. 기준체 확대 보조정리를 사용해 $L/K$와 $M/L$를 각각 유한 가해 갈루아확장으로 확대한 뒤, 필요하면 합성체와 정상폐포를 취하여
+\[
+  K\subseteq L\subseteq M
+\]
+에서 $L/K$와 $M/L$가 모두 갈루아이고 갈루아군이 가해라고 가정할 수 있다. $M/K$의 정상폐포 $\widetilde M$을 취한다. 제한사상
+\[
+  \Gal(\widetilde M/K)\longrightarrow\Gal(L/K)
+\]
+의 상은 가해이고, 핵 $\Gal(\widetilde M/L)$은 $M/L$의 여러 $K$-켤레확장들의 갈루아군 직접곱의 부분군으로 들어간다. 각 인자는 $\Gal(M/L)$와 동형이므로 가해이고, 직접곱과 부분군도 가해이다. 따라서 핵과 몫이 가해이므로 $\Gal(\widetilde M/K)$도 가해이다.
+
+근호로 풀리는 경우, $M/K$가 하나의 근호탑 안에 들어가면 두 부분확장도 같은 탑 안에 들어간다. 반대로 $L/K$와 $M/L$에 대한 근호탑을 택한다. 첫 탑의 마지막 체를 $E$라 하면 보조정리 \ref{lem:solvability-base-change}에 의해 $EM/E$는 근호로 풀린다. 첫 탑과 $EM/E$의 탑을 이어 붙이면 $M/K$를 포함하는 근호탑을 얻는다.
+\end{proof}
+
+\begin{example}
+$\Q(\sqrt[3]{2})/\Q$는
+\[
+  \Q\subset\Q(\zeta_3)
+  \subset\Q(\zeta_3,\sqrt[3]{2})
+\]
+인 근호탑 안에 들어간다. 마지막 확장의 갈루아군은 $C_3$이고 전체 정상폐포의 갈루아군은
+\[
+  C_3\rtimes C_2\cong S_3
+\]
+이다. $S_3$은 가해군이므로 이 확장은 가해이다.
+\end{example}
+
+\begin{example}
+$X^5-4X+2$의 분해체는 뒤에서 보듯 가해확장이 아니다. 따라서 어떤 더 큰 근호탑 안에도 그 다섯 근을 모두 넣을 수 없다. 여기서 ``특정한 실근을 수치적으로 근사할 수 없다''는 뜻이 아니라, 계수에서 출발해 사칙연산과 허용된 근호를 유한번 적용하는 대수적 공식이 없다는 뜻이다.
+\end{example}
+
+\begin{keyidea}
+근호탑은 체 쪽의 층 구조이고, 가해군의 정규열은 군 쪽의 층 구조이다. 다음 절의 핵심 정리는 이 둘이 정확히 같은 정보를 담는다는 사실이다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Q(\sqrt[4]{2})/\Q$를 포함하는 근호탑을 하나 적어라.
+  \item $K$가 원시 $n$차 단위근을 포함하고 $\alpha^n\in K$일 때 $K(\alpha)/K$의 정상폐포가 왜 아벨 갈루아확장인지 설명하라.
+  \item 근호로 풀리는 확장의 부분확장이 다시 근호로 풀리는 이유에서 ``마지막 체가 정확히 $L$일 필요가 없다''는 정의가 어떻게 사용되는지 설명하라.
+\end{enumerate}
+\end{checkpoint}

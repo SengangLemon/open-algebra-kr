@@ -1,0 +1,194 @@
+\clearpage
+\section{가해군과 근호해법의 동치}
+\label{sec:solvability-radicals-theorem}
+
+\begin{learninggoal}
+유한확장이 근호로 풀릴 필요충분조건이 그 정상폐포의 갈루아군이 가해군이라는 갈루아의 핵심 정리를 증명한다. 차수 $4$ 이하 방정식과 일반 $5$차 이상 방정식에 대한 즉각적인 결론을 도출한다.
+\end{learninggoal}
+
+앞의 두 절에서 필요한 두 사전을 마련했다.
+\[
+\begin{array}{c|c}
+\text{체의 층} & \text{군의 층}\\
+\hline
+\text{단위근 첨가} & \text{아벨 갈루아군}\\
+\text{소수차 근호첨가} & \text{소수차 순환군}\\
+\text{아르틴--슈라이어 첨가} & \text{표수 }p\text{의 순환군}\\
+\text{근호탑} & \text{순환 인자군을 갖는 정규열}
+\end{array}
+\]
+이제 두 층 구조가 정확히 대응함을 보인다.
+
+\begin{theorem}[갈루아의 근호해법 판정]
+\label{thm:solvable-iff-radicals}
+유한 체확장 $L/K$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $L/K$는 가해확장이다.
+  \item $L/K$는 근호로 풀린다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proofidea}
+가해 갈루아군의 정규열을 소수차 순환 인자군들로 세분한다. 필요한 단위근들을 먼저 첨가하면 각 순환 인자군은 Kummer 근호 또는 아르틴--슈라이어 근 하나에 대응한다. 역방향에서는 근호 한 단계의 정상폐포가 아벨 또는 순환 갈루아군을 갖는다는 사실을 사용하고, 확장탑에 대한 가해성의 보존을 적용한다.
+\end{proofidea}
+
+\begin{proof}
+먼저 $L/K$가 가해라고 하자. $L$을 포함하는 유한 가해 갈루아확장 $E/K$를 택한다. $E/K$의 차수를 나누는 소수 가운데 $\charac K$와 다른 것들의 곱을 $m$이라 하자. 원시 $m$차 단위근을 $\zeta_m$이라 두고
+\[
+  F=K(\zeta_m)
+\]
+라 하자. $F/K$는 단위근을 한 번 첨가한 근호 단계이다.
+
+합성체 $FE/F$는 유한 갈루아확장이고 그 갈루아군은 $\Gal(E/K)$의 부분군과 동형이므로 가해군이다. 정리 \ref{thm:prime-cyclic-refinement}에 의해
+\[
+  \Gal(FE/F)=G_0\trianglerighteq G_1
+  \trianglerighteq\cdots\trianglerighteq G_r=1
+\]
+인 정규열을 택할 수 있고, 각 인자군 $G_i/G_{i+1}$은 어떤 소수 $p_i$에 대한 $C_{p_i}$이다.
+
+갈루아 대응으로 이 정규열은
+\[
+  F=F_0\subseteq F_1\subseteq\cdots\subseteq F_r=FE,
+  \qquad
+  F_i=(FE)^{G_i}
+\]
+에 대응하며
+\[
+  \Gal(F_{i+1}/F_i)\cong G_i/G_{i+1}\cong C_{p_i}.
+\]
+$p_i\ne\charac K$이면 $p_i$가 $[FE:F]$를 나누고 따라서 $[E:K]$도 나누므로 $p_i\mid m$이다. 그러므로 $F_i$는 원시 $p_i$차 단위근을 포함한다. 순환 Kummer 정리에 의해
+\[
+  F_{i+1}=F_i(\alpha_i),
+  \qquad
+  \alpha_i^{p_i}\in F_i.
+\]
+$p_i=\charac K=p$이면 아르틴--슈라이어 정리에 의해
+\[
+  F_{i+1}=F_i(\alpha_i),
+  \qquad
+  \alpha_i^p-\alpha_i\in F_i.
+\]
+따라서 $F\subseteq FE$는 근호탑이고, 앞의 $K\subseteq F$와 이어 붙이면 $E$, 따라서 $L$을 포함하는 근호탑을 얻는다.
+
+이제 $L/K$가 근호로 풀린다고 하자. 확장탑 성질 때문에 근호탑의 각 한 단계가 가해임을 보이면 충분하다.
+
+유형 (i)에서 $K(\zeta_n)/K$는 $X^n-1$의 서로 다른 근들 가운데 하나를 첨가한 확장이다. 모든 $K$-켤레는 $\zeta_n$의 거듭제곱이고 같은 체에 들어가므로 이 확장은 갈루아이며, 갈루아군은 $(\Z/n\Z)^\times$의 부분군으로 들어가 아벨군이다.
+
+유형 (iii)에서 $\alpha^p-\alpha=a$이면 모든 근은
+\[
+  \alpha+c\qquad(c\in\F_p)
+\]
+이고 $K(\alpha)$ 안에 들어간다. 따라서 $K(\alpha)/K$는 자명하거나 차수 $p$인 순환 갈루아확장이다.
+
+유형 (ii)에서 $\alpha^n=a\in K$이고 $\charac K\nmid n$이라 하자. $F=K(\zeta_n)$을 택하면
+\[
+  F(\alpha)
+\]
+는 $X^n-a$와 $X^n-1$의 분해체이므로 $K$ 위 갈루아이다. 제한사상은 정확열
+\[
+  1\longrightarrow\Gal(F(\alpha)/F)
+  \longrightarrow\Gal(F(\alpha)/K)
+  \longrightarrow\Gal(F/K)
+\]
+을 준다. 첫 군은 순환군의 부분군이고 마지막 군은 아벨군이다. 핵과 몫이 가해이므로 가운데 군도 가해이다. 따라서 부분확장 $K(\alpha)/K$도 가해이다.
+
+모든 근호 단계가 가해임을 보였으므로 확장탑 성질에서 $L/K$가 가해이다.
+\end{proof}
+
+\begin{corollary}[다항식의 판정]
+\label{cor:polynomial-solvable-radicals}
+$f\in K[X]$가 비상수 분리다항식이고 $L$이 그 분해체라 하자. 그러면 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item 방정식 $f(x)=0$은 $K$ 위에서 근호로 풀린다.
+  \item $\Gal(L/K)$는 가해군이다.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+$L/K$는 유한 갈루아확장이므로 가해확장일 필요충분조건이 갈루아군의 가해성이다. 정리 \ref{thm:solvable-iff-radicals}를 적용한다.
+\end{proof}
+
+\subsection{차수가 네 이하인 경우}
+
+\begin{corollary}
+\label{cor:degree-at-most-four-radicals}
+$L/K$가 차수 $4$ 이하인 유한 분리확장이면 $L/K$는 근호로 풀린다. 특히 모든 분리 이차·삼차·사차방정식은 근호로 풀린다.
+\end{corollary}
+
+\begin{proof}
+원시원 정리에 의해 $L=K(\alpha)$로 쓸 수 있다. $\alpha$의 최소다항식의 정상폐포를 $N$이라 하면
+\[
+  \Gal(N/K)\le S_n,
+  \qquad n=[L:K]\le4.
+\]
+$S_n$은 $n\le4$에서 가해이고 그 부분군도 가해이므로 $N/K$, 따라서 $L/K$는 근호로 풀린다.
+\end{proof}
+
+이 결과는 이차·삼차·사차 공식이 존재하는 구조적 이유이다. 공식의 복잡성은 서로 다르지만, 배후의 군들은 모두
+\[
+  S_2,\quad S_3,\quad S_4
+\]
+의 부분군이고 이 세 군이 가해라는 공통된 이유를 갖는다.
+
+\subsection{일반 오차 이상 방정식}
+
+\begin{corollary}[일반방정식의 비가해성]
+\label{cor:generic-equation-not-solvable}
+$n\ge5$일 때 일반 $n$차방정식은 근호로 풀리지 않는다.
+\end{corollary}
+
+\begin{proof}
+대수적으로 독립인 변수 $T_1,\dots,T_n$과 기본대칭식 $s_1,\dots,s_n$을 생각하자. 다항식
+\[
+  f(X)=\prod_{i=1}^n(X-T_i)
+  =X^n-s_1X^{n-1}+\cdots+(-1)^ns_n
+\]
+의 분해체는
+\[
+  k(T_1,\dots,T_n)
+\]
+이고 기준체는
+\[
+  k(s_1,\dots,s_n).
+\]
+갈루아군은 근들을 임의로 순열하는 $S_n$이다. $n\ge5$에서 $S_n$은 가해군이 아니므로 따름정리 \ref{cor:polynomial-solvable-radicals}에 의해 일반방정식은 근호로 풀리지 않는다.
+\end{proof}
+
+\begin{pitfall}
+``일반 $5$차방정식은 근호로 풀리지 않는다''와 ``모든 $5$차방정식은 근호로 풀리지 않는다''는 전혀 다른 명제이다. 예를 들어
+\[
+  X^5-2
+\]
+의 분해체는 $\Q(\zeta_5,\sqrt[5]{2})$이고 갈루아군은 가해군
+\[
+  C_5\rtimes C_4
+\]
+의 부분군이므로 근호로 풀린다. 비가해성은 다항식의 차수만이 아니라 실제 갈루아군에 의해 결정된다.
+\end{pitfall}
+
+\begin{example}[군열과 체열]
+기약 삼차식의 갈루아군이 $S_3$이라고 하자. 정규열
+\[
+  S_3\trianglerighteq A_3\trianglerighteq1
+\]
+의 인자군은 $C_2,C_3$이다. 갈루아 대응에서 첫 단계는 판별식의 제곱근을 첨가하는 이차확장이고, 원시 세제곱근을 준비한 뒤 두 번째 단계는 세제곱근 하나를 첨가하는 순환 삼차확장이다. 이것이 Cardano 공식의 군론적 뼈대이다.
+\end{example}
+
+\begin{keyidea}
+갈루아의 핵심 정리는 근호공식의 존재를 정확한 군론적 조건으로 바꾼다.
+\[
+  \boxed{
+  f(x)=0\text{이 근호로 풀림}
+  \Longleftrightarrow
+  \Gal(f/K)\text{가 가해군}.}
+\]
+따라서 문제는 더 이상 ``공식을 어떻게 추측할까''가 아니라 ``갈루아군에 순환 인자군의 정규열이 존재하는가''가 된다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 갈루아군이 $D_5$인 기약 오차식은 왜 근호로 풀리는가?
+  \item 갈루아군이 $A_5$인 오차식은 왜 근호로 풀리지 않는가?
+  \item $X^7-2$의 분해체가 가해확장임을 $C_7\rtimes(\Z/7\Z)^\times$의 구조로 설명하라.
+\end{enumerate}
+\end{checkpoint}

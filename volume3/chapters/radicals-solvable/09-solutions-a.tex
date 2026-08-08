@@ -1,0 +1,381 @@
+\clearpage
+\section{선별 문제 풀이 I}
+\label{sec:radicals-solvable-solutions-a}
+
+\subsection*{문제 \thechapter.1: $S_3$과 $S_4$의 도함열}
+
+\begin{solution}
+일반적으로
+\[
+  [S_n,S_n]=A_n.
+\]
+따라서
+\[
+  S_3^{(1)}=A_3.
+\]
+$A_3\cong C_3$은 아벨군이므로
+\[
+  S_3^{(2)}=[A_3,A_3]=1.
+\]
+결국
+\[
+  S_3\trianglerighteq A_3\trianglerighteq1
+\]
+이 도함열이고 도함길이는 $2$이다.
+
+$S_4$에서는
+\[
+  S_4^{(1)}=A_4.
+\]
+또한
+\[
+  [A_4,A_4]=V_4.
+\]
+$V_4\cong C_2\times C_2$는 아벨군이므로
+\[
+  S_4^{(3)}=[V_4,V_4]=1.
+\]
+따라서 도함열은
+\[
+  \boxed{
+  S_4\trianglerighteq A_4\trianglerighteq V_4
+  \trianglerighteq1}
+\]
+이고 도함길이는 $3$이다. 이 경우 제시된 정규열이 바로 도함열이다. 인자군은 차례로
+\[
+  C_2,\qquad C_3,\qquad V_4
+\]
+이며, 마지막 $V_4$를 다시 $C_2$ 인자들로 세분할 수 있다.
+\end{solution}
+
+\subsection*{문제 \thechapter.3: $X^3-2$의 분해체}
+
+\begin{solution}
+$\alpha=\sqrt[3]{2}$, $\zeta=\zeta_3$라 하자. $X^3-2$는 $2$에 대한 아이젠슈타인 판정으로 기약이므로
+\[
+  [\Q(\alpha):\Q]=3.
+\]
+$\Q(\alpha)\subset\R$이지만 $\zeta\notin\R$이므로
+\[
+  [L:\Q(\alpha)]=2,
+  \qquad
+  [L:\Q]=6.
+\]
+
+자동동형을
+\[
+  \sigma(\alpha)=\zeta\alpha,
+  \quad \sigma(\zeta)=\zeta,
+\]
+\[
+  \tau(\alpha)=\alpha,
+  \quad \tau(\zeta)=\zeta^2
+\]
+로 정의하면
+\[
+  \sigma^3=\tau^2=1,
+  \qquad
+  \tau\sigma\tau^{-1}=\sigma^{-1}.
+\]
+따라서
+\[
+  \Gal(L/\Q)
+  =\langle\sigma,\tau\rangle
+  \cong C_3\rtimes C_2\cong S_3.
+\]
+
+정규부분군 $A_3=\langle\sigma\rangle$의 고정체는 차수 $2$이고 $\sigma$가 $\zeta$를 고정하므로
+\[
+  L^{A_3}=\Q(\zeta)=\Q(\sqrt{-3}).
+\]
+따라서 군열과 체열은
+\[
+\begin{array}{ccccc}
+S_3&\trianglerighteq&A_3&\trianglerighteq&1\\
+\rotatebox{90}{$\leftrightarrow$}&&\rotatebox{90}{$\leftrightarrow$}&&\rotatebox{90}{$\leftrightarrow$}\\
+\Q&\subset&\Q(\zeta)&\subset&L
+\end{array}
+\]
+이다.
+
+마지막으로
+\[
+  \Q\subset\Q(\zeta)
+  \subset\Q(\zeta,\alpha)
+\]
+는 근호탑이다. 첫 단계는 단위근 첨가이고, 둘째 단계는
+\[
+  \alpha^3=2\in\Q(\zeta)
+\]
+인 세제곱근 첨가이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.5: $X^5-4X+2$}
+
+\begin{solution}
+(a) 소수 $2$를 사용한다. 최고차계수는 $2$로 나누어지지 않고, 나머지 모든 계수는 $2$로 나누어지며, 상수항 $2$는 $4$로 나누어지지 않는다. 따라서 아이젠슈타인 판정으로 $f$는 $\Q$ 위에서 기약이다.
+
+(b) 도함수는
+\[
+  f'(x)=5x^4-4.
+\]
+임계점은
+\[
+  x=\pm a,
+  \qquad
+  a=\left(\frac45\right)^{1/4}.
+\]
+$a^5=\frac45a$이므로
+\[
+  f(-a)=2+\frac{16}{5}a>0,
+\]
+\[
+  f(a)=2-\frac{16}{5}a<0.
+\]
+또한
+\[
+  \lim_{x\to-\infty}f(x)=-\infty,
+  \qquad
+  \lim_{x\to\infty}f(x)=\infty.
+\]
+$f'$의 부호는
+\[
+  (+)\quad(-)\quad(+)
+\]
+로 바뀌므로 $f$는 세 단조구간 각각에서 영점을 하나씩 갖는다. 따라서 실근은 정확히 세 개이고, 나머지 두 근은 서로 켤레인 비실근이다.
+
+(c) 차수 $5$는 소수이고 $f$는 기약이다. 갈루아군이 가해라고 가정하면 서로 다른 두 실근이 분해체 전체를 생성해야 하므로 분해체가 실수체 안에 들어간다. 그러나 비실근도 분해체에 들어가야 하므로 모순이다. 따라서 근호로 풀리지 않는다.
+
+(d) 기약성 때문에 갈루아군 $G\le S_5$는 추이적이고, 따라서 $5$-Sylow 부분군의 비항등원인 $5$-순환을 포함한다. 복소켤레는 두 비실근을 맞바꾸고 세 실근을 고정하므로 전치이다.
+
+$5$-순환을 $c=(1\,2\,3\,4\,5)$, 전치를 $(i\,j)$라 하자. $c$의 거듭제곱으로 켤레를 취하면 같은 간격의 전치들이 모두 $G$에 들어간다. $5$가 소수이므로 이 간격은 모든 점을 연결하고, 이 전치들이 $S_5$를 생성한다. 따라서
+\[
+  \boxed{\Gal(f/\Q)\cong S_5.}
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.7: $X^3-3X+1$}
+
+\begin{solution}
+여기서는
+\[
+  p=-3,\qquad q=1.
+\]
+판별식은
+\[
+  \Delta=-4(-3)^3-27=108-27=81=9^2.
+\]
+유리근 후보 $\pm1$은 근이 아니므로 다항식은 기약이다. 판별식이 제곱이므로 갈루아군은
+\[
+  A_3\cong C_3
+\]
+이다.
+
+Cardano의 보조량은
+\[
+  D=\left(\frac q2\right)^2+\left(\frac p3\right)^3
+  =\frac14-1=-\frac34.
+\]
+따라서
+\[
+  u^3=-\frac12+\frac{\sqrt{-3}}2=\zeta_3,
+\]
+\[
+  v^3=-\frac12-\frac{\sqrt{-3}}2=\zeta_3^2.
+\]
+또한
+\[
+  uv=-\frac p3=1
+\]
+이어야 한다.
+
+$\zeta_9=e^{2\pi i/9}$를 택하고 $\zeta_3=\zeta_9^3$이라 두면
+\[
+  u=\zeta_9,\qquad v=\zeta_9^{-1}
+\]
+가 조건을 만족한다. 따라서 세 근은
+\[
+  x_1=\zeta_9+\zeta_9^{-1}
+  =2\cos\frac{2\pi}{9},
+\]
+\[
+  x_2=\zeta_3^2\zeta_9+\zeta_3\zeta_9^{-1}
+  =2\cos\frac{4\pi}{9},
+\]
+\[
+  x_3=\zeta_3\zeta_9+\zeta_3^2\zeta_9^{-1}
+  =2\cos\frac{8\pi}{9}.
+\]
+세 값의 합은 $0$, 두 근씩의 곱의 합은 $-3$, 곱은 $-1$이므로 Vieta 관계와 일치한다.
+\end{solution}
+
+\subsection*{문제 \thechapter.9: $X^4-5X^2+6$}
+
+\begin{solution}
+$p=-5$, $q=0$, $r=6$이다. 삼차분해식은
+\[
+\begin{aligned}
+R_f(Z)
+&=Z^3-2pZ^2+(p^2-4r)Z+q^2\\
+&=Z^3+10Z^2+Z\\
+&=Z(Z^2+10Z+1).
+\end{aligned}
+\]
+따라서
+\[
+  z_1=0,
+  \qquad
+  z_2=-5+2\sqrt6,
+  \qquad
+  z_3=-5-2\sqrt6.
+\]
+그런데
+\[
+  -z_2=5-2\sqrt6=(\sqrt3-\sqrt2)^2,
+\]
+\[
+  -z_3=5+2\sqrt6=(\sqrt3+\sqrt2)^2.
+\]
+따라서
+\[
+  a=0,\qquad
+  b=\sqrt3-\sqrt2,\qquad
+  c=\sqrt3+\sqrt2
+\]
+로 택할 수 있다. $q=0$이므로 $abc=-q=0$도 만족한다.
+
+복원식은
+\[
+\begin{aligned}
+\frac12(a+b+c)&=\sqrt3,\\
+\frac12(a-b-c)&=-\sqrt3,\\
+\frac12(-a+b-c)&=-\sqrt2,\\
+\frac12(-a-b+c)&=\sqrt2.
+\end{aligned}
+\]
+따라서 네 근은
+\[
+  \boxed{\pm\sqrt2,\quad\pm\sqrt3}
+\]
+이다. 이는 처음부터
+\[
+  X^4-5X^2+6=(X^2-2)(X^2-3)
+\]
+로 인수분해한 결과와 일치한다.
+\end{solution}
+
+\subsection*{문제 \thechapter.11: 교환자부분군의 보편 성질}
+
+\begin{solution}
+임의의 $g,a,b\in G$에 대해
+\[
+  g[a,b]g^{-1}
+  =[gag^{-1},gbg^{-1}]
+\]
+이다. 따라서 모든 교환자들이 생성하는 부분군 $[G,G]$는 켤레에 닫혀 있고 정규부분군이다.
+
+몫군에서
+\[
+  \overline a\,\overline b\,
+  \overline a^{-1}\,\overline b^{-1}
+  =\overline{[a,b]}=1
+\]
+이므로
+\[
+  \overline a\,\overline b
+  =\overline b\,\overline a.
+\]
+따라서 $G/[G,G]$는 아벨군이다.
+
+이제 $N\triangleleft G$이고 $G/N$이 아벨이라고 하자. 모든 $a,b\in G$에 대해
+\[
+  (aN)(bN)=(bN)(aN)
+\]
+이므로
+\[
+  aba^{-1}b^{-1}\in N.
+\]
+즉 모든 교환자가 $N$에 들어가고, 그들이 생성하는 부분군도 들어간다.
+\[
+  \boxed{[G,G]\subseteq N.}
+\]
+따라서 $[G,G]$는 아벨 몫을 만드는 가장 작은 정규부분군이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.13: 도함열 판정}
+
+\begin{solution}
+먼저 $G$가 가해라고 하고
+\[
+  G=G_0\trianglerighteq G_1\trianglerighteq\cdots
+  \trianglerighteq G_r=1
+\]
+이 아벨 인자군을 갖는 정규열이라고 하자. 귀납법으로
+\[
+  G^{(i)}\subseteq G_i
+\]
+를 보인다. $i=0$은 자명하다. $G_i/G_{i+1}$가 아벨이므로
+\[
+  [G_i,G_i]\subseteq G_{i+1}.
+\]
+따라서
+\[
+\begin{aligned}
+  G^{(i+1)}
+  &=[G^{(i)},G^{(i)}]\\
+  &\subseteq[G_i,G_i]\\
+  &\subseteq G_{i+1}.
+\end{aligned}
+\]
+결국
+\[
+  G^{(r)}\subseteq G_r=1.
+\]
+
+반대로 어떤 $r$에 대해 $G^{(r)}=1$이라고 하자. 도함열
+\[
+  G=G^{(0)}\trianglerighteq G^{(1)}
+  \trianglerighteq\cdots\trianglerighteq G^{(r)}=1
+\]
+에서 각 인자군
+\[
+  G^{(i)}/G^{(i+1)}
+\]
+는 정의상 아벨이다. 따라서 이 도함열은 가해 정규열이고 $G$는 가해군이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.15: 소수차 순환 인자군으로의 세분}
+
+\begin{solution}
+$G$가 유한 가해군이면 아벨 인자군을 갖는 정규열
+\[
+  G=G_0\trianglerighteq\cdots\trianglerighteq G_r=1
+\]
+이 존재한다. 어떤 비자명한 인자군
+\[
+  A=G_i/G_{i+1}
+\]
+이 소수차 순환군이 아니라고 하자.
+
+유한 아벨군 $A$에는 소수차 부분군 $C$가 존재한다. 예를 들어 비항등원 하나를 택하고 그 위수의 소인수 $\ell$에 대해 적당한 거듭제곱을 취하면 위수 $\ell$인 원소를 얻는다. $A$가 아벨이므로 $C\triangleleft A$이다.
+
+몫사상
+\[
+  \pi:G_i\to A
+\]
+에서 $H=\pi^{-1}(C)$라 두면
+\[
+  G_i\trianglerighteq H\trianglerighteq G_{i+1}.
+\]
+또한
+\[
+  H/G_{i+1}\cong C
+\]
+는 소수차 순환군이고
+\[
+  G_i/H\cong A/C
+\]
+는 더 작은 유한 아벨군이다. 따라서 원래 한 인자군을 더 작은 아벨 인자군 둘로 세분했다.
+
+이 과정을 반복할 때마다 아직 처리되지 않은 인자군의 위수가 엄격히 감소한다. 원래 군 $G$가 유한이므로 가능한 위수들의 곱이 유한하고, 무한히 엄격한 세분은 불가능하다. 결국 모든 인자군이 소수차 순환군이 된다.
+\end{solution}

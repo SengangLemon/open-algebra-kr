@@ -1,0 +1,325 @@
+\clearpage
+\section{선별 문제 풀이 II}
+\label{sec:radicals-solvable-solutions-b}
+
+\subsection*{문제 \thechapter.17: 기준체 확대와 확장탑}
+
+\begin{solution}
+먼저 $L/K$가 가해확장이라고 하자. $L\subseteq E$이고 $E/K$가
+유한 갈루아확장이며 $G=\Gal(E/K)$가 가해군인 $E$를 택한다.
+임의의 체확장 $F/K$에 대해 $FE/F$는 유한 갈루아확장이고 제한사상
+\[
+  \Gal(FE/F)\longrightarrow\Gal(E/K)
+\]
+은 단사이다. 따라서 $\Gal(FE/F)$는 가해군의 부분군이고 가해군이다.
+$FL\subseteq FE$이므로 $FL/F$도 가해확장이다.
+
+$L/K$가 근호로 풀리는 경우에는 $L$을 포함하는 근호탑
+\[
+  K=E_0\subseteq E_1\subseteq\cdots\subseteq E_r
+\]
+의 각 체에 $F$를 합성한다. 그러면
+\[
+  F=FE_0\subseteq FE_1\subseteq\cdots\subseteq FE_r
+\]
+이고, 단위근 첨가, $\alpha^n\in E_i$, 또는
+$\alpha^p-\alpha\in E_i$라는 관계는 기준체 확대 뒤에도 유지된다.
+따라서 $FL/F$도 근호로 풀린다.
+
+이제 $K\subseteq L\subseteq M$이 유한확장탑이라고 하자. $M/K$가
+가해이면 $M$을 포함하는 가해 갈루아확장 하나가 $L/K$의 가해성도
+보인다. 또한 이를 $L$로 기준체 확대하면 $M/L$도 가해이다.
+
+반대로 $L/K$와 $M/L$가 가해라고 하자. $L$을 포함하는 가해
+갈루아확장 $E/K$를 택한다. 기준체 확대에 의해 $EM/E$가 가해이고,
+이를 포함하는 유한 가해 갈루아확장 $N/E$를 택할 수 있다. $N/K$의
+정상폐포를 $\widetilde N$이라 하면
+\[
+  1\longrightarrow\Gal(\widetilde N/E)
+  \longrightarrow\Gal(\widetilde N/K)
+  \longrightarrow\Gal(E/K)
+\]
+에서 오른쪽 상은 가해군이다. 왼쪽 군은 $N/E$의 여러 $K$-켤레들의
+갈루아군 직접곱의 부분군으로 들어가므로 역시 가해군이다. 가해 핵과
+가해 몫을 갖는 군은 가해이므로 $M/K$도 가해이다.
+
+근호해법의 역방향 탑 성질도 같은 방식으로 얻는다. $L/K$의 근호탑
+마지막 체를 $E$라 하고 $M/L$의 근호탑을 $E$로 기준체 확대한다.
+두 탑을 이어 붙이면 $M$을 포함하는 $K$ 위의 근호탑이 된다.
+\end{solution}
+
+\subsection*{문제 \thechapter.19: 가해확장과 근호해법의 동치}
+
+\begin{solution}
+$L/K$가 가해확장이라고 하자. $L\subseteq E$이고 $E/K$가 유한
+갈루아확장이며 $G=\Gal(E/K)$가 가해군인 $E$를 택한다. $|G|$의
+소인수 가운데 $\charac K$와 다른 것들의 곱을 $m$이라 하고
+\[
+  F=K(\zeta_m)
+\]
+라 둔다. $FE/F$는 유한 가해 갈루아확장이다.
+
+가해군의 세분정리에 의해
+\[
+  \Gal(FE/F)=G_0\trianglerighteq G_1
+  \trianglerighteq\cdots\trianglerighteq G_r=1
+\]
+이고 각 인자군이 소수차 순환군
+$G_i/G_{i+1}\cong C_{p_i}$인 정규열을 택할 수 있다. 갈루아 대응은
+이를
+\[
+  F=F_0\subseteq F_1\subseteq\cdots\subseteq F_r=FE
+\]
+로 바꾸며 $\Gal(F_{i+1}/F_i)\cong C_{p_i}$이다.
+
+$p_i\ne\charac K$이면 $p_i\mid m$이므로 $F_i$는 원시 $p_i$차
+단위근을 포함한다. Kummer형 순환확장 정리에 따라
+\[
+  F_{i+1}=F_i(\alpha_i),
+  \qquad \alpha_i^{p_i}\in F_i.
+\]
+$p_i=\charac K=p$이면 아르틴--슈라이어 정리에 따라
+\[
+  F_{i+1}=F_i(\alpha_i),
+  \qquad \alpha_i^p-\alpha_i\in F_i.
+\]
+따라서 $F\subseteq FE$는 근호탑이고, 앞의 단위근 단계
+$K\subseteq F$와 이어 붙이면 $L$을 포함하는 근호탑을 얻는다.
+
+역으로 $L/K$가 근호로 풀린다고 하자. 근호 한 단계가 가해임을
+보이면 충분하다. 단위근 첨가체 $K(\zeta_n)/K$는 갈루아군이
+$(\Z/n\Z)^\times$의 부분군이므로 아벨 갈루아확장이다.
+
+$\charac K=p>0$이고 $\alpha^p-\alpha=a\in K$이면 모든 근은
+$\alpha+c$ $(c\in\F_p)$이므로 $K(\alpha)/K$는 자명하거나 차수
+$p$의 순환 갈루아확장이다.
+
+마지막으로 $\alpha^n=a\in K$이고 $\charac K\nmid n$이라 하자.
+$F=K(\zeta_n)$이면 $F(\alpha)$는 $X^n-a$의 분해체이다. 제한사상에서
+핵 $\Gal(F(\alpha)/F)$은 순환군의 부분군이고 상은 아벨군
+$\Gal(F/K)$의 부분군이다. 따라서 $\Gal(F(\alpha)/K)$는 가해군이고
+$K(\alpha)/K$는 가해확장이다.
+
+가해성은 확장탑에서 보존되므로 전체 근호탑도 가해이다. 따라서
+\[
+  \boxed{
+  L/K\text{가 가해}
+  \quad\Longleftrightarrow\quad
+  L/K\text{가 근호로 풀린다}.}
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.21: 가해 소수차 추이군의 아핀 구조}
+
+\begin{solution}
+$G\le S_p$가 $p$개의 점에 추이적으로 작용하므로 $p\mid|G|$이다.
+또한 $p^2\nmid p!$이므로 $G$의 $p$-Sylow 부분군의 위수는 정확히
+$p$이다.
+
+$G$가 가해이므로 소수차 순환 인자군을 갖는 정규열
+\[
+  G=G_0\trianglerighteq G_1\trianglerighteq\cdots
+  \trianglerighteq G_r=1
+\]
+을 택한다. 소수개의 점에 추이적으로 작용하는 군의 비자명한
+정규부분군은 다시 추이적이다. 실제로 정규부분군의 궤도들은 모두
+같은 크기이고 그 크기는 $1$ 또는 $p$인데, 크기 $1$이면 그 부분군이
+모든 점을 고정하여 자명하다.
+
+따라서 마지막 비자명한 항 $G_{r-1}$은 추이적인 소수차 순환군이고,
+그 위수는 $p$이다. $p$는 $|G|$에서 한 번만 나타나므로 모든
+$p$-부분군은 $G_{r-1}$과 같아야 한다. 즉
+\[
+  H:=G_{r-1}
+\]
+은 유일한 정규 $p$-Sylow 부분군이다.
+
+점 집합을 $\F_p$와 동일시하여 $H$의 생성원을
+\[
+  \pi(x)=x+1
+\]
+로 둔다. $H\triangleleft G$이므로 임의의 $\sigma\in G$에 대해
+\[
+  \sigma\pi\sigma^{-1}=\pi^a
+\]
+인 $a\in\F_p^\times$가 존재한다. $b=\sigma(0)$이라 하면
+\[
+  \sigma(x+1)=\sigma(x)+a.
+\]
+귀납적으로 $\sigma(x)=ax+b$를 얻는다. 그러므로
+\[
+  \boxed{G\le\operatorname{AGL}(1,p)
+  =\F_p\rtimes\F_p^\times.}
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.23: $X^7-6X+3$의 비가해성}
+
+\begin{solution}
+소수 $3$에 대한 아이젠슈타인 판정법을 적용하면
+\[
+  f(X)=X^7-6X+3
+\]
+는 $\Q$ 위에서 기약이다.
+
+도함수는
+\[
+  f'(x)=7x^6-6
+\]
+이고 임계점은
+\[
+  x=\pm a,
+  \qquad
+  a=\left(\frac67\right)^{1/6}
+\]
+이다. $a^7=(6/7)a$이므로
+\[
+  f(-a)=3+\frac{36}{7}a>0,
+  \qquad
+  f(a)=3-\frac{36}{7}a<0.
+\]
+여기서 $a>6/7$이므로
+\[
+  \frac{36}{7}a>
+  \frac{216}{49}>3.
+\]
+$f'$는 $(-\infty,-a)$와 $(a,\infty)$에서 양수이고 $(-a,a)$에서
+음수이다. 양 끝에서의 극한과 위 부호를 함께 사용하면 세 단조구간
+각각에 영점이 정확히 하나씩 있다. 따라서 실근은 정확히 세 개이고
+나머지 네 근은 비실근이다.
+
+$f$는 소수차 $7$의 기약 분리다항식이다. 갈루아군이 가해라면 서로
+다른 두 실근이 분해체 전체를 생성해야 하므로 분해체가 $\R$ 안에
+들어간다. 그러나 분해체는 비실근도 포함해야 하므로 모순이다. 따라서
+\[
+  \boxed{f(x)=0\text{은 근호로 풀리지 않는다}.}
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.25: 갈루아군 $D_5$인 오차식}
+
+\begin{solution}
+정오각형의 회전부분군 $C_5$는 $D_5$에서 지수 $2$인 정규부분군이다.
+따라서
+\[
+  D_5\trianglerighteq C_5\trianglerighteq1
+\]
+은 인자군 $C_2,C_5$를 갖는 가해 정규열이다.
+
+분해체를 $L$, 기준체를 $K$라 하고 $E=L^{C_5}$라 두면
+\[
+  K\subseteq E\subseteq L,
+  \qquad [E:K]=2,\quad [L:E]=5,
+\]
+\[
+  \Gal(E/K)\cong C_2,
+  \qquad \Gal(L/E)\cong C_5.
+\]
+$\charac K\ne2,5$인 경우 첫 층은 어떤 $d\in K$에 대해
+$E=K(\sqrt d)$로 쓸 수 있다. 이어 원시 다섯제곱근을 첨가한
+$E'=E(\zeta_5)$로 기준체를 확대하면 Kummer 정리에 의해
+\[
+  LE'=E'(\alpha),
+  \qquad \alpha^5\in E'.
+\]
+따라서 분해체는
+\[
+  K\subset K(\sqrt d)
+  \subset K(\sqrt d,\zeta_5)
+  \subset K(\sqrt d,\zeta_5,\alpha)
+\]
+인 근호탑 안에 들어간다. 표수가 $2$ 또는 $5$이면 해당 순환층을
+아르틴--슈라이어 층으로 바꾸면 된다.
+\end{solution}
+
+\subsection*{문제 \thechapter.27: 갈루아군 $A_5$인 오차식}
+
+\begin{solution}
+$\charac K\ne2$라 가정한다. 판별식의 제곱근
+\[
+  \delta=\prod_{i<j}(\alpha_i-\alpha_j)
+\]
+은 짝순열에 의해 고정된다. 갈루아군이 $A_5$이면 모든 갈루아군
+원소가 $\delta$를 고정하므로 $\delta\in K$이고
+\[
+  \Disc(f)=\delta^2\in K^{\times2}.
+\]
+
+그러나 $A_5$는 완전군이다.
+\[
+  [A_5,A_5]=A_5.
+\]
+따라서 도함열이 $1$에 도달하지 않아 $A_5$는 가해군이 아니다.
+갈루아의 근호해법 판정에 따라 $f$는 근호로 풀리지 않는다.
+
+판별식이 제곱이라는 조건은 단지 $G\le A_5$임을 뜻한다. $A_5$ 안에는
+$C_5$와 $D_5$ 같은 가해 추이적 부분군도 있으므로, 제곱 판별식만으로
+근호해법의 존재를 결정할 수는 없다.
+\end{solution}
+
+\subsection*{문제 \thechapter.30: 사차분해식과 근의 복원}
+
+\begin{solution}
+우울형 사차식
+\[
+  f(X)=X^4+pX^2+qX+r
+\]
+의 근을 $x_1,x_2,x_3,x_4$라 하고
+\[
+\begin{aligned}
+ z_1&=(x_1+x_2)(x_3+x_4),\\
+ z_2&=(x_1+x_3)(x_2+x_4),\\
+ z_3&=(x_1+x_4)(x_2+x_3)
+\end{aligned}
+\]
+라 둔다. Vieta 관계를 사용해 전개하면
+\[
+  z_1+z_2+z_3=2p,
+\]
+\[
+  z_1z_2+z_1z_3+z_2z_3=p^2-4r,
+\]
+\[
+  z_1z_2z_3=-q^2.
+\]
+따라서 $z_1,z_2,z_3$은
+\[
+  \boxed{Z^3-2pZ^2+(p^2-4r)Z+q^2}
+\]
+의 세 근이다.
+
+근의 합이 $0$이므로
+\[
+  z_1=-(x_1+x_2)^2,
+  \quad z_2=-(x_1+x_3)^2,
+  \quad z_3=-(x_1+x_4)^2.
+\]
+제곱근의 부호를
+\[
+  a=x_1+x_2,
+  \qquad b=x_1+x_3,
+  \qquad c=x_1+x_4
+\]
+가 되도록 택하면
+\[
+  a^2=-z_1,\qquad b^2=-z_2,\qquad c^2=-z_3
+\]
+이고
+\[
+  abc=\sum_{i<j<k}x_ix_jx_k=-q.
+\]
+선형연립방정식을 풀면
+\[
+\begin{aligned}
+ x_1&=\frac12(a+b+c),\\
+ x_2&=\frac12(a-b-c),\\
+ x_3&=\frac12(-a+b-c),\\
+ x_4&=\frac12(-a-b+c).
+\end{aligned}
+\]
+
+$S_4$가 세 쌍분할에 작용하는 핵은 $V_4$이고
+$S_4/V_4\cong S_3$이다. 따라서 삼차분해식을 푸는 단계는 $S_3$
+몫작용을 해결하고, 이어 $\sqrt{-z_i}$를 첨가하는 단계는 남은
+$V_4$ 층을 두 이차층으로 해소한다.
+\end{solution}
