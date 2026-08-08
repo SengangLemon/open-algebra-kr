@@ -1,0 +1,180 @@
+\clearpage
+\section{정다각형과 원분체}
+\label{sec:construction-regular-polygons}
+
+\begin{learninggoal}
+정$n$각형의 작도가능성을 원시 $n$차 단위근과 원분체의 차수로 판정한다. 가우스--방첼 정리를 증명하고 페르마 소수와의 관계를 설명한다.
+\end{learninggoal}
+
+단위원에 내접한 정$n$각형의 꼭짓점은
+\[
+  1,\zeta_n,\zeta_n^2,\dots,\zeta_n^{n-1},
+  \qquad
+  \zeta_n=e^{2\pi i/n}
+\]
+이다. 따라서 정$n$각형의 작도문제는 원시 $n$차 단위근 $\zeta_n$의 작도가능성 문제이다.
+
+\begin{proposition}
+$n\ge3$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item 정$n$각형을 자와 컴퍼스로 작도할 수 있다.
+  \item $\zeta_n$이 작도가능하다.
+  \item $\cos(2\pi/n)$과 $\sin(2\pi/n)$이 모두 작도가능하다.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+정$n$각형을 작도하면 인접한 두 꼭짓점 중 하나를 $1$로 놓았을 때 다음 꼭짓점이 $\zeta_n$이다. 역으로 $\zeta_n$을 작도하면 그 거듭제곱을 복소수 곱셈으로 차례로 작도하여 모든 꼭짓점을 얻는다. 마지막 두 조건은
+\[
+  \zeta_n=\cos(2\pi/n)+i\sin(2\pi/n)
+\]
+과 실수부·허수부의 작도가능성에서 동치이다.
+\end{proof}
+
+\subsection{오일러 함수 판정}
+
+\begin{theorem}[정다각형 작도 판정]
+\label{thm:regular-polygon-phi}
+$n\ge3$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item 정$n$각형은 작도가능하다.
+  \item $\varphi(n)$은 $2$의 거듭제곱이다.
+  \item 원분체 $\Q(\zeta_n)/\Q$의 갈루아군은 $2$-군이다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+원분체는 갈루아 확장이고
+\[
+  [\Q(\zeta_n):\Q]=\varphi(n),
+  \qquad
+  \Gal(\Q(\zeta_n)/\Q)\cong(\Z/n\Z)^\times.
+\]
+$\zeta_n$의 최소다항식은 원분다항식 $\Phi_n$이고 그 분해체가 바로 $\Q(\zeta_n)$이다. 따라서 최소다항식의 분해체 판정에 의해 $\zeta_n$이 작도가능할 필요충분조건은 이 분해체의 차수가 $2$의 거듭제곱인 것이다.
+\end{proof}
+
+\begin{example}
+\[
+\begin{array}{c|rrrrrrrrrrrrrrr}
+ n&3&4&5&6&7&8&9&10&11&12&13&14&15&16&17\\
+\hline
+ \varphi(n)&2&2&4&2&6&4&6&4&10&4&12&6&8&8&16
+\end{array}
+\]
+따라서 정$3,4,5,6,8,10,12,15,16,17$각형은 작도가능하지만, 정$7,9,11,13,14$각형은 작도가능하지 않다.
+\end{example}
+
+\subsection{가우스--방첼 정리}
+
+\begin{definition}[페르마 수와 페르마 소수]
+$r\ge0$에 대해
+\[
+  F_r=2^{2^r}+1
+\]
+을 $r$번째 페르마 수라 한다. $F_r$가 소수이면 이를 페르마 소수라 한다. 예를 들어
+\[
+  3,\ 5,\ 17,\ 257,\ 65537
+\]
+은 페르마 소수이다.
+\end{definition}
+
+\begin{lemma}
+홀수 소수 $p$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $p-1$은 $2$의 거듭제곱이다.
+  \item $p$는 페르마 소수이다.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(ii)$\Rightarrow$(i)는 정의에서 자명하다. 역으로 $p-1=2^m$이라 하자. $m=2^r u$로 쓰되 $u$는 홀수라 하자. 만약 $u>1$이면
+\[
+  p=(2^{2^r})^u+1
+\]
+이고 홀수 $u$에 대해 $a^u+1$은 $a+1$로 나누어지므로 $p$가 합성수가 된다. 따라서 $u=1$이고
+\[
+  p=2^{2^r}+1
+\]
+이다.
+\end{proof}
+
+\begin{theorem}[가우스--방첼 정리]
+\label{thm:gauss-wantzel}
+$n\ge3$에 대해 정$n$각형이 작도가능할 필요충분조건은
+\[
+  n=2^m p_1p_2\cdots p_r
+\]
+로 쓸 수 있는 것이다. 여기서 $m\ge0$이고 $p_1,\dots,p_r$은 서로 다른 페르마 소수이다.
+\end{theorem}
+
+\begin{proof}
+소인수분해를
+\[
+  n=2^m\prod_{j=1}^r q_j^{e_j}
+\]
+로 쓰자. 오일러 함수의 곱셈성과 소수거듭제곱 공식에서
+\[
+  \varphi(n)
+  =\varphi(2^m)\prod_{j=1}^r q_j^{e_j-1}(q_j-1)
+\]
+이다. 이 값이 $2$의 거듭제곱이면 홀수인 $q_j$가 인수로 나타날 수 없으므로 $e_j=1$이어야 한다. 또한 각 $q_j-1$이 $2$의 거듭제곱이어야 하므로 앞의 보조정리에 의해 $q_j$는 페르마 소수이다.
+
+반대로 $n=2^m p_1\cdots p_r$이고 $p_j=2^{2^{a_j}}+1$인 서로 다른 페르마 소수라면
+\[
+  \varphi(n)
+  =\varphi(2^m)\prod_{j=1}^r(p_j-1)
+\]
+은 $2$의 거듭제곱이다. 정리 \ref{thm:regular-polygon-phi}에 의해 정$n$각형은 작도가능하다.
+\end{proof}
+
+\begin{example}
+\begin{itemize}
+  \item $15=3\cdot5$이므로 정$15$각형은 작도가능하다.
+  \item $17$은 페르마 소수이므로 정$17$각형은 작도가능하다.
+  \item $51=3\cdot17$과 $85=5\cdot17$도 조건을 만족한다.
+  \item $9=3^2$은 홀수 페르마 소수의 제곱을 포함하므로 정$9$각형은 작도가능하지 않다.
+  \item $21=3\cdot7$은 $7$이 페르마 소수가 아니므로 정$21$각형은 작도가능하지 않다.
+\end{itemize}
+\end{example}
+
+\subsection{갈루아 대응이 실제 작도를 보장하는 이유}
+
+$\varphi(n)=2^s$이면
+\[
+  G=\Gal(\Q(\zeta_n)/\Q)
+\]
+는 위수 $2^s$인 아벨 $2$-군이다. 따라서
+\[
+  G=G_0\supset G_1\supset\cdots\supset G_s=1,
+  \qquad [G_j:G_{j+1}]=2
+\]
+인 부분군열을 택할 수 있다. 갈루아 대응은 이를
+\[
+  \Q=K_0\subset K_1\subset\cdots\subset K_s=\Q(\zeta_n),
+  \qquad [K_{j+1}:K_j]=2
+\]
+인 이차확장 탑으로 바꾼다. 각 단계가 하나의 제곱근 첨가로 표현되므로 이 정리는 단지 존재론적 판정에 그치지 않고, 원칙적으로 중첩 제곱근을 통한 작도 절차를 제공한다.
+
+\begin{example}[정$17$각형]
+\[
+  \Gal(\Q(\zeta_{17})/\Q)
+  \cong(\Z/17\Z)^\times\cong C_{16}.
+\]
+순환군 $C_{16}$에는
+\[
+  C_{16}\supset C_8\supset C_4\supset C_2\supset1
+\]
+이라는 지수 $2$의 부분군열이 있다. 이에 대응하는 네 번의 이차확장 탑이 $\zeta_{17}$을 포함하므로 정$17$각형은 작도가능하다. 실제 작도식이 길어지는 이유는 이 네 개의 제곱근 단계를 구체적인 좌표식으로 풀어 써야 하기 때문이다.
+\end{example}
+
+\begin{pitfall}
+$\varphi(n)$이 단지 짝수라는 사실은 아무 의미가 없다. $n>2$이면 $\varphi(n)$은 언제나 짝수이다. 필요한 조건은 $\varphi(n)$의 소인수가 오직 $2$뿐이라는 것이다.
+\end{pitfall}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 정$20$각형과 정$24$각형의 작도가능성을 각각 판정하라.
+  \item 정$p$각형이 작도가능한 홀수 소수 $p$는 왜 페르마 소수여야 하는가?
+  \item 정$17$각형의 작도에서 갈루아군의 부분군열은 어떤 역할을 하는가?
+\end{enumerate}
+\end{checkpoint}
