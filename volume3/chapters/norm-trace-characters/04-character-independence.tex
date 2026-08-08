@@ -1,0 +1,172 @@
+\clearpage
+\section{캐릭터와 체매장의 선형독립}
+\label{sec:character-independence}
+
+\begin{learninggoal}
+군에서 체의 곱셈군으로 가는 캐릭터를 정의하고, 서로 다른 캐릭터가 함수공간에서 선형독립이라는 아르틴의 정리를 증명한다. 이를 체매장의 선형독립과 켤레값 행렬의 가역성으로 옮긴다.
+\end{learninggoal}
+
+Chapter 4에서는 힐베르트 정리 90을 증명하기 위해 서로 다른 체매장이 선형독립이라는 사실을 먼저 사용했다. 이제 그 사실을 더 일반적인 군 캐릭터의 정리에서 도출한다.
+
+\begin{definition}[체값 캐릭터]
+군 $G$와 체 $F$가 주어졌을 때 군준동형
+\[
+  \chi:G\longrightarrow F^\times
+\]
+를 $G$의 \emph{$F$-값 캐릭터}(character)라 한다.
+\end{definition}
+
+캐릭터들은 점별 곱셈
+\[
+  (\chi\psi)(g)=\chi(g)\psi(g)
+\]
+에 대해 군을 이룬다. 동시에 각 캐릭터는 함수공간
+\[
+  \operatorname{Map}(G,F)
+\]
+의 원소이므로 캐릭터들 사이의 선형독립을 물을 수 있다.
+
+\begin{example}
+\begin{enumerate}[label=(\roman*)]
+  \item 모든 $g\in G$를 $1$로 보내는 자명한 캐릭터가 있다.
+  \item $a\in F^\times$에 대해
+  \[
+    \chi_a:\Z\to F^\times,\qquad
+    \nu\longmapsto a^\nu
+  \]
+  는 캐릭터이다.
+  \item 체준동형 $\sigma:L\to M$은 곱셈군에 제한하면
+  \[
+    \sigma:L^\times\to M^\times
+  \]
+  인 캐릭터가 된다.
+\end{enumerate}
+\end{example}
+
+\begin{theorem}[아르틴의 캐릭터 선형독립 정리]
+\label{thm:artin-character-independence}
+서로 다른 $F$-값 캐릭터
+\[
+  \chi_1,\dots,\chi_r:G\to F^\times
+\]
+는 $F$-벡터공간 $\operatorname{Map}(G,F)$에서 선형독립이다.
+\end{theorem}
+
+\begin{proofidea}
+가장 짧은 비자명한 선형관계를 가정한다. 두 캐릭터가 다른 값을 갖는 군 원소를 하나 택하여 관계를 이동시킨 뒤, 원래 관계의 적당한 배와 빼면 한 항이 사라진 더 짧은 관계가 생긴다.
+\end{proofidea}
+
+\begin{proof}
+반대로 가정하고, 선형종속인 서로 다른 캐릭터들의 수 $r$을 최소로 택하자.
+\[
+  c_1\chi_1+\cdots+c_r\chi_r=0
+\]
+인 비자명한 관계를 택하면 최소성 때문에 모든 $c_i$는 영이 아니다.
+$\chi_1\ne\chi_2$이므로 어떤 $g\in G$에 대해
+\[
+  \chi_1(g)\ne\chi_2(g)
+\]
+이다. 임의의 $h\in G$에 대해 원래 관계를 $gh$에 적용하면
+\[
+  c_1\chi_1(g)\chi_1(h)+\cdots+
+  c_r\chi_r(g)\chi_r(h)=0.
+\]
+즉 함수관계
+\[
+  c_1\chi_1(g)\chi_1+\cdots+
+  c_r\chi_r(g)\chi_r=0
+\]
+를 얻는다. 원래 관계에 $\chi_1(g)$를 곱한 것에서 이 관계를 빼면
+\[
+  \sum_{i=2}^r
+  c_i\bigl(\chi_1(g)-\chi_i(g)\bigr)\chi_i=0.
+\]
+$\chi_2$의 계수는 영이 아니므로 이는 길이가 $r-1$인 비자명한 관계이다.
+최소성에 모순이다.
+\end{proof}
+
+\begin{corollary}[체준동형의 선형독립]
+\label{cor:field-homomorphism-independence}
+$L/K$, $M/K$가 체확장이고
+\[
+  \sigma_1,\dots,\sigma_r:L\longrightarrow M
+\]
+가 서로 다른 $K$-준동형이라 하자. 그러면 이들은 함수공간
+$\operatorname{Map}(L,M)$에서 $M$ 위 선형독립이다.
+\end{corollary}
+
+\begin{proof}
+각 $\sigma_i$를 $L^\times\to M^\times$에 제한하여
+정리 \ref{thm:artin-character-independence}를 적용한다. 영원소에서는 모든
+$\sigma_i$가 $0$을 보내므로 전체 $L$에서도 선형독립이다.
+\end{proof}
+
+\begin{corollary}[켤레값 행렬의 가역성]
+\label{cor:embedding-matrix-invertible}
+$L/K$가 차수 $n$의 유한 분리확장이고
+$x_1,\dots,x_n$이 $K$-기저라 하자. $K$-매장
+\[
+  \sigma_1,\dots,\sigma_n:L\hookrightarrow\overline K
+\]
+에 대해 행렬
+\[
+  A=(\sigma_i(x_j))_{1\le i,j\le n}
+\]
+는 가역이다.
+\end{corollary}
+
+\begin{proof}
+행들이 선형종속이면 어떤
+$c_1,\dots,c_n\in\overline K$가 전부 영은 아니면서
+\[
+  \sum_{i=1}^n c_i\sigma_i(x_j)=0
+  \qquad(j=1,\dots,n)
+\]
+이다. 기저의 선형성으로
+$\sum_i c_i\sigma_i(x)=0$이 모든 $x\in L$에 대해 성립하여
+따름정리 \ref{cor:field-homomorphism-independence}에 모순이다.
+\end{proof}
+
+\begin{example}[서로 다른 지수함수]
+서로 다른 $a_1,\dots,a_r\in F^\times$와
+$c_1,\dots,c_r\in F$가
+\[
+  c_1a_1^\nu+\cdots+c_ra_r^\nu=0
+  \qquad(\nu\in\Z)
+\]
+을 만족한다고 하자. $\nu\mapsto a_i^\nu$는 서로 다른 캐릭터이므로
+\[
+  c_1=\cdots=c_r=0.
+\]
+이는 선형점화식의 해가 서로 다른 지수항들의 선형결합으로 나타날 때
+계수가 유일하다는 사실의 대수적 핵심이다.
+\end{example}
+
+\begin{proposition}[유한체값 순환 캐릭터의 개수]
+\label{prop:cyclic-character-count}
+$F=\F_q$라 하자.
+\begin{enumerate}[label=(\roman*)]
+  \item 무한순환군 $\Z$의 $F$-값 캐릭터는 $q-1$개이다.
+  \item 위수 $m$인 순환군 $C_m$의 $F$-값 캐릭터는
+  \[
+    \gcd(m,q-1)
+  \]
+  개이다.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$F^\times$는 위수 $q-1$인 순환군이다. 순환군에서 나가는 준동형은
+생성원의 상으로 완전히 정해진다. 무한순환군에서는 임의의 상을 택할 수 있다.
+$C_m$에서는 생성원의 상의 위수가 $m$을 나누어야 하며,
+위수 $q-1$인 순환군에서 $x^m=1$의 해는 $\gcd(m,q-1)$개이다.
+\end{proof}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $C_6$에서 $\F_7^\times$로 가는 캐릭터는 몇 개인가?
+  \item 체매장의 선형독립에서 계수체가 왜 $M$인지 설명하라.
+  \item 따름정리 \ref{cor:embedding-matrix-invertible}를
+  $L=\Q(\sqrt d)$의 기저 $(1,\sqrt d)$에 적용하여 행렬식을 계산하라.
+\end{enumerate}
+\end{checkpoint}
