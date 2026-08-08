@@ -1,0 +1,184 @@
+\clearpage
+\section{계산 절차와 장 요약}
+\label{sec:cyclotomic-cyclic-workflow-review}
+
+\begin{learninggoal}
+원분체의 갈루아군·중간체·유한체 인수분해를 하나의 절차로 계산한다. 근호확장이 순환 또는 아벨 갈루아 확장이 되는 조건을 점검표로 정리한다.
+\end{learninggoal}
+
+\subsection{원분체 계산 절차}
+
+$L=\Q(\zeta_n)$을 분석할 때에는 다음 순서가 안정적이다.
+
+\begin{enumerate}[label=\textbf{단계 \arabic*.},leftmargin=*]
+  \item \textbf{차수 계산}
+  \[
+    [L:\Q]=\varphi(n)
+    =n\prod_{p\mid n}\left(1-\frac1p\right).
+  \]
+
+  \item \textbf{갈루아군 계산}
+  \[
+    G\cong(\Z/n\Z)^\times,
+    \qquad
+    \sigma_a(\zeta_n)=\zeta_n^a.
+  \]
+  중국인의 나머지 정리와 소수거듭제곱 단위원군을 사용해 군구조를 분해한다.
+
+  \item \textbf{중간체 후보 계산}
+  $G$의 부분군을 나열하고 갈루아 대응으로 차수를 읽는다.
+  \[
+    [L^H:\Q]=[G:H].
+  \]
+
+  \item \textbf{고정원소 찾기}
+  부분군이 보존하는 합이나 곱을 만든다. 자주 쓰이는 원소는
+  \[
+    \zeta_n+\zeta_n^{-1},
+    \qquad
+    \sum_{a\in H}\zeta_n^a
+  \]
+  같은 가우스 주기이다.
+
+  \item \textbf{최대 실부분체 확인}
+  복소켤레 $-1\in G$의 고정체는
+  \[
+    L^+=\Q(\zeta_n+\zeta_n^{-1})
+  \]
+  이고 $n>2$이면 차수는 $\varphi(n)/2$이다.
+
+  \item \textbf{최소다항식 검산}
+  후보 원소가 만족하는 관계를 계산한 뒤, 갈루아 대응에서 이미 구한 차수와 비교하여 최소성을 확인한다.
+\end{enumerate}
+
+\begin{example}[절차 적용: $\Q(\zeta_{12})$]
+\[
+  \varphi(12)=4,
+  \qquad
+  (\Z/12\Z)^\times=\{1,5,7,11\}\cong V_4.
+\]
+따라서 이차 중간체는 세 개이다. 원소
+\[
+  i=\zeta_{12}^3,
+  \qquad
+  \sqrt3=\zeta_{12}+\zeta_{12}^{-1},
+  \qquad
+  \sqrt{-3}=i\sqrt3
+\]
+를 찾으면
+\[
+  \Q(i),\quad\Q(\sqrt3),\quad\Q(\sqrt{-3})
+\]
+가 세 중간체이다. 두 생성원에서
+\[
+  \Q(\zeta_{12})=\Q(i,\sqrt3)
+\]
+도 확인된다.
+\end{example}
+
+\subsection{유한체 원분 계산 절차}
+
+$\Phi_n$을 $\F_q$ 위에서 인수분해하려면 $\gcd(q,n)=1$인지 먼저 확인한다.
+
+\begin{enumerate}[label=\textbf{단계 \arabic*.},leftmargin=*]
+  \item 법 $n$에서 $q,q^2,q^3,\dots$를 계산하여
+  \[
+    d=\operatorname{ord}_n(q)
+  \]
+  를 찾는다.
+  \item 모든 기약인수의 차수는 $d$이다.
+  \item 인수의 개수는
+  \[
+    \varphi(n)/d
+  \]
+  이다.
+  \item 분해체는 $\F_{q^d}$이고, 갈루아군은 상대 프로베니우스로 생성되는 $C_d$이다.
+\end{enumerate}
+
+\begin{pitfall}
+$\varphi(n)$은 $\Q$ 위 원분체의 차수이지, 모든 기준체 위에서의 차수는 아니다. $\F_q$에서는 $\operatorname{ord}_n(q)$가 차수를 결정한다. 또한 $q$가 $(\Z/n\Z)^\times$를 생성하지 않으면 $\Phi_n$은 기약이 아니다.
+\end{pitfall}
+
+\subsection{근호확장 점검표}
+
+$L=K(\sqrt[n]{c})$ 또는 여러 근호를 붙인 확장을 다룰 때에는 다음을 확인한다.
+
+\begin{enumerate}[label=\textbf{단계 \arabic*.},leftmargin=*]
+  \item \textbf{표수}: $\charac K\nmid n$인가?
+  \item \textbf{단위근}: $\mu_n\subseteq K$인가?
+  \item \textbf{$n$제곱류}: $[c]\in K^\times/K^{\times n}$의 위수는 얼마인가?
+  \item \textbf{차수}: $[c]$의 위수가 $d$이면 보통 최소다항식은 $X^d-c_0$ 꼴이고 확장차수는 $d$이다.
+  \item \textbf{자동동형}: 생성원을 단위근만큼 곱하는 작용을 적는다.
+  \item \textbf{여러 근호}: 생성된 부분군
+  \[
+    \langle[c_1],\dots,[c_r]\rangle
+    \subseteq K^\times/K^{\times n}
+  \]
+  의 크기로 전체 차수를 계산한다.
+\end{enumerate}
+
+표수 $p$에서 차수 $p$의 순환확장이라면 곱셈형 근호 대신
+\[
+  X^p-X-c
+\]
+를 사용한다. 이 다항식이 $K$에 근을 가지지 않으면 기약이고, 한 근 $a$를 붙인 뒤 자동동형은
+\[
+  a\longmapsto a+1
+\]
+로 주어진다.
+
+\begin{example}[근호 가정의 차이]
+\[
+  \Q(\sqrt[3]{2})/\Q
+\]
+는 단위근 $\zeta_3$이 없으므로 갈루아가 아니다. 그러나
+\[
+  \Q(\zeta_3,\sqrt[3]{2})/\Q(\zeta_3)
+\]
+에서는 모든 세 근이 이미 생성체 안에 있고 자동동형
+\[
+  \sqrt[3]{2}\longmapsto\zeta_3\sqrt[3]{2}
+\]
+가 갈루아군 $C_3$을 생성한다.
+\end{example}
+
+\begin{chapterreview}
+\begin{itemize}
+  \item $\charac K\nmid n$이면 $n$차 단위근 군 $\mu_n$은 위수 $n$의 순환군이다.
+  \item 원시 $n$차 단위근은 $\varphi(n)$개이고, 지수 $a$가 $n$과 서로소일 때 정확히 $\zeta_n^a$가 원시근이다.
+  \item 원분다항식은
+  \[
+    X^n-1=\prod_{d\mid n}\Phi_d(X)
+  \]
+  로 정의·계산되며 $\Q$ 위에서 기약이다.
+  \item 원분체의 갈루아군은
+  \[
+    \Gal(\Q(\zeta_n)/\Q)
+    \cong(\Z/n\Z)^\times
+  \]
+  이다.
+  \item 최대 실부분체는 복소켤레의 고정체
+  \[
+    \Q(\zeta_n)^+=\Q(\zeta_n+\zeta_n^{-1})
+  \]
+  이다.
+  \item $\F_q$ 위에서 원시 $n$차 단위근을 붙이는 차수는 $\operatorname{ord}_n(q)$이다.
+  \item 힐베르트 정리 90은 노름 $1$인 원소를 $a/\sigma(a)$로 표현한다.
+  \item $\mu_n\subseteq K$이면 순환 차수 $n$ 확장은 하나의 방정식 $X^n-c$로 생성된다.
+  \item 표수 $p$의 순환 차수 $p$ 확장은 $X^p-X-c$로 생성된다.
+  \item 여러 근호의 차수와 갈루아군은 $K^\times/K^{\times n}$ 안의 생성된 부분군으로 계산된다.
+\end{itemize}
+\end{chapterreview}
+
+\subsection*{복습 카드}
+
+\begin{itemize}
+  \item \textbf{원시 $n$차 단위근의 개수는?} $\varphi(n)$.
+  \item \textbf{$\Phi_n$의 차수는?} $\varphi(n)$.
+  \item \textbf{$\Q(\zeta_n)$의 갈루아군은?} $(\Z/n\Z)^\times$.
+  \item \textbf{복소켤레에 대응하는 합동류는?} $-1$.
+  \item \textbf{$\F_q(\zeta_n)/\F_q$의 차수는?} $\operatorname{ord}_n(q)$.
+  \item \textbf{곱셈형 힐베르트 정리 90은?} $N(b)=1\iff b=a/\sigma(a)$.
+  \item \textbf{단위근을 포함한 기준체 위 순환확장의 표준식은?} $X^n-c$.
+  \item \textbf{표수 $p$의 차수 $p$ 순환확장의 표준식은?} $X^p-X-c$.
+\end{itemize}
