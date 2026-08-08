@@ -1,0 +1,179 @@
+\clearpage
+\section{소수차 방정식의 가해성 판정}
+\label{sec:prime-degree-solvability}
+
+\begin{learninggoal}
+소수개의 점에 추이적으로 작용하는 가해군의 구조를 분석한다. 가해인 소수차 갈루아군에서는 비항등원이 두 근을 동시에 고정할 수 없음을 증명하고, 실근과 비실근의 개수만으로 비가해성을 판정하는 갈루아의 기준을 적용한다.
+\end{learninggoal}
+
+차수 $p$가 소수인 기약다항식의 갈루아군은 $p$개의 근에 추이적으로 작용한다. 추이적 부분군 전체를 분류하는 것은 쉽지 않지만, 그 군이 가해라고 가정하면 매우 강한 구조가 나타난다.
+
+\subsection{유일한 소수차 정규부분군}
+
+\begin{lemma}
+\label{lem:solvable-transitive-prime-sylow}
+$p$가 소수이고 $G\le S_p$가 $p$개의 점에 추이적으로 작용한다고 하자.
+\begin{enumerate}[label=(\roman*)]
+  \item $G$는 위수 $p$인 부분군을 갖는다.
+  \item $G$가 가해군이면 위수 $p$인 부분군은 유일하고 $G$의 정규부분군이다.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+궤도--안정자 정리에서 $p\mid |G|$이다. 한편 $G\le S_p$이고 $p^2\nmid p!$이므로 $p$-Sylow 부분군의 위수는 정확히 $p$이다. 이것이 (i)를 보인다.
+
+이제 $G$가 가해라고 하자. 정리 \ref{thm:prime-cyclic-refinement}에 의해
+\[
+  G=G_0\trianglerighteq G_1\trianglerighteq\cdots
+  \trianglerighteq G_r=1
+\]
+이고 각 $G_i/G_{i+1}$이 소수차 순환군인 정규열을 택한다.
+
+$G_0$는 추이적이다. $G_i$가 추이적이고 $G_{i+1}\triangleleft G_i$라 하자. 정규성 때문에 $G_i$는 $G_{i+1}$-궤도들의 집합에 추이적으로 작용한다. 따라서 모든 $G_{i+1}$-궤도는 같은 크기를 갖고 그 크기는 $p$를 나눈다. $G_{i+1}\ne1$이면 궤도의 크기는 $1$이 아니므로 $p$이고, $G_{i+1}$도 추이적이다.
+
+마지막 비자명한 항 $G_{r-1}$은 소수차 순환군이면서 추이적이므로 그 위수는 $p$이다. 이제 임의의 $p$-부분군 $P\le G$를 택하자. $p$는 $|G|$에서 한 번만 나타나므로 $p$가 아닌 소수차 인자군을 차례로 통과할 때 $P$의 상은 자명하다. 따라서 $P\subseteq G_{r-1}$이고 위수가 같으므로 $P=G_{r-1}$. 유일성 때문에 이 부분군은 정규이다.
+\end{proof}
+
+위수 $p$인 부분군 $H=\langle\pi\rangle$의 비항등원은 $p$-순환이다. 점들을 $\F_p$의 원소로 번호 매기면 생성원을
+\[
+  \pi(x)=x+1
+\]
+로 둘 수 있다.
+
+\begin{theorem}[아핀형 구조]
+\label{thm:solvable-transitive-affine}
+$p$가 소수이고 $G\le S_p$가 가해이며 추이적이라고 하자. 점 집합을 $\F_p$와 동일시하면 모든 $\sigma\in G$는
+\[
+  \sigma(x)=a_\sigma x+b_\sigma,
+  \qquad
+  a_\sigma\in\F_p^\times,\quad b_\sigma\in\F_p
+\]
+꼴이다. 따라서
+\[
+  G\le\operatorname{AGL}(1,p)
+  =\F_p\rtimes\F_p^\times.
+\]
+\end{theorem}
+
+\begin{proof}
+보조정리 \ref{lem:solvable-transitive-prime-sylow}의 유일한 정규 $p$-부분군을
+\[
+  H=\langle\pi\rangle,
+  \qquad \pi(x)=x+1
+\]
+로 둔다. $H\triangleleft G$이므로 임의의 $\sigma\in G$에 대해
+\[
+  \sigma\pi\sigma^{-1}=\pi^a
+\]
+인 $a\in\F_p^\times$가 존재한다. $b=\sigma(0)$이라 하면
+\[
+\begin{aligned}
+  \sigma(x+1)
+  &=\sigma\pi(x)\\
+  &=\pi^a\sigma(x)\\
+  &=\sigma(x)+a.
+\end{aligned}
+\]
+귀납적으로 $\sigma(x)=ax+b$를 얻는다.
+\end{proof}
+
+\begin{corollary}[두 고정점 기준]
+\label{cor:two-fixed-points-identity}
+가해 추이적 부분군 $G\le S_p$의 원소가 서로 다른 두 점을 고정하면 그 원소는 항등원이다.
+\end{corollary}
+
+\begin{proof}
+$\sigma(x)=ax+b$가 서로 다른 $u,v$를 고정하면
+\[
+  (a-1)u+b=0,
+  \qquad
+  (a-1)v+b=0.
+\]
+두 식을 빼면 $(a-1)(u-v)=0$이다. $u\ne v$이므로 $a=1$이고 이어 $b=0$이다.
+\end{proof}
+
+\subsection{두 근이 분해체를 생성한다}
+
+\begin{theorem}[갈루아의 소수차 기준]
+\label{thm:galois-prime-degree-two-roots}
+$f\in K[X]$가 소수차 $p$의 기약 분리다항식이고 $L$이 그 분해체라 하자. $\Gal(L/K)$가 가해군이면, 서로 다른 임의의 두 근 $\alpha,\beta$에 대해
+\[
+  \boxed{L=K(\alpha,\beta)}
+\]
+이다.
+\end{theorem}
+
+\begin{proof}
+기약성 때문에 $G=\Gal(L/K)$는 $p$개의 근에 추이적으로 작용한다. $K(\alpha,\beta)$를 고정하는 $\sigma\in G$는 근 집합에서 $\alpha$와 $\beta$라는 서로 다른 두 점을 고정한다. 따름정리 \ref{cor:two-fixed-points-identity}에 의해 $\sigma=1$이다. 따라서
+\[
+  \Gal(L/K(\alpha,\beta))=1
+\]
+이고 갈루아 대응에서 $L=K(\alpha,\beta)$이다.
+\end{proof}
+
+\begin{corollary}[실근을 이용한 비가해성]
+\label{cor:prime-degree-real-root-obstruction}
+$p\ge5$가 소수이고 $f\in\Q[X]$가 기약인 $p$차다항식이라고 하자. $f$가 서로 다른 실근을 적어도 두 개 가지면서 비실근도 하나 이상 가지면 $f(x)=0$은 근호로 풀리지 않는다.
+\end{corollary}
+
+\begin{proof}
+갈루아군이 가해라고 가정하자. 서로 다른 두 실근 $\alpha,\beta$를 택하면 정리 \ref{thm:galois-prime-degree-two-roots}에서 분해체는
+\[
+  L=\Q(\alpha,\beta)\subseteq\R
+\]
+이어야 한다. 그러나 $f$의 비실근도 분해체 $L$에 들어가야 하므로 모순이다.
+\end{proof}
+
+같은 결론을 복소켤레로 더 직접 볼 수도 있다. 복소켤레는 모든 실근을 고정하면서 비실근 쌍을 바꾸는 비항등 갈루아군 원소이다. 실근이 두 개 이상이면 비항등원이 두 점을 고정하게 되어 따름정리 \ref{cor:two-fixed-points-identity}에 모순이다.
+
+\subsection{예제: $X^5-4X+2$}
+
+\begin{example}[구체적인 비가해 오차식]
+\label{ex:quintic-x5-4x+2-unsolvable}
+다항식
+\[
+  f=X^5-4X+2\in\Q[X]
+\]
+의 방정식은 근호로 풀리지 않으며, 실제 갈루아군은 $S_5$이다.
+\end{example}
+
+\begin{proof}
+$f$는 소수 $2$에 대한 아이젠슈타인 판정으로 기약이다. 도함수는
+\[
+  f'(x)=5x^4-4
+\]
+이고 임계점은
+\[
+  x=\pm a,
+  \qquad
+  a=\left(\frac45\right)^{1/4}.
+\]
+$a^5=\frac45a$이므로
+\[
+  f(-a)=2+\frac{16}{5}a>0,
+  \qquad
+  f(a)=2-\frac{16}{5}a<0.
+\]
+또한 $f(x)\to-\infty$ as $x\to-\infty$이고 $f(x)\to\infty$ as $x\to\infty$이다. 단조구간을 살펴보면 실근은 정확히 세 개이고 나머지 두 근은 서로 켤레인 비실근이다. 따름정리 \ref{cor:prime-degree-real-root-obstruction}에서 근호로 풀리지 않는다.
+
+더 나아가 기약 오차식의 갈루아군은 추이적이므로 위수 $5$의 원소, 즉 $5$-순환을 포함한다. 복소켤레는 두 비실근을 맞바꾸고 세 실근을 고정하므로 전치이다. $5$-순환과 전치를 포함하는 추이적 부분군은 $S_5$ 전체이므로
+\[
+  \Gal(f/\Q)\cong S_5.
+\]
+\end{proof}
+
+\begin{remark}
+실근 개수만으로 항상 갈루아군 전체를 결정할 수 있는 것은 아니다. 위 논증에서 실근 개수는 복소켤레의 순환형을 제공하고, 기약성은 추이성과 $p$-순환의 존재를 제공한다. 이 두 정보가 소수차 가해군의 강한 구조와 결합되어 비가해성을 판정한다.
+\end{remark}
+
+\begin{keyidea}
+가해인 소수차 추이군은 아핀군 안에 들어간다. 아핀변환 $x\mapsto ax+b$는 항등이 아니라면 고정점을 많아야 하나만 갖는다. 따라서 복소켤레가 두 실근 이상을 고정하는 순간 가해성은 깨진다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\operatorname{AGL}(1,5)$의 위수와 도함열을 구하라.
+  \item 기약 소수차다항식이 정확히 한 실근만 갖는 경우에는 위의 실근 기준만으로 왜 비가해성을 결론 낼 수 없는가?
+  \item $X^7-6X+3$이 아이젠슈타인 판정을 만족하는지 확인하고, 실근의 개수를 조사하여 같은 기준을 적용할 수 있는지 판단하라.
+\end{enumerate}
+\end{checkpoint}
