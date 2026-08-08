@@ -1,0 +1,235 @@
+\clearpage
+\section{유한체와 노름 방정식}
+\label{sec:finite-field-norm-trace}
+
+\begin{learninggoal}
+유한체 확장에서 프로베니우스를 이용해 노름과 대각합의 닫힌 공식을 얻는다. 노름과 대각합의 상·핵을 계산하고, 노름 방정식의 해의 개수, 서로소 차수에 대한 근의 하강, 원분체의 대표적 노름을 다룬다.
+\end{learninggoal}
+
+\subsection{유한체의 닫힌 공식}
+
+\begin{theorem}[유한체의 노름과 대각합]
+\label{thm:finite-field-norm-trace}
+$q$가 소수거듭제곱이고 $L=\F_{q^n}$, $K=\F_q$라 하자.
+모든 $a\in L$에 대해
+\[
+  \boxed{
+  \Tr_{L/K}(a)
+  =a+a^q+\cdots+a^{q^{n-1}}}
+\]
+와
+\[
+  \boxed{
+  \Nm_{L/K}(a)
+  =a^{1+q+\cdots+q^{n-1}}
+  =a^{(q^n-1)/(q-1)}}
+\]
+가 성립한다.
+\end{theorem}
+
+\begin{proof}
+$L/K$는 갈루아 확장이고 갈루아군은
+\[
+  \langle\Frob_q\rangle,\qquad
+  \Frob_q(a)=a^q
+\]
+로 생성된다. 따름정리 \ref{cor:galois-norm-trace-formulas}를 적용한다.
+\end{proof}
+
+\begin{proposition}[유한체 노름의 상과 핵]
+\label{prop:finite-field-norm-surjective}
+노름사상
+\[
+  \Nm_{\F_{q^n}/\F_q}:\F_{q^n}^\times\to\F_q^\times
+\]
+은 전사이고
+\[
+  \left|\ker\Nm_{\F_{q^n}/\F_q}\right|
+  =\frac{q^n-1}{q-1}.
+\]
+\end{proposition}
+
+\begin{proof}
+$\F_{q^n}^\times=\langle g\rangle$를 생성원 $g$로 쓴다. 정리
+\ref{thm:finite-field-norm-trace}에서
+\[
+  \Nm(g)=g^{(q^n-1)/(q-1)}.
+\]
+이 원소의 위수는 $q-1$이므로 $\F_q^\times$를 생성한다. 따라서 노름은
+전사이다. 군준동형의 제1동형정리에서 핵의 크기는
+\[
+  \frac{q^n-1}{q-1}
+\]
+이다.
+\end{proof}
+
+\begin{proposition}[유한체 대각합의 상과 핵]
+\label{prop:finite-field-trace-surjective}
+대각합사상
+\[
+  \Tr_{\F_{q^n}/\F_q}:\F_{q^n}\to\F_q
+\]
+은 전사이고 그 핵은 $\F_q$-차원 $n-1$의 부분공간이다. 따라서
+\[
+  \left|\ker\Tr_{\F_{q^n}/\F_q}\right|
+  =q^{n-1}.
+\]
+\end{proposition}
+
+\begin{proof}
+유한체 확장은 분리이므로 따름정리
+\ref{cor:trace-kernel-dimension}를 적용한다.
+\end{proof}
+
+\begin{example}[$\F_8/\F_2$]
+$\F_8=\F_2(\alpha)$, $\alpha^3+\alpha+1=0$이라 하자.
+영이 아닌 모든 원소에 대해
+\[
+  \Nm_{\F_8/\F_2}(x)=x^7=1.
+\]
+또한
+\[
+  \Tr_{\F_8/\F_2}(x)=x+x^2+x^4.
+\]
+$\alpha^3=\alpha+1$, $\alpha^4=\alpha^2+\alpha$이므로
+\[
+  \Tr(\alpha)=\alpha+\alpha^2+\alpha^4=0,
+\]
+\[
+  \Tr(1)=1.
+\]
+따라서
+\[
+  \ker\Tr
+  =\{0,\alpha,\alpha^2,\alpha^2+\alpha\}
+\]
+이고 크기는 $2^2=4$이다.
+\end{example}
+
+\begin{example}[$\F_9/\F_3$]
+$i^2=-1$인 $i$를 붙여
+\[
+  \F_9=\F_3(i)
+\]
+라 하자. $(a+bi)^3=a-bi$이므로
+\[
+  \Tr_{\F_9/\F_3}(a+bi)=2a,
+\]
+\[
+  \Nm_{\F_9/\F_3}(a+bi)
+  =(a+bi)(a-bi)=a^2+b^2.
+\]
+예를 들어 $\Nm(1+i)=2$이므로 노름은 $\F_3^\times$ 위로 전사이다.
+\end{example}
+
+\subsection{노름 방정식의 해의 개수}
+
+\begin{corollary}
+\label{cor:finite-field-norm-fibers}
+$c\in\F_q^\times$에 대해 방정식
+\[
+  \Nm_{\F_{q^n}/\F_q}(x)=c
+\]
+는 정확히
+\[
+  \frac{q^n-1}{q-1}
+\]
+개의 해를 $\F_{q^n}^\times$에서 갖는다.
+\end{corollary}
+
+\begin{proof}
+노름이 전사이므로 한 해 $x_0$가 존재한다. 모든 해는
+$x_0\ker\Nm$이고, 역으로 이 잉여류의 모든 원소가 해이다.
+\end{proof}
+
+\begin{pitfall}
+유한체에서는 노름이 항상 전사이지만 임의의 체확장에서는 그렇지 않다.
+예를 들어
+\[
+  \Nm_{\C/\R}(z)=|z|^2
+\]
+이므로 음의 실수는 노름이 아니다. 노름 방정식의 해 존재성은
+기준체와 확장의 산술에 민감하다.
+\end{pitfall}
+
+\subsection{서로소 차수에서 근을 아래로 내리기}
+
+\begin{theorem}[서로소 차수의 근 하강]
+\label{thm:coprime-degree-root-descent}
+$[L:K]=m<\infty$이고 $\gcd(m,n)=1$이라 하자.
+$a\in K^\times$가 $L$에서 $n$제곱근을 가지면 이미 $K$에서
+$n$제곱근을 가진다.
+\end{theorem}
+
+\begin{proof}
+$b\in L^\times$가 $b^n=a$를 만족한다고 하자. 노름을 취하면
+\[
+  \Nm_{L/K}(b)^n
+  =\Nm_{L/K}(a)=a^m.
+\]
+정수 $r,s$를
+\[
+  rm+sn=1
+\]
+이 되도록 택한다. 그러면
+\[
+  c:=\Nm_{L/K}(b)^r a^s\in K^\times
+\]
+에 대해
+\[
+  c^n
+  =a^{rm}a^{sn}=a.
+\]
+따라서 $a$는 $K$에서 이미 $n$제곱이다.
+\end{proof}
+
+\begin{example}
+이차확장 $L/K$에서 $a\in K$가 세제곱근을 갖는다면
+$\gcd(2,3)=1$이므로 그 세제곱근은 이미 $K$에 존재한다.
+반대로 제곱근에 대해서는 차수와 지수가 서로소가 아니므로
+$\sqrt d\in K(\sqrt d)$가 새로운 예를 준다.
+\end{example}
+
+\subsection{원분체의 대표적 노름}
+
+\begin{proposition}
+\label{prop:cyclotomic-one-minus-zeta-norm}
+$p$가 소수이고 $\zeta_p$가 원시 $p$차 단위근이면
+\[
+  \boxed{
+  \Nm_{\Q(\zeta_p)/\Q}(1-\zeta_p)=p}
+\]
+이고
+\[
+  \boxed{
+  \Tr_{\Q(\zeta_p)/\Q}(1-\zeta_p)=p.}
+\]
+\end{proposition}
+
+\begin{proof}
+$\zeta_p$의 최소다항식은
+\[
+  \Phi_p(X)=1+X+\cdots+X^{p-1}.
+\]
+정리 \ref{thm:minimal-polynomial-as-norm}에서
+\[
+  \Nm(1-\zeta_p)=\Phi_p(1)=p.
+\]
+또한 $\Tr(\zeta_p)=-1$이고 확장차수는 $p-1$이므로
+\[
+  \Tr(1-\zeta_p)
+  =(p-1)-(-1)=p.
+\]
+\end{proof}
+
+이 공식은 원분체에서 소수 $p$가 어떻게 분해되는지를 연구하는 출발점이지만,
+그 정수론적 전개는 뒤의 수체론으로 남긴다.
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\F_{16}/\F_4$에서 노름의 지수를 구하라.
+  \item $\F_{27}/\F_3$의 대각합 핵의 크기를 구하라.
+  \item 이차확장에서 새 세제곱근이 생길 수 없는 이유를
+  정리 \ref{thm:coprime-degree-root-descent}로 설명하라.
+\end{enumerate}
+\end{checkpoint}
