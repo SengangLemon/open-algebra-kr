@@ -1,0 +1,139 @@
+\clearpage
+\section{오차 갈루아군의 가해성과 비가해성}
+\label{sec:quintic-solvability-landscape}
+
+\begin{learninggoal}
+기약 오차다항식의 다섯 표준 갈루아군을 가해군과 비가해군으로 나누고, 각 군의 도함열이 근호해법의 존재를 어떻게 결정하는지 비교한다. 판별식이 제곱이라는 정보와 가해성을 혼동하지 않는다.
+\end{learninggoal}
+
+앞서 기약 오차다항식에서 나타나는 표준 추이군
+\[
+  C_5,\qquad D_5,\qquad F_{20},\qquad A_5,\qquad S_5
+\]
+을 계산했다. 이제 이 분류를 근호해법의 관점에서 다시 읽어 보자.
+
+\subsection{다섯 군의 도함열}
+
+\begin{proposition}
+\label{prop:five-quintic-groups-solvability}
+다섯 표준 오차군의 도함열은 다음과 같다.
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{lll}
+\toprule
+군 & 도함열 & 근호해법 \\
+\midrule
+$C_5$ & $C_5\trianglerighteq1$ & 가능 \\
+$D_5$ & $D_5\trianglerighteq C_5\trianglerighteq1$ & 가능 \\
+$F_{20}=C_5\rtimes C_4$ & $F_{20}\trianglerighteq C_5\trianglerighteq1$ & 가능 \\
+$A_5$ & $A_5\trianglerighteq A_5\trianglerighteq\cdots$ & 불가능 \\
+$S_5$ & $S_5\trianglerighteq A_5\trianglerighteq A_5\trianglerighteq\cdots$ & 불가능 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{proposition}
+
+\begin{proof}
+$C_5$는 아벨군이다. $D_5=\langle r,s:r^5=s^2=1,\ srs^{-1}=r^{-1}\rangle$에서
+\[
+  [s,r]=srs^{-1}r^{-1}=r^{-2}
+\]
+이고 $r^{-2}$가 $C_5=\langle r\rangle$을 생성하므로
+\[
+  [D_5,D_5]=C_5.
+\]
+
+$F_{20}=\langle r,t:r^5=t^4=1,\ trt^{-1}=r^2\rangle$에서는
+\[
+  [t,r]=trt^{-1}r^{-1}=r
+\]
+이므로 $C_5\subseteq[F_{20},F_{20}]$이다. 몫 $F_{20}/C_5\cong C_4$가 아벨이므로 반대 포함도 성립한다.
+
+$A_5$와 $S_5$에 대해서는 따름정리 \ref{cor:a5-perfect-nonsolvable}와 명제 \ref{prop:sn-an-derived-series}를 적용한다. 마지막 열은 갈루아의 근호해법 판정에서 따른다.
+\end{proof}
+
+\subsection{다섯 실제 다항식}
+
+앞 장의 표준 예제를 다시 정리하면 다음과 같다.
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{p{0.37\textwidth}lll}
+\toprule
+다항식 & 갈루아군 & 판별식 유형 & 근호해법 \\
+\midrule
+$X^5+X^4-4X^3-3X^2+3X+1$ & $C_5$ & 제곱 & 가능 \\
+$X^5-5X+12$ & $D_5$ & 제곱 & 가능 \\
+$X^5-2$ & $F_{20}$ & 비제곱 & 가능 \\
+$X^5+X^4+X^3-2X^2+X+1$ & $A_5$ & 제곱 & 불가능 \\
+$X^5-4X+2$ & $S_5$ & 비제곱 & 불가능 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+첫 세 다항식은 각각 예제 \ref{ex:quintic-c5}, \ref{ex:quintic-d5}, \ref{ex:quintic-f20}에서 계산한 가해군을 갖는다. 마지막 두 다항식은 예제 \ref{ex:quintic-a5}, \ref{ex:quintic-s5}에서 각각 $A_5,S_5$를 갈루아군으로 갖는다.
+
+\begin{example}[제곱 판별식이 충분하지 않은 이유]
+다항식
+\[
+  f_A=X^5+X^4+X^3-2X^2+X+1
+\]
+은
+\[
+  \Disc(f_A)=207^2
+\]
+을 만족한다. 따라서 갈루아군은 $A_5$ 안에 들어가지만, 실제로는 $A_5$ 전체이다. $A_5$는 가해군이 아니므로 $f_A$는 근호로 풀리지 않는다.
+\end{example}
+
+\begin{pitfall}
+판별식이 제곱이라는 조건은
+\[
+  G\subseteq A_n
+\]
+만을 뜻한다. $A_3\cong C_3$은 가해군이지만 $A_5$는 비가해군이다. 따라서 ``판별식이 제곱이면 근호로 풀린다''는 추론은 삼차에서는 우연히 맞을 수 있어도 오차에서는 거짓이다.
+\end{pitfall}
+
+\subsection{정규열을 공식의 설계도로 읽기}
+
+가해 오차군에서는 정상부분군열이 실제 근호탑의 설계도를 제공한다.
+
+\begin{example}[$D_5$의 두 단계]
+$D_5\trianglerighteq C_5\trianglerighteq1$의 인자군은
+\[
+  C_2,\qquad C_5
+\]
+이다. 갈루아 대응에서 먼저 차수 $2$의 고정체를 얻고, 필요한 오차 단위근을 첨가한 뒤 차수 $5$ 순환확장을 오제곱근 하나로 표현한다.
+\end{example}
+
+\begin{example}[$F_{20}$의 두 단계]
+$F_{20}\trianglerighteq C_5\trianglerighteq1$의 인자군은
+\[
+  C_4,\qquad C_5
+\]
+이다. $X^5-2$에서는 먼저 원시 오차 단위근 $\zeta_5$를 첨가하여 $C_4$ 층을 처리하고, 이어 $\sqrt[5]{2}$를 첨가하여 $C_5$ 층을 처리한다.
+\end{example}
+
+반면 $A_5$에서는 어떤 비자명한 정상부분군도 없고, $S_5$에서는 첫 이차층 $S_5/A_5$를 제거한 뒤 $A_5$가 남는다. 즉 판별식의 제곱근까지는 첨가할 수 있지만 그 다음에 순환 근호층으로 나아갈 수 없다.
+
+\begin{proposition}[비가해 핵의 보존]
+\label{prop-nonsolvable-core-obstruction}
+유한군 $G$가 몫 또는 부분군으로 $A_5$를 포함하면 $G$는 가해군이 아니다.
+\end{proposition}
+
+\begin{proof}
+가해군의 부분군과 몫군은 모두 가해군이다. 그러나 $A_5$는 가해군이 아니므로, $A_5$가 부분군 또는 몫군으로 나타나는 가해군은 존재할 수 없다.
+\end{proof}
+
+\begin{keyidea}
+차수 $5$ 자체가 근호해법을 결정하지 않는다. 같은 오차식이라도 갈루아군이 $C_5,D_5,F_{20}$이면 풀리고, $A_5,S_5$이면 풀리지 않는다. 아벨--루피니 정리는 일반 오차식의 군이 마지막 두 경우 중 가장 큰 $S_5$라는 사실을 말한다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $D_5$와 $F_{20}$의 도함길이를 구하라.
+  \item 판별식이 제곱인 두 표준 오차식 가운데 하나는 풀리고 하나는 풀리지 않는 예를 찾아 비교하라.
+  \item $S_5/A_5$에 대응하는 이차 중간체를 판별식으로 설명하라.
+\end{enumerate}
+\end{checkpoint}
