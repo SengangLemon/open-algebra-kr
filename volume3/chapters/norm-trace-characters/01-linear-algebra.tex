@@ -1,0 +1,139 @@
+\section{행렬식과 대각합의 준비}
+\label{sec:norm-trace-linear-algebra}
+
+\begin{learninggoal}
+유한차원 선형사상의 특성다항식, 행렬식과 대각합을 복습한다. 체의 원소를 ``곱셈이라는 선형사상''으로 바꾸는 정칙표현을 이해하고, 체확장의 노름과 대각합이 왜 기저와 무관한 불변량인지 준비한다.
+\end{learninggoal}
+
+유한확장 $L/K$에서 원소 $a\in L$를 하나 고르면, $a$는 단순히 체의 한 원소로만 머물지 않는다. 곱셈
+\[
+  x\longmapsto ax
+\]
+은 $L$을 자기 자신으로 보내는 $K$-선형사상이다. 따라서 $a$에 행렬식, 대각합, 특성다항식을 붙일 수 있다. 이 장의 핵심은 이 선형대수적 불변량을 체론의 언어로 해석하는 것이다.
+
+\subsection{특성다항식과 두 기본 불변량}
+
+$V$를 $K$ 위의 $n$차원 벡터공간, $T:V\to V$를 $K$-선형사상이라 하자.
+
+\begin{definition}[특성다항식, 행렬식과 대각합]
+$T$의 특성다항식을
+\[
+  \chi_T(X):=\det(X\id_V-T)
+\]
+로 정의한다. 이를
+\[
+  \chi_T(X)
+  =X^n-\Tr(T)X^{n-1}+\cdots+(-1)^n\det(T)
+\]
+로 쓸 때 $\det(T)$를 $T$의 \emph{행렬식}, $\Tr(T)$를 $T$의
+\emph{대각합}(trace)이라 한다.
+\end{definition}
+
+기저를 택하여 $T$의 행렬을 $A=(a_{ij})$라 하면
+\[
+  \Tr(T)=\sum_{i=1}^n a_{ii},
+  \qquad
+  \det(T)=\sum_{\pi\in S_n}
+  \sgn(\pi)a_{1,\pi(1)}\cdots a_{n,\pi(n)}.
+\]
+
+\begin{proposition}[기저 독립성과 기본 공식]
+\label{prop:linear-trace-det-properties}
+유한차원 $K$-벡터공간 $V$의 선형사상 $S,T$와 $c,d\in K$에 대해 다음이 성립한다.
+\begin{enumerate}[label=(\roman*)]
+  \item $\chi_T$, $\Tr(T)$, $\det(T)$는 기저의 선택과 무관하다.
+  \item
+  \[
+    \Tr(cS+dT)=c\Tr(S)+d\Tr(T).
+  \]
+  \item
+  \[
+    \det(S\circ T)=\det(S)\det(T).
+  \]
+  \item $T$가 가역일 필요충분조건은 $\det(T)\ne0$이다.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+기저변환행렬을 $P$라 하면 같은 선형사상의 두 행렬은 $A$와
+$P^{-1}AP$로 연결된다. 따라서
+\[
+  \det(XI-P^{-1}AP)
+  =\det\bigl(P^{-1}(XI-A)P\bigr)
+  =\det(XI-A),
+\]
+이므로 특성다항식과 그 계수들은 기저와 무관하다. 대각합의 선형성과
+행렬식의 곱셈성은 행렬에 대한 표준 공식에서 따른다. 마지막 명제는
+정사각행렬이 가역일 필요충분조건이 행렬식이 영이 아닌 것이라는 사실이다.
+\end{proof}
+
+\begin{example}
+$K=\R$, $V=\R^2$이고
+\[
+  A=
+  \begin{pmatrix}
+    a&-b\\
+    b&a
+  \end{pmatrix}
+\]
+라 하자. 그러면
+\[
+  \chi_A(X)=X^2-2aX+(a^2+b^2),
+\]
+따라서
+\[
+  \Tr(A)=2a,\qquad \det(A)=a^2+b^2.
+\]
+뒤에서 이 행렬은 복소수 $a+bi$에 의한 곱셈을 나타내게 된다.
+\end{example}
+
+\subsection{최소다항식과 정칙표현}
+
+선형사상 $T$를 영으로 만드는 일계수다항식 가운데 차수가 가장 작은 것을
+$T$의 최소다항식이라 한다. 케일리--해밀턴 정리에 의해 최소다항식은
+특성다항식을 나눈다.
+
+\begin{proposition}[곱셈 정칙표현]
+\label{prop:regular-representation}
+$L/K$가 체확장이라 하자. 각 $a\in L$에
+\[
+  m_a:L\longrightarrow L,\qquad x\longmapsto ax
+\]
+를 대응시키면
+\[
+  \rho:L\longrightarrow\operatorname{End}_K(L),
+  \qquad a\longmapsto m_a
+\]
+는 단사 $K$-대수 준동형이다. 즉
+\[
+  m_{a+b}=m_a+m_b,\qquad
+  m_{ab}=m_a\circ m_b,\qquad
+  m_c=c\,\id_L\quad(c\in K).
+\]
+\end{proposition}
+
+\begin{proof}
+모든 등식은 임의의 $x\in L$에 두 사상을 적용하여 확인할 수 있다.
+또한 $m_a=0$이면 $a=m_a(1)=0$이므로 $\rho$는 단사이다.
+\end{proof}
+
+\begin{keyidea}
+체의 원소를 곱셈사상으로 보내면
+\[
+  \boxed{
+  \text{체의 덧셈과 곱셈}
+  \longrightarrow
+  \text{선형사상의 덧셈과 합성}}
+\]
+으로 바뀐다. 따라서 선형사상의 대각합은 체의 덧셈적 불변량을,
+행렬식은 체의 곱셈적 불변량을 만든다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $2\times2$ 행렬 $A=\begin{pmatrix}u&v\\w&z\end{pmatrix}$의
+  특성다항식에서 대각합과 행렬식을 읽어라.
+  \item $m_a\circ m_b=m_{ab}$를 직접 확인하라.
+  \item $a\ne0$일 때 $m_a$가 가역이고 역사가 $m_{a^{-1}}$임을 보여라.
+\end{enumerate}
+\end{checkpoint}
