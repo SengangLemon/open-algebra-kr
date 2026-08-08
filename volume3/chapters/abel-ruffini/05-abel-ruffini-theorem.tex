@@ -1,0 +1,142 @@
+\clearpage
+\section{아벨--루피니 정리}
+\label{sec:abel-ruffini-theorem}
+
+\begin{learninggoal}
+일반다항식의 갈루아군이 $S_n$이라는 사실과 $S_n$의 비가해성을 결합하여 아벨--루피니 정리를 증명한다. 정리의 역사적 표현과 현대 갈루아 이론의 증명 구조를 연결한다.
+\end{learninggoal}
+
+이제 필요한 두 결과가 준비되었다.
+\[
+  \Gal(P_n/K_n)\cong S_n,
+\]
+그리고 $n\ge5$이면
+\[
+  S_n^{(1)}=A_n,
+  \qquad
+  A_n^{(1)}=A_n.
+\]
+첫 식은 일반방정식이 가능한 모든 근의 순열 대칭을 갖는다는 뜻이고, 둘째 식은 그 대칭 안에 근호층으로 분해되지 않는 완전한 핵이 남는다는 뜻이다.
+
+\begin{theorem}[아벨--루피니]
+\label{thm:abel-ruffini}
+표수 $0$인 체 $k$와 $n\ge5$에 대해 일반다항식
+\[
+  P_n(X)=X^n+C_1X^{n-1}+\cdots+C_n
+  \in k(C_1,\dots,C_n)[X]
+\]
+은 근호로 풀리지 않는다. 동치로, 임의의 일계수 $n$차다항식의 근을 그 계수에서 유한번의 사칙연산과 근호만으로 얻는 보편 공식은 존재하지 않는다.
+\end{theorem}
+
+\begin{proofidea}
+일반다항식의 갈루아군은 $S_n$이다. $n\ge5$에서 $S_n$의 도함열은 $A_n$에 도달한 뒤 더 이상 작아지지 않으므로 $S_n$은 가해군이 아니다. 갈루아의 근호해법 판정에 의해 일반다항식은 근호로 풀리지 않는다.
+\end{proofidea}
+
+\begin{proof}
+정리 \ref{thm:generic-polynomial-galois-sn}에 의해
+\[
+  \Gal(P_n/K_n)\cong S_n.
+\]
+명제 \ref{prop:sn-an-derived-series}에서 $n\ge5$이면
+\[
+  [S_n,S_n]=A_n,
+  \qquad
+  [A_n,A_n]=A_n.
+\]
+따라서 $S_n$의 도함열은
+\[
+  S_n\trianglerighteq A_n\trianglerighteq A_n
+  \trianglerighteq\cdots
+\]
+이고 항등군에 도달하지 않는다. 즉 $S_n$은 가해군이 아니다.
+
+갈루아의 근호해법 판정에 의해 분리다항식이 근호로 풀릴 필요충분조건은 그 갈루아군이 가해군인 것이다. 그러므로 $P_n$은 근호로 풀리지 않는다. 정리 \ref{thm:universal-formula-equivalent-generic-solvable}에 의해 보편 근호공식도 존재하지 않는다.
+\end{proof}
+
+\begin{corollary}[일반 오차방정식]
+\label{cor:generic-quintic-no-radical-formula}
+일반 오차방정식
+\[
+  X^5+C_1X^4+C_2X^3+C_3X^2+C_4X+C_5=0
+\]
+에는 계수에 대한 보편 근호공식이 없다.
+\end{corollary}
+
+\begin{proof}
+정리 \ref{thm:abel-ruffini}에서 $n=5$로 두면 된다.
+\end{proof}
+
+\subsection{왜 경계가 정확히 5인가}
+
+차수 $2,3,4$에서는
+\[
+  S_2,\quad S_3,\quad S_4
+\]
+가 모두 가해군이다. 실제 정규열은
+\[
+  S_2\trianglerighteq1,
+\]
+\[
+  S_3\trianglerighteq A_3\trianglerighteq1,
+\]
+\[
+  S_4\trianglerighteq A_4\trianglerighteq V_4
+  \trianglerighteq C_2\trianglerighteq1
+\]
+처럼 잡을 수 있다. 각 인자군이 순환군으로 세분되므로 이차·삼차·사차 일반방정식에는 근호공식이 존재한다.
+
+반면 차수 $5$에서는
+\[
+  S_5\trianglerighteq A_5
+\]
+까지 내려간 뒤 $A_5$가 완전하고 단순하여 더 이상 아벨 인자군을 갖는 정상층으로 분해되지 않는다. 따라서 $5$는 단순히 공식이 복잡해지는 차수가 아니라 군론적 성질이 바뀌는 최초의 차수이다.
+
+\subsection{정리가 말하는 것과 말하지 않는 것}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{p{0.43\textwidth}p{0.47\textwidth}}
+\toprule
+\textbf{정리가 말하는 것} & \textbf{정리가 말하지 않는 것} \\
+\midrule
+모든 계수에 동시에 적용되는 유한 근호공식은 없다. & 모든 오차방정식이 근호로 풀리지 않는 것은 아니다. \\
+일반다항식의 갈루아군 $S_n$은 $n\ge5$에서 비가해이다. & 개별 다항식의 갈루아군이 항상 $S_n$인 것은 아니다. \\
+근호만으로는 일반근의 모든 순열 대칭을 단계적으로 분해할 수 없다. & 수치근 계산, 급수, 특수함수와 컴퓨터 대수 알고리즘이 불가능한 것은 아니다. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{example}[근호로 풀리는 오차식]
+\[
+  X^5-2=0
+\]
+의 근들은
+\[
+  \zeta_5^j\sqrt[5]{2}
+  \qquad(0\le j<5)
+\]
+이고 분해체의 갈루아군은 $C_5\rtimes C_4$이다. 이 군은 가해군이므로 방정식은 근호로 풀린다.
+\end{example}
+
+\begin{example}[근호로 풀리지 않는 오차식]
+\[
+  X^5-4X+2=0
+\]
+의 갈루아군은 $S_5$이므로 근호로 풀리지 않는다. 이 명제는 보편식의 부재보다 강한 개별 판정이며, 실제 갈루아군 계산이 필요하다.
+\end{example}
+
+\begin{remark}[역사적 이름]
+루피니와 아벨은 일반 고차방정식의 근호공식이 존재하지 않는다는 방향을 확립했고, 갈루아는 그 이유를 각 방정식의 근 순열군과 정상부분군 구조로 설명했다. 현대적인 증명에서는 ``공식의 부재''가 일반다항식의 갈루아군 $S_n$의 비가해성으로 압축된다.
+\end{remark}
+
+\begin{keyidea}
+아벨--루피니 정리는 계산 능력의 한계가 아니라 허용한 연산 체계의 한계이다. 사칙연산과 근호는 가해군에 해당하는 대칭만 단계적으로 제거할 수 있지만, $A_5$의 비가환 단순 핵은 그 과정에서 남는다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 아벨--루피니 정리의 증명에서 일반다항식의 기약성이 필요한 이유를 설명하라.
+  \item $S_5/A_5\cong C_2$라는 첫 몫은 근호로 처리할 수 있는데도 전체 오차식이 풀리지 않는 이유를 설명하라.
+  \item ``오차방정식에는 공식이 없다''를 더 정확한 한 문장으로 다시 써라.
+\end{enumerate}
+\end{checkpoint}
