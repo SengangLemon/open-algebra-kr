@@ -1,0 +1,205 @@
+\clearpage
+\section{원분체와 그 갈루아군}
+\label{sec:cyclotomic-fields}
+
+\begin{learninggoal}
+단위근을 첨가한 체가 갈루아 확장임을 보이고, 갈루아 자동동형을 지수의 합동류로 표현한다. 유리수체 위에서는 모든 가능한 지수작용이 실제 자동동형으로 나타남을 증명한다.
+\end{learninggoal}
+
+\begin{definition}[원분체]
+$\zeta_n$을 원시 $n$차 복소단위근이라 하자. 체
+\[
+  \Q(\zeta_n)
+\]
+을 \emph{$n$차 원분체}(cyclotomic field)라 한다.
+\end{definition}
+
+보다 일반적으로 $\charac K\nmid n$인 체 $K$와 원시 $n$차 단위근 $\zeta_n\in\overline K$에 대해 $K(\zeta_n)$을 생각할 수 있다. 이 체는 $X^n-1$의 모든 근을 포함한다.
+
+\begin{theorem}[일반 기준체 위의 단위근 확장]
+\label{thm:general-root-unity-extension}
+$\charac K\nmid n$이라 하자. 그러면 $K(\zeta_n)/K$는 유한 아벨 갈루아 확장이고, 제한사상은 단사군준동형
+\[
+  \Gal(K(\zeta_n)/K)
+  \hookrightarrow\operatorname{Aut}(\mu_n)
+  \cong(\Z/n\Z)^\times
+\]
+을 준다. 특히
+\[
+  [K(\zeta_n):K]\mid\varphi(n).
+\]
+\end{theorem}
+
+\begin{proof}
+$K(\zeta_n)$은 분리다항식 $X^n-1$의 분해체이므로 유한 갈루아 확장이다. $\sigma\in\Gal(K(\zeta_n)/K)$는 $n$차 단위근의 집합을 보존하고 곱셈을 보존하므로 $\mu_n$의 군자동동형을 유도한다. $\zeta_n$을 고정하는 자동동형은 생성체 $K(\zeta_n)$ 전체를 고정하므로 제한사상은 단사이다.
+
+순환군 $\mu_n=\langle\zeta_n\rangle$의 자동동형은
+\[
+  \zeta_n\longmapsto\zeta_n^a,
+  \qquad a\in(\Z/n\Z)^\times
+\]
+꼴이고, 합성은 지수의 곱셈에 대응한다. 따라서 자동동형군은 $(\Z/n\Z)^\times$의 부분군이며 아벨군이다.
+\end{proof}
+
+\begin{theorem}[유리수체 위 원분체의 갈루아군]
+\label{thm:cyclotomic-galois-group-Q}
+모든 $n\ge1$에 대해
+\[
+  \boxed{
+  \Gal(\Q(\zeta_n)/\Q)
+  \cong(\Z/n\Z)^\times.}
+\]
+구체적으로 $a\in(\Z/n\Z)^\times$에 대응하는 자동동형은
+\[
+  \sigma_a(\zeta_n)=\zeta_n^a
+\]
+로 주어진다. 또한
+\[
+  [\Q(\zeta_n):\Q]=\varphi(n).
+\]
+\end{theorem}
+
+\begin{proof}
+정리 \ref{thm:cyclotomic-irreducible-Q}에서 $\zeta_n$의 최소다항식은 $\Phi_n$이고 차수는 $\varphi(n)$이다. 따라서 갈루아군의 위수도 $\varphi(n)$이다. 정리 \ref{thm:general-root-unity-extension}의 단사준동형의 공역 $(\Z/n\Z)^\times$도 위수가 $\varphi(n)$이므로 이 단사준동형은 전단사이다.
+\end{proof}
+
+\begin{keyidea}
+원분체의 갈루아군 계산은 ``근을 어디로 보낼 수 있는가''라는 질문으로 끝난다. 원시근은 원시근으로 보내야 하므로
+\[
+  \zeta_n\mapsto\zeta_n^a,
+  \qquad\gcd(a,n)=1,
+\]
+이고, $\Q$ 위에서는 이 모든 선택이 실제 자동동형을 준다.
+\end{keyidea}
+
+\subsection{표준 예제}
+
+\begin{example}[$5$차 원분체]
+\[
+  \Gal(\Q(\zeta_5)/\Q)
+  \cong(\Z/5\Z)^\times\cong C_4.
+\]
+합동류 $2$가 군을 생성하므로
+\[
+  \sigma_2:\zeta_5\longmapsto\zeta_5^2
+\]
+가 갈루아군의 생성원이다. 확장차수는 $\varphi(5)=4$이다.
+\end{example}
+
+\begin{example}[$8$차 원분체]
+\[
+  (\Z/8\Z)^\times=\{1,3,5,7\}
+  \cong C_2\times C_2.
+\]
+따라서
+\[
+  \Gal(\Q(\zeta_8)/\Q)\cong V_4.
+\]
+실제로
+\[
+  \zeta_8=\frac{1+i}{\sqrt2},
+  \qquad
+  \Q(\zeta_8)=\Q(i,\sqrt2).
+\]
+\end{example}
+
+\begin{example}[$9$차와 $15$차 원분체]
+\[
+  (\Z/9\Z)^\times\cong C_6
+\]
+이므로 $\Q(\zeta_9)/\Q$는 차수 $6$의 순환확장이다. 한편 중국인의 나머지 정리로
+\[
+  (\Z/15\Z)^\times
+  \cong(\Z/3\Z)^\times\times(\Z/5\Z)^\times
+  \cong C_2\times C_4.
+\]
+따라서 $\Q(\zeta_{15})/\Q$는 아벨이지만 순환은 아니다.
+\end{example}
+
+\subsection{합성체와 서로소인 도수}
+
+\begin{proposition}[원분체의 합성]
+\label{prop:cyclotomic-compositum}
+양의 정수 $m,n$과 $\ell=\operatorname{lcm}(m,n)$에 대해
+\[
+  \Q(\zeta_m,\zeta_n)=\Q(\zeta_\ell).
+\]
+\end{proposition}
+
+\begin{proof}
+$\zeta_m$과 $\zeta_n$은 $\ell$차 단위근이므로 왼쪽은 $\Q(\zeta_\ell)$에 포함된다. 반대로 $\mu_\ell$의 부분군 $\langle\zeta_m,\zeta_n\rangle$의 위수는 $m$과 $n$의 최소공배수 $\ell$이다. 따라서 이 부분군은 $\mu_\ell$ 전체이고, $\zeta_\ell$은 $\zeta_m$과 $\zeta_n$의 거듭제곱들의 곱으로 표현된다.
+\end{proof}
+
+\begin{theorem}[서로소인 원분체의 독립성]
+\label{thm:coprime-cyclotomic-intersection}
+$\gcd(m,n)=1$이면
+\[
+  \Q(\zeta_m)\cap\Q(\zeta_n)=\Q
+\]
+이고 제한사상은 동형
+\[
+  \Gal(\Q(\zeta_{mn})/\Q)
+  \cong
+  \Gal(\Q(\zeta_m)/\Q)
+  \times
+  \Gal(\Q(\zeta_n)/\Q)
+\]
+을 준다.
+\end{theorem}
+
+\begin{proof}
+명제 \ref{prop:cyclotomic-compositum}과 오일러 함수의 곱셈성에서
+\[
+\begin{aligned}
+  [\Q(\zeta_{mn}):\Q]
+  &=\varphi(mn)\\
+  &=\varphi(m)\varphi(n)\\
+  &=[\Q(\zeta_m):\Q]
+    [\Q(\zeta_n):\Q]
+\end{aligned}
+\]
+이다. 유한확장의 합성체 차수 공식
+\[
+  [EF:K]\,[E\cap F:K]=[E:K][F:K]
+\]
+을 $E=\Q(\zeta_m)$, $F=\Q(\zeta_n)$에 적용하면 교집합 차수가 $1$이다. 갈루아군의 곱분해는 중국인의 나머지 정리 또는 두 체에 대한 제한사상과 차수 비교로 얻는다.
+\end{proof}
+
+\begin{remark}
+$m,n$이 서로소가 아닐 때의 교집합은 단순히 $\Q(\zeta_{\gcd(m,n)})$라고 쓸 수 없는 예외가 있다. 예를 들어
+\[
+  \Q(\zeta_3)=\Q(\zeta_6)
+\]
+이다. 합성체 공식은 항상 성립하지만 교집합의 일반 공식에는 $2$의 지수와 도수의 최소성에 관한 주의가 필요하다.
+\end{remark}
+
+\subsection{순환 원분체}
+
+\begin{corollary}
+$\Q(\zeta_n)/\Q$가 순환확장일 필요충분조건은 $(\Z/n\Z)^\times$가 순환군인 것이다. 특히 다음 경우에는 순환확장이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $n=p$가 소수일 때,
+  \item $n=p^r$이고 $p$가 홀수 소수일 때,
+  \item $n=2p^r$이고 $p$가 홀수 소수일 때.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+첫 문장은 정리 \ref{thm:cyclotomic-galois-group-Q}에서 즉시 따른다. 유한체의 곱셈군이 순환이라는 사실과 표준적인 법 $p^r$ 단위원군 계산을 사용하면 나열한 경우의 단위원군이 순환임을 얻는다.
+\end{proof}
+
+\begin{remark}
+정확히 말하면 $(\Z/n\Z)^\times$가 순환인 양의 정수는
+\[
+  n=1,2,4,p^r,2p^r
+\]
+꼴이며 여기서 $p$는 홀수 소수이다. 이 완전분류의 정수론적 증명은 연습문제와 이후의 수론 학습으로 남긴다.
+\end{remark}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Gal(\Q(\zeta_{12})/\Q)$를 구하고 각 자동동형이 $\zeta_{12}$에 어떻게 작용하는지 적어라.
+  \item $\Q(\zeta_3,\zeta_5)$의 차수와 갈루아군을 구하라.
+  \item $\Q(\zeta_7)/\Q$가 순환확장임을 보이고 생성원 하나를 찾아라.
+\end{enumerate}
+\end{checkpoint}
