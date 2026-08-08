@@ -1,0 +1,196 @@
+\clearpage
+\section{일반다항식과 전체 대칭군}
+\label{sec:generic-polynomial-abel-ruffini}
+
+\begin{learninggoal}
+대수적으로 독립인 근들을 먼저 놓고 그 기본대칭식을 계수로 읽는 보편적 구성을 이해한다. 일반 $n$차다항식이 기약·분리이고 갈루아군 $S_n$을 갖는다는 사실을 고정체와 대칭 유리함수로 증명한다.
+\end{learninggoal}
+
+아벨--루피니 정리는 특정한 수치계수 다항식 하나가 아니라, 계수 전체를 변수로 둔 \emph{일반다항식}에 관한 정리이다. 따라서 먼저 ``모든 계수를 동시에 다룬다''는 말을 정확한 체확장으로 바꾸어야 한다.
+
+\subsection{근을 먼저 놓는 보편적 구성}
+
+체 $k$와 대수적으로 독립인 변수
+\[
+  T_1,\dots,T_n
+\]
+을 택하고
+\[
+  L=k(T_1,\dots,T_n)
+\]
+라 하자. 대칭군 $S_n$은 변수들을 순열하여 $L$에 작용한다.
+\[
+  \pi\bigl(g(T_1,\dots,T_n)\bigr)
+  =g(T_{\pi(1)},\dots,T_{\pi(n)}).
+\]
+기본대칭식을
+\[
+  s_1=\sum_iT_i,\quad
+  s_2=\sum_{i<j}T_iT_j,\quad\dots,\quad
+  s_n=T_1\cdots T_n
+\]
+라 하자.
+
+\begin{theorem}[대칭 유리함수의 고정체]
+\label{thm:symmetric-rational-fixed-field}
+위 상황에서
+\[
+  L^{S_n}=k(s_1,\dots,s_n).
+\]
+또한 $s_1,\dots,s_n$은 $k$ 위에서 대수적으로 독립이다.
+\end{theorem}
+
+\begin{proofidea}
+$S_n$의 고정체를 $K$라 하면 아르틴의 고정체 정리에서 $[L:K]=n!$이다. 한편 $T_i$들은 계수가 $k(s_1,\dots,s_n)$에 있는 하나의 $n$차다항식의 근들이므로 $L/k(s_1,\dots,s_n)$의 차수는 많아야 $n!$이다. 두 차수 비교로 고정체를 결정한다. 대수적 독립성은 초월차수로 확인한다.
+\end{proofidea}
+
+\begin{proof}
+$K=L^{S_n}$라 하자. 유한군 $S_n$이 $L$에 충실하게 작용하므로 아르틴의 고정체 정리에 의해
+\[
+  L/K\text{는 갈루아확장},
+  \qquad
+  \Gal(L/K)\cong S_n,
+  \qquad
+  [L:K]=n!.
+\]
+모든 $s_i$는 대칭이므로
+\[
+  k(s_1,\dots,s_n)\subseteq K.
+\]
+
+이제
+\[
+  f(X)=\prod_{i=1}^n(X-T_i)
+  =X^n-s_1X^{n-1}+s_2X^{n-2}-\cdots+(-1)^ns_n
+\]
+를 생각하자. $L$은 $f$의 분해체이므로 일반적인 분해체 차수의 상계에서
+\[
+  [L:k(s_1,\dots,s_n)]\le n!.
+\]
+반면 $k(s_1,\dots,s_n)\subseteq K$이므로
+\[
+  [L:k(s_1,\dots,s_n)]
+  =[L:K][K:k(s_1,\dots,s_n)]
+  \ge n!.
+\]
+따라서 등호가 성립하고
+\[
+  K=k(s_1,\dots,s_n).
+\]
+
+각 $T_i$는 $f$의 근이므로 $L$은 $k(s_1,\dots,s_n)$ 위 대수적이다. 따라서
+\[
+  \operatorname{trdeg}_k k(s_1,\dots,s_n)
+  =\operatorname{trdeg}_k L=n.
+\]
+$n$개의 원소 $s_1,\dots,s_n$이 생성하는 체의 초월차수가 $n$이므로 이들은 대수적으로 독립이다.
+\end{proof}
+
+\begin{corollary}
+\label{cor:root-polynomial-galois-sn}
+다항식
+\[
+  f(X)=\prod_{i=1}^n(X-T_i)
+  \in k(s_1,\dots,s_n)[X]
+\]
+은 기약이고 분리이며, 그 분해체는 $L$이고 갈루아군은 $S_n$이다.
+\end{corollary}
+
+\begin{proof}
+근 $T_1,\dots,T_n$은 서로 다른 독립변수이므로 $f$는 분리이다. 갈루아군 $S_n$은 근 집합에 추이적으로 작용하므로 $f$는 기약이다. 분해체와 갈루아군에 관한 나머지 주장은 정리 \ref{thm:symmetric-rational-fixed-field}에서 이미 확인했다.
+\end{proof}
+
+\subsection{계수를 변수로 둔 일반다항식}
+
+새로운 대수적으로 독립인 변수 $C_1,\dots,C_n$을 놓고
+\[
+  K_n=k(C_1,\dots,C_n)
+\]
+라 하자.
+
+\begin{definition}[일반 $n$차다항식]
+\label{def:generic-polynomial}
+\[
+  P_n(X)
+  =X^n+C_1X^{n-1}+C_2X^{n-2}+\cdots+C_n
+  \in K_n[X]
+\]
+를 $k$ 위의 \emph{일반 $n$차다항식}(generic polynomial)이라 한다.
+\end{definition}
+
+\begin{theorem}[일반다항식의 갈루아군]
+\label{thm:generic-polynomial-galois-sn}
+일반다항식 $P_n$은 $K_n$ 위에서 기약이고 분리이며
+\[
+  \boxed{\Gal(P_n/K_n)\cong S_n.}
+\]
+\end{theorem}
+
+\begin{proof}
+정리 \ref{thm:symmetric-rational-fixed-field}에서 $s_1,\dots,s_n$은 대수적으로 독립이다. 따라서
+\[
+  C_j\longmapsto(-1)^js_j
+\]
+는 체의 동형
+\[
+  k(C_1,\dots,C_n)
+  \overset{\sim}{\longrightarrow}
+  k(s_1,\dots,s_n)
+\]
+을 정의한다. 이 동형 아래에서 $P_n(X)$는
+\[
+  \prod_{i=1}^n(X-T_i)
+\]
+로 옮겨진다. 따름정리 \ref{cor:root-polynomial-galois-sn}를 적용하면 결론을 얻는다.
+\end{proof}
+
+\begin{remark}
+이 정리는 ``대부분의 수치계수 다항식의 갈루아군이 $S_n$이다''라는 확률적 문장과 다르다. 여기서 계수는 실제 수가 아니라 서로 아무 대수관계도 없는 변수이고, 그 보편적인 계수체 위에서 갈루아군이 정확히 $S_n$이라는 뜻이다.
+\end{remark}
+
+\subsection{판별식이 만드는 유일한 첫 층}
+
+표수 $2$가 아닌 경우 반데르몬드 곱
+\[
+  \delta=\prod_{i<j}(T_i-T_j)
+\]
+를 생각하자. 순열 $\pi\in S_n$에 대해
+\[
+  \pi(\delta)=\sgn(\pi)\delta
+\]
+이다.
+
+\begin{proposition}
+\label{prop:generic-an-fixed-field}
+$\charac k\ne2$라 하자. 일반다항식의 분해체 $L$에서
+\[
+  L^{A_n}=K_n(\delta),
+  \qquad
+  \delta^2=\Disc(P_n).
+\]
+특히 일반다항식의 판별식은 $K_n$의 제곱이 아니다.
+\end{proposition}
+
+\begin{proof}
+$\delta$는 모든 짝순열에 고정되므로 $K_n(\delta)\subseteq L^{A_n}$이다. 그러나 전치는 $\delta$의 부호를 바꾸고 $\charac k\ne2$이므로 $\delta\notin K_n=L^{S_n}$이다. 따라서
+\[
+  [K_n(\delta):K_n]=2.
+\]
+한편 $[S_n:A_n]=2$이므로 갈루아 대응에서
+\[
+  [L^{A_n}:K_n]=2.
+\]
+두 체가 같아야 한다. 마지막 식은 판별식의 근 공식이고, $\delta\notin K_n$이므로 $\Disc(P_n)$은 $K_n$의 제곱이 아니다.
+\end{proof}
+
+\begin{keyidea}
+일반다항식은 ``미지의 계수에서 출발해 근을 찾는'' 대신 ``독립인 근들에서 출발해 대칭식으로 계수를 만든다.'' 이 방향을 뒤집으면 계수체의 고정군이 정확히 $S_n$임이 보이고, 보편적인 방정식이 가능한 모든 근의 순열 대칭을 갖는다는 사실이 드러난다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $n=3$일 때 $s_1,s_2,s_3$와 $P_3$ 사이의 동형을 구체적으로 적어라.
+  \item 일반다항식의 기약성을 갈루아군의 추이성으로 설명하라.
+  \item $\charac k=2$에서는 반데르몬드 부호 논증의 어느 단계가 사라지는지 설명하라.
+\end{enumerate}
+\end{checkpoint}
