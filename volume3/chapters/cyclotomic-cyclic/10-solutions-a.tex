@@ -1,0 +1,276 @@
+\clearpage
+\section{선별 문제 풀이 I}
+\label{sec:cyclotomic-cyclic-solutions-a}
+
+\subsection*{문제 \thechapter.1: $12$차 단위근}
+
+\begin{solution}
+$\mu_{12}=\langle\zeta_{12}\rangle$이고
+\[
+  \operatorname{ord}(\zeta_{12}^k)
+  =\frac{12}{\gcd(12,k)}.
+\]
+따라서 다음 표를 얻는다.
+\[
+\begin{array}{c|cccccccccccc}
+k&0&1&2&3&4&5&6&7&8&9&10&11\\
+\hline
+\operatorname{ord}(\zeta_{12}^k)
+&1&12&6&4&3&12&2&12&3&4&6&12
+\end{array}
+\]
+원시 $12$차 단위근은 지수가 $12$와 서로소인 경우이므로
+\[
+  \boxed{
+  \zeta_{12},\ \zeta_{12}^5,
+  \ \zeta_{12}^7,\ \zeta_{12}^{11}}
+\]
+이다. 그 개수는
+\[
+  \varphi(12)=12\left(1-\frac12\right)
+  \left(1-\frac13\right)=4
+\]
+와 일치한다.
+\end{solution}
+
+\subsection*{문제 \thechapter.3: 원분다항식 계산}
+
+\begin{solution}
+소수거듭제곱 공식과 $\Phi_{2n}(X)=\Phi_n(-X)$를 사용한다.
+\[
+\begin{aligned}
+  \Phi_8(X)
+  &=\Phi_2(X^4)=X^4+1,\\
+  \Phi_9(X)
+  &=\Phi_3(X^3)=X^6+X^3+1,\\
+  \Phi_{10}(X)
+  &=\Phi_5(-X)
+    =X^4-X^3+X^2-X+1,\\
+  \Phi_{12}(X)
+  &=\frac{X^{12}-1}
+    {\Phi_1\Phi_2\Phi_3\Phi_4\Phi_6}
+    =X^4-X^2+1,\\
+  \Phi_{15}(X)
+  &=\frac{\Phi_5(X^3)}{\Phi_5(X)}\\
+  &=X^8-X^7+X^5-X^4+X^3-X+1,\\
+  \Phi_{18}(X)
+  &=\Phi_9(-X)=X^6-X^3+1.
+\end{aligned}
+\]
+각 차수는 각각
+\[
+  4,6,4,4,8,6
+\]
+이고 $\varphi(8),\varphi(9),\dots,\varphi(18)$과 일치한다.
+\end{solution}
+
+\subsection*{문제 \thechapter.5: $8$차 원분체}
+
+\begin{solution}
+(a) 갈루아군은
+\[
+  G\cong(\Z/8\Z)^\times
+  =\{1,3,5,7\}
+  \cong C_2\times C_2
+\]
+이다. 합동류 $a$는
+\[
+  \sigma_a(\zeta_8)=\zeta_8^a
+\]
+로 작용한다.
+
+(b) $\zeta_8=e^{\pi i/4}$이므로
+\[
+  \zeta_8=\frac{1+i}{\sqrt2},
+  \qquad
+  \zeta_8^2=i,
+  \qquad
+  \zeta_8+\zeta_8^{-1}=\sqrt2.
+\]
+따라서
+\[
+  \Q(\zeta_8)=\Q(i,\sqrt2).
+\]
+
+(c) 위수 $2$ 부분군은
+\[
+  \{1,3\},\qquad\{1,5\},\qquad\{1,7\}
+\]
+이다. $i=\zeta_8^2$를 고정하려면
+\[
+  2a\equiv2\pmod8
+\]
+이어야 하므로 고정부분군은 $\{1,5\}$이다. 복소켤레 $a=7$은 $\sqrt2$를 고정하므로
+\[
+  L^{\{1,7\}}=\Q(\sqrt2).
+\]
+남은 부분군은 남은 이차체를 고정하여
+\[
+\begin{aligned}
+  L^{\{1,5\}}&=\Q(i),\\
+  L^{\{1,7\}}&=\Q(\sqrt2),\\
+  L^{\{1,3\}}&=\Q(\sqrt{-2}).
+\end{aligned}
+\]
+실제로 $\sigma_3$은 $i$와 $\sqrt2$의 부호를 동시에 바꾸므로 $i\sqrt2=\sqrt{-2}$를 고정한다.
+\end{solution}
+
+\subsection*{문제 \thechapter.6: $5$차 원분체의 실부분체}
+
+\begin{solution}
+$t=\zeta_5+\zeta_5^{-1}$라 하자. 원분관계
+\[
+  1+\zeta_5+\zeta_5^2+\zeta_5^3+\zeta_5^4=0
+\]
+을 $\zeta_5^2$로 나누면
+\[
+  1+(\zeta_5+\zeta_5^{-1})
+  +(\zeta_5^2+\zeta_5^{-2})=0.
+\]
+그런데
+\[
+  \zeta_5^2+\zeta_5^{-2}=t^2-2
+\]
+이므로
+\[
+  t^2+t-1=0.
+\]
+$t$는 유리수가 아니므로 최소다항식은 $X^2+X-1$이고
+\[
+  t=\frac{-1+\sqrt5}{2}.
+\]
+따라서
+\[
+  \Q(\zeta_5)^+=\Q(t)=\Q(\sqrt5).
+\]
+
+갈루아군은 $C_4$이므로 부분군은
+\[
+  1\subset C_2\subset C_4
+\]
+뿐이다. 대응하는 체의 사슬은
+\[
+  \Q
+  \subset\Q(\sqrt5)
+  \subset\Q(\zeta_5),
+\]
+각 단계의 차수는 $2$이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.7: $7$차 원분체의 실삼차식}
+
+\begin{solution}
+$u_k=\zeta_7^k+\zeta_7^{-k}$라 두면
+\[
+  u_0=2,\qquad u_1=t,
+  \qquad u_{k+1}=tu_k-u_{k-1}.
+\]
+따라서
+\[
+  u_2=t^2-2,
+  \qquad
+  u_3=t^3-3t.
+\]
+$7$차 원분관계에서 역지수끼리 묶으면
+\[
+  1+u_1+u_2+u_3=0.
+\]
+대입하여 정리하면
+\[
+  t^3+t^2-2t-1=0.
+\]
+한편
+\[
+  [\Q(\zeta_7)^+:\Q]
+  =\frac{\varphi(7)}2=3.
+\]
+따라서 위 삼차다항식이 $t$의 최소다항식이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.9: $\Phi_7$ over $\F_2$}
+
+\begin{solution}
+직접 곱하면
+\[
+\begin{aligned}
+ &(X^3+X+1)(X^3+X^2+1)\\
+ &\qquad=X^6+X^5+X^4+X^3+X^2+X+1
+ =\Phi_7(X)
+\end{aligned}
+\]
+in $\F_2[X]$이다. 두 삼차다항식은 $0$과 $1$을 근으로 갖지 않는다. 체 위의 삼차다항식은 근이 없을 때 기약이므로 두 인수 모두 기약이다.
+
+또한
+\[
+  \operatorname{ord}_7(2)=3
+\]
+이므로 이 인수분해는 프로베니우스 궤도 계산과도 일치한다. 원시 $7$차 단위근은 $\F_{2^3}=\F_8$에 속하고 분해체는 $\F_8$이다. 따라서
+\[
+  \Gal(\F_8/\F_2)\cong C_3
+\]
+이며 생성원은 $x\mapsto x^2$이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.12: 오일러 함수의 약수합}
+
+\begin{solution}
+위수 $n$인 순환군 $C_n$을 생각하자. 각 원소의 위수는 $n$의 약수이고, 정확한 위수가 $d$인 원소는 $\varphi(d)$개이다. 정확한 위수에 따라 원소들을 서로소로 분류하면
+\[
+  n=|C_n|=\sum_{d\mid n}\varphi(d).
+\]
+
+$n=12$에서는
+\[
+\begin{aligned}
+ \sum_{d\mid12}\varphi(d)
+ &=\varphi(1)+\varphi(2)+\varphi(3)
+   +\varphi(4)+\varphi(6)+\varphi(12)\\
+ &=1+1+2+2+2+4=12.
+\end{aligned}
+\]
+$n=18$에서는
+\[
+\begin{aligned}
+ \sum_{d\mid18}\varphi(d)
+ &=\varphi(1)+\varphi(2)+\varphi(3)
+   +\varphi(6)+\varphi(9)+\varphi(18)\\
+ &=1+1+2+2+6+6=18.
+\end{aligned}
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.14: 원분다항식의 기약성}
+
+\begin{solution}
+$f$를 $\zeta_n$의 $\Q$ 위 최소다항식이라 하자. $f$는 일계수이고 $X^n-1$을 나누므로
+\[
+  X^n-1=f(X)h(X)
+\]
+인 일계수 $f,h\in\Z[X]$가 존재한다.
+
+$p\nmid n$인 소수 $p$를 택하자. $\zeta_n^p$가 $f$의 근이 아니라고 가정하면 $h(\zeta_n^p)=0$이다. 따라서 $\zeta_n$은 $h(X^p)$의 근이고
+\[
+  f(X)\mid h(X^p)
+\]
+이다. 법 $p$로 줄이면
+\[
+  \overline{h(X^p)}=\overline h(X)^p.
+\]
+그러므로 $\overline f$와 $\overline h$는 공통 기약인수를 갖고
+\[
+  X^n-1=\overline f\,\overline h
+\]
+는 중복인수를 갖는다. 그러나 $p\nmid n$이므로 도함수 $nX^{n-1}$과 $X^n-1$은 서로소이고, $X^n-1$은 $\F_p$ 위에서 분리이다. 모순이므로 $\zeta_n^p$는 $f$의 근이다.
+
+$\gcd(a,n)=1$인 $a$를 $n$을 나누지 않는 소수들의 곱으로 쓰고 위 논증을 반복하면 모든 원시근 $\zeta_n^a$가 $f$의 근이다. 따라서
+\[
+  \deg f\ge\varphi(n).
+\]
+반대로 $f$의 모든 근은 $\zeta_n$과 같은 위수 $n$을 가지므로 $\Phi_n$의 근이고 $\deg f\le\varphi(n)$이다. 결국
+\[
+  f=\Phi_n,
+  \qquad
+  \deg f=\varphi(n).
+\]
+$f$가 일계수 정수다항식이므로 $\Phi_n\in\Z[X]$이고 $\Q$ 위에서 기약이다.
+\end{solution}
