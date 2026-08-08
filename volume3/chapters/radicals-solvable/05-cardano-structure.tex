@@ -1,0 +1,294 @@
+\clearpage
+\section{삼차방정식과 Cardano 공식의 군론적 구조}
+\label{sec:cardano-galois-structure}
+
+\begin{learninggoal}
+일반 삼차식을 우울형 삼차식으로 바꾸고, $S_3\trianglerighteq A_3\trianglerighteq1$의 정규열이 판별식의 제곱근과 세제곱근의 첨가로 번역되는 과정을 이해한다. Lagrange 분해식을 계산하여 Cardano 공식을 유도한다.
+\end{learninggoal}
+
+$\charac K\ne2,3$이라 하자. 일반 일계수 삼차식
+\[
+  X^3+aX^2+bX+c
+\]
+에
+\[
+  X=Y-\frac a3
+\]
+를 대입하면
+\[
+  Y^3+pY+q
+\]
+꼴의 \emph{우울형 삼차식}(depressed cubic)을 얻는다. 따라서
+\[
+  f(X)=X^3+pX+q
+\]
+를 푸는 것으로 충분하다.
+
+\subsection{정규열이 지시하는 두 단계}
+
+$f$의 분해체를 $L$, 세 근을 $x_1,x_2,x_3$이라 하자. 일반적인 경우 갈루아군은 $S_3$이고 정규열은
+\[
+  S_3\trianglerighteq A_3\trianglerighteq1
+\]
+이다. 갈루아 대응에서 첫 단계는
+\[
+  K\subseteq L^{A_3}
+\]
+인 이차확장이고, 둘째 단계는
+\[
+  L^{A_3}\subseteq L
+\]
+인 순환 삼차확장이다.
+
+삼차식의 판별식은
+\[
+  \Delta=-4p^3-27q^2
+\]
+이고
+\[
+  \delta=(x_1-x_2)(x_1-x_3)(x_2-x_3),
+  \qquad
+  \delta^2=\Delta.
+\]
+홀순열은 $\delta$의 부호를 바꾸고 짝순열은 고정하므로
+\[
+  L^{A_3}=K(\delta)
+\]
+이다. 따라서 첫 단계는 $\sqrt\Delta$의 첨가이다.
+
+두 번째 단계는 순환 삼차확장이다. 이를 세제곱근 하나로 표현하려면 원시 세제곱근
+\[
+  \zeta^2+\zeta+1=0,
+  \qquad \zeta\ne1
+\]
+을 준비한다. $\zeta\notin K$이면 먼저 $K(\zeta)$로 기준체를 확대한다.
+
+\subsection{Lagrange 분해식}
+
+\begin{definition}[삼차 Lagrange 분해식]
+근의 순서를 하나 택하고
+\[
+  R=x_1+\zeta x_2+\zeta^2x_3,
+\]
+\[
+  S=x_1+\zeta^2x_2+\zeta x_3
+\]
+라 둔다. 이를 삼차식의 \emph{Lagrange 분해식}(Lagrange resolvents)이라 한다.
+\end{definition}
+
+$3$-순환 $\sigma=(123)$에 대해
+\[
+  \sigma(R)=\zeta^2R,
+  \qquad
+  \sigma(S)=\zeta S.
+\]
+따라서
+\[
+  R^3,S^3\in K(\delta,\zeta).
+\]
+이것이 순환 삼차확장을 세제곱근으로 푸는 핵심이다.
+
+\begin{proposition}[분해식의 곱과 세제곱]
+\label{prop:cubic-resolvent-identities}
+다음 항등식이 성립한다.
+\[
+  RS=-3p,
+\]
+\[
+  R^3=-\frac{27}{2}q+\frac32\sqrt{-3}\,\delta,
+\]
+\[
+  S^3=-\frac{27}{2}q-\frac32\sqrt{-3}\,\delta.
+\]
+동치로
+\[
+  \left(\frac R3\right)^3
+  =-\frac q2+\sqrt{\left(\frac q2\right)^2
+  +\left(\frac p3\right)^3},
+\]
+\[
+  \left(\frac S3\right)^3
+  =-\frac q2-\sqrt{\left(\frac q2\right)^2
+  +\left(\frac p3\right)^3}.
+\]
+\end{proposition}
+
+\begin{proof}
+$\zeta+\zeta^2=-1$과 Vieta 관계
+\[
+  x_1+x_2+x_3=0,
+  \qquad
+  x_1x_2+x_1x_3+x_2x_3=p,
+  \qquad
+  x_1x_2x_3=-q
+\]
+를 사용한다. 직접 곱하면
+\[
+\begin{aligned}
+RS
+&=x_1^2+x_2^2+x_3^2
+ +(\zeta+\zeta^2)(x_1x_2+x_1x_3+x_2x_3)\\
+&=(x_1+x_2+x_3)^2
+ -3(x_1x_2+x_1x_3+x_2x_3)\\
+&=-3p.
+\end{aligned}
+\]
+
+$R^3$을 전개하고 대칭부분과 교대부분을 분리하면
+\[
+  R^3=-\frac{27}{2}q+\frac32(\zeta-\zeta^2)\delta.
+\]
+원시 세제곱근에 대해
+\[
+  \zeta-\zeta^2=\sqrt{-3}
+\]
+인 제곱근의 선택을 할 수 있으므로 첫 식을 얻는다. $S^3$은 $\zeta$와 $\zeta^2$를 바꾸어 얻는다.
+
+마지막으로
+\[
+  \Delta=-4p^3-27q^2
+\]
+이므로
+\[
+  \left(\frac32\sqrt{-3}\,\delta\right)^2
+  =-\frac{27}{4}\Delta
+  =27^2\left(
+  \left(\frac q2\right)^2+\left(\frac p3\right)^3
+  \right).
+\]
+이를 $27$로 나누면 표시된 동치식이 나온다.
+\end{proof}
+
+\subsection{역 Fourier 변환}
+
+세 근은 $R,S$로부터 복원된다. 실제로
+\[
+\begin{pmatrix}
+0\\R\\S
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&1&1\\
+1&\zeta&\zeta^2\\
+1&\zeta^2&\zeta
+\end{pmatrix}
+\begin{pmatrix}
+x_1\\x_2\\x_3
+\end{pmatrix}
+\]
+이고 이 Fourier 행렬의 역행렬을 쓰면
+\[
+  x_1=\frac{R+S}{3},
+\]
+\[
+  x_2=\frac{\zeta^2R+\zeta S}{3},
+\]
+\[
+  x_3=\frac{\zeta R+\zeta^2S}{3}.
+\]
+
+\begin{theorem}[Cardano 공식]
+\label{thm:cardano-formula}
+$\charac K\ne2,3$이고
+\[
+  f(X)=X^3+pX+q
+\]
+라 하자. 근호들을 포함하는 확장체에서
+\[
+  u^3=-\frac q2+\sqrt{
+  \left(\frac q2\right)^2+\left(\frac p3\right)^3},
+\]
+\[
+  v^3=-\frac q2-\sqrt{
+  \left(\frac q2\right)^2+\left(\frac p3\right)^3}
+\]
+인 $u,v$를
+\[
+  uv=-\frac p3
+\]
+가 되도록 택하면 세 근은
+\[
+  \boxed{x_1=u+v},
+\]
+\[
+  \boxed{x_2=\zeta^2u+\zeta v},
+\]
+\[
+  \boxed{x_3=\zeta u+\zeta^2v}.
+\]
+\end{theorem}
+
+\begin{proof}
+$u=R/3$, $v=S/3$로 두면 명제 \ref{prop:cubic-resolvent-identities}에서 세제곱식과
+\[
+  uv=\frac{RS}{9}=-\frac p3
+\]
+을 얻는다. 역 Fourier 변환식에 대입하면 세 근이 나온다.
+
+반대로 표시된 $u,v$가 주어졌다고 하자. $x=u+v$이면
+\[
+\begin{aligned}
+x^3+px+q
+&=u^3+v^3+3uv(u+v)+p(u+v)+q\\
+&=(-q)+(3uv+p)x+q=0.
+\end{aligned}
+\]
+$u,v$를 $\zeta^2u,\zeta v$ 또는 $\zeta u,\zeta^2v$로 바꾸어도 세제곱과 곱 조건이 유지되므로 나머지 두 근도 얻는다.
+\end{proof}
+
+\begin{pitfall}[세제곱근의 독립 선택]
+두 세제곱근을 임의로 독립 선택하면 안 된다. 한쪽에 $\zeta$를 곱하면 다른 쪽에는 $\zeta^2$를 곱해야
+\[
+  uv=-\frac p3
+\]
+가 유지된다. 이 부조건이 없으면 Cardano 식으로 만든 수가 원래 삼차식의 근이 아닐 수 있다.
+\end{pitfall}
+
+\subsection{갈루아군에 따른 단순화}
+
+\begin{itemize}
+  \item $\Delta$가 $K$의 제곱이고 $f$가 기약이면 갈루아군은 $A_3\cong C_3$이다. 판별식의 제곱근을 새로 첨가할 필요가 없고, 원시 세제곱근을 준비한 뒤 순환 삼차 근호 단계만 남는다.
+  \item $\Delta$가 제곱이 아니고 $f$가 기약이면 갈루아군은 $S_3$이다. 먼저 $\sqrt\Delta$를 첨가한 뒤 세제곱근을 첨가한다.
+  \item $f$가 이미 일차인수를 가지면 갈루아군은 더 작은 부분군이고, 한 근을 찾은 뒤 이차식을 풀면 된다.
+\end{itemize}
+
+\begin{example}
+\[
+  X^3-3X-2=(X-2)(X+1)^2
+\]
+는 분리다항식이 아니므로 위 갈루아군 논의의 기본 가정에서 벗어난다. Cardano 표현은 중근을 포함해 형식적으로 작동할 수 있지만, 분리체의 갈루아군과 근의 세 순열을 그대로 적용하면 안 된다.
+\end{example}
+
+\begin{example}
+\[
+  X^3-3X+1
+\]
+의 판별식은
+\[
+  \Delta=-4(-3)^3-27=81
+\]
+로 제곱이다. 이 다항식은 유리근을 갖지 않으므로 기약이고 갈루아군은 $C_3$이다. 따라서 분해체의 차수는 $3$이며, $S_3$의 이차층은 사라진다.
+\end{example}
+
+\begin{keyidea}
+Cardano 공식의 제곱근과 세제곱근은 우연히 나타나는 것이 아니다.
+\[
+  S_3/A_3\cong C_2
+  \quad\leadsto\quad
+  \sqrt\Delta,
+\]
+\[
+  A_3\cong C_3
+  \quad\leadsto\quad
+  \sqrt[3]{\phantom{x}}.
+\]
+공식의 근호 차수는 갈루아군 정규열의 인자군 차수를 그대로 반영한다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $X^3-3X+1$에 Cardano 공식을 적용해 $u^3,v^3$를 구하라.
+  \item $X^3+3X-4$의 판별식과 갈루아군을 구하고, 유리근을 이용한 풀이와 Cardano 풀이를 비교하라.
+  \item $\zeta\notin K$인 경우에도 공식이 근호해법을 주는 이유를 설명하라.
+\end{enumerate}
+\end{checkpoint}
