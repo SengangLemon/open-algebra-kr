@@ -1,0 +1,220 @@
+\clearpage
+\section{켤레들의 곱과 합, 그리고 탑 공식}
+\label{sec:norm-trace-embeddings-towers}
+
+\begin{learninggoal}
+노름과 대각합을 모든 체매장에 의한 켤레값의 곱과 합으로 표현한다. 비분리확장에서 나타나는 비분리차수의 거듭제곱을 이해하고, 중간체를 지나는 노름과 대각합의 추이성을 증명한다.
+\end{learninggoal}
+
+$L/K$를 유한확장이라 하고
+\[
+  r=[L:K]_{\mathrm s}
+  =|\operatorname{Hom}_K(L,\overline K)|
+\]
+를 분리차수라 하자. 전체 차수를
+\[
+  [L:K]=qr
+\]
+로 쓸 때 $q=[L:K]_{\mathrm i}$를 비분리차수라 한다.
+
+\begin{theorem}[체매장에 의한 노름과 대각합]
+\label{thm:norm-trace-embedding-formulas}
+서로 다른 $K$-매장을
+\[
+  \sigma_1,\dots,\sigma_r:L\hookrightarrow\overline K
+\]
+라 하면 모든 $a\in L$에 대해
+\[
+  \boxed{
+  \Tr_{L/K}(a)
+  =q\sum_{i=1}^r\sigma_i(a)}
+\]
+와
+\[
+  \boxed{
+  \Nm_{L/K}(a)
+  =\left(\prod_{i=1}^r\sigma_i(a)\right)^q}
+\]
+가 성립한다.
+\end{theorem}
+
+\begin{proofidea}
+먼저 $a$가 전체 확장을 생성하는 경우 최소다항식이
+\[
+  \prod_i(X-\sigma_i(a))^q
+\]
+꼴임을 이용해 계수를 비교한다. 임의의 $a$에 대해서는
+$K\subseteq K(a)\subseteq L$을 끼우고
+명제 \ref{prop:norm-trace-generated-subfield}를 사용한다.
+매장들의 합과 곱도 중간체를 따라 같은 방식으로 합성된다는 사실이 핵심이다.
+\end{proofidea}
+
+\begin{proof}
+우선 $L=K(a)$라 하자. $a$의 최소다항식은 서로 다른 근
+$\sigma_1(a),\dots,\sigma_r(a)$를 각각 중복도 $q$로 가지므로
+\[
+  f(X)=\prod_{i=1}^r
+  (X-\sigma_i(a))^q.
+\]
+정리 \ref{thm:simple-extension-characteristic-polynomial}과 계수 비교에서
+표시된 두 공식을 얻는다.
+
+이제 일반적인 $a\in L$에 대해 $E=K(a)$라 하자. $L/E$의 차수를 $s$라 하면
+명제 \ref{prop:norm-trace-generated-subfield}에서
+\[
+  \Tr_{L/K}(a)=s\,\Tr_{E/K}(a),
+  \qquad
+  \Nm_{L/K}(a)=\Nm_{E/K}(a)^s.
+\]
+한편 $K$-매장 $E\hookrightarrow\overline K$ 하나마다 정확히
+$[L:E]_{\mathrm s}$개의 $K$-매장 $L\hookrightarrow\overline K$가 연장되며,
+각 연장은 $a\in E$에서 같은 값을 갖는다. 비분리차수의 곱셈성
+\[
+  [L:K]_{\mathrm i}
+  =[L:E]_{\mathrm i}[E:K]_{\mathrm i}
+\]
+을 함께 사용하면 오른쪽의 매장합과 매장곱도 각각 위의
+$s$배와 $s$제곱으로 바뀐다. 단순확장 $E/K$에서 이미 증명한 공식을
+대입하면 결론을 얻는다.
+\end{proof}
+
+\begin{corollary}[갈루아 확장에서의 궤도 공식]
+\label{cor:galois-norm-trace-formulas}
+$L/K$가 유한 갈루아 확장이고 $G=\Gal(L/K)$라 하면
+\[
+  \boxed{
+  \Tr_{L/K}(a)=\sum_{\sigma\in G}\sigma(a),
+  \qquad
+  \Nm_{L/K}(a)=\prod_{\sigma\in G}\sigma(a).}
+\]
+\end{corollary}
+
+\begin{proof}
+갈루아 확장은 분리이므로 $q=1$이고 모든 $K$-매장이 $G$의 원소이다.
+\end{proof}
+
+\begin{corollary}[갈루아 불변성]
+\label{cor:norm-trace-galois-invariance}
+유한 갈루아 확장 $L/K$와 $\tau\in\Gal(L/K)$에 대해
+\[
+  \Tr_{L/K}(\tau(a))=\Tr_{L/K}(a),
+  \qquad
+  \Nm_{L/K}(\tau(a))=\Nm_{L/K}(a).
+\]
+\end{corollary}
+
+\begin{proof}
+$\sigma$가 $G$를 달리면 $\sigma\tau$도 $G$ 전체를 달리므로
+합과 곱의 항들이 순열될 뿐이다.
+\end{proof}
+
+\subsection{중간체를 지나는 추이성}
+
+\begin{theorem}[노름과 대각합의 탑 공식]
+\label{thm:norm-trace-transitivity}
+유한확장의 탑
+\[
+  K\subseteq E\subseteq L
+\]
+에 대해
+\[
+  \boxed{
+  \Tr_{L/K}
+  =\Tr_{E/K}\circ\Tr_{L/E}}
+\]
+와
+\[
+  \boxed{
+  \Nm_{L/K}
+  =\Nm_{E/K}\circ\Nm_{L/E}}
+\]
+가 성립한다.
+\end{theorem}
+
+\begin{proof}
+대수적 폐포를 하나 고정한다. 각 $K$-매장
+$\sigma:E\hookrightarrow\overline K$를
+$\overline K$의 자동동형 $\widetilde\sigma$로 연장한다.
+$E$-매장 $\tau:L\hookrightarrow\overline K$들과 합성한
+\[
+  \widetilde\sigma\circ\tau
+\]
+들이 $L$의 모든 $K$-매장을 중복 없이 준다. 따라서 정리
+\ref{thm:norm-trace-embedding-formulas}의 합과 곱을 두 단계로 묶을 수 있다.
+분리차수와 비분리차수의 곱셈성을 함께 적용하면
+\[
+  \Tr_{L/K}(a)
+  =\Tr_{E/K}\bigl(\Tr_{L/E}(a)\bigr),
+\]
+\[
+  \Nm_{L/K}(a)
+  =\Nm_{E/K}\bigl(\Nm_{L/E}(a)\bigr)
+\]
+를 얻는다.
+\end{proof}
+
+\begin{example}[탑으로 계산하기]
+\[
+  K=\Q,\qquad
+  E=\Q(\sqrt2),\qquad
+  L=\Q(\sqrt2,\sqrt3)
+\]
+라 하자. $a=\sqrt2+\sqrt3$에 대해 $L/E$의 비자명한 자동동형은
+$\sqrt3\mapsto-\sqrt3$이므로
+\[
+  \Tr_{L/E}(a)=2\sqrt2,
+  \qquad
+  \Nm_{L/E}(a)=2-3=-1.
+\]
+따라서
+\[
+  \Tr_{L/\Q}(a)
+  =\Tr_{E/\Q}(2\sqrt2)=0,
+\]
+\[
+  \Nm_{L/\Q}(a)
+  =\Nm_{E/\Q}(-1)=1.
+\]
+이는 최소다항식 $X^4-10X^2+1$의 계수와 일치한다.
+\end{example}
+
+\subsection{비분리확장에서 대각합이 사라지는 이유}
+
+\begin{corollary}
+\label{cor:inseparable-trace-zero}
+$\charac K=p>0$이고 유한확장 $L/K$가 분리확장이 아니면
+\[
+  \Tr_{L/K}=0.
+\]
+\end{corollary}
+
+\begin{proof}
+비분리차수 $q$는 $p$의 양의 거듭제곱이므로 $K$ 안에서 $q=0$이다.
+정리 \ref{thm:norm-trace-embedding-formulas}의 대각합 공식이 영이 된다.
+\end{proof}
+
+\begin{example}[순수비분리확장]
+$K=\F_p(t^p)$, $L=\F_p(t)$라 하자. $[L:K]=p$이고
+$t$의 최소다항식은
+\[
+  X^p-t^p=(X-t)^p.
+\]
+따라서
+\[
+  \Tr_{L/K}(t)=0,
+  \qquad
+  \Nm_{L/K}(t)=t^p.
+\]
+대각합은 완전히 사라지지만 노름은 유용한 정보를 남긴다.
+\end{example}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $L/K$가 유한 갈루아이고 $a\in L$일 때
+  $\prod_{\sigma\in G}(X-\sigma(a))$의 계수가 왜 $K$에 속하는지 설명하라.
+  \item $\Q(\zeta_5)/\Q$에서
+  $\Tr(\zeta_5)$와 $\Nm(\zeta_5)$를 구하라.
+  \item 탑 공식으로
+  $\Nm_{\Q(\sqrt2,\sqrt3)/\Q}(\sqrt3)$을 계산하라.
+\end{enumerate}
+\end{checkpoint}
