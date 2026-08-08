@@ -1,0 +1,236 @@
+\clearpage
+\section{연습문제}
+\label{sec:abel-ruffini-exercises}
+
+문제는 A, B, C의 세 단계로 나뉜다. 별표 문제는 다음 두 절에 상세 풀이가 있다.
+
+\subsection*{A. $A_5$, $A_n$과 $S_n$의 구조}
+
+\begin{exercise}[*]
+$A_5$의 모든 원소를 순환형에 따라 분류하고 각 유형의 원소 수를 구하라. 이어 중심화군의 위수를 계산하여 켤레류 크기가
+\[
+  1,20,15,12,12
+\]
+임을 보여라.
+\end{exercise}
+
+\begin{exercise}
+$g=(1\,2\,3\,4\,5)$라 하자. $A_5$에서 $g$와 켤레인 거듭제곱은 $g,g^4$이고, $g^2,g^3$은 다른 켤레류에 속함을 보여라. 이를 위해 $N_{A_5}(\langle g\rangle)/C_{A_5}(g)$가 $(\Z/5\Z)^\times$의 제곱부분군과 동형임을 사용해도 좋다.
+\end{exercise}
+
+\begin{exercise}[*]
+정상부분군은 켤레류들의 합집합이라는 사실과 라그랑주 정리를 이용하여 $A_5$가 단순군임을 증명하라. 가능한 켤레류 크기의 합을 빠짐없이 조사하라.
+\end{exercise}
+
+\begin{exercise}
+$S_5$의 정상부분군이 $1,A_5,S_5$뿐임을 $A_5$의 단순성과 부호준동형을 사용하여 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$n\ge5$라 하고 $1\ne N\triangleleft A_n$이라 하자. 다음 교환자 계산을 사용하여 $N$이 삼순환을 포함함을 보이고 $A_n$의 단순성을 증명하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $\sigma$가 $(a\,b\,c\,d\,\dots)$를 포함하면
+  \[
+    [(a\,b\,c),\sigma]=(a\,b\,d).
+  \]
+  \item $\sigma$가 $(a\,b\,c)$와 다른 비자명한 순환을 포함하고 $e=\sigma(d)$이면
+  \[
+    [(a\,b\,d),\sigma]=(a\,b\,e\,c\,d).
+  \]
+  \item $\sigma$가 전치들의 곱일 때 고정점의 유무에 따라 삼순환 또는 두 삼순환의 곱을 만들어라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$n\ge3$에서 $S_n$의 중심이 자명함을 증명하라. 비항등 순열 $\sigma$와 가환하지 않는 전치를 직접 구성하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$n\ge5$에서 다음을 증명하라.
+\[
+  [S_n,S_n]=A_n,
+  \qquad
+  [A_n,A_n]=A_n.
+\]
+이로부터 $S_n$의 도함열과 정상부분군을 완전히 기술하고, $S_n$이 가해군이 아님을 결론 내리라.
+\end{exercise}
+
+\begin{exercise}
+다음 교환자 항등식을 직접 검산하라. 순열은 오른쪽에서 왼쪽으로 합성한다.
+\[
+  [(a\,b\,d),(a\,c\,e)]=(a\,b\,c),
+\]
+\[
+  [(a\,b\,e),(a\,b)(c\,d)]=(a\,e\,b),
+\]
+여기서 두 번째 식에서는 $e$가 $(a\,b)(c\,d)$의 고정점이라고 가정한다.
+\end{exercise}
+
+\begin{exercise}[*]
+$A_5$의 Sylow $2$-, $3$-, $5$-부분군의 개수를 구하라. 각각의 비항등원들이 이중전치, 삼순환, 오순환과 어떻게 대응하는지 설명하라.
+\end{exercise}
+
+\begin{exercise}
+$A_5$의 점안정자 $\Stab_{A_5}(5)$가 $A_4$와 동형임을 보이고 위수가 $12$임을 확인하라. 이 부분군이 정상부분군이 아닌 이유를 궤도와 단순성 두 관점에서 설명하라.
+\end{exercise}
+
+\subsection*{B. 일반다항식과 대칭 유리함수}
+
+\begin{exercise}[*]
+$L=k(T_1,\dots,T_n)$에 $S_n$이 변수 순열로 작용하고 $s_i$가 기본대칭식이라고 하자. 다음 차수 비교를 완성하여
+\[
+  L^{S_n}=k(s_1,\dots,s_n)
+\]
+임을 증명하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $[L:L^{S_n}]=n!$.
+  \item $L$은 $\prod_i(X-T_i)$의 분해체이다.
+  \item $[L:k(s_1,\dots,s_n)]\le n!$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$L/k(s_1,\dots,s_n)$이 대수적임을 보이고 초월차수를 비교하여 $s_1,\dots,s_n$이 $k$ 위에서 대수적으로 독립임을 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+독립변수 $C_1,\dots,C_n$에 대해
+\[
+  P_n(X)=X^n+C_1X^{n-1}+\cdots+C_n
+\]
+의 갈루아군이 $S_n$임을 증명하라. $C_j\mapsto(-1)^js_j$가 정의하는 체동형을 명시하라.
+\end{exercise}
+
+\begin{exercise}
+$n=2$일 때 일반다항식
+\[
+  X^2+C_1X+C_2
+\]
+의 분해체와 갈루아군을 직접 구하라. 판별식의 제곱근을 첨가하는 과정이 일반 구성의 $S_2/A_2$ 층과 일치함을 설명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$\charac k\ne2$이고 $n=3$이라 하자. 일반 삼차다항식의 분해체 $L/K_3$에서
+\[
+  L^{A_3}=K_3(\sqrt{\Disc(P_3)})
+\]
+임을 증명하라. 이어 일반 삼차식의 갈루아군이 $S_3$이고 그 정규열이 Cardano 공식의 두 근호층과 어떻게 대응하는지 설명하라.
+\end{exercise}
+
+\begin{exercise}
+$\charac k\ne2$라 하자. 반데르몬드 곱 $\delta$가 $K_n=L^{S_n}$에 속하지 않음을 전치의 작용으로 증명하고, 일반다항식의 판별식이 $K_n$의 제곱이 아님을 결론 내리라.
+\end{exercise}
+
+\begin{exercise}[*]
+갈루아확장 $L/K$에서 갈루아군이 근 집합에 추이적으로 작용할 필요충분조건이 해당 다항식이 $K$ 위에서 기약인 것임을 사용하여 일반다항식의 기약성을 다시 증명하라.
+\end{exercise}
+
+\begin{exercise}
+임의의 표수에서 $T_1,\dots,T_n$이 서로 다른 독립변수이므로
+\[
+  \prod_i(X-T_i)
+\]
+가 분리임을 보여라. 특히 표수가 $p$이고 $p\mid n$이어도 일반다항식이 비분리다항식이 되지 않는 이유를 설명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+일반 오차다항식의 분해체를 $L/K_5$라 하자. $S_5$의 정상부분군 분류를 갈루아 대응으로 옮겨, $L/K_5$의 중간 갈루아확장이
+\[
+  K_5,
+  \qquad K_5(\sqrt{\Disc(P_5)}),
+  \qquad L
+\]
+뿐임을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+앞 문제의 세 체 사이의 차수를 모두 구하라. 특히
+\[
+  [L:K_5]=120,
+  \qquad
+  [K_5(\sqrt{\Disc(P_5)}):K_5]=2
+\]
+이고 나머지 차수가 $60$임을 확인하라.
+\end{exercise}
+
+\subsection*{C. 보편 근호공식과 아벨--루피니 정리}
+
+\begin{exercise}[*]
+계수체 $K$에서 시작한 유한개의 근호식이 모두 하나의 유한 근호탑 안에 들어감을 식의 복잡도에 대한 귀납법으로 증명하라. 사칙연산 단계와 새로운 $m$제곱근 단계가 각각 체에 미치는 영향을 구분하라.
+\end{exercise}
+
+\begin{exercise}
+차수 $n$의 보편 근호공식이 존재할 필요충분조건이 일반다항식의 분해체가 계수체 위에서 근호로 풀리는 것임을 설명하라. 식의 가지 선택을 더 큰 근호체 안에 모두 포함시키는 방식으로 처리하라.
+\end{exercise}
+
+\begin{exercise}[*]
+다음 순서로 아벨--루피니 정리를 증명하라.
+\begin{enumerate}[label=(\alph*)]
+  \item 일반다항식의 갈루아군은 $S_n$이다.
+  \item $n\ge5$이면 $S_n$은 가해군이 아니다.
+  \item 근호로 풀리는 분리다항식의 갈루아군은 가해군이다.
+  \item 따라서 차수 $n\ge5$의 보편 근호공식은 존재하지 않는다.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+다음 명제들의 참·거짓을 판정하고 거짓인 경우 반례를 제시하라.
+\begin{enumerate}[label=(\alph*)]
+  \item 모든 오차다항식은 근호로 풀리지 않는다.
+  \item 일반 오차다항식은 근호로 풀리지 않는다.
+  \item 오차다항식의 근은 수치적으로 계산할 수 없다.
+  \item 갈루아군이 $D_5$인 오차다항식은 근호로 풀린다.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+다섯 군
+\[
+  C_5,D_5,F_{20},A_5,S_5
+\]
+의 도함열을 계산하고 가해성을 판정하라. 이를 기약 오차다항식의 근호해법 판정표로 정리하라.
+\end{exercise}
+
+\begin{exercise}
+다항식
+\[
+  f_A=X^5+X^4+X^3-2X^2+X+1
+\]
+의 판별식이 $207^2$이고 갈루아군이 $A_5$라고 알려져 있다. 판별식이 제곱인데도 $f_A$가 근호로 풀리지 않는 이유를 설명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+두 다항식
+\[
+  f_D=X^5-5X+12,
+  \qquad
+  f_A=X^5+X^4+X^3-2X^2+X+1
+\]
+은 모두 제곱 판별식을 갖지만 갈루아군은 각각 $D_5,A_5$이다. 두 군의 정상부분군열과 도함열을 비교하여 한쪽만 근호로 풀리는 구조적 이유를 설명하라.
+\end{exercise}
+
+\begin{exercise}
+소수 $p$와 $a\in\Q^\times$에 대해 $X^p-a$의 분해체가
+\[
+  \Q(\sqrt[p]{a},\zeta_p)
+\]
+안에 있고 갈루아군이
+\[
+  C_p\rtimes(\Z/p\Z)^\times
+\]
+의 부분군임을 보여라. 이 군이 가해군이므로 순수 소수차 방정식은 근호로 풀림을 설명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+분리다항식 $f\in K[X]$의 갈루아군 $G$가 부분군 또는 몫군으로 $A_5$를 갖는다고 하자. $f$가 근호로 풀리지 않음을 증명하라. 이를 $G=A_5$와 $G=S_5$인 두 경우에 적용하라.
+\end{exercise}
+
+\begin{exercise}
+분리 오차다항식이
+\[
+  f(X)=(X-a)g(X),
+  \qquad a\in K,
+  \qquad \deg g=4
+\]
+로 인수분해된다고 하자. $g$의 분해체 갈루아군이 $S_4$의 부분군임을 이용하여 $f$가 근호로 풀림을 보여라. 이 결과가 아벨--루피니 정리와 모순되지 않는 이유를 설명하라.
+\end{exercise}
