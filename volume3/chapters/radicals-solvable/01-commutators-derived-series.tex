@@ -1,0 +1,273 @@
+\clearpage
+\section{교환자, 도함열과 가해군}
+\label{sec:commutators-derived-series}
+
+\begin{learninggoal}
+군의 비가환성을 교환자부분군과 도함열로 측정한다. 정규열의 아벨 인자군을 이용해 가해군을 정의하고, 유한 가해군의 인자군을 소수차 순환군으로 세분할 수 있음을 증명한다. 대칭군 $S_n$이 $n\le4$에서만 가해인 이유를 설명한다.
+\end{learninggoal}
+
+근호를 한 단계씩 첨가하는 체의 탑은 갈루아 대응을 통해 군의 탑으로 뒤집힌다. 이때 각 체확장이 순환확장이면 대응하는 인자군은 순환군이다. 따라서 ``근호로 풀린다''는 문제를 군론으로 번역하려면, 순환군 또는 아벨군을 층층이 쌓아 만든 군을 정확히 정의해야 한다.
+
+\subsection{교환자부분군}
+
+\begin{definition}[교환자]
+군 $G$의 원소 $a,b$에 대해
+\[
+  [a,b]:=aba^{-1}b^{-1}
+\]
+를 $a,b$의 \emph{교환자}(commutator)라 한다. 모든 교환자들이 생성하는 부분군
+\[
+  [G,G]:=\langle [a,b]:a,b\in G\rangle
+\]
+을 $G$의 \emph{교환자부분군}, \emph{도함부분군}(derived subgroup) 또는 $G'$이라 한다.
+\end{definition}
+
+교환자는 두 원소가 교환하는 정도를 측정한다.
+\[
+  [a,b]=1
+  \quad\Longleftrightarrow\quad
+  ab=ba.
+\]
+따라서 $G$가 아벨군일 필요충분조건은 $[G,G]=1$이다.
+
+\begin{proposition}[아벨화의 보편 성질]
+\label{prop:commutator-smallest-normal}
+교환자부분군 $[G,G]$는 $G$의 정규부분군이며 다음 두 조건을 만족한다.
+\begin{enumerate}[label=(\roman*)]
+  \item 몫군 $G/[G,G]$는 아벨군이다.
+  \item $N\triangleleft G$이고 $G/N$이 아벨군이면 $[G,G]\subseteq N$이다.
+\end{enumerate}
+따라서 $[G,G]$는 몫을 아벨군으로 만드는 가장 작은 정규부분군이다. 몫군
+\[
+  G^{\mathrm{ab}}:=G/[G,G]
+\]
+을 $G$의 \emph{아벨화}(abelianization)라 한다.
+\end{proposition}
+
+\begin{proof}
+임의의 $g,a,b\in G$에 대해
+\[
+  g[a,b]g^{-1}=[gag^{-1},gbg^{-1}]
+\]
+이므로 교환자들의 집합은 켤레에 닫혀 있고 $[G,G]\triangleleft G$이다. 몫군에서
+\[
+  \overline a\,\overline b\,\overline a^{-1}\,\overline b^{-1}
+  =\overline{[a,b]}=1
+\]
+이므로 모든 두 잉여류가 교환한다. 따라서 $G/[G,G]$는 아벨군이다.
+
+반대로 $G/N$이 아벨이면 모든 $a,b\in G$에 대해
+\[
+  \overline{[a,b]}=1
+\]
+이고, 따라서 $[a,b]\in N$이다. 모든 교환자들이 생성하는 부분군도 $N$에 포함된다.
+\end{proof}
+
+\subsection{도함열과 정규열}
+
+\begin{definition}[도함열]
+군 $G$의 \emph{도함열}(derived series)을
+\[
+  G^{(0)}=G,
+  \qquad
+  G^{(i+1)}=[G^{(i)},G^{(i)}]
+\]
+로 정의한다. 그러면
+\[
+  G=G^{(0)}\trianglerighteq G^{(1)}
+  \trianglerighteq G^{(2)}\trianglerighteq\cdots
+\]
+이고 각 몫군 $G^{(i)}/G^{(i+1)}$는 아벨군이다.
+\end{definition}
+
+\begin{definition}[정규열과 가해군]
+부분군의 사슬
+\[
+  G=G_0\trianglerighteq G_1\trianglerighteq\cdots
+  \trianglerighteq G_r=1
+\]
+에서 각 $G_{i+1}$이 $G_i$의 정규부분군이면 이를 $G$의 \emph{정규열}(normal series)이라 한다. 몫군 $G_i/G_{i+1}$을 정규열의 \emph{인자군}이라 한다.
+
+아벨 인자군을 갖는 유한 길이의 정규열이 존재하면 $G$를 \emph{가해군}(solvable group)이라 한다.
+\end{definition}
+
+\begin{theorem}[도함열 판정]
+\label{thm:derived-series-criterion}
+군 $G$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $G$는 가해군이다.
+  \item 어떤 $r\ge0$에 대해 $G^{(r)}=1$이다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+$G=G_0\trianglerighteq\cdots\trianglerighteq G_r=1$이 아벨 인자군을 갖는 정규열이라고 하자. 귀납법으로
+\[
+  G^{(i)}\subseteq G_i
+\]
+를 보인다. $i=0$은 자명하다. $G_i/G_{i+1}$이 아벨이므로 명제 \ref{prop:commutator-smallest-normal}에서
+\[
+  [G_i,G_i]\subseteq G_{i+1}.
+\]
+따라서
+\[
+  G^{(i+1)}=[G^{(i)},G^{(i)}]
+  \subseteq [G_i,G_i]\subseteq G_{i+1}.
+\]
+결국 $G^{(r)}=1$이다.
+
+역으로 $G^{(r)}=1$이면 도함열 자체가 아벨 인자군을 갖는 정규열이다.
+\end{proof}
+
+가해군의 도함열이 처음 $1$에 도달하는 최소의 $r$을 $G$의 \emph{도함길이}(derived length)라 한다. 아벨군의 도함길이는 $1$ 이하이고, $S_3$의 도함길이는 $2$이다.
+
+\subsection{가해성의 보존 성질}
+
+\begin{proposition}[부분군, 몫군과 확대]
+\label{prop:solvable-closure-properties}
+다음이 성립한다.
+\begin{enumerate}[label=(\roman*)]
+  \item 가해군의 모든 부분군은 가해군이다.
+  \item 가해군의 모든 몫군은 가해군이다.
+  \item $N\triangleleft G$일 때 $N$과 $G/N$이 모두 가해군이면 $G$도 가해군이다.
+  \item 유한개의 군의 직접곱은 각 인자가 모두 가해일 때 정확히 가해이다.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$H\le G$이면 귀납적으로 $H^{(i)}\subseteq G^{(i)}$이므로 (i)가 따른다. 전사준동형 $\pi:G\to Q$에 대해
+\[
+  \pi(G^{(i)})=Q^{(i)}
+\]
+이므로 (ii)가 따른다.
+
+(iii)을 보자. $(G/N)^{(r)}=1$이면 $G^{(r)}\subseteq N$이다. 다시 $N^{(s)}=1$이면
+\[
+  G^{(r+s)}\subseteq N^{(s)}=1.
+\]
+마지막으로 직접곱의 도함부분군은 성분별로 계산되어
+\[
+  (G_1\times\cdots\times G_m)^{(i)}
+  =G_1^{(i)}\times\cdots\times G_m^{(i)}
+\]
+이므로 (iv)가 따른다.
+\end{proof}
+
+\begin{corollary}
+모든 유한 $p$-군은 가해군이다.
+\end{corollary}
+
+\begin{proof}
+군의 크기에 대한 귀납법을 쓴다. 비자명한 유한 $p$-군은 비자명한 중심 $Z(G)$를 갖는다. $Z(G)$는 아벨군이고 $G/Z(G)$는 더 작은 $p$-군이므로 귀납가정과 명제 \ref{prop:solvable-closure-properties}에 의해 $G$는 가해군이다.
+\end{proof}
+
+\subsection{소수차 순환 인자군}
+
+\begin{theorem}[유한 가해군의 세분]
+\label{thm:prime-cyclic-refinement}
+유한 가해군 $G$는 인자군이 모두 소수차 순환군인 정규열
+\[
+  G=G_0\trianglerighteq G_1\trianglerighteq\cdots
+  \trianglerighteq G_m=1
+\]
+을 갖는다.
+\end{theorem}
+
+\begin{proof}
+아벨 인자군을 갖는 정규열을 하나 택한다. 어떤 인자군 $G_i/G_{i+1}$이 소수차 순환군이 아니라고 하자. 이 유한 아벨군에는 소수차 부분군 $C$가 존재하고, $C$의 역상 $H$는
+\[
+  G_i\trianglerighteq H\trianglerighteq G_{i+1}
+\]
+을 만족한다. $G_i/G_{i+1}$가 아벨이므로 $C$는 정규부분군이고 $H\triangleleft G_i$이다. 새 인자군들은 여전히 아벨이다.
+
+이 과정을 반복할 때마다 인자군의 크기가 더 작은 두 인자군으로 나뉜다. $G$가 유한이므로 유한번 뒤 모든 인자군이 소수차 순환군이 된다.
+\end{proof}
+
+이 정리는 가해군의 ``원자''가 소수차 순환군임을 보여준다. 갈루아 대응에서 소수차 순환 인자군은, 필요한 단위근을 첨가한 뒤, 하나의 소수차 근호 또는 아르틴--슈라이어 근을 첨가하는 체확장으로 바뀐다.
+
+\subsection{대칭군의 가해성}
+
+\begin{proposition}
+$n\ge2$에 대해
+\[
+  [S_n,S_n]=A_n.
+\]
+또한
+\[
+  [A_n,A_n]=
+  \begin{cases}
+    1,&n=2,3,\\
+    V_4,&n=4,\\
+    A_n,&n\ge5.
+  \end{cases}
+\]
+\end{proposition}
+
+\begin{proof}
+$S_n/A_n\cong C_2$이므로 $[S_n,S_n]\subseteq A_n$이다. 한편 모든 $3$-순환은 두 전치의 교환자로 쓸 수 있고, $A_n$은 $3$-순환들로 생성되므로 반대 포함도 성립한다.
+
+$A_2,A_3$은 아벨이다. $A_4/V_4\cong C_3$이므로 $[A_4,A_4]\subseteq V_4$이고, 각 이중전치는 두 $3$-순환의 교환자로 쓸 수 있으므로 등호가 성립한다.
+
+$n\ge5$에서 서로 다른 다섯 점 $x_1,\dots,x_5$를 택하면
+\[
+  (x_1x_2x_3)
+  =[(x_1x_2x_4),(x_1x_3x_5)]
+\]
+이다. 따라서 모든 $3$-순환이 $[A_n,A_n]$에 속하고, $A_n$이 $3$-순환들로 생성되므로 $[A_n,A_n]=A_n$이다.
+\end{proof}
+
+\begin{corollary}[대칭군의 가해성]
+\label{cor:symmetric-solvability}
+$S_n$은 $n\le4$일 때 가해이고 $n\ge5$일 때 가해가 아니다.
+\end{corollary}
+
+\begin{proof}
+$n\le4$에서는
+\[
+  S_2\trianglerighteq1,
+\]
+\[
+  S_3\trianglerighteq A_3\trianglerighteq1,
+\]
+\[
+  S_4\trianglerighteq A_4\trianglerighteq V_4
+  \trianglerighteq C_2\trianglerighteq1
+\]
+같은 정규열을 사용할 수 있다. 모든 인자군은 순환군이다.
+
+$n\ge5$이면
+\[
+  S_n^{(1)}=A_n,
+  \qquad
+  S_n^{(2)}=[A_n,A_n]=A_n
+\]
+이므로 도함열이 $1$에 도달하지 않는다.
+\end{proof}
+
+\begin{example}
+$D_4$는 정규열
+\[
+  D_4\trianglerighteq C_4\trianglerighteq C_2
+  \trianglerighteq1
+\]
+을 가지므로 가해군이다. $A_4$도 가해이지만 비아벨이다. 반면 $A_5$와 $S_5$는 가해군이 아니다.
+\end{example}
+
+\begin{keyidea}
+가해군은 아벨군을 유한번 쌓아 만든 군이다. 유한한 경우에는 더 세밀하게 소수차 순환군을 한 층씩 쌓아 만들 수 있다.
+\[
+  \boxed{
+  \text{유한 가해군}
+  \Longleftrightarrow
+  \text{소수차 순환 인자군을 갖는 정규열 존재}.}
+\]
+이 군론적 층 구조가 곧 근호첨가의 체론적 층 구조로 번역된다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $S_3$과 $S_4$의 도함열을 직접 계산하라.
+  \item $C_4\times S_3$이 가해군임을 보이고 도함길이의 상계를 구하라.
+  \item $A_5$의 비자명한 부분군 중 가해인 예를 하나 들고, 이것이 $A_5$ 자체의 비가해성과 모순되지 않는 이유를 설명하라.
+\end{enumerate}
+\end{checkpoint}
