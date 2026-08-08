@@ -1,0 +1,151 @@
+\clearpage
+\section{선별 문제 풀이 II}
+\label{sec:abel-ruffini-solutions-b}
+
+\subsection*{문제 \thechapter.17: 일반다항식의 기약성}
+
+\begin{solution}
+일반다항식의 분해체를 $L$, 계수체를 $K_n$이라 하자. 근 집합은
+\[
+  T_1,\dots,T_n
+\]
+이고 갈루아군은 $S_n$이다. 자연작용에서 $S_n$은 임의의 $T_i$를 임의의 $T_j$로 보내므로 추이적이다.
+
+분리다항식의 기약인수들은 갈루아군의 근 궤도에 대응한다. 근 집합이 하나의 궤도이므로 기약인수도 하나뿐이다. 따라서 일반다항식은 $K_n$ 위에서 기약이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.19: 일반 오차식의 중간 갈루아확장}
+
+\begin{solution}
+$\Gal(L/K_5)=S_5$이다. 중간체 $E$가 $K_5$ 위 갈루아일 필요충분조건은 대응부분군
+\[
+  H=\Gal(L/E)
+\]
+가 $S_5$의 정상부분군인 것이다.
+
+$S_5$의 정상부분군은 $1,A_5,S_5$뿐이다. 이들에 대응하는 고정체는 각각
+\[
+  L,
+  \qquad
+  L^{A_5}=K_5(\sqrt{\Disc(P_5)}),
+  \qquad
+  K_5.
+\]
+따라서 중간 갈루아확장은 문제에 표시된 세 체뿐이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.21: 근호식이 만드는 근호탑}
+
+\begin{solution}
+표현의 연산 횟수에 대해 귀납한다. 연산이 없는 표현은 $K$의 원소이므로 $E_0=K$에 들어간다.
+
+이미 앞선 모든 부분표현이 어떤 근호탑의 마지막 체 $E$에 들어간다고 하자. 두 부분표현의 합, 차, 곱과 분모가 영이 아닌 몫은 모두 체 $E$ 안에 있다. 따라서 사칙연산은 새 체를 요구하지 않는다.
+
+새 표현이 $u$의 $m$제곱근 $v$라면 $u\in E$이고
+\[
+  v^m=u.
+\]
+따라서
+\[
+  E\subseteq E(v)
+\]
+를 근호탑에 한 단계 덧붙이면 된다. 필요한 단위근도 유한번 첨가한다. 전체 표현이 유한하므로 이 과정을 유한번만 반복하며, 모든 근호식은 하나의 유한 근호탑의 마지막 체에 들어간다.
+\end{solution}
+
+\subsection*{문제 \thechapter.23: 아벨--루피니 정리}
+
+\begin{solution}
+독립 계수변수 $C_1,\dots,C_n$에 대한 일반다항식
+\[
+  P_n=X^n+C_1X^{n-1}+\cdots+C_n
+\]
+의 갈루아군은 $S_n$이다.
+
+$n\ge5$이면
+\[
+  [S_n,S_n]=A_n,
+  \qquad
+  [A_n,A_n]=A_n.
+\]
+따라서 $S_n$의 도함열은 $A_n$에 도달한 뒤 멈추고, $S_n$은 가해군이 아니다.
+
+갈루아의 근호해법 판정에 따르면 분리다항식이 근호로 풀릴 필요충분조건은 그 갈루아군이 가해군인 것이다. 그러므로 $P_n$은 근호로 풀리지 않는다.
+
+보편 근호공식이 존재한다면 문제 \thechapter.21에 의해 그 공식의 모든 값은 계수체 위의 근호탑에 들어가고, 특히 $P_n$의 분해체가 근호로 풀려야 한다. 이는 앞 결론과 모순이다. 따라서 $n\ge5$에서는 보편 근호공식이 존재하지 않는다.
+\end{solution}
+
+\subsection*{문제 \thechapter.25: 다섯 오차군의 가해성}
+
+\begin{solution}
+$C_5$는 아벨군이므로
+\[
+  C_5\trianglerighteq1.
+\]
+
+$D_5=\langle r,s:srs^{-1}=r^{-1}\rangle$에서
+\[
+  [s,r]=r^{-2}
+\]
+가 $C_5=\langle r\rangle$을 생성하므로
+\[
+  D_5\trianglerighteq C_5\trianglerighteq1.
+\]
+
+$F_{20}=\langle r,t:trt^{-1}=r^2\rangle$에서
+\[
+  [t,r]=r
+\]
+이고 $F_{20}/C_5\cong C_4$이므로
+\[
+  F_{20}\trianglerighteq C_5\trianglerighteq1.
+\]
+
+$A_5$는 완전군이므로
+\[
+  A_5\trianglerighteq A_5\trianglerighteq\cdots,
+\]
+$S_5$에서는
+\[
+  S_5\trianglerighteq A_5\trianglerighteq A_5
+  \trianglerighteq\cdots.
+\]
+따라서 앞의 세 군은 가해이고 마지막 두 군은 비가해이다. 기약 오차식의 근호해법 판정은
+\[
+\begin{array}{c|ccccc}
+G&C_5&D_5&F_{20}&A_5&S_5\\
+\hline
+\text{근호해법}&\text{가능}&\text{가능}&\text{가능}&\text{불가능}&\text{불가능}
+\end{array}
+\]
+이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.27: 두 제곱 판별식 오차식}
+
+\begin{solution}
+두 다항식의 판별식이 제곱이므로 두 갈루아군은 모두 $A_5$ 안에 들어간다. 그러나 실제 군구조는 다르다.
+
+$D_5$에는
+\[
+  D_5\trianglerighteq C_5\trianglerighteq1
+\]
+인 정규열이 있고 인자군은 $C_2,C_5$이다. 필요한 단위근을 첨가하면 각 층은 제곱근과 오제곱근으로 표현되므로 $f_D$는 근호로 풀린다.
+
+반면 $A_5$는 비가환 단순군이며
+\[
+  [A_5,A_5]=A_5.
+\]
+비자명한 아벨 인자군을 만드는 정상부분군열이 존재하지 않으므로 $f_A$는 근호로 풀리지 않는다.
+
+따라서 판별식의 제곱성은 홀순열을 제거할 뿐이고, 남은 짝순열군이 $D_5$처럼 가해인지 $A_5$처럼 비가해인지까지 결정하지 않는다.
+\end{solution}
+
+\subsection*{문제 \thechapter.29: $A_5$ 부분군·몫군 장애물}
+
+\begin{solution}
+가해군의 모든 부분군과 모든 몫군은 가해군이다. 따라서 가해군 $G$가 부분군 또는 몫군으로 $A_5$를 갖는다면 $A_5$도 가해군이어야 한다. 그러나 $A_5$는 완전 비자명군이므로 가해군이 아니다. 모순이다.
+
+따라서 $G$가 $A_5$를 부분군 또는 몫군으로 가지면 $G$는 비가해이고, 갈루아의 근호해법 판정에 의해 $f$는 근호로 풀리지 않는다.
+
+$G=A_5$인 경우에는 군 자체가 장애물이다. $G=S_5$인 경우에는 $A_5\triangleleft S_5$가 부분군이고 동시에 도함부분군이므로 같은 결론을 얻는다.
+\end{solution}
