@@ -1,0 +1,83 @@
+\clearpage
+\section{판정 절차와 장 요약}
+\label{sec:abel-ruffini-workflow-review}
+
+\begin{learninggoal}
+개별 방정식의 근호해법 판정과 일반방정식의 보편공식 부재를 서로 다른 절차로 정리한다. $A_5$의 단순성, 일반다항식의 $S_n$ 대칭과 아벨--루피니 정리를 하나의 논리 흐름으로 연결한다.
+\end{learninggoal}
+
+\subsection{개별 오차식의 판정 절차}
+
+주어진 분리 오차다항식 $f\in K[X]$이 근호로 풀리는지 판정하려면 다음 순서를 따른다.
+
+\begin{enumerate}[label=\textbf{단계 \arabic*.},leftmargin=3.8em]
+  \item \textbf{기약성과 근의 궤도 확인.} 기약이면 갈루아군은 $S_5$의 추이적 부분군이다.
+  \item \textbf{판별식 계산.} 판별식이 제곱이면 $G\subseteq A_5$, 비제곱이면 $G\not\subseteq A_5$이다.
+  \item \textbf{좋은 소수의 인수분해형 조사.} 법 $p$ 인수차수에서 갈루아군의 순환형을 얻는다.
+  \item \textbf{필요하면 부분군 분해식 사용.} 특히 $D_5$와 $F_{20}$을 구분한다.
+  \item \textbf{군을 확정.} 후보 $C_5,D_5,F_{20},A_5,S_5$ 가운데 하나를 결정한다.
+  \item \textbf{가해성 판정.}
+  \[
+    C_5,D_5,F_{20}:\text{ 근호로 풀림},
+  \]
+  \[
+    A_5,S_5:\text{ 근호로 풀리지 않음}.
+  \]
+\end{enumerate}
+
+\subsection{일반 n차식의 판정 절차}
+
+일반방정식에는 개별 소수 계산이 필요하지 않다.
+
+\begin{enumerate}[label=\textbf{단계 \arabic*.},leftmargin=3.8em]
+  \item 독립변수 $T_1,\dots,T_n$로 근들을 먼저 놓는다.
+  \item 기본대칭식 $s_1,\dots,s_n$을 계수로 읽는다.
+  \item 고정체를
+  \[
+    k(T_1,\dots,T_n)^{S_n}=k(s_1,\dots,s_n)
+  \]
+  로 계산한다.
+  \item 일반다항식의 갈루아군이 $S_n$임을 얻는다.
+  \item $n\le4$이면 $S_n$이 가해이므로 보편 근호공식이 존재한다.
+  \item $n\ge5$이면 $S_n$이 비가해이므로 보편 근호공식이 존재하지 않는다.
+\end{enumerate}
+
+\subsection{논리 구조 한눈에 보기}
+
+\[
+\boxed{
+\begin{gathered}
+\text{독립인 일반근 }T_1,\dots,T_n\\
+\Downarrow\\
+L^{S_n}=k(s_1,\dots,s_n)\\
+\Downarrow\\
+\Gal(P_n/K_n)=S_n\\
+\Downarrow\quad(n\ge5)\\
+S_n' =A_n,\quad A_n'=A_n\\
+\Downarrow\\
+S_n\text{은 비가해군}\\
+\Downarrow\\
+P_n\text{은 근호로 풀리지 않음}
+\end{gathered}}
+\]
+
+\begin{chapterreview}
+\begin{enumerate}[label=\arabic*.]
+  \item $A_5$의 켤레류 크기는 $1,20,15,12,12$이고, 이로부터 $A_5$의 단순성을 직접 증명할 수 있다.
+  \item 더 일반적으로 $n\ge5$이면 $A_n$은 삼순환과 교환자 계산을 통해 단순군임을 보일 수 있다.
+  \item $n\ge5$에서 $S_n$의 정상부분군은 $1,A_n,S_n$뿐이며, $A_n$은 완전군이다.
+  \item 일반다항식 $P_n$의 갈루아군은 $S_n$이다. 이는 대칭 유리함수의 고정체가 기본대칭식들로 생성된다는 사실에서 나온다.
+  \item 보편 근호공식의 존재는 일반다항식의 분해체가 근호확장 안에 들어간다는 체론적 명제와 같다.
+  \item $n\ge5$에서 $S_n$은 비가해군이므로 일반 $n$차방정식에는 보편 근호공식이 없다.
+  \item 아벨--루피니 정리는 모든 개별 오차식의 비가해성을 말하지 않는다. 실제 판정은 각 다항식의 갈루아군에 달려 있다.
+  \item 기약 오차식의 표준군 가운데 $C_5,D_5,F_{20}$은 가해이고 $A_5,S_5$는 비가해이다.
+\end{enumerate}
+\end{chapterreview}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 개별 오차식 판정과 일반 오차식 판정에서 입력 정보가 어떻게 다른지 설명하라.
+  \item $A_5$의 단순성과 완전성 가운데 어느 성질이 비가해성을 직접 보이는지 설명하라.
+  \item 아벨--루피니 정리를 갈루아군이라는 말을 사용하여 한 문장으로 서술하라.
+\end{enumerate}
+\end{checkpoint}
