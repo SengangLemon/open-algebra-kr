@@ -1,0 +1,295 @@
+\clearpage
+\section{힐베르트 정리 90과 순환확장}
+\label{sec:hilbert90-cyclic-extensions}
+
+\begin{learninggoal}
+순환 갈루아 확장의 노름 조건을 힐베르트 정리 90으로 해석한다. 기준체가 필요한 단위근을 포함할 때 순환확장이 하나의 근호로 생성됨을 증명하고, 양의 표수에서는 아르틴--슈라이어 다항식이 같은 역할을 함을 이해한다.
+\end{learninggoal}
+
+$L/K$가 차수 $n$의 순환 갈루아 확장이고
+\[
+  \Gal(L/K)=\langle\sigma\rangle
+\]
+라 하자. 이 절에서는 다음 곱과 합을 사용한다.
+\[
+  \operatorname N_{L/K}(x)
+  :=\prod_{j=0}^{n-1}\sigma^j(x),
+  \qquad
+  \Tr_{L/K}(x)
+  :=\sum_{j=0}^{n-1}\sigma^j(x).
+\]
+이 정의가 일반적인 노름과 대각합에 일치함은 다음 장에서 선형대수적으로 다시 증명한다.
+
+\subsection{필요한 독립성 보조정리}
+
+\begin{lemma}[체매장의 선형독립성]
+\label{lem:embeddings-linearly-independent}
+서로 다른 체준동형
+\[
+  \tau_1,\dots,\tau_r:L\longrightarrow M
+\]
+은 함수공간 $\operatorname{Map}(L,M)$에서 $M$ 위 선형독립이다.
+\end{lemma}
+
+\begin{proof}
+가장 짧은 비자명한 관계
+\[
+  a_1\tau_1+\cdots+a_r\tau_r=0
+\]
+가 있다고 가정하자. 모든 $a_i$를 영이 아니라고 할 수 있다. $\tau_1\ne\tau_r$이므로 어떤 $x\in L$에 대해 $\tau_1(x)\ne\tau_r(x)$이다. 임의의 $y\in L$에 대해 원래 관계를 $xy$에 적용한 식에서 $\tau_r(x)$와 원래 관계를 곱한 식을 빼면
+\[
+  \sum_{i=1}^{r-1}
+  a_i\bigl(\tau_i(x)-\tau_r(x)\bigr)\tau_i(y)=0.
+\]
+$\tau_1$의 계수는 영이 아니므로 더 짧은 비자명한 관계를 얻어 모순이다.
+\end{proof}
+
+\subsection{곱셈형 힐베르트 정리 90}
+
+\begin{theorem}[힐베르트 정리 90]
+\label{thm:hilbert90-multiplicative}
+$L/K$가 유한 순환 갈루아 확장이고 $\sigma$가 갈루아군의 생성원이라 하자. $b\in L^\times$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $\operatorname N_{L/K}(b)=1$이다.
+  \item 어떤 $a\in L^\times$가 존재하여
+  \[
+    b=\frac{a}{\sigma(a)}
+  \]
+  이다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proofidea}
+(ii)에서 (i)는 곱이 망원경처럼 소거되어 즉시 나온다. 역방향에서는 $1,\sigma,\dots,\sigma^{n-1}$의 선형독립성을 이용해 특별한 가중합 $a$를 영이 아니게 택하고, $b\sigma(a)=a$를 직접 확인한다.
+\end{proofidea}
+
+\begin{proof}
+$b=a/\sigma(a)$이면
+\[
+\begin{aligned}
+  \operatorname N_{L/K}(b)
+  &=\prod_{j=0}^{n-1}
+    \frac{\sigma^j(a)}{\sigma^{j+1}(a)}\\
+  &=1
+\end{aligned}
+\]
+이다.
+
+이제 $\operatorname N_{L/K}(b)=1$이라 하자. 함수 $T:L\to L$을
+\[
+\begin{aligned}
+T={}&1+b\sigma+b\sigma(b)\sigma^2+\cdots\\
+&+b\sigma(b)\cdots\sigma^{n-2}(b)\sigma^{n-1}
+\end{aligned}
+\]
+로 정의한다. 보조정리 \ref{lem:embeddings-linearly-independent}에 의해 $T$는 영함수가 아니다. 따라서 $T(c)\ne0$인 $c\in L$를 택하고
+\[
+  a:=T(c)
+\]
+라 두자. $\sigma^n=1$과 $\operatorname N_{L/K}(b)=1$을 사용하면 항들이 순환하여
+\[
+  b\sigma(a)=a
+\]
+가 된다. 따라서 $b=a/\sigma(a)$이다.
+\end{proof}
+
+\begin{example}[$\C/\R$]
+갈루아군의 생성원은 복소켤레이다. $z\in\C^\times$에 대해
+\[
+  \operatorname N_{\C/\R}(z)=z\overline z=|z|^2.
+\]
+따라서 $|z|=1$일 필요충분조건은 어떤 $a\in\C^\times$에 대해
+\[
+  z=\frac{a}{\overline a}
+\]
+로 쓸 수 있는 것이다. 이는 단위원의 유리매개화와도 연결된다.
+\end{example}
+
+\subsection{근호로 생성되는 순환확장}
+
+\begin{theorem}[순환확장의 근호 표현]
+\label{thm:cyclic-radical-characterization}
+$n>0$, $\charac K\nmid n$이고 $K$가 원시 $n$차 단위근 $\zeta_n$을 포함한다고 하자.
+\begin{enumerate}[label=(\roman*)]
+  \item $L/K$가 차수 $n$의 순환 갈루아 확장이면 어떤 $a\in L$와 $c\in K^\times$가 존재하여
+  \[
+    L=K(a),
+    \qquad
+    a^n=c,
+  \]
+  이고 $a$의 최소다항식은 $X^n-c$이다.
+  \item 반대로 $a^n=c\in K^\times$이고 $L=K(a)$이면 $L/K$는 순환 갈루아 확장이다. 차수 $d=[L:K]$는 $n$을 나누고
+  \[
+    a^d\in K,
+  \]
+  $a$의 최소다항식은 $X^d-a^d$이다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) 갈루아군의 생성원을 $\sigma$라 하자. 상수 $\zeta_n^{-1}\in K$의 노름은
+\[
+  \operatorname N_{L/K}(\zeta_n^{-1})
+  =\zeta_n^{-n}=1
+\]
+이다. 힐베르트 정리 90에 의해 어떤 $a\in L^\times$가 존재하여
+\[
+  \zeta_n^{-1}=\frac{a}{\sigma(a)},
+  \qquad
+  \sigma(a)=\zeta_n a
+\]
+이다. 따라서
+\[
+  a,\zeta_n a,\dots,\zeta_n^{n-1}a
+\]
+는 서로 다른 $n$개의 켤레이고 $[K(a):K]\ge n$이다. $K(a)\subseteq L$이므로 $L=K(a)$이다. 또한
+\[
+  \sigma(a^n)=a^n
+\]
+이므로 $c=a^n\in K$이고, 차수 비교에서 최소다항식은 $X^n-c$이다.
+
+(ii) $X^n-c$의 모든 근은
+\[
+  a,\zeta_n a,\dots,\zeta_n^{n-1}a
+\]
+이고 이들은 모두 $K(a)$에 속한다. 다항식은 분리이므로 $L$은 $X^n-c$의 분해체이고 $L/K$는 갈루아 확장이다. 모든 $\tau\in\Gal(L/K)$에 대해
+\[
+  \tau(a)=w_\tau a
+\]
+인 $w_\tau\in\mu_n$이 유일하게 존재한다. 사상
+\[
+  \Gal(L/K)\longrightarrow\mu_n,
+  \qquad\tau\longmapsto w_\tau
+\]
+은 단사군준동형이므로 갈루아군은 순환이고 그 위수 $d$는 $n$을 나눈다. 생성원 $\tau$에 대응하는 $w_\tau$의 위수는 $d$이므로
+\[
+  \tau(a^d)=a^d.
+\]
+따라서 $a^d\in K$이고 차수 비교에서 $X^d-a^d$가 최소다항식이다.
+\end{proof}
+
+\begin{example}[세제곱근을 붙인 순환확장]
+$K=\Q(\zeta_3)$, $a=\sqrt[3]{2}$라 하자. $X^3-2$는 $\Q$ 위에서 기약이고
+\[
+  [\Q(a):\Q]=3,
+  \qquad
+  [K:\Q]=2
+\]
+이므로 두 체의 교집합은 $\Q$이다. 따라서
+\[
+  [K(a):K]=3.
+\]
+$K$가 모든 세제곱 단위근을 포함하므로
+\[
+  K(a)/K
+\]
+는 $a\mapsto\zeta_3a$로 생성되는 순환 삼차확장이다.
+\end{example}
+
+\begin{pitfall}
+단위근 가정은 반드시 필요하다. $\Q(\sqrt[3]{2})/\Q$는 $X^3-2$의 한 근을 붙인 차수 $3$ 확장이지만 나머지 두 근을 포함하지 않아 갈루아 확장이 아니다. 그 분해체에는 $\zeta_3$을 추가해야 하며 갈루아군은 $S_3$이다.
+\end{pitfall}
+
+\subsection{가법형 힐베르트 정리와 아르틴--슈라이어 확장}
+
+\begin{theorem}[가법형 힐베르트 정리 90]
+\label{thm:hilbert90-additive}
+$L/K$가 유한 순환 갈루아 확장이고 $\sigma$가 갈루아군의 생성원이라 하자. $b\in L$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $\Tr_{L/K}(b)=0$이다.
+  \item 어떤 $a\in L$가 존재하여
+  \[
+    b=a-\sigma(a)
+  \]
+  이다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(ii)에서 (i)는 대각합의 순환성으로 즉시 나온다. 역방향을 보자. 보조정리 \ref{lem:embeddings-linearly-independent}에 의해 함수
+\[
+  \Tr_{L/K}=1+\sigma+\cdots+\sigma^{n-1}
+\]
+는 영함수가 아니다. 따라서 $\Tr_{L/K}(c)\ne0$인 $c\in L$를 택한다. 다음 식으로 $a$를 정의한다.
+\[
+\begin{aligned}
+ a\Tr_{L/K}(c)={}&b\sigma(c)
+ +(b+\sigma(b))\sigma^2(c)+\cdots\\
+ &+(b+\sigma(b)+\cdots+\sigma^{n-2}(b))
+ \sigma^{n-1}(c).
+\end{aligned}
+\]
+$\Tr_{L/K}(b)=0$을 사용해 $a-\sigma(a)$를 계산하면 항들이 소거되어
+\[
+  (a-\sigma(a))\Tr_{L/K}(c)
+  =b\Tr_{L/K}(c)
+\]
+를 얻는다. 따라서 $b=a-\sigma(a)$이다.
+\end{proof}
+
+\begin{theorem}[아르틴--슈라이어]
+\label{thm:artin-schreier-cyclic}
+$\charac K=p>0$이라 하자.
+\begin{enumerate}[label=(\roman*)]
+  \item 모든 차수 $p$의 순환 갈루아 확장 $L/K$는 어떤 $a\in L$, $c\in K$에 대해
+  \[
+    L=K(a),
+    \qquad
+    a^p-a=c
+  \]
+  로 쓸 수 있다.
+  \item 반대로 $a^p-a=c\in K$이고 $L=K(a)$이면 $L/K$는 갈루아 확장이다. 다항식 $X^p-X-c$는 $K$에서 완전히 분해되거나 기약이며, 기약인 경우 갈루아군은 $C_p$이다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) $\Gal(L/K)=\langle\sigma\rangle$라 하자. 표수 $p$에서 $\Tr_{L/K}(-1)=-p=0$이므로 가법형 힐베르트 정리 90에 의해
+\[
+  \sigma(a)-a=1
+\]
+인 $a\in L$가 존재한다. 그러면
+\[
+  \sigma^j(a)=a+j
+  \qquad(0\le j<p)
+\]
+는 서로 다르므로 $L=K(a)$이다. 또한
+\[
+  \sigma(a^p-a)=(a+1)^p-(a+1)=a^p-a
+\]
+이므로 $c=a^p-a\in K$이다.
+
+(ii) $X^p-X-c$의 근들은
+\[
+  a,a+1,\dots,a+p-1
+\]
+이고 모두 $K(a)$에 속한다. 도함수는 $-1$이므로 다항식은 분리이며 $L/K$는 갈루아 확장이다. 다항식이 $K$에 한 근을 가지면 모든 근이 $K$에 있어 완전히 분해된다.
+
+$K$에 근이 없는데 reducible하다고 가정하자. 차수 $1\le d<p$인 일계수 인수 $g$를 택하면, $g$는 위 근들 중 $d$개의 곱이다. $X^{d-1}$의 계수는
+\[
+  -da+j
+  \qquad(j\in\F_p)
+\]
+꼴이고 $K$에 속한다. $d\ne0$ in $K$이므로 $a\in K$가 되어 모순이다. 따라서 다항식은 기약이고 $[L:K]=p$이다. 자동동형 $a\mapsto a+1$이 위수 $p$이므로 갈루아군은 $C_p$이다.
+\end{proof}
+
+\begin{keyidea}
+순환확장은 표수에 따라 두 가지 표준방정식으로 나타난다.
+\[
+  \boxed{
+  \begin{array}{ll}
+  \charac K\nmid n,\ \mu_n\subseteq K
+    &: X^n-c,\\[2pt]
+  \charac K=p,\ [L:K]=p
+    &: X^p-X-c.
+  \end{array}}
+\]
+첫 번째는 곱셈과 노름, 두 번째는 덧셈과 대각합에 대응한다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\operatorname N_{L/K}(a/\sigma(a))=1$을 직접 전개하라.
+  \item $K$가 $\zeta_n$을 포함할 때 $K(\sqrt[n]{c})/K$의 차수가 $n$보다 작아지는 조건을 최소다항식으로 설명하라.
+  \item 표수 $p$에서 $X^p-X-c$의 근 두 개의 차가 왜 $\F_p$에 속하는지 보여라.
+\end{enumerate}
+\end{checkpoint}

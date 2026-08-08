@@ -1,0 +1,210 @@
+\clearpage
+\section{원분다항식}
+\label{sec:cyclotomic-polynomials}
+
+\begin{learninggoal}
+정확한 위수가 $n$인 단위근만을 모아 원분다항식 $\Phi_n$을 정의한다. $X^n-1$의 약수별 분해를 이용해 $\Phi_n$을 계산하고, $\Q$ 위에서의 기약성을 증명한다.
+\end{learninggoal}
+
+\begin{definition}[원분다항식]
+원시 $n$차 복소단위근 전체를 근으로 갖는 일계수다항식
+\[
+  \Phi_n(X)
+  :=\prod_{\substack{1\le a\le n\\\gcd(a,n)=1}}
+  (X-\zeta_n^a)
+\]
+을 \emph{$n$차 원분다항식}(cyclotomic polynomial)이라 한다.
+\end{definition}
+
+정의만 보면 계수는 복소수일 수 있다. 그러나 곧
+\[
+  \Phi_n\in\Z[X]
+\]
+이고 $\Q[X]$에서 기약임을 보일 것이다.
+
+\begin{theorem}[단위근의 약수별 분해]
+\label{thm:cyclotomic-factorization}
+모든 양의 정수 $n$에 대해
+\[
+  \boxed{X^n-1=\prod_{d\mid n}\Phi_d(X)}.
+\]
+따라서 $\Phi_n$은 재귀적으로
+\[
+  \Phi_n(X)
+  =\frac{X^n-1}{\displaystyle\prod_{\substack{d\mid n\\d<n}}\Phi_d(X)}
+\]
+로 계산할 수 있다.
+\end{theorem}
+
+\begin{proof}
+$n$차 단위근의 정확한 위수는 $n$의 약수이다. 반대로 정확한 위수가 $d\mid n$인 모든 원소는 $n$차 단위근이다. 따라서 $\mu_n$은 정확한 위수 $d$인 원시 $d$차 단위근들의 서로소 합집합이고, 근에 따른 일차인수들을 묶으면 표시된 곱을 얻는다.
+\end{proof}
+
+\begin{corollary}
+\label{cor:cyclotomic-degree}
+$\Phi_n$은 차수 $\varphi(n)$인 일계수다항식이다. 또한
+\[
+  \sum_{d\mid n}\deg\Phi_d
+  =\sum_{d\mid n}\varphi(d)=n.
+\]
+\end{corollary}
+
+\subsection{기본 계산 공식}
+
+\begin{proposition}[소수와 소수거듭제곱]
+\label{prop:cyclotomic-prime-power}
+$p$가 소수이고 $r\ge1$이면
+\[
+  \Phi_p(X)=1+X+\cdots+X^{p-1}
+\]
+이고
+\[
+  \boxed{
+  \Phi_{p^r}(X)
+  =\Phi_p\bigl(X^{p^{r-1}}\bigr)
+  =1+X^{p^{r-1}}+\cdots+X^{(p-1)p^{r-1}}.}
+\]
+\end{proposition}
+
+\begin{proof}
+첫 공식은 $X^p-1=(X-1)\Phi_p(X)$에서 나온다. 두 번째는
+\[
+  \Phi_{p^r}(X)
+  =\frac{X^{p^r}-1}{X^{p^{r-1}}-1}
+\]
+을 기하급수의 합으로 전개하면 된다.
+\end{proof}
+
+\begin{proposition}[지수에 소수를 붙이는 공식]
+\label{prop:cyclotomic-prime-extension}
+$p$가 소수이고 $n\ge1$이라 하자.
+\begin{enumerate}[label=(\roman*)]
+  \item $p\mid n$이면
+  \[
+    \Phi_{pn}(X)=\Phi_n(X^p).
+  \]
+  \item $p\nmid n$이면
+  \[
+    \Phi_{pn}(X)=\frac{\Phi_n(X^p)}{\Phi_n(X)}.
+  \]
+  \item $n>1$이 홀수이면
+  \[
+    \Phi_{2n}(X)=\Phi_n(-X).
+  \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+정확한 위수가 $pn$인 단위근을 $p$제곱했을 때의 위수를 비교한다. $p\mid n$이면 원시 $pn$차 단위근의 $p$제곱은 원시 $n$차 단위근이고 각 근의 $p$개 원상이 $\Phi_n(X^p)$에 나타난다. $p\nmid n$이면 $\Phi_n(X^p)$의 근들 가운데 정확한 위수가 $n$인 것과 $pn$인 것이 함께 나타나므로 $\Phi_n\Phi_{pn}$으로 분해된다. 마지막 공식은 $p=2$인 두 번째 경우와 $\Phi_n(X^2)=\Phi_n(X)\Phi_n(-X)$를 사용한다.
+\end{proof}
+
+\begin{example}
+약수별 분해를 사용하면
+\[
+\begin{aligned}
+  \Phi_8(X)&=X^4+1,\\
+  \Phi_9(X)&=X^6+X^3+1,\\
+  \Phi_{10}(X)&=X^4-X^3+X^2-X+1,\\
+  \Phi_{12}(X)&=X^4-X^2+1,\\
+  \Phi_{15}(X)&=X^8-X^7+X^5-X^4+X^3-X+1.
+\end{aligned}
+\]
+예를 들어 $\Phi_{10}(X)=\Phi_5(-X)$이고
+\[
+  \Phi_{15}(X)=\frac{\Phi_5(X^3)}{\Phi_5(X)}.
+\]
+\end{example}
+
+\begin{proposition}[상반성]
+\label{prop:cyclotomic-reciprocal}
+$n>1$이면
+\[
+  X^{\varphi(n)}\Phi_n(X^{-1})=\Phi_n(X).
+\]
+즉 $\Phi_n$의 계수는 앞뒤가 대칭이다. 특히 상수항은 $1$이다.
+\end{proposition}
+
+\begin{proof}
+$n=2$이면 $\Phi_2=X+1$이므로 자명하다. $n>2$라 하자. 원시 $n$차 단위근의 역수도 원시 단위근이고, $\zeta=\zeta^{-1}$인 원시근은 존재하지 않는다. 따라서 원시근들은
+\[
+  \{\zeta,\zeta^{-1}\}
+\]
+꼴의 쌍들로 분할되고 그 전체 곱은 $1$이다. 또한 $\varphi(n)$은 짝수이므로 $\Phi_n$의 상수항은
+\[
+  (-1)^{\varphi(n)}
+  \prod_{\zeta\text{ primitive}}\zeta=1.
+\]
+이제 $X^{\varphi(n)}\Phi_n(X^{-1})$은 일계수이고 그 근 집합은 원시 $n$차 단위근들의 역수 집합, 즉 원래 근 집합과 같다. 따라서 두 일계수다항식은 같다.
+\end{proof}
+
+\subsection{유리수체 위에서의 기약성}
+
+\begin{theorem}[원분다항식의 기약성]
+\label{thm:cyclotomic-irreducible-Q}
+모든 $n\ge1$에 대해
+\[
+  \Phi_n\in\Z[X]
+\]
+이고 $\Phi_n$은 $\Q[X]$에서 기약이다. 따라서 원시 $n$차 단위근 $\zeta_n$의 최소다항식은 $\Phi_n$이며
+\[
+  [\Q(\zeta_n):\Q]=\varphi(n).
+\]
+\end{theorem}
+
+\begin{proofidea}
+$\zeta_n$의 최소다항식 $f$가 한 원시근만이 아니라 모든 원시근 $\zeta_n^a$를 근으로 가짐을 보인다. 핵심은 $p\nmid n$인 소수 $p$에 대해 $\zeta_n^p$도 $f$의 근이어야 한다는 법 $p$ 논증이다.
+\end{proofidea}
+
+\begin{proof}
+$f\in\Q[X]$를 $\zeta_n$의 최소다항식이라 하자. $f$는 일계수이고 $X^n-1$을 나누므로 가우스 보조정리에 의해
+\[
+  X^n-1=f(X)h(X)
+\]
+인 일계수 $f,h\in\Z[X]$를 택할 수 있다.
+
+$p\nmid n$인 소수 $p$를 택하자. $\zeta_n^p$가 $f$의 근이 아니라고 가정하면 $h(\zeta_n^p)=0$이다. 따라서 $\zeta_n$은 $h(X^p)$의 근이고, 최소다항식의 성질에서
+\[
+  f(X)\mid h(X^p)
+\]
+이다. 정수계수의 일계수 몫을 택할 수 있으므로 이를 법 $p$로 줄일 수 있다. $\F_p[X]$에서는
+\[
+  \overline{h(X^p)}=\overline h(X)^p
+\]
+이므로 $\overline f$와 $\overline h$는 공통 기약인수를 갖는다. 그러면
+\[
+  X^n-1=\overline f\,\overline h
+\]
+는 중복인수를 갖는다. 그러나 $p\nmid n$이므로 $X^n-1$은 $\F_p$ 위에서 분리이고 이는 모순이다. 따라서 $\zeta_n^p$도 $f$의 근이다.
+
+이제 $\gcd(a,n)=1$인 양의 정수 $a$는 $n$을 나누지 않는 소수들의 곱으로 쓸 수 있다. 위 논증을 반복하면 모든 $\zeta_n^a$가 $f$의 근이다. 원시 $n$차 단위근은 $\varphi(n)$개이므로
+\[
+  \deg f\ge\varphi(n).
+\]
+한편 체매장은 원소의 곱셈위수를 보존하므로 $f$의 모든 근은 원시 $n$차 단위근이다. 따라서 $f$는 $\Phi_n$을 나누고
+\[
+  \deg f\le\varphi(n).
+\]
+결국 $f=\Phi_n$이고 차수는 $\varphi(n)$이다. 마지막으로 $f$가 일계수 정수다항식이므로 $\Phi_n\in\Z[X]$이다.
+\end{proof}
+
+\begin{remark}
+$\Phi_n$의 정수계수가 모두 $0,1,-1$인 것은 아니다. 작은 $n$에서는 그렇게 보이지만, 일반적으로 원분다항식의 계수 절댓값은 제한되지 않는다. 이 장에서는 계수의 크기보다 근의 정확한 위수와 갈루아 작용에 초점을 맞춘다.
+\end{remark}
+
+\begin{pitfall}
+$\Phi_n$은 $\Q$ 위에서는 항상 기약이지만 임의의 체 위에서 기약인 것은 아니다. 예를 들어
+\[
+  \Phi_7(X)
+  =(X^3+X+1)(X^3+X^2+1)
+  \quad\text{in }\F_2[X].
+\]
+유한체에서의 인수 차수는 $q$의 법 $n$ 곱셈위수로 결정되며, 이는 뒤에서 체계적으로 다룬다.
+\end{pitfall}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $X^{18}-1$을 $\Q[X]$에서 원분다항식들의 곱으로 나타내라.
+  \item $\Phi_{25}$와 $\Phi_{18}$을 계산하라.
+  \item 기약성 증명에서 $p\nmid n$ 조건이 필요한 정확한 지점을 설명하라.
+\end{enumerate}
+\end{checkpoint}
