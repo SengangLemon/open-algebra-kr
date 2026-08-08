@@ -1,0 +1,245 @@
+\clearpage
+\section{노름·대각합 방정식과 힐베르트 정리 90}
+\label{sec:norm-trace-equations-hilbert90}
+
+\begin{learninggoal}
+대각합 방정식과 노름 방정식의 해집합 구조를 비교한다. 순환 갈루아 확장에서 힐베르트 정리 90이 노름 $1$과 대각합 $0$의 원소를 완전히 매개화한다는 사실을 정확한 완전열로 표현한다.
+\end{learninggoal}
+
+대각합은 선형이므로
+\[
+  \Tr_{L/K}(x)=b
+\]
+는 선형방정식이다. 반면 노름은 차수 $[L:K]$의 다항식이므로
+\[
+  \operatorname N_{L/K}(x)=c
+\]
+는 일반적으로 비선형 방정식이다. 두 방정식의 난이도는 크게 다르지만 순환확장에서는 힐베르트 정리 90이 각각의 핵을 매우 구체적으로 설명한다.
+
+\subsection{해 하나에서 모든 해로}
+
+\begin{proposition}[대각합 방정식]
+\label{prop:trace-equation-solution-coset}
+$L/K$가 유한 분리확장이고 $b\in K$라 하자. $\Tr_{L/K}(x_0)=b$인 한 해 $x_0$를 택하면
+\[
+  \{x\in L:\Tr_{L/K}(x)=b\}
+  =x_0+\ker\Tr_{L/K}.
+\]
+따라서 모든 $b\in K$에 대해 해가 존재한다.
+\end{proposition}
+
+\begin{proof}
+전사성은 따름정리 \ref{cor:trace-surjective-separable}에서 이미 보였다. 선형성에 의해
+\[
+  \Tr(x)=b
+  \quad\Longleftrightarrow\quad
+  \Tr(x-x_0)=0
+\]
+이다.
+\end{proof}
+
+\begin{proposition}[노름 방정식]
+\label{prop:norm-equation-solution-coset}
+$L/K$가 유한확장이고 $c\in K^\times$라 하자. $\operatorname N_{L/K}(x_0)=c$인 한 해가 존재하면
+\[
+  \{x\in L^\times:\operatorname N_{L/K}(x)=c\}
+  =x_0\ker\operatorname N_{L/K}.
+\]
+그러나 일반적으로 모든 $c\in K^\times$에 대해 해가 존재하는 것은 아니다.
+\end{proposition}
+
+\begin{proof}
+노름의 곱셈성에서
+\[
+  \operatorname N(x)=c
+  \quad\Longleftrightarrow\quad
+  \operatorname N(xx_0^{-1})=1
+\]
+이다. 비전사성의 예로 $\Q(i)/\Q$에서 노름은 두 제곱의 합이므로 $-1$은 노름이 아니다.
+\end{proof}
+
+\subsection{순환확장의 두 완전열}
+
+$L/K$가 차수 $n$의 순환 갈루아 확장이고
+\[
+  \Gal(L/K)=\langle\sigma\rangle
+\]
+라 하자. 다음 두 사상을 생각한다.
+\[
+  \delta_\times:L^\times\longrightarrow L^\times,
+  \qquad
+  a\longmapsto\frac{a}{\sigma(a)},
+\]
+\[
+  \delta_+:L\longrightarrow L,
+  \qquad
+  a\longmapsto a-\sigma(a).
+\]
+
+\begin{theorem}[힐베르트 정리 90의 완전열 형태]
+\label{thm:hilbert90-exact-sequences}
+위 상황에서 다음 두 열은 완전하다.
+\[
+  \boxed{
+  1\longrightarrow K^\times
+  \longrightarrow L^\times
+  \xrightarrow{\ \delta_\times\ }
+  \ker\operatorname N_{L/K}
+  \longrightarrow1,}
+\]
+\[
+  \boxed{
+  0\longrightarrow K
+  \longrightarrow L
+  \xrightarrow{\ \delta_+\ }
+  \ker\Tr_{L/K}
+  \longrightarrow0.}
+\]
+즉
+\[
+  \operatorname N_{L/K}(b)=1
+  \quad\Longleftrightarrow\quad
+  b=\frac{a}{\sigma(a)}
+\]
+이고
+\[
+  \Tr_{L/K}(b)=0
+  \quad\Longleftrightarrow\quad
+  b=a-\sigma(a)
+\]
+이다.
+\end{theorem}
+
+\begin{proof}
+곱셈형 힐베르트 정리 90은 정리 \ref{thm:hilbert90-multiplicative}에서, 가법형은 정리 \ref{thm:hilbert90-additive}에서 증명했다. 여기서는 완전열의 나머지 부분을 확인한다.
+
+$\delta_\times(a)=1$일 필요충분조건은 $a=\sigma(a)$이고, $\sigma$의 고정체가 $K$이므로 핵은 $K^\times$이다. 또한
+\[
+  \operatorname N\left(\frac{a}{\sigma(a)}\right)=1
+\]
+이고 힐베르트 정리 90에 의해 노름 $1$인 모든 원소가 이렇게 나타난다.
+
+마찬가지로 $\delta_+(a)=0$일 필요충분조건은 $a\in K$이다. 대각합의 순환성에서
+\[
+  \Tr(a-\sigma(a))=0
+\]
+이고, 가법형 힐베르트 정리 90이 대각합 $0$인 모든 원소를 이 꼴로 나타낸다.
+\end{proof}
+
+\begin{corollary}[순환확장의 모든 해]
+\label{cor:cyclic-norm-trace-all-solutions}
+$L/K$가 위와 같은 순환확장이라고 하자.
+\begin{enumerate}[label=(\roman*)]
+  \item $\operatorname N(x_0)=c\ne0$인 한 해가 있으면 모든 해는
+  \[
+    x=x_0\frac{a}{\sigma(a)}
+    \qquad(a\in L^\times)
+  \]
+  이다.
+  \item $\Tr(x_0)=b$인 한 해가 있으면 모든 해는
+  \[
+    x=x_0+a-\sigma(a)
+    \qquad(a\in L)
+  \]
+  이다.
+\end{enumerate}
+서로 다른 $a$가 같은 해를 줄 수 있으며, 각각 $K^\times$ 또는 $K$만큼의 중복이 생긴다.
+\end{corollary}
+
+\subsection{이차확장의 유리매개화}
+
+\begin{example}[$\Q(i)/\Q$의 노름 $1$]
+복소켤레를 $\sigma$라 하자. 힐베르트 정리 90에 의해
+\[
+  x^2+y^2=1,
+  \qquad x,y\in\Q
+\]
+일 필요충분조건은
+\[
+  x+yi=\frac{a}{\overline a}
+\]
+인 $a\in\Q(i)^\times$가 존재하는 것이다. $a=m+ni$로 두면
+\[
+\begin{aligned}
+  \frac{m+ni}{m-ni}
+  &=\frac{(m+ni)^2}{m^2+n^2}\\
+  &=\frac{m^2-n^2}{m^2+n^2}
+    +\frac{2mn}{m^2+n^2}i.
+\end{aligned}
+\]
+따라서 단위원의 유리점은
+\[
+  x=\frac{m^2-n^2}{m^2+n^2},
+  \qquad
+  y=\frac{2mn}{m^2+n^2}
+\]
+로 매개화된다.
+\end{example}
+
+\begin{example}[$K(\sqrt d)/K$의 노름 $1$]
+$\sigma(\sqrt d)=-\sqrt d$라 하자. 임의의 $t\in K$에 대해
+\[
+  a=1+t\sqrt d
+\]
+를 택하면
+\[
+  \frac{a}{\sigma(a)}
+  =\frac{1+t\sqrt d}{1-t\sqrt d}
+  =\frac{1+dt^2}{1-dt^2}
+   +\frac{2t}{1-dt^2}\sqrt d.
+\]
+따라서
+\[
+  x=\frac{1+dt^2}{1-dt^2},
+  \qquad
+  y=\frac{2t}{1-dt^2}
+\]
+는
+\[
+  x^2-dy^2=1
+\]
+을 만족한다. 이는 노름 $1$인 이차곡선의 표준 유리매개화이다.
+\end{example}
+
+\subsection{유한체에서의 해의 개수}
+
+\begin{corollary}
+$L=\F_{q^n}$, $K=\F_q$라 하자.
+\begin{enumerate}[label=(\roman*)]
+  \item 각 $b\in K$에 대해 $\Tr_{L/K}(x)=b$인 $x\in L$는 정확히 $q^{n-1}$개이다.
+  \item 각 $c\in K^\times$에 대해 $\operatorname N_{L/K}(x)=c$인 $x\in L^\times$는 정확히
+  \[
+    \frac{q^n-1}{q-1}
+  \]
+  개이다.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+두 사상이 전사이고, 각 섬유는 해당 핵의 덧셈잉여류 또는 곱셈잉여류이다. 정리 \ref{thm:finite-field-norm-trace}의 핵 크기를 사용한다.
+\end{proof}
+
+\begin{pitfall}
+힐베르트 정리 90은 노름 사상 자체가 전사라고 말하지 않는다. 정리는 이미 노름이 $1$인 원소들의 \emph{형태}를 설명한다. 일반 $c\in K^\times$에 대한 노름 방정식은 한 해의 존재를 별도로 확인해야 한다.
+\end{pitfall}
+
+\begin{keyidea}
+순환확장에서는 노름의 핵과 대각합의 핵이 각각 하나의 ``차분''으로 완전히 표현된다.
+\[
+  \boxed{
+  \ker\operatorname N
+  =\left\{\frac{a}{\sigma(a)}:a\in L^\times\right\},
+  \qquad
+  \ker\Tr
+  =\{a-\sigma(a):a\in L\}.}
+\]
+곱셈형과 가법형 힐베르트 정리 90은 같은 구조의 두 모습이다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Q(i)/\Q$에서 대각합 $0$인 원소를 $a-\overline a$ 꼴로 모두 나타내라.
+  \item $\F_{25}/\F_5$에서 노름이 $2$인 원소의 개수와 대각합이 $3$인 원소의 개수를 구하라.
+  \item 노름 방정식 $\operatorname N(x)=c$에 해가 하나도 없을 수 있지만 대각합 방정식 $\Tr(x)=b$는 분리확장에서 항상 풀리는 이유를 비교하라.
+\end{enumerate}
+\end{checkpoint}

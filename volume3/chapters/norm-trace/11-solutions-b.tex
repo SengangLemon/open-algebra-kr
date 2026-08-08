@@ -1,0 +1,270 @@
+\clearpage
+\section{선별 상세 풀이 II}
+\label{sec:norm-trace-solutions-b}
+
+\subsection*{연습문제 \ref{ex:prove-norm-trace-transitivity}}
+
+\begin{solution}
+먼저 $L/K$가 분리라고 하자. $M$의 모든 $K$-매장을 $\tau$로 표시한다. 각 $\tau$는 $L$의 $K$-매장으로 정확히 $[L:M]$가지 방식으로 연장된다. $L$의 매장들을 제한값 $\tau$에 따라 묶으면
+\[
+  \sum_{\sigma|_M=\tau}\sigma(\alpha)
+  =\tau\bigl(\Tr_{L/M}(\alpha)\bigr)
+\]
+이다. 따라서
+\[
+\begin{aligned}
+  \Tr_{L/K}(\alpha)
+  &=\sum_{\sigma:L\to\overline K}\sigma(\alpha)\\
+  &=\sum_{\tau:M\to\overline K}
+    \sum_{\sigma|_M=\tau}\sigma(\alpha)\\
+  &=\sum_\tau\tau\bigl(\Tr_{L/M}(\alpha)\bigr)\\
+  &=\Tr_{M/K}\bigl(\Tr_{L/M}(\alpha)\bigr).
+\end{aligned}
+\]
+곱도 같은 방식으로 묶으면
+\[
+\begin{aligned}
+  \operatorname N_{L/K}(\alpha)
+  &=\prod_{\sigma:L\to\overline K}\sigma(\alpha)\\
+  &=\prod_{\tau:M\to\overline K}
+    \prod_{\sigma|_M=\tau}\sigma(\alpha)\\
+  &=\prod_\tau\tau\bigl(\operatorname N_{L/M}(\alpha)\bigr)\\
+  &=\operatorname N_{M/K}
+    \bigl(\operatorname N_{L/M}(\alpha)\bigr).
+\end{aligned}
+\]
+
+일반 경우에는 분리차수와 비분리차수를 사용한다. 다음 곱셈식이 성립한다.
+\[
+  [L:K]_{\mathrm s}
+  =[L:M]_{\mathrm s}[M:K]_{\mathrm s},
+\]
+\[
+  [L:K]_{\mathrm i}
+  =[L:M]_{\mathrm i}[M:K]_{\mathrm i}.
+\]
+정리 \ref{thm:norm-trace-inseparable-embeddings}에서 서로 다른 매장들의 각 값은 비분리차수만큼 중복된다. 위의 제한별 묶음 계산에 $[L:M]_{\mathrm i}$와 $[M:K]_{\mathrm i}$의 중복도를 차례로 넣으면 전체 중복도는 그 곱인 $[L:K]_{\mathrm i}$가 된다. 따라서 분리인 경우의 두 식이 그대로 유지된다.
+\end{solution}
+
+\subsection*{연습문제 \ref{ex:prove-trace-pairing-criterion}}
+
+\begin{solution}
+먼저 $L/K$가 분리라고 하자. 모든 $K$-매장을
+\[
+  \sigma_1,\dots,\sigma_n:L\to\overline K
+\]
+라 쓰자. 어떤 $0\ne x\in L$가 모든 $y\in L$에 대해
+\[
+  \Tr_{L/K}(xy)=0
+\]
+을 만족한다고 가정하면 매장 공식에 의해
+\[
+  \sum_{i=1}^n\sigma_i(x)\sigma_i(y)=0
+  \qquad\text{for all }y\in L.
+\]
+즉 함수로서
+\[
+  \sigma_1(x)\sigma_1+\cdots+\sigma_n(x)\sigma_n=0.
+\]
+$x\ne0$이고 각 $\sigma_i$가 단사이므로 모든 계수 $\sigma_i(x)$가 영이 아니다. 이는 체매장들의 선형독립에 모순이다. 따라서 각 $0\ne x$에 대해 $\Tr(xy)\ne0$인 $y$가 존재하고 대각합 쌍은 비퇴화이다.
+
+반대로 $L/K$가 비분리이면 따름정리 \ref{cor:inseparable-trace-zero}에 의해
+\[
+  \Tr_{L/K}(z)=0
+  \qquad\text{for all }z\in L.
+\]
+따라서 $\Tr(xy)=0$가 모든 $x,y$에 대해 성립하고 대각합 쌍은 영형식이다. 특히 퇴화한다.
+
+그러므로 대각합 쌍의 비퇴화성과 분리성은 동치이다.
+\end{solution}
+
+\subsection*{연습문제 \ref{ex:finite-field-norm-trace-surjectivity}}
+
+\begin{solution}
+$L/K=\F_{q^n}/\F_q$의 갈루아군은
+\[
+  \Frob_q:x\mapsto x^q
+\]
+로 생성되는 위수 $n$의 순환군이다. 따라서 갈루아 합·곱 공식으로
+\[
+  \Tr_{L/K}(x)
+  =x+x^q+\cdots+x^{q^{n-1}}
+\]
+이고
+\[
+\begin{aligned}
+  \operatorname N_{L/K}(x)
+  &=x\,x^q\cdots x^{q^{n-1}}\\
+  &=x^{1+q+\cdots+q^{n-1}}\\
+  &=x^{(q^n-1)/(q-1)}.
+\end{aligned}
+\]
+
+유한체 확장은 분리이므로 대각합은 영이 아닌 $K$-선형사상 $L\to K$이다. 공역이 1차원이므로 전사이다. 차원정리에서
+\[
+  \dim_K\ker\Tr=n-1
+\]
+이고 따라서
+\[
+  |\ker\Tr|=q^{n-1}.
+\]
+
+노름을 보자. 순환군 $L^\times$의 생성원을 $g$라 하면
+\[
+  \operatorname N(g)=g^e,
+  \qquad
+  e=\frac{q^n-1}{q-1}.
+\]
+원소 $g^e$의 위수는
+\[
+  \frac{q^n-1}{\gcd(q^n-1,e)}
+  =\frac{q^n-1}{e}=q-1.
+\]
+따라서 $\operatorname N(g)$는 $K^\times$의 생성원이고 노름은 전사이다. 제1동형정리에서
+\[
+  |\ker\operatorname N|
+  =\frac{|L^\times|}{|K^\times|}
+  =\frac{q^n-1}{q-1}
+\]
+이다.
+\end{solution}
+
+\subsection*{연습문제 \ref{ex:prove-norm-resultant}}
+
+\begin{solution}
+$f$의 근들을 대수적 폐포에서 중복도를 포함해
+\[
+  \alpha_1,\dots,\alpha_n
+\]
+이라 쓰자. $L=K(\alpha)$이므로 $g(\alpha)$의 켤레 또는 특성근은
+\[
+  g(\alpha_1),\dots,g(\alpha_n)
+\]
+이다. 따라서
+\[
+  \operatorname N_{L/K}(g(\alpha))
+  =\prod_{i=1}^n g(\alpha_i).
+\]
+일계수 다항식 $f$에 대한 종결식의 근 공식은
+\[
+  \Res(f,g)=\prod_{i=1}^n g(\alpha_i)
+\]
+이므로
+\[
+  \operatorname N_{L/K}(g(\alpha))=\Res(f,g)
+\]
+이다.
+
+이제 $g(T)=T-c$로 두면
+\[
+\begin{aligned}
+  \operatorname N(\alpha-c)
+  &=\prod_{i=1}^n(\alpha_i-c)\\
+  &=(-1)^n\prod_{i=1}^n(c-\alpha_i)\\
+  &=(-1)^n f(c).
+\end{aligned}
+\]
+부호는 $\alpha_i-c$를 $c-\alpha_i$로 바꾸는 과정에서 각 인수마다 $-1$이 생기기 때문이다.
+\end{solution}
+
+\subsection*{연습문제 \ref{ex:purely-inseparable-trace-norm}}
+
+\begin{solution}
+순수비분리확장 $L/K$는 대수적 폐포로 가는 서로 다른 $K$-매장이 하나뿐이다. 그 매장은 포함사상이다. 비분리차수는 전체 차수
+\[
+  q=[L:K]=p^r
+\]
+이다. 정리 \ref{thm:norm-trace-inseparable-embeddings}를 적용하면
+\[
+  P_{\alpha,L/K}(T)=(T-\alpha)^q.
+\]
+이 다항식은 실제로 $K[T]$에 속하며, 특히 상수항에서 $\alpha^q\in K$임도 알 수 있다.
+
+$T^{q-1}$의 계수는 $-q\alpha$이다. 표수 $p$에서 $q=p^r=0$이므로
+\[
+  \Tr_{L/K}(\alpha)=q\alpha=0.
+\]
+상수항은 $(-1)^q\alpha^q$이므로 정의의 부호를 적용하면
+\[
+  \operatorname N_{L/K}(\alpha)=\alpha^q.
+\]
+이는 모든 $\alpha\in L$에 대해 성립한다.
+\end{solution}
+
+\subsection*{연습문제 \ref{ex:hilbert90-exact-sequences}}
+
+\begin{solution}
+먼저
+\[
+  \delta_\times(a)=\frac{a}{\sigma(a)}
+\]
+라 하자. $L^\times$가 가환군이므로 $\delta_\times$는 군준동형이다. 그 핵은
+\[
+\begin{aligned}
+  \ker\delta_\times
+  &=\{a\in L^\times:a=\sigma(a)\}\\
+  &=(L^{\langle\sigma\rangle})^\times=K^\times.
+\end{aligned}
+\]
+또한 망원곱으로
+\[
+  \operatorname N\left(\frac{a}{\sigma(a)}\right)=1
+\]
+이므로 상은 $\ker\operatorname N$에 포함된다. 곱셈형 힐베르트 정리 90은 노름이 $1$인 모든 원소가 $a/\sigma(a)$ 꼴이라고 말하므로 상은 정확히 $\ker\operatorname N$이다. 따라서 첫 열이 완전하다.
+
+다음으로
+\[
+  \delta_+(a)=a-\sigma(a)
+\]
+라 하자. 이는 가법군 준동형이고
+\[
+  \ker\delta_+
+  =\{a\in L:a=\sigma(a)\}=K.
+\]
+대각합의 갈루아 불변성 또는 직접적인 망원합에서
+\[
+  \Tr(a-\sigma(a))=0
+\]
+이므로 상은 $\ker\Tr$에 포함된다. 가법형 힐베르트 정리 90에 의해 대각합이 $0$인 모든 원소가 $a-\sigma(a)$ 꼴이므로 상은 $\ker\Tr$ 전체이다. 따라서 둘째 열도 완전하다.
+\end{solution}
+
+\subsection*{연습문제 \ref{ex:power-basis-trace-discriminant}}
+
+\begin{solution}
+$\sigma_i:L\to\overline K$를 $\alpha$를 $\alpha_i$로 보내는 $n$개의 매장이라 하자. 행렬
+\[
+  A=(\sigma_i(\alpha^{j-1}))_{i,j}
+  =(\alpha_i^{j-1})_{i,j}
+\]
+를 생각한다. 대각합 행렬 $G$의 $(j,k)$성분은
+\[
+\begin{aligned}
+  G_{jk}
+  &=\Tr(\alpha^{j+k-2})\\
+  &=\sum_{i=1}^n\alpha_i^{j+k-2}\\
+  &=\sum_{i=1}^n
+    \alpha_i^{j-1}\alpha_i^{k-1}.
+\end{aligned}
+\]
+따라서
+\[
+  G=A^{\mathsf T}A.
+\]
+행렬식을 취하면
+\[
+  \det G=(\det A)^2.
+\]
+$A$는 반데르몬드 행렬이므로
+\[
+  \det A=\prod_{1\le i<j\le n}(\alpha_j-\alpha_i).
+\]
+결국
+\[
+\begin{aligned}
+  \det\bigl(\Tr(\alpha^{j+k-2})\bigr)_{j,k}
+  &=(\det A)^2\\
+  &=\prod_{i<j}(\alpha_i-\alpha_j)^2.
+\end{aligned}
+\]
+제곱이므로 반데르몬드 곱의 순서에 따른 부호는 사라진다. 오른쪽은 일계수 최소다항식 $f_\alpha$의 판별식이다. 따라서 거듭제곱 기저의 대각합 판별식과 $f_\alpha$의 다항식 판별식이 일치한다.
+\end{solution}

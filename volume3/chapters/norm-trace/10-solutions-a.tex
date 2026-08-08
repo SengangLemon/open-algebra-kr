@@ -1,0 +1,353 @@
+\clearpage
+\section{선별 상세 풀이 I}
+\label{sec:norm-trace-solutions-a}
+
+\subsection*{연습문제 \ref{ex:norm-trace-quadratic-matrix}}
+
+\begin{solution}
+기저를 $\mathcal B=(1,\sqrt5)$라 하자. 먼저
+\[
+  \alpha\cdot1=3+2\sqrt5,
+\]
+\[
+  \alpha\cdot\sqrt5
+  =(3+2\sqrt5)\sqrt5=10+3\sqrt5.
+\]
+따라서 열벡터 관례에서
+\[
+  [m_\alpha]_{\mathcal B}
+  =\begin{pmatrix}
+    3&10\\
+    2&3
+  \end{pmatrix}.
+\]
+그러므로
+\[
+  \Tr_{L/\Q}(\alpha)=3+3=6
+\]
+이고
+\[
+  \operatorname N_{L/\Q}(\alpha)
+  =3\cdot3-10\cdot2=-11.
+\]
+
+이차확장의 켤레를 사용하면 같은 결과를 더 빠르게 얻는다.
+\[
+  \overline\alpha=3-2\sqrt5,
+\]
+\[
+  \Tr(\alpha)=\alpha+\overline\alpha=6,
+  \qquad
+  \operatorname N(\alpha)=\alpha\overline\alpha=9-20=-11.
+\]
+
+역원은
+\[
+  \alpha^{-1}
+  =\frac{\overline\alpha}{\alpha\overline\alpha}
+  =\frac{3-2\sqrt5}{-11}
+  =\frac{2\sqrt5-3}{11}.
+\]
+노름의 곱셈성에서
+\[
+  \operatorname N(\alpha^{-1})
+  =\operatorname N(\alpha)^{-1}=-\frac1{11}
+\]
+이고
+\[
+  \operatorname N(\alpha)\operatorname N(\alpha^{-1})=1
+\]
+이므로 검산된다.
+\end{solution}
+
+\subsection*{연습문제 \ref{ex:norm-trace-pure-cubic}}
+
+\begin{solution}
+$\theta$의 최소다항식은
+\[
+  f(T)=T^3-2
+\]
+이다. 따라서 계수 공식에서
+\[
+  \Tr(\theta)=0,
+  \qquad
+  \operatorname N(\theta)=(-1)^3(-2)=2.
+\]
+노름의 곱셈성으로
+\[
+  \operatorname N(\theta^2)=\operatorname N(\theta)^2=4.
+\]
+대각합은 켤레들의 합으로 계산할 수 있다. $\theta$의 켤레가
+\[
+  \theta,\quad\zeta_3\theta,\quad\zeta_3^2\theta
+\]
+이므로
+\[
+  \Tr(\theta^2)
+  =\theta^2(1+\zeta_3^2+\zeta_3^4)
+  =\theta^2(1+\zeta_3+\zeta_3^2)=0.
+\]
+또는 뉴턴 항등식에서 바로 $s_2=0$을 얻는다.
+
+대각합의 선형성에서
+\[
+  \Tr(1+\theta)=\Tr(1)+\Tr(\theta)=3+0=3.
+\]
+노름은 정리 \ref{thm:norm-resultant}를 사용한다.
+\[
+\begin{aligned}
+  \operatorname N(1+\theta)
+  &=\operatorname N(\theta-(-1))\\
+  &=(-1)^3f(-1)\\
+  &=-((-1)^3-2)=3.
+\end{aligned}
+\]
+마지막으로
+\[
+  \operatorname N(2-\theta)
+  =\prod_i(2-\theta_i)=f(2)=8-2=6.
+\]
+여기서 $2-\theta_i$의 곱은 최소다항식의 값 $f(2)$과 같은 방향의 차이를 사용하므로 추가 부호가 없다.
+\end{solution}
+
+\subsection*{연습문제 \ref{ex:characteristic-polynomial-repeated}}
+
+\begin{solution}
+$\alpha=\sqrt2$의 $\Q$ 위 최소다항식은
+\[
+  f_\alpha(T)=T^2-2
+\]
+이고
+\[
+  [L:\Q(\alpha)]
+  =[\Q(\sqrt2,\sqrt3):\Q(\sqrt2)]=2.
+\]
+정리 \ref{thm:characteristic-minimal-power}에 의해
+\[
+  P_{\alpha,L/\Q}(T)
+  =(T^2-2)^2=T^4-4T^2+4.
+\]
+따라서 $T^3$의 계수가 $0$이고 상수항이 $4$이므로
+\[
+  \Tr_{L/\Q}(\sqrt2)=0,
+  \qquad
+  \operatorname N_{L/\Q}(\sqrt2)=4.
+\]
+
+한편 $E=\Q(\sqrt2)$에서는
+\[
+  \Tr_{E/\Q}(\sqrt2)=0,
+  \qquad
+  \operatorname N_{E/\Q}(\sqrt2)=-2.
+\]
+$\sqrt2\in E$이고 $[L:E]=2$이므로
+\[
+  \Tr_{L/\Q}(\sqrt2)
+  =2\Tr_{E/\Q}(\sqrt2)=0,
+\]
+\[
+  \operatorname N_{L/\Q}(\sqrt2)
+  =\operatorname N_{E/\Q}(\sqrt2)^2=4.
+\]
+전체 확장에서 각 $E/\Q$-켤레가 두 번씩 반복되는 것이 차이의 원인이다.
+\end{solution}
+
+\subsection*{연습문제 \ref{ex:finite-field-f8-trace-norm}}
+
+\begin{solution}
+$\F_8/\F_2$의 갈루아군은 $x\mapsto x^2$로 생성되므로
+\[
+  \Tr(x)=x+x^2+x^4.
+\]
+먼저 표수 $2$에서
+\[
+  \Tr(1)=1+1+1=1.
+\]
+관계 $\theta^3+\theta+1=0$에서
+\[
+  \theta^3=\theta+1,
+  \qquad
+  \theta^4=\theta^2+\theta
+\]
+이므로
+\[
+  \Tr(\theta)
+  =\theta+\theta^2+(\theta^2+\theta)=0.
+\]
+또한 $\theta^8=\theta$이므로
+\[
+\begin{aligned}
+  \Tr(\theta^2)
+  &=\theta^2+\theta^4+\theta^8\\
+  &=\theta^2+(\theta^2+\theta)+\theta=0.
+\end{aligned}
+\]
+대각합의 $\F_2$-선형성에서
+\[
+  \Tr(a+b\theta+c\theta^2)=a.
+\]
+따라서
+\[
+  \ker\Tr
+  =\{0,\theta,\theta^2,\theta+\theta^2\}.
+\]
+
+노름은
+\[
+  \operatorname N(x)=x^{1+2+4}=x^7.
+\]
+$\F_8^\times$의 위수가 $7$이므로 모든 $x\ne0$에 대해 $x^7=1$이다. 따라서
+\[
+  \operatorname N(x)=1
+  \qquad(x\in\F_8^\times).
+\]
+\end{solution}
+
+\subsection*{연습문제 \ref{ex:norm-trace-tower-sqrt2-sqrt3}}
+
+\begin{solution}
+$L/M$는 $\sqrt3$의 부호를 바꾸는 자동동형
+\[
+  \tau:\sqrt3\mapsto-\sqrt3,
+  \qquad \sqrt2\mapsto\sqrt2
+\]
+를 갖는 이차 갈루아 확장이다. 따라서
+\[
+\begin{aligned}
+  \Tr_{L/M}(\alpha)
+  &=\alpha+\tau(\alpha)\\
+  &=(\sqrt2+\sqrt3)+(\sqrt2-\sqrt3)\\
+  &=2\sqrt2,
+\end{aligned}
+\]
+\[
+\begin{aligned}
+  \operatorname N_{L/M}(\alpha)
+  &=\alpha\tau(\alpha)\\
+  &=(\sqrt2+\sqrt3)(\sqrt2-\sqrt3)\\
+  &=2-3=-1.
+\end{aligned}
+\]
+
+추이성을 적용하면
+\[
+  \Tr_{L/\Q}(\alpha)
+  =\Tr_{M/\Q}(2\sqrt2)=0
+\]
+이고
+\[
+  \operatorname N_{L/\Q}(\alpha)
+  =\operatorname N_{M/\Q}(-1)=(-1)^2=1.
+\]
+
+직접 검산하면 네 켤레는
+\[
+  \sqrt2+\sqrt3,
+  \quad\sqrt2-\sqrt3,
+  \quad-\sqrt2+\sqrt3,
+  \quad-\sqrt2-\sqrt3.
+\]
+합은 $0$이고, 첫 두 항의 곱과 마지막 두 항의 곱이 각각 $-1$이므로 전체 곱은 $1$이다.
+\end{solution}
+
+\subsection*{연습문제 \ref{ex:cyclotomic-zeta5-norm-trace}}
+
+\begin{solution}
+$\zeta=\zeta_5$의 최소다항식은
+\[
+  \Phi_5(T)=T^4+T^3+T^2+T+1
+\]
+이다. 계수 공식에서
+\[
+  \Tr_{L/\Q}(\zeta)=-1,
+  \qquad
+  \operatorname N_{L/\Q}(\zeta)=1.
+\]
+또는 네 켤레 $\zeta,\zeta^2,\zeta^3,\zeta^4$를 직접 합하고 곱해도 된다.
+
+대각합의 선형성에서
+\[
+\begin{aligned}
+  \Tr(1-\zeta)
+  &=\Tr(1)-\Tr(\zeta)\\
+  &=4-(-1)=5.
+\end{aligned}
+\]
+노름은
+\[
+\begin{aligned}
+  \operatorname N(1-\zeta)
+  &=\prod_{a=1}^4(1-\zeta^a)\\
+  &=\Phi_5(1)=5.
+\end{aligned}
+\]
+대각합과 노름이 우연히 같은 값 $5$가 되지만, 두 계산의 원리는 각각 합과 곱으로 다르다.
+\end{solution}
+
+\subsection*{연습문제 \ref{ex:prove-artin-independence}}
+
+\begin{solution}
+비자명한 관계가 존재한다고 가정하고 항의 수가 최소인 관계
+\[
+  a_1\chi_1+\cdots+a_r\chi_r=0
+\]
+를 택한다. 영인 계수의 항은 제거할 수 있으므로 모든 $a_i\ne0$이다. $r=1$이면 항등원에서 평가하여 $a_1=0$이 되므로 $r\ge2$이다.
+
+$\chi_1\ne\chi_r$이므로 어떤 $g\in G$에 대해
+\[
+  \chi_1(g)-\chi_r(g)\ne0
+\]
+이다. 임의의 $h\in G$에 대해 관계를 $gh$에 적용하면
+\[
+  \sum_{i=1}^r a_i\chi_i(g)\chi_i(h)=0.
+\]
+관계를 $h$에 적용한 뒤 $\chi_r(g)$를 곱한 식을 빼면
+\[
+  \sum_{i=1}^{r-1}
+  a_i(\chi_i(g)-\chi_r(g))\chi_i(h)=0
+\]
+이다. $i=r$인 항은 정확히 사라진다. 한편 $i=1$인 계수
+\[
+  a_1(\chi_1(g)-\chi_r(g))
+\]
+는 두 인수가 모두 영이 아니므로 영이 아니다. 따라서 이 식은 $r-1$개 이하의 캐릭터 사이의 비자명한 관계이다. 이는 $r$의 최소성에 모순이다. 그러므로 처음의 비자명한 관계는 존재하지 않는다.
+\end{solution}
+
+\subsection*{연습문제 \ref{ex:prove-embedding-formulas}}
+
+\begin{solution}
+$E=K(\alpha)$, $d=[E:K]$, $r=[L:E]$라 하자. $L/K$가 분리이므로 $E/K$와 $L/E$도 분리이다. $\alpha$의 최소다항식의 서로 다른 근들을
+\[
+  \alpha_1,\dots,\alpha_d
+\]
+라 쓰면 $E$의 $K$-매장들은 $\alpha$를 각각 $\alpha_j$로 보낸다.
+
+분리확장에서 매장의 연장 개수는 상대차수와 같다. 따라서 $E$의 각 $K$-매장은 $L$의 $K$-매장으로 정확히
+\[
+  [L:E]=r
+\]
+가지 방식으로 연장된다. 그러므로 $L$의 모든 $K$-매장 $\sigma_i$를 움직일 때 값 $\sigma_i(\alpha)$의 목록에는 각 $\alpha_j$가 정확히 $r$번 나타난다. 따라서
+\[
+\begin{aligned}
+  \prod_{i=1}^{dr}(T-\sigma_i(\alpha))
+  &=\prod_{j=1}^d(T-\alpha_j)^r\\
+  &=f_\alpha(T)^r.
+\end{aligned}
+\]
+정리 \ref{thm:characteristic-minimal-power}에서
+\[
+  P_{\alpha,L/K}=f_\alpha^r
+\]
+이므로
+\[
+  P_{\alpha,L/K}(T)
+  =\prod_i(T-\sigma_i(\alpha)).
+\]
+둘째 계수와 상수항을 비교하면
+\[
+  \Tr_{L/K}(\alpha)=\sum_i\sigma_i(\alpha),
+  \qquad
+  \operatorname N_{L/K}(\alpha)=\prod_i\sigma_i(\alpha)
+\]
+를 얻는다.
+\end{solution}

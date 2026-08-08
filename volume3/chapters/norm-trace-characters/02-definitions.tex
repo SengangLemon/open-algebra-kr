@@ -1,0 +1,179 @@
+\clearpage
+\section{체확장의 노름과 대각합}
+\label{sec:norm-trace-definitions}
+
+\begin{learninggoal}
+유한 체확장에서 원소의 곱셈사상으로 노름과 대각합을 정의한다. 기저를 택한 행렬 계산, 기준체의 원소, 복소수와 이차확장의 구체적 예제를 통해 두 불변량의 성질을 익힌다.
+\end{learninggoal}
+
+이 절부터 $L/K$는 차수
+\[
+  n=[L:K]<\infty
+\]
+인 유한 체확장이라 하자.
+
+\begin{definition}[원소의 특성다항식, 대각합과 노름]
+\label{def:field-norm-trace}
+$a\in L$에 대한 곱셈사상 $m_a:L\to L$의 특성다항식을
+\[
+  \chi_{a,L/K}(X)
+  :=\det(X\id_L-m_a)
+\]
+라 한다. 또한
+\[
+  \Tr_{L/K}(a):=\Tr(m_a),
+  \qquad
+  \Nm_{L/K}(a):=\det(m_a)
+\]
+를 각각 $a$의 $L/K$에 관한 \emph{대각합}과 \emph{노름}이라 한다.
+\end{definition}
+
+정의에서 즉시
+\[
+  \chi_{a,L/K}(X)
+  =X^n-\Tr_{L/K}(a)X^{n-1}
+  +\cdots+(-1)^n\Nm_{L/K}(a)
+\]
+를 얻는다.
+
+\begin{proposition}[대각합과 노름의 대수적 성질]
+\label{prop:norm-trace-basic-properties}
+다음이 성립한다.
+\begin{enumerate}[label=(\roman*)]
+  \item $\Tr_{L/K}:L\to K$는 $K$-선형사상이다.
+  \item $\Nm_{L/K}:L^\times\to K^\times$는 군준동형이다.
+  \item 모든 $a,b\in L$에 대해
+  \[
+    \Nm_{L/K}(ab)
+    =\Nm_{L/K}(a)\Nm_{L/K}(b).
+  \]
+  \item $\Nm_{L/K}(a)=0$일 필요충분조건은 $a=0$이다.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+명제 \ref{prop:regular-representation}과
+명제 \ref{prop:linear-trace-det-properties}를 결합하면
+\[
+  \Tr(m_{ca+db})
+  =c\Tr(m_a)+d\Tr(m_b)
+\]
+와
+\[
+  \det(m_{ab})
+  =\det(m_a\circ m_b)
+  =\det(m_a)\det(m_b)
+\]
+를 얻는다. $a\ne0$이면 $m_a$가 가역이므로 그 행렬식은 영이 아니다.
+\end{proof}
+
+\begin{pitfall}
+노름은 곱셈을 보존하지만 일반적으로 덧셈을 보존하지 않는다.
+대각합은 덧셈과 $K$-스칼라곱을 보존하지만 일반적으로 곱셈을 보존하지 않는다.
+\[
+  \Nm(a+b)\ne\Nm(a)+\Nm(b),
+  \qquad
+  \Tr(ab)\ne\Tr(a)\Tr(b)
+\]
+가 보통이다.
+\end{pitfall}
+
+\subsection{기준체의 원소}
+
+\begin{proposition}
+\label{prop:norm-trace-scalars}
+$c\in K$이면
+\[
+  \boxed{
+  \Tr_{L/K}(c)=nc,
+  \qquad
+  \Nm_{L/K}(c)=c^n.}
+\]
+\end{proposition}
+
+\begin{proof}
+$m_c=c\,\id_L$이므로 어떤 $K$-기저에서도 그 행렬은 $cI_n$이다.
+\end{proof}
+
+표수가 $p>0$이고 $p\mid n$이면
+\[
+  \Tr_{L/K}(c)=0\qquad(c\in K)
+\]
+일 수 있다. 이것은 양의 표수에서 대각합이 사라지는 현상의 첫 징후이다.
+
+\subsection{행렬로 계산하는 표준 절차}
+
+$a\in L$의 노름과 대각합을 직접 계산하려면 다음 순서를 따른다.
+\begin{enumerate}
+  \item $L$의 $K$-기저 $e_1,\dots,e_n$을 택한다.
+  \item 각 $j$에 대해 $ae_j$를 기저의 선형결합으로 나타낸다.
+  \item 그 좌표벡터들을 열로 놓아 $m_a$의 행렬 $M_a$를 만든다.
+  \item
+  \[
+    \Tr_{L/K}(a)=\operatorname{tr}(M_a),
+    \qquad
+    \Nm_{L/K}(a)=\det(M_a)
+  \]
+  를 계산한다.
+\end{enumerate}
+
+\begin{example}[$\C/\R$]
+$z=a+bi\in\C$라 하자. $\R$-기저 $(1,i)$에 대해
+\[
+  z\cdot1=a+bi,\qquad
+  z\cdot i=-b+ai
+\]
+이므로
+\[
+  M_z=
+  \begin{pmatrix}
+    a&-b\\
+    b&a
+  \end{pmatrix}.
+\]
+따라서
+\[
+  \boxed{
+  \Tr_{\C/\R}(z)=2a=z+\overline z,
+  \qquad
+  \Nm_{\C/\R}(z)=a^2+b^2=z\overline z.}
+\]
+특히 $\Nm_{\C/\R}(\C^\times)=\R_{>0}$이므로 노름사상이 항상 전사인 것은 아니다.
+\end{example}
+
+\begin{example}[이차확장]
+$\charac K\ne2$이고 $d\in K^\times$가 제곱이 아니며
+\[
+  L=K(\sqrt d)
+\]
+라 하자. $u=a+b\sqrt d$에 의한 곱셈은 기저 $(1,\sqrt d)$에서
+\[
+  M_u=
+  \begin{pmatrix}
+    a&bd\\
+    b&a
+  \end{pmatrix}
+\]
+로 주어진다. 따라서
+\[
+  \boxed{
+  \Tr_{L/K}(a+b\sqrt d)=2a,
+  \qquad
+  \Nm_{L/K}(a+b\sqrt d)=a^2-db^2.}
+\]
+두 식은 비자명한 $K$-자동동형
+$\sqrt d\mapsto-\sqrt d$를 사용한 합과 곱
+\[
+  u+\overline u,\qquad u\overline u
+\]
+와 일치한다.
+\end{example}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Nm_{\C/\R}(2+3i)$와 $\Tr_{\C/\R}(2+3i)$를 구하라.
+  \item $L=\Q(\sqrt2)$에서 $3+\sqrt2$의 곱셈행렬, 특성다항식,
+  노름과 대각합을 구하라.
+  \item $\Nm_{L/K}(a^{-1})=\Nm_{L/K}(a)^{-1}$임을 보여라.
+\end{enumerate}
+\end{checkpoint}

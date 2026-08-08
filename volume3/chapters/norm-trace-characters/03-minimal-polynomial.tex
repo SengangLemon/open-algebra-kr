@@ -1,0 +1,193 @@
+\clearpage
+\section{최소다항식과 특성다항식으로 계산하기}
+\label{sec:norm-trace-minimal-polynomial}
+
+\begin{learninggoal}
+단순확장에서 원소의 특성다항식이 최소다항식과 일치하는 이유를 증명한다. 임의의 원소가 더 작은 부분체를 생성할 때 나타나는 거듭제곱 공식을 이해하고, 최소다항식의 계수·종결식으로 노름과 대각합을 계산한다.
+\end{learninggoal}
+
+행렬을 직접 만들지 않고도 최소다항식만 알면 노름과 대각합을 읽을 수 있다.
+
+\begin{theorem}[단순확장의 특성다항식]
+\label{thm:simple-extension-characteristic-polynomial}
+$L=K(\alpha)$이고 $[L:K]=n$이라 하자. $\alpha$의 $K$ 위 최소다항식을
+\[
+  f(X)=X^n+c_1X^{n-1}+\cdots+c_n
+\]
+라 하면
+\[
+  \boxed{\chi_{\alpha,L/K}(X)=f(X).}
+\]
+따라서
+\[
+  \boxed{
+  \Tr_{L/K}(\alpha)=-c_1,
+  \qquad
+  \Nm_{L/K}(\alpha)=(-1)^n c_n.}
+\]
+\end{theorem}
+
+\begin{proofidea}
+다항식 $h$가 $\alpha$를 영으로 만드는 것과 선형사상 $m_\alpha$를 영으로 만드는 것이 동치임을 보인다. 따라서 $\alpha$와 $m_\alpha$의 최소다항식이 같고, 그 차수가 이미 $n$이므로 $n$차 특성다항식과 일치한다.
+\end{proofidea}
+
+\begin{proof}
+모든 $h\in K[X]$에 대해
+\[
+  h(m_\alpha)=m_{h(\alpha)}
+\]
+이다. 따라서 $h(\alpha)=0$이면 $h(m_\alpha)=0$이다. 반대로
+$h(m_\alpha)=0$이면 이를 $1\in L$에 적용하여
+\[
+  0=h(m_\alpha)(1)=h(\alpha)
+\]
+를 얻는다. 그러므로 $\alpha$와 $m_\alpha$의 최소다항식은 같다.
+
+이 최소다항식은 케일리--해밀턴 정리에 의해
+$\chi_{\alpha,L/K}$를 나눈다. 두 다항식은 모두 일계수이고 차수가 $n$이므로 서로 같다. 계수 비교로 마지막 두 식을 얻는다.
+\end{proof}
+
+\begin{example}[순수 삼차확장]
+$\alpha^3=2$이고 $L=\Q(\alpha)$라 하자. $X^3-2$는 아이젠슈타인 판정으로 기약이므로
+\[
+  [L:\Q]=3.
+\]
+정리 \ref{thm:simple-extension-characteristic-polynomial}에서
+\[
+  \Tr_{L/\Q}(\alpha)=0,
+  \qquad
+  \Nm_{L/\Q}(\alpha)=2.
+\]
+또한 $\alpha^2$의 최소다항식은 $X^3-4$이므로
+\[
+  \Tr_{L/\Q}(\alpha^2)=0,
+  \qquad
+  \Nm_{L/\Q}(\alpha^2)=4.
+\]
+마지막으로 $1+\alpha$의 최소다항식은
+\[
+  (X-1)^3-2
+  =X^3-3X^2+3X-3
+\]
+이므로
+\[
+  \Tr_{L/\Q}(1+\alpha)=3,
+  \qquad
+  \Nm_{L/\Q}(1+\alpha)=3.
+\]
+\end{example}
+
+\subsection{원소가 전체 확장을 생성하지 않을 때}
+
+\begin{proposition}[부분체에 따른 거듭제곱 공식]
+\label{prop:norm-trace-generated-subfield}
+$a\in L$, $E=K(a)$, $s=[L:E]$라 하자. 그러면
+\[
+  \boxed{
+  \chi_{a,L/K}(X)
+  =\chi_{a,E/K}(X)^s}
+\]
+이고
+\[
+  \boxed{
+  \Tr_{L/K}(a)
+  =s\,\Tr_{E/K}(a),
+  \qquad
+  \Nm_{L/K}(a)
+  =\Nm_{E/K}(a)^s.}
+\]
+\end{proposition}
+
+\begin{proof}
+$E$의 $K$-기저를 $x_1,\dots,x_r$, $L$의 $E$-기저를
+$y_1,\dots,y_s$라 하자. 그러면
+\[
+  x_i y_j\qquad(1\le i\le r,\ 1\le j\le s)
+\]
+는 $L$의 $K$-기저이다. $a\in E$이므로 각 $j$에 대해
+\[
+  \operatorname{span}_K\{x_1y_j,\dots,x_ry_j\}
+\]
+는 $m_a$에 의해 보존되고, 그 제한행렬은 모두
+$E$ 위에서 $a$를 곱하는 같은 행렬이다. 따라서 전체 행렬은 같은 블록이 $s$번 놓인 블록대각행렬이다. 특성다항식·대각합·행렬식을 계산하면 결론이 나온다.
+\end{proof}
+
+\begin{example}[이중 이차확장]
+\[
+  L=\Q(\sqrt2,\sqrt3),\qquad
+  E=\Q(\sqrt2)
+\]
+라 하자. $[L:E]=2$이므로
+\[
+  \Tr_{L/\Q}(\sqrt2)
+  =2\Tr_{E/\Q}(\sqrt2)=0,
+\]
+\[
+  \Nm_{L/\Q}(\sqrt2)
+  =\Nm_{E/\Q}(\sqrt2)^2=(-2)^2=4.
+\]
+한편
+\[
+  u=\sqrt2+\sqrt3
+\]
+는 최소다항식
+\[
+  X^4-10X^2+1
+\]
+을 가지므로
+\[
+  \Tr_{L/\Q}(u)=0,
+  \qquad
+  \Nm_{L/\Q}(u)=1.
+\]
+\end{example}
+
+\subsection{노름을 다항식으로 계산하기}
+
+\begin{theorem}[최소다항식의 노름 표현]
+\label{thm:minimal-polynomial-as-norm}
+$L=K(\alpha)$이고 $\alpha$의 최소다항식을 $f$라 하자. 부정원 $T$에 대해
+\[
+  \boxed{
+  f(T)=\det(T\id_L-m_\alpha)
+  =\Nm_{L(T)/K(T)}(T-\alpha).}
+\]
+특히 모든 $x\in K$에 대해
+\[
+  \boxed{\Nm_{L/K}(x-\alpha)=f(x).}
+\]
+\end{theorem}
+
+\begin{proof}
+첫 등식은 정리 \ref{thm:simple-extension-characteristic-polynomial}의 정의이다.
+$K(T)$ 위에서 $T-\alpha$를 곱하는 선형사상은
+$T\id_L-m_\alpha$이므로 그 행렬식이 노름이다. $T=x\in K$로 특수화하면 마지막 식을 얻는다.
+\end{proof}
+
+\begin{corollary}[종결식과 노름]
+\label{cor:resultant-as-field-norm}
+$f\in K[X]$가 일계수 기약다항식이고
+$L=K(\alpha)=K[X]/(f)$라 하자. 모든 $g\in K[X]$에 대해
+\[
+  \boxed{
+  \Nm_{L/K}(g(\alpha))
+  =\Res(f,g).}
+\]
+\end{corollary}
+
+\begin{proof}
+Chapter 2에서 일계수 $f$에 대한 종결식은
+$K[X]/(f)$에서 $g(\alpha)$를 곱하는 선형사상의 행렬식으로 해석되었다.
+이는 바로 노름의 정의이다.
+\end{proof}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\alpha^3-\alpha-1=0$일 때
+  $\Nm_{\Q(\alpha)/\Q}(2-\alpha)$를 한 줄로 계산하라.
+  \item $L=\Q(\sqrt2,\sqrt3)$에서
+  $\chi_{\sqrt2,L/\Q}(X)$를 구하라.
+  \item $\Nm_{L/K}(g(\alpha))=\Res(f,g)$에서 $g=f'$를 택하면
+  판별식과 어떤 관계가 생기는지 설명하라.
+\end{enumerate}
+\end{checkpoint}

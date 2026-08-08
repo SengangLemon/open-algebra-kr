@@ -1,0 +1,226 @@
+\clearpage
+\section{계산 절차와 장 요약}
+\label{sec:norm-trace-workflow-review}
+
+\begin{learninggoal}
+노름·대각합 문제를 읽고 가장 짧은 계산 경로를 선택한다. 분리성, 갈루아성, 확장탑, 유한체 여부를 차례로 점검하는 재현 가능한 절차를 익힌다.
+\end{learninggoal}
+
+\subsection{문제 해결 절차}
+
+\begin{keyidea}
+노름과 대각합은 먼저 ``무엇을 알고 있는가''를 분류한 뒤 계산한다. 행렬을 무조건 만드는 것은 가장 확실하지만 항상 가장 빠른 방법은 아니다.
+\end{keyidea}
+
+\subsubsection*{1단계: 확장과 기준체를 명시한다}
+
+반드시
+\[
+  \operatorname N_{L/K},
+  \qquad
+  \Tr_{L/K}
+\]
+에서 $L$과 $K$를 확인한다. 같은 원소라도 더 큰 체에서 계산하면 켤레가 반복되어 값이 달라진다. 예를 들어
+\[
+  \operatorname N_{\Q(\sqrt2)/\Q}(\sqrt2)=-2
+\]
+이지만
+\[
+  \operatorname N_{\Q(\sqrt2,\sqrt3)/\Q}(\sqrt2)=4
+\]
+이다.
+
+\subsubsection*{2단계: 가장 가까운 구조를 찾는다}
+
+\begin{enumerate}[label=(\alph*)]
+  \item 기저와 곱셈표가 주어졌는가?
+  
+  $m_\alpha$의 행렬을 만들고 행렬식과 대각합을 취한다.
+
+  \item 최소다항식이 주어졌는가?
+  
+  $P_{\alpha,L/K}=f_\alpha^{[L:K(\alpha)]}$를 사용한다.
+
+  \item $g(\alpha)$의 노름인가?
+  
+  $L=K(\alpha)$이면
+  \[
+    \operatorname N(g(\alpha))=\Res(f_\alpha,g)
+  \]
+  를 먼저 시도한다.
+
+  \item 확장이 분리 또는 갈루아인가?
+  
+  모든 매장 또는 갈루아 자동동형에 대한 합과 곱을 사용한다.
+
+  \item 중간체가 있는가?
+  
+  추이식
+  \[
+    \Tr_{L/K}=\Tr_{M/K}\circ\Tr_{L/M},
+  \]
+  \[
+    \operatorname N_{L/K}
+    =\operatorname N_{M/K}\circ\operatorname N_{L/M}
+  \]
+  로 나눈다.
+
+  \item 유한체인가?
+  
+  프로베니우스 공식
+  \[
+    \Tr(x)=\sum_{j=0}^{n-1}x^{q^j},
+    \qquad
+    \operatorname N(x)=x^{(q^n-1)/(q-1)}
+  \]
+  을 사용한다.
+\end{enumerate}
+
+\subsubsection*{3단계: 분리성을 확인한다}
+
+분리확장이면 켤레들의 합과 곱을 그대로 사용할 수 있다. 비분리확장이면 서로 다른 매장만 더해서는 안 되고 비분리차수의 중복도를 포함해야 한다. 특히 유한 비분리확장에서는
+\[
+  \Tr_{L/K}=0
+\]
+이다.
+
+\subsubsection*{4단계: 결과를 독립적으로 검산한다}
+
+다음 검산을 사용할 수 있다.
+
+\begin{enumerate}[label=(\roman*)]
+  \item 노름은 곱셈적이어야 한다.
+  \item 대각합은 $K$-선형이어야 한다.
+  \item $c\in K$에 대해
+  \[
+    \operatorname N(c)=c^{[L:K]},
+    \qquad
+    \Tr(c)=[L:K]c
+  \]
+  여야 한다.
+  \item 갈루아 자동동형을 적용해도 값이 변하지 않아야 한다.
+  \item 확장탑으로 계산한 값과 직접 계산한 값이 같아야 한다.
+  \item 최소다항식의 상수항과 둘째 계수의 부호를 확인한다.
+\end{enumerate}
+
+\subsection{대표 판정표}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.28}
+\begin{tabular}{p{0.28\textwidth}p{0.60\textwidth}}
+\toprule
+질문 & 사용할 사실 \\
+\midrule
+$\Tr(\alpha)$와 $\operatorname N(\alpha)$ & $m_\alpha$의 대각합과 행렬식 \\
+최소다항식만 알고 있음 & $P_{\alpha,L/K}=f_\alpha^{[L:K(\alpha)]}$ \\
+분리확장 & 모든 $K$-매장에 대한 합과 곱 \\
+갈루아 확장 & $\Gal(L/K)$의 모든 원소에 대한 합과 곱 \\
+확장탑 & 노름·대각합의 추이성 \\
+비분리확장 & 비분리차수를 중복도로 포함; 대각합은 영 \\
+대각합 쌍의 비퇴화성 & 유한확장의 분리성과 동치 \\
+$g(\alpha)$의 노름 & $\Res(f_\alpha,g)$ \\
+유한체 & 프로베니우스 합과 지수 \\
+순환확장의 노름 $1$ & $a/\sigma(a)$, 힐베르트 정리 90 \\
+순환확장의 대각합 $0$ & $a-\sigma(a)$, 가법형 힐베르트 정리 90 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{자주 하는 실수}
+
+\begin{pitfall}
+\textbf{실수 1: 최소다항식의 차수와 전체 확장차수를 혼동한다.}
+
+$\alpha$가 $L$ 전체를 생성하지 않으면 특성다항식은 최소다항식 자체가 아니라
+\[
+  f_\alpha^{[L:K(\alpha)]}
+\]
+이다. 노름에는 거듭제곱이, 대각합에는 배수가 생긴다.
+\end{pitfall}
+
+\begin{pitfall}
+\textbf{실수 2: 노름의 부호를 빠뜨린다.}
+
+일계수 최소다항식
+\[
+  T^n+a_{n-1}T^{n-1}+\cdots+a_0
+\]
+에 대해
+\[
+  \operatorname N(\alpha)=(-1)^n a_0,
+  \qquad
+  \Tr(\alpha)=-a_{n-1}.
+\]
+특히 홀수차에서는 상수항의 부호가 바뀐다.
+\end{pitfall}
+
+\begin{pitfall}
+\textbf{실수 3: 비분리확장에서 서로 다른 매장만 곱하거나 더한다.}
+
+서로 다른 매장의 개수는 분리차수뿐이다. 특성다항식에는 비분리차수만큼의 중복도가 추가된다.
+\end{pitfall}
+
+\begin{pitfall}
+\textbf{실수 4: 대각합의 전사성과 $\Tr(1)$을 동일시한다.}
+
+분리확장에서는 대각합이 전사이지만 $\Tr(1)$은 표수 때문에 $0$일 수 있다.
+\end{pitfall}
+
+\begin{pitfall}
+\textbf{실수 5: 힐베르트 정리 90을 노름의 전사성으로 오해한다.}
+
+정리는 노름이 $1$인 원소를 매개화한다. 일반 $c$가 노름인지 여부는 별도의 산술 문제이다.
+\end{pitfall}
+
+\subsection{개념 연결 지도}
+
+\[
+\begin{array}{c}
+\text{체의 원소 }\alpha\\[2pt]
+\downarrow\\[-2pt]
+\text{곱셈선형사상 }m_\alpha
+\end{array}
+\qquad
+\begin{array}{c}
+\xrightarrow{\det}\operatorname N_{L/K}(\alpha)\\[10pt]
+\xrightarrow{\operatorname{tr}}\Tr_{L/K}(\alpha)
+\end{array}
+\]
+
+분리확장에서는
+\[
+  m_\alpha\text{의 고유값}
+  =\sigma_1(\alpha),\dots,\sigma_n(\alpha),
+\]
+따라서
+\[
+  \det=\text{켤레들의 곱},
+  \qquad
+  \operatorname{tr}=\text{켤레들의 합}.
+\]
+체매장들의 선형독립은 대각합 쌍의 비퇴화성을 만들고, 이는 분리성을 판정한다. 순환확장에서는 다시 힐베르트 정리 90이 노름과 대각합의 핵을 설명한다.
+
+\begin{chapterreview}
+\begin{enumerate}[label=\arabic*.]
+  \item $\operatorname N_{L/K}(\alpha)$와 $\Tr_{L/K}(\alpha)$는 곱셈선형사상 $m_\alpha$의 행렬식과 대각합이다.
+  \item $P_{\alpha,L/K}=f_\alpha^{[L:K(\alpha)]}$이므로 최소다항식의 계수에서 노름과 대각합을 읽을 수 있다.
+  \item 유한 분리확장에서는 노름과 대각합이 모든 체매장에 의한 켤레들의 곱과 합이다.
+  \item 갈루아 확장에서는 그 합과 곱을 갈루아군 전체에 대해 취한다.
+  \item 확장탑에서 노름과 대각합은 각각 합성된다.
+  \item 비분리차수는 매장 공식에 공통 중복도로 나타나며, 유한 비분리확장의 대각합은 영사상이다.
+  \item 서로 다른 캐릭터와 체매장은 함수로서 선형독립이다.
+  \item 대각합 쌍 $(x,y)\mapsto\Tr(xy)$은 정확히 분리확장에서 비퇴화이다.
+  \item 유한 분리확장의 대각합은 전사지만 노름은 일반적으로 전사가 아니다.
+  \item 유한체에서는 두 사상이 모두 전사이고 명시적인 프로베니우스 공식과 핵 크기를 갖는다.
+  \item $L=K(\alpha)$에서 $\operatorname N(g(\alpha))=\Res(f_\alpha,g)$이다.
+  \item 순환확장에서 힐베르트 정리 90은 노름 $1$과 대각합 $0$인 원소를 각각 $a/\sigma(a)$와 $a-\sigma(a)$로 나타낸다.
+\end{enumerate}
+\end{chapterreview}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 최소다항식, 갈루아군, 확장탑이 모두 주어진 문제에서 어떤 계산법을 먼저 선택할지 기준을 세워라.
+  \item 분리성 판정에 대각합 사상 자체가 아니라 대각합 쌍이 필요한 이유를 설명하라.
+  \item 노름·대각합·판별식·종결식이 하나의 특성다항식 관점에서 어떻게 연결되는지 서술하라.
+\end{enumerate}
+\end{checkpoint}

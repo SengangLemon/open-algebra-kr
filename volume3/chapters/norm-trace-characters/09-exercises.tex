@@ -1,0 +1,289 @@
+\clearpage
+\section{연습문제}
+\label{sec:norm-trace-exercises}
+
+문제는 A, B, C의 세 단계로 나뉜다. 별표 문제는 다음 두 절에 상세 풀이가 있다.
+
+\subsection*{A. 계산과 구체적 예제}
+
+\begin{exercise}[*]
+$L=\Q(\sqrt5)$와 $u=3+2\sqrt5$에 대해 다음을 수행하라.
+\begin{enumerate}[label=(\alph*)]
+  \item 기저 $(1,\sqrt5)$에서 $m_u$의 행렬을 구하라.
+  \item $\chi_{u,L/\Q}$, $\Tr_{L/\Q}(u)$, $\Nm_{L/\Q}(u)$를 구하라.
+  \item 결과를 두 켤레 $3\pm2\sqrt5$의 합과 곱으로 검산하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$\C/\R$에서 $z=2-3i$의 특성다항식, 대각합과 노름을 구하라.
+또한 $\Nm_{\C/\R}(z)=4$인 복소수 전체를 기하학적으로 설명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$\alpha^3=2$, $L=\Q(\alpha)$라 하자.
+\[
+  \alpha,\qquad \alpha^2,\qquad 1+\alpha
+\]
+각각의 최소다항식, 대각합과 노름을 구하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$L=\Q(\sqrt2,\sqrt3)$와 $u=\sqrt2+\sqrt3$에 대해 다음을 계산하라.
+\[
+  \Tr_{L/\Q}(\sqrt2),\quad
+  \Nm_{L/\Q}(\sqrt2),\quad
+  \Tr_{L/\Q}(u),\quad
+  \Nm_{L/\Q}(u).
+\]
+$E=\Q(\sqrt2)$를 중간체로 사용한 계산과 최소다항식을 사용한 계산을 비교하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$\F_8=\F_2(\alpha)$, $\alpha^3+\alpha+1=0$이라 하자.
+$\F_8$의 모든 원소에 대해 $\Tr_{\F_8/\F_2}$를 계산하여 표를 만들고,
+영이 아닌 원소의 노름도 모두 구하라. 대각합의 핵을 명시하라.
+\end{exercise}
+
+\begin{exercise}
+$\F_9=\F_3(i)$, $i^2=-1$이라 하자.
+\[
+  \Tr_{\F_9/\F_3}(a+bi),\qquad
+  \Nm_{\F_9/\F_3}(a+bi)
+\]
+를 $a,b\in\F_3$로 나타내고, 각 $c\in\F_3^\times$에 대해
+$\Nm(x)=c$의 해의 개수를 구하라.
+\end{exercise}
+
+\begin{exercise}
+$f=X^3-X-1\in\Q[X]$의 한 근을 $\alpha$라 하자.
+\[
+  \Nm_{\Q(\alpha)/\Q}(2-\alpha),\qquad
+  \Nm_{\Q(\alpha)/\Q}(1+\alpha),\qquad
+  \Tr_{\Q(\alpha)/\Q}(\alpha^2)
+\]
+를 계산하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$\charac K\ne2$, $L=K(\sqrt d)$라 하자.
+기저 $(1,\sqrt d)$의 대각합 그람행렬과 판별식을 구하고,
+대각합 쌍대기저를 계산하라.
+\end{exercise}
+
+\begin{exercise}
+위수 $m$인 순환군 $C_m$에서 $\F_q^\times$로 가는 캐릭터의 수가
+$\gcd(m,q-1)$임을 사용하여 다음을 계산하라.
+\[
+  (m,q)=(6,7),\quad(8,5),\quad(12,13),\quad(15,8).
+\]
+\end{exercise}
+
+\begin{exercise}
+서로 다른 $a_1,\dots,a_r\in K^\times$에 대해
+\[
+  \sum_{j=1}^r c_j a_j^\nu=0
+  \qquad(\nu\in\Z)
+\]
+이면 모든 $c_j=0$임을 캐릭터의 선형독립으로 증명하라.
+이어 $\nu=0,\dots,r-1$만 사용한 반데르몬드 행렬 증명과 비교하라.
+\end{exercise}
+
+\subsection*{B. 핵심 정리의 증명}
+
+\begin{exercise}[*]
+서로 다른 캐릭터
+\[
+  \chi_1,\dots,\chi_r:G\to F^\times
+\]
+가 $\operatorname{Map}(G,F)$에서 선형독립임을 최소 길이의 관계를 사용하여 증명하라.
+\end{exercise}
+
+\begin{exercise}
+서로 다른 $K$-준동형
+\[
+  \sigma_1,\dots,\sigma_r:L\to M
+\]
+가 $M$ 위 선형독립임을 증명하라. 이를 이용하여 적절한
+$x_1,\dots,x_r\in L$를 택하면
+\[
+  (\sigma_i(x_j))_{i,j}
+\]
+가 가역이 되도록 할 수 있음을 보여라.
+\end{exercise}
+
+\begin{exercise}
+유한확장 $L/K$와 $c\in K$에 대해
+\[
+  \Tr_{L/K}(c)=[L:K]c,
+  \qquad
+  \Nm_{L/K}(c)=c^{[L:K]}
+\]
+를 증명하라. 대각합의 선형성과 노름의 곱셈성도 곱셈사상으로부터 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$L=K(\alpha)$이고
+\[
+  m_{\alpha,K}(X)=X^n+c_1X^{n-1}+\cdots+c_n
+\]
+라 하자. $\alpha$와 $m_\alpha$의 최소다항식이 같음을 증명하고
+\[
+  \Tr_{L/K}(\alpha)=-c_1,\qquad
+  \Nm_{L/K}(\alpha)=(-1)^nc_n
+\]
+을 도출하라.
+\end{exercise}
+
+\begin{exercise}
+$a\in L$, $E=K(a)$, $s=[L:E]$라 하자. 적절한 곱기저에서
+$m_a$가 같은 블록 $s$개를 갖는다는 사실을 이용해
+\[
+  \chi_{a,L/K}=\chi_{a,E/K}^s
+\]
+와 노름·대각합 공식을 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$[L:K]=qr$이고 $r=[L:K]_{\mathrm s}$라 하자.
+서로 다른 $K$-매장 $\sigma_1,\dots,\sigma_r$에 대해
+\[
+  \Tr_{L/K}(a)=q\sum_i\sigma_i(a),\qquad
+  \Nm_{L/K}(a)=\left(\prod_i\sigma_i(a)\right)^q
+\]
+를 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+유한확장의 탑 $K\subseteq E\subseteq L$에 대해
+\[
+  \Tr_{L/K}=\Tr_{E/K}\circ\Tr_{L/E},
+  \qquad
+  \Nm_{L/K}=\Nm_{E/K}\circ\Nm_{L/E}
+\]
+를 체매장의 연장과 분리차수·비분리차수의 곱셈성을 이용해 증명하라.
+\end{exercise}
+
+\begin{exercise}
+$K=\F_p(t^p)$, $L=\F_p(t)$라 하자.
+$L/K$의 차수와 분리차수·비분리차수를 구하고,
+모든 $a\in L$에 대해 $\Tr_{L/K}(a)=0$임을 증명하라.
+또한 $\Nm_{L/K}(t)$를 계산하라.
+\end{exercise}
+
+\begin{exercise}[*]
+유한확장 $L/K$에 대해 다음이 동치임을 증명하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $L/K$는 분리확장이다.
+  \item $\Tr_{L/K}$는 영사상이 아니다.
+  \item $(x,y)\mapsto\Tr_{L/K}(xy)$는 비퇴화이다.
+  \item 어떤 $K$-기저의 대각합 판별식이 영이 아니다.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$L/K$가 유한 분리확장이고 $x_1,\dots,x_n$이 $K$-기저라 하자.
+유일한 쌍대기저 $y_1,\dots,y_n$이 존재하여
+\[
+  \Tr_{L/K}(x_i y_j)=\delta_{ij}
+\]
+임을 증명하라. 기저변환행렬을 사용하여 쌍대기저의 변환법도 구하라.
+\end{exercise}
+
+\subsection*{C. 노름 방정식과 구조적 응용}
+
+\begin{exercise}[*]
+노름사상
+\[
+  \Nm_{\F_{q^n}/\F_q}:\F_{q^n}^\times\to\F_q^\times
+\]
+이 전사이고 핵의 크기가 $(q^n-1)/(q-1)$임을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+대각합사상
+\[
+  \Tr_{\F_{q^n}/\F_q}:\F_{q^n}\to\F_q
+\]
+이 전사이고 핵의 크기가 $q^{n-1}$임을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+$c\in\F_q^\times$에 대해
+\[
+  \Nm_{\F_{q^n}/\F_q}(x)=c
+\]
+가 정확히 $(q^n-1)/(q-1)$개의 해를 가짐을 증명하라.
+$0$을 오른쪽에 놓은 경우도 따로 설명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$[L:K]=m$이고 $\gcd(m,n)=1$이라 하자.
+$a\in K^\times$가 $L$에서 $n$제곱이면 이미 $K$에서 $n$제곱임을
+노름을 사용하여 증명하라.
+\end{exercise}
+
+\begin{exercise}
+$L/K$가 유한 갈루아 확장이고 $x_1,\dots,x_n$이 $K$-기저라 하자.
+부분군 $H\le\Gal(L/K)$의 고정체를 $E=L^H$라 할 때
+\[
+  E=K\bigl(
+  \Tr_{L/E}(x_1),\dots,\Tr_{L/E}(x_n)
+  \bigr)
+\]
+임을 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$f\in K[X]$가 일계수 기약다항식이고 $L=K(\alpha)$,
+$f(\alpha)=0$이라 하자. 모든 $g\in K[X]$에 대해
+\[
+  \Nm_{L/K}(g(\alpha))=\Res(f,g)
+\]
+를 증명하라. 특히
+\[
+  \Nm_{L/K}(x-\alpha)=f(x)
+  \qquad(x\in K)
+\]
+를 도출하라.
+\end{exercise}
+
+\begin{exercise}
+$L/K$가 유한 갈루아 확장이고 $H\le\Gal(L/K)$라 하자.
+$a\in L$에 대해
+\[
+  P_{H,a}(X)=\prod_{\sigma\in H}(X-\sigma(a))
+\]
+의 계수가 $L^H$에 속함을 증명하라. $X^{|H|-1}$의 계수와 상수항을
+상대 대각합·노름으로 나타내라.
+\end{exercise}
+
+\begin{exercise}
+다음 두 노름사상의 상을 비교하라.
+\[
+  \Nm_{\C/\R}:\C^\times\to\R^\times,
+  \qquad
+  \Nm_{\F_{q^2}/\F_q}:\F_{q^2}^\times\to\F_q^\times.
+\]
+첫 번째가 전사가 아닌 반면 두 번째가 전사인 이유를 군구조와 순서관점에서 설명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$L=\Q(\sqrt5)$에서 두 기저
+\[
+  \mathcal B_1=(1,\sqrt5),
+  \qquad
+  \mathcal B_2=\left(1,\frac{1+\sqrt5}{2}\right)
+\]
+의 대각합 판별식을 각각 계산하라. 기저변환 공식으로 두 값의 관계를 설명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+$p$가 소수이고 $\zeta_p$가 원시 $p$차 단위근이라 하자.
+\[
+  \Nm_{\Q(\zeta_p)/\Q}(1-\zeta_p)=p,
+  \qquad
+  \Tr_{\Q(\zeta_p)/\Q}(1-\zeta_p)=p
+\]
+를 증명하라.
+\end{exercise}

@@ -1,0 +1,163 @@
+\clearpage
+\section{캐릭터와 아르틴의 선형독립 정리}
+\label{sec:characters-independence}
+
+\begin{learninggoal}
+군준동형을 함수로 바라보고 서로 다른 캐릭터가 선형독립임을 증명한다. 이 정리가 서로 다른 체매장의 선형독립, 대각합 사상의 비자명성, 힐베르트 정리 90의 핵심 도구로 어떻게 이어지는지 이해한다.
+\end{learninggoal}
+
+갈루아 이론에서는 자동동형을 단순히 군의 원소로만 보지 않는다. 각 자동동형은 체의 원소를 다른 원소로 보내는 \emph{함수}이기도 하다. 서로 다른 자동동형들이 함수공간 안에서 선형독립이라는 사실은 겉보기보다 훨씬 강력하다. 노름과 대각합의 켤레 공식, 대각합 쌍의 비퇴화성, 힐베르트 정리 90의 가중합 논증이 모두 이 한 정리에서 출발한다.
+
+\subsection{군의 캐릭터}
+
+\begin{definition}[캐릭터]
+군 $G$와 체 $\Omega$가 주어졌다고 하자. 군준동형
+\[
+  \chi:G\longrightarrow\Omega^\times
+\]
+을 $\Omega$-값 \emph{캐릭터}(character)라 한다. 즉
+\[
+  \chi(gh)=\chi(g)\chi(h)
+  \qquad(g,h\in G)
+\]
+이다.
+\end{definition}
+
+캐릭터는 함수공간
+\[
+  \operatorname{Map}(G,\Omega)
+\]
+의 원소로 볼 수 있다. 따라서 서로 다른 캐릭터 사이의 선형독립을 물을 수 있다.
+
+\begin{example}
+$G=\Z/n\Z$이고 $\Omega=\C$라 하자. $\zeta_n=e^{2\pi i/n}$에 대해
+\[
+  \chi_j(\overline m)=\zeta_n^{jm}
+  \qquad(0\le j<n)
+\]
+는 서로 다른 캐릭터이다. 이들은 유한 푸리에 해석에 등장하는 기본 함수들이다.
+\end{example}
+
+\begin{example}
+체준동형 $\sigma:L\to\Omega$는 곱셈군에 제한하면
+\[
+  \sigma|_{L^\times}:L^\times\longrightarrow\Omega^\times
+\]
+인 캐릭터가 된다. 따라서 체매장의 선형독립은 캐릭터의 선형독립에서 곧바로 나온다.
+\end{example}
+
+\subsection{아르틴의 선형독립 정리}
+
+\begin{theorem}[아르틴의 캐릭터 선형독립 정리]
+\label{thm:artin-character-independence}
+군 $G$에서 체 $\Omega$의 곱셈군으로 가는 서로 다른 캐릭터
+\[
+  \chi_1,\dots,\chi_r:G\longrightarrow\Omega^\times
+\]
+는 함수공간 $\operatorname{Map}(G,\Omega)$에서 $\Omega$ 위 선형독립이다. 다시 말해
+\[
+  a_1\chi_1+\cdots+a_r\chi_r=0
+  \qquad(a_i\in\Omega)
+\]
+이면 모든 $a_i$가 $0$이다.
+\end{theorem}
+
+\begin{proofidea}
+가장 짧은 비자명한 선형관계가 있다고 가정한다. 서로 다른 두 캐릭터의 값을 구별하는 군 원소 $g$를 택한 뒤, 관계를 $gh$에 적용한 식에서 한 캐릭터의 값과 원래 관계를 곱한 식을 뺀다. 그러면 항 하나가 사라져 더 짧은 비자명한 관계가 생긴다.
+\end{proofidea}
+
+\begin{proof}
+정리가 거짓이라고 하고, 항의 수가 최소인 비자명한 관계
+\[
+  a_1\chi_1+\cdots+a_r\chi_r=0
+\]
+를 택하자. 영인 계수에 해당하는 항은 지울 수 있으므로 모든 $a_i$를 영이 아니라고 할 수 있다. $r=1$이면 $a_1\chi_1(1)=a_1=0$이므로 모순이다. 따라서 $r\ge2$이다.
+
+$\chi_1\ne\chi_r$이므로 어떤 $g\in G$에 대해
+\[
+  \chi_1(g)\ne\chi_r(g)
+\]
+이다. 임의의 $h\in G$에 대해 원래 관계를 $gh$에 적용하면
+\[
+  \sum_{i=1}^r a_i\chi_i(g)\chi_i(h)=0
+\]
+이다. 한편 원래 관계를 $h$에 적용하고 $\chi_r(g)$를 곱하면
+\[
+  \sum_{i=1}^r a_i\chi_r(g)\chi_i(h)=0
+\]
+이다. 두 식을 빼면 $i=r$인 항이 사라져
+\[
+  \sum_{i=1}^{r-1}
+  a_i\bigl(\chi_i(g)-\chi_r(g)\bigr)\chi_i(h)=0
+  \qquad(h\in G)
+\]
+를 얻는다. $i=1$의 계수는 영이 아니므로 이는 $r-1$개 이하의 캐릭터 사이의 비자명한 관계이다. 최소성에 모순이다.
+\end{proof}
+
+\begin{corollary}[체매장의 선형독립]
+\label{cor:embedding-linear-independence}
+서로 다른 체준동형
+\[
+  \sigma_1,\dots,\sigma_r:L\longrightarrow\Omega
+\]
+는 $\Omega$-값 함수로서 선형독립이다. 즉
+\[
+  a_1\sigma_1(x)+\cdots+a_r\sigma_r(x)=0
+  \quad\text{for all }x\in L
+\]
+이면 $a_1=\cdots=a_r=0$이다.
+\end{corollary}
+
+\begin{proof}
+각 $\sigma_i$를 $L^\times$에 제한하면 서로 다른 캐릭터가 된다. 정리 \ref{thm:artin-character-independence}를 적용한다.
+\end{proof}
+
+\begin{remark}
+선형독립은 ``서로 다른 자동동형은 서로 다른 함수이다''보다 훨씬 강하다. 예를 들어 유한 갈루아 확장 $L/K$에서
+\[
+  \sum_{\sigma\in\Gal(L/K)}c_\sigma\sigma=0
+\]
+인 함수관계가 성립하면 각 $c_\sigma\in L$가 모두 $0$이어야 한다. 계수들이 기준체 $K$가 아니라 더 큰 체 $L$에 있어도 마찬가지이다.
+\end{remark}
+
+\subsection{첫 번째 응용}
+
+\begin{proposition}
+\label{prop:sum-embeddings-nonzero}
+유한 분리확장 $L/K$의 모든 $K$-매장을
+\[
+  \sigma_1,\dots,\sigma_n:L\longrightarrow\overline K
+\]
+라 하자. 그러면 함수
+\[
+  \sigma_1+\cdots+\sigma_n:L\longrightarrow\overline K
+\]
+는 영함수가 아니다.
+\end{proposition}
+
+\begin{proof}
+모든 계수가 $1$인 선형결합이므로 따름정리 \ref{cor:embedding-linear-independence}에서 즉시 따른다.
+\end{proof}
+
+이 명제는 뒤에서 대각합 사상이 영이 아님을 보이는 데 쓰인다. 특히 $\operatorname{char}K$가 확장차수 $[L:K]$를 나누어
+\[
+  \Tr_{L/K}(1)=[L:K]\cdot1=0
+\]
+이 되더라도 대각합 사상 전체가 영인 것은 아니다. 분리성은 단순히 $\Tr(1)$의 값이 아니라 서로 다른 매장들의 독립성에 의해 감지된다.
+
+\begin{keyidea}
+서로 다른 체매장은 서로 다른 ``켤레 좌표''를 읽는 독립적인 측정 장치이다.
+\[
+  \boxed{
+  \text{서로 다른 }K\text{-매장들은 함수로서 선형독립이다.}}
+\]
+뒤에서 노름은 이 좌표들의 곱, 대각합은 이 좌표들의 합으로 나타난다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Z/4\Z$에서 $\C^\times$로 가는 캐릭터를 모두 적어라.
+  \item 서로 다른 두 체매장 $\sigma,\tau:L\to\Omega$에 대해 $a\sigma+b\tau=0$이면 $a=b=0$임을 정리의 최소관계 논증 없이 직접 보여라.
+  \item 유한 분리확장에서 $\Tr_{L/K}(1)=0$일 수 있지만 대각합 사상은 영이 아닐 수 있는 이유를 설명하라.
+\end{enumerate}
+\end{checkpoint}
