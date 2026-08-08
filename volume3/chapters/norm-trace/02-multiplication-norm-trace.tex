@@ -1,0 +1,232 @@
+\clearpage
+\section{곱셈선형사상으로 정의하는 노름과 대각합}
+\label{sec:multiplication-norm-trace}
+
+\begin{learninggoal}
+유한 체확장을 벡터공간으로 보고 원소의 곱셈을 선형사상으로 바꾼다. 그 행렬식과 대각합으로 체확장의 노름과 대각합을 정의하고, 최소다항식에서 두 값을 읽는 방법을 익힌다.
+\end{learninggoal}
+
+$L/K$를 차수 $n$의 유한 체확장이라 하자. 각 $\alpha\in L$는 $L$ 위에서 곱셈을 일으킨다.
+\[
+  m_\alpha:L\longrightarrow L,
+  \qquad x\longmapsto\alpha x.
+\]
+이 사상은 $K$-선형이다. 체의 원소 하나를 $n\times n$ 행렬로 바꾸면 행렬의 불변량인 행렬식과 대각합을 사용할 수 있다.
+
+\begin{definition}[노름과 대각합]
+\label{def:norm-trace}
+유한 체확장 $L/K$와 $\alpha\in L$에 대해
+\[
+  \operatorname N_{L/K}(\alpha):=\det_K(m_\alpha),
+  \qquad
+  \Tr_{L/K}(\alpha):=\operatorname{tr}_K(m_\alpha)
+\]
+로 정의한다. 앞의 값을 $\alpha$의 \emph{노름}(norm), 뒤의 값을 $\alpha$의 \emph{대각합}(trace)이라 한다.
+\end{definition}
+
+행렬은 기저에 따라 달라지지만 행렬식과 대각합은 닮음변환에 불변이므로 정의는 기저 선택과 무관하다.
+
+\subsection{기본 성질}
+
+\begin{proposition}[노름과 대각합의 연산법칙]
+\label{prop:norm-trace-basic-properties}
+$L/K$가 차수 $n$의 유한확장이고 $\alpha,\beta\in L$, $c\in K$라 하자.
+\begin{enumerate}[label=(\roman*)]
+  \item $\Tr_{L/K}(\alpha+\beta)=\Tr_{L/K}(\alpha)+\Tr_{L/K}(\beta)$.
+  \item $\Tr_{L/K}(c\alpha)=c\Tr_{L/K}(\alpha)$.
+  \item $\operatorname N_{L/K}(\alpha\beta)
+  =\operatorname N_{L/K}(\alpha)\operatorname N_{L/K}(\beta)$.
+  \item $\Tr_{L/K}(c)=nc$이고 $\operatorname N_{L/K}(c)=c^n$이다.
+  \item $\operatorname N_{L/K}(\alpha)=0$일 필요충분조건은 $\alpha=0$이다.
+  \item $\alpha\ne0$이면
+  \[
+    \operatorname N_{L/K}(\alpha^{-1})
+    =\operatorname N_{L/K}(\alpha)^{-1}.
+  \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+곱셈선형사상은
+\[
+  m_{\alpha+\beta}=m_\alpha+m_\beta,
+  \qquad
+  m_{c\alpha}=c\,m_\alpha,
+  \qquad
+  m_{\alpha\beta}=m_\alpha\circ m_\beta
+\]
+를 만족한다. 대각합의 선형성과 행렬식의 곱셈성으로 (i)--(iii)을 얻는다. $c\in K$이면 $m_c=cI_n$이므로 (iv)가 따른다.
+
+$\alpha\ne0$이면 $m_\alpha$의 역함수는 $m_{\alpha^{-1}}$이므로 행렬식이 영이 아니다. 반대로 $\alpha=0$이면 $m_\alpha$는 영사상이다. 이것이 (v)를 보인다. 마지막 식은
+\[
+  m_\alpha m_{\alpha^{-1}}=I_n
+\]
+의 행렬식을 취하면 된다.
+\end{proof}
+
+\begin{pitfall}
+노름과 대각합은 서로 다른 종류의 연산을 보존한다.
+\[
+  \Tr(\alpha+\beta)=\Tr(\alpha)+\Tr(\beta),
+  \qquad
+  \operatorname N(\alpha\beta)=\operatorname N(\alpha)\operatorname N(\beta).
+\]
+일반적으로 $\Tr(\alpha\beta)=\Tr(\alpha)\Tr(\beta)$도 아니고
+$\operatorname N(\alpha+\beta)=\operatorname N(\alpha)+\operatorname N(\beta)$도 아니다.
+\end{pitfall}
+
+\subsection{특성다항식}
+
+\begin{definition}[원소의 특성다항식]
+\label{def:element-characteristic-polynomial}
+$\alpha\in L$에 대해 곱셈선형사상 $m_\alpha$의 특성다항식
+\[
+  P_{\alpha,L/K}(T)
+  :=\det(TI_n-m_\alpha)\in K[T]
+\]
+을 $\alpha$의 $L/K$에 대한 특성다항식이라 한다.
+\end{definition}
+
+정의에서 곧바로
+\[
+  P_{\alpha,L/K}(T)
+  =T^n-\Tr_{L/K}(\alpha)T^{n-1}
+  +\cdots+(-1)^n\operatorname N_{L/K}(\alpha)
+\]
+이다. 따라서 대각합은 둘째 계수의 부호를 바꾼 값이고, 노름은 상수항에 $(-1)^n$을 곱한 값이다.
+
+\begin{theorem}[특성다항식과 최소다항식]
+\label{thm:characteristic-minimal-power}
+$\alpha\in L$의 $K$ 위 최소다항식을
+\[
+  f_\alpha(T)
+  =T^d+a_{d-1}T^{d-1}+\cdots+a_1T+a_0
+\]
+라 하고
+\[
+  r=[L:K(\alpha)]
+\]
+라 하자. 그러면
+\[
+  \boxed{P_{\alpha,L/K}(T)=f_\alpha(T)^r.}
+\]
+따라서
+\[
+  \boxed{
+  \Tr_{L/K}(\alpha)=-r a_{d-1},
+  \qquad
+  \operatorname N_{L/K}(\alpha)
+  =\bigl((-1)^d a_0\bigr)^r.}
+\]
+\end{theorem}
+
+\begin{proofidea}
+$K(\alpha)$의 거듭제곱 기저와 $L/K(\alpha)$의 기저를 결합한다. 그 기저에서 $m_\alpha$의 행렬은 최소다항식의 동반행렬이 $r$번 반복된 블록대각행렬이다.
+\end{proofidea}
+
+\begin{proof}
+$1,\alpha,\dots,\alpha^{d-1}$은 $K(\alpha)/K$의 기저이다. $v_1,\dots,v_r$을 $L/K(\alpha)$의 기저로 택하면
+\[
+  \mathcal B
+  =\{v_j,\alpha v_j,\dots,\alpha^{d-1}v_j:1\le j\le r\}
+\]
+는 $L/K$의 기저이다.
+
+각 $j$에 대해 부분공간 $K(\alpha)v_j$는 $m_\alpha$에 불변이고, 위 거듭제곱 기저에서 $m_\alpha$의 제한은 $f_\alpha$의 동반행렬로 표현된다. 따라서 전체 행렬은 같은 동반행렬 $r$개의 블록대각합이다. 각 블록의 특성다항식이 $f_\alpha$이므로 전체 특성다항식은 $f_\alpha^r$이다.
+
+$T^{dr-1}$의 계수와 상수항을 비교하면 표시된 대각합과 노름 공식을 얻는다.
+\end{proof}
+
+\begin{corollary}
+$L=K(\alpha)$이면
+\[
+  \Tr_{L/K}(\alpha)=-a_{n-1},
+  \qquad
+  \operatorname N_{L/K}(\alpha)=(-1)^n a_0,
+\]
+여기서
+\[
+  f_\alpha(T)=T^n+a_{n-1}T^{n-1}+\cdots+a_0
+\]
+이다.
+\end{corollary}
+
+\subsection{첫 계산}
+
+\begin{example}[이차확장]
+$\charac K\ne2$이고 $d\in K^\times$가 제곱이 아니라고 하자. $L=K(\sqrt d)$에서
+\[
+  \alpha=a+b\sqrt d
+\]
+의 곱셈행렬은 기저 $(1,\sqrt d)$에 대해
+\[
+  [m_\alpha]
+  =\begin{pmatrix}
+    a&bd\\
+    b&a
+  \end{pmatrix}.
+\]
+따라서
+\[
+  \boxed{
+  \Tr_{L/K}(a+b\sqrt d)=2a,
+  \qquad
+  \operatorname N_{L/K}(a+b\sqrt d)=a^2-db^2.}
+\]
+\end{example}
+
+\begin{example}[더 큰 체에서 같은 원소 보기]
+$L=\Q(\sqrt2,\sqrt3)$이고 $\alpha=\sqrt2$라 하자. $\alpha$의 $\Q$ 위 최소다항식은 $T^2-2$이고
+\[
+  [L:\Q(\sqrt2)]=2.
+\]
+따라서
+\[
+  P_{\alpha,L/\Q}(T)=(T^2-2)^2,
+\]
+\[
+  \Tr_{L/\Q}(\sqrt2)=0,
+  \qquad
+  \operatorname N_{L/\Q}(\sqrt2)=(-2)^2=4.
+\]
+같은 원소라도 어느 확장에서 노름과 대각합을 취하는지에 따라 값이 달라진다.
+\end{example}
+
+\begin{example}[순수 삼차확장]
+$\theta^3=2$이고 $L=\Q(\theta)$라 하자. 최소다항식은 $T^3-2$이므로
+\[
+  \Tr_{L/\Q}(\theta)=0,
+  \qquad
+  \operatorname N_{L/\Q}(\theta)=2.
+\]
+또한 대각합의 선형성에서
+\[
+  \Tr_{L/\Q}(1+\theta)=3
+\]
+이다. 뒤에서 종결식을 이용해
+\[
+  \operatorname N_{L/\Q}(1+\theta)=3
+\]
+도 빠르게 계산한다.
+\end{example}
+
+\begin{keyidea}
+체의 원소를 곱셈행렬로 바꾸면 추상적인 체확장 문제가 선형대수 문제가 된다.
+\[
+  \boxed{
+  \alpha\longmapsto m_\alpha,
+  \qquad
+  \operatorname N=\det,
+  \qquad
+  \Tr=\operatorname{tr}.}
+\]
+최소다항식을 알고 있다면 실제 행렬을 쓰지 않고도 두 값을 읽을 수 있다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Q(\sqrt5)/\Q$에서 $3+2\sqrt5$의 노름과 대각합을 구하라.
+  \item $\alpha$의 최소다항식이 $T^4-3T+7$이고 $L=K(\alpha)$라면 $\Tr(\alpha)$와 $\operatorname N(\alpha)$는 무엇인가?
+  \item $L/K$의 차수가 $6$이고 $[K(\alpha):K]=3$이며 $f_\alpha(T)=T^3+aT+b$일 때 $P_{\alpha,L/K}$, $\Tr(\alpha)$, $\operatorname N(\alpha)$를 구하라.
+\end{enumerate}
+\end{checkpoint}
