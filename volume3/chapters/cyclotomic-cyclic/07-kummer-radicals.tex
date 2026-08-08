@@ -1,0 +1,180 @@
+\clearpage
+\section{여러 근호와 첫 번째 Kummer 관점}
+\label{sec:elementary-kummer-radicals}
+
+\begin{learninggoal}
+기준체가 $n$차 단위근을 포함할 때 여러 $n$제곱근을 동시에 첨가한 확장의 갈루아군을 계산한다. 근호들의 독립성을 $K^\times/K^{\times n}$의 부분군과 Kummer 쌍으로 표현한다.
+\end{learninggoal}
+
+이 절에서는
+\[
+  \charac K\nmid n,
+  \qquad
+  \mu_n\subseteq K
+\]
+를 가정한다. $K^{\times n}$을 $K^\times$ 안의 $n$제곱들의 부분군이라 하자.
+
+$C\subseteq K^\times$가 $K^{\times n}$을 포함하는 부분군이면
+\[
+  K(C^{1/n})
+\]
+는 모든 $c\in C$의 $n$제곱근을 첨가하여 얻는 체를 뜻한다. $n$제곱근의 선택은 $\mu_n\subseteq K$만큼만 달라지므로 생성되는 체는 선택과 무관하다.
+
+\begin{proposition}[여러 근호의 기본 갈루아 구조]
+\label{prop:multiple-radicals-abelian}
+$L=K(C^{1/n})$라 하자. 그러면 $L/K$는 갈루아 확장이고 갈루아군은 아벨군이며 모든 원소의 위수는 $n$을 나눈다.
+\end{proposition}
+
+\begin{proof}
+각 $c\in C$에 대해 $K(c^{1/n})$은 $X^n-c$의 분해체이고 정리 \ref{thm:cyclic-radical-characterization}에 의해 순환 갈루아 확장이다. $L$은 이 확장들의 합성체이므로 갈루아 확장이다.
+
+$\sigma\in\Gal(L/K)$와 $a^n=c\in C$에 대해
+\[
+  \sigma(a)=\zeta a
+\]
+인 $\zeta\in\mu_n$이 존재한다. 따라서 $\sigma^n$은 모든 생성원 $a$를 고정하고 $\sigma^n=1$이다. 또한 두 자동동형은 각 생성원에 단위근을 곱하는 방식으로 작용하므로 서로 교환한다.
+\end{proof}
+
+\subsection{Kummer 쌍}
+
+$G=\Gal(L/K)$라 하자. $c\in C$의 한 $n$제곱근을 $c^{1/n}\in L$에서 택한다. 다음 값을 정의한다.
+\[
+  \langle\sigma,c\rangle
+  :=\frac{\sigma(c^{1/n})}{c^{1/n}}
+  \in\mu_n.
+\]
+다른 $n$제곱근은 $K$에 속하는 단위근만큼 다르므로 이 값은 선택과 무관하다.
+
+\begin{theorem}[유한 Kummer 쌍]
+\label{thm:finite-kummer-pairing}
+$C/K^{\times n}$이 유한하다고 하자. 위 식은 비퇴화 쌍
+\[
+  \langle\ ,\ \rangle:
+  G\times C/K^{\times n}\longrightarrow\mu_n
+\]
+을 정의한다. 즉 두 변수 각각에 대해 군준동형이고, 어느 한쪽 원소가 다른 쪽 모든 원소와 값 $1$을 가지면 그 원소는 자명하다. 특히
+\[
+  \boxed{
+  [L:K]=|C/K^{\times n}|}
+\]
+이고
+\[
+  G\cong\Hom(C/K^{\times n},\mu_n).
+\]
+\end{theorem}
+
+\begin{proof}
+곱셈성을 직접 계산하면
+\[
+  \langle\sigma\tau,c\rangle
+  =\langle\sigma,c\rangle\langle\tau,c\rangle,
+  \qquad
+  \langle\sigma,cd\rangle
+  =\langle\sigma,c\rangle\langle\sigma,d\rangle
+\]
+이다. $K^{\times n}$에서는 값이 $1$이므로 둘째 변수는 몫군에서 잘 정의된다.
+
+모든 $c\in C$에 대해 $\langle\sigma,c\rangle=1$이면 $\sigma$는 $L$의 모든 근호 생성원을 고정하므로 $\sigma=1$이다. 반대로 $c$가 모든 $\sigma\in G$와 값 $1$을 가지면 $c^{1/n}$이 $G$에 고정되어 $K$에 속한다. 따라서 $c\in K^{\times n}$이다. 쌍은 비퇴화이다.
+
+이에 따라 단사준동형
+\[
+  G\hookrightarrow\Hom(C/K^{\times n},\mu_n)
+\]
+과
+\[
+  C/K^{\times n}\hookrightarrow\Hom(G,\mu_n)
+\]
+을 얻는다. 두 유한 아벨군 $G$와 $C/K^{\times n}$의 지수는 $n$을 나눈다. 이런 유한 아벨군 $H$에 대해서는
+\[
+  |\Hom(H,\mu_n)|=|H|
+\]
+이다. 두 단사에서 서로 반대 방향의 크기 부등식을 얻으므로 모든 부등식이 등호이고 결론이 따른다.
+\end{proof}
+
+\begin{corollary}[독립인 근호]
+\label{cor:independent-radicals}
+$c_1,\dots,c_r\in K^\times$의 합동류가
+\[
+  C/K^{\times n}\cong(\Z/n\Z)^r
+\]
+를 생성한다고 하자. 그러면
+\[
+  L=K(c_1^{1/n},\dots,c_r^{1/n})
+\]
+에 대해
+\[
+  [L:K]=n^r,
+  \qquad
+  \Gal(L/K)\cong(\Z/n\Z)^r.
+\]
+\end{corollary}
+
+\begin{example}[이중 이차확장]
+$K=\Q$, $n=2$, $C$를 $2$와 $3$의 제곱류가 생성하는 부분군이라 하자. $2,3,6$은 모두 $\Q$의 제곱이 아니므로
+\[
+  C/\Q^{\times2}\cong C_2\times C_2.
+\]
+따라서
+\[
+  L=\Q(\sqrt2,\sqrt3)
+\]
+에 대해
+\[
+  [L:\Q]=4,
+  \qquad
+  \Gal(L/\Q)\cong V_4.
+\]
+두 좌표의 문자는 각각 $\sqrt2$와 $\sqrt3$의 부호변화를 기록한다.
+\end{example}
+
+\begin{example}[두 독립인 세제곱근]
+$K=\Q(\zeta_3)$이고
+\[
+  L=K(\sqrt[3]{2},\sqrt[3]{3})
+\]
+라 하자. $2^a3^b$가 $K$에서 세제곱이고 $0\le a,b<3$이라 가정하자. $K/\Q$의 노름을 취하면
+\[
+  2^{2a}3^{2b}
+\]
+가 $\Q$에서 세제곱이다. 따라서 $3\mid a,b$이고 $a=b=0$이다. 두 제곱류는 독립이므로
+\[
+  [L:K]=9,
+  \qquad
+  \Gal(L/K)\cong C_3\times C_3.
+\]
+\end{example}
+
+\subsection{순환확장과 Kummer 이론의 관계}
+
+정리 \ref{thm:cyclic-radical-characterization}은 $C/K^{\times n}$이 하나의 원소로 생성되는 경우이다. 일반 Kummer 이론은 더 강하게, $\mu_n\subseteq K$라는 가정 아래 지수가 $n$을 나누는 모든 아벨 갈루아 확장을 적절한 부분군
+\[
+  C/K^{\times n}\subseteq K^\times/K^{\times n}
+\]
+와 대응시킨다. 완전한 역방향 증명은 일반 갈루아 코호몰로지 형태의 힐베르트 정리 90을 사용한다. 이 장에서는 실제 계산에 필요한 유한 근호 확장과 비퇴화 쌍까지만 사용한다.
+
+\begin{pitfall}
+근호를 여러 개 붙였다는 사실만으로 확장이 갈루아나 아벨인 것은 아니다. 핵심 가정은 기준체가 $\mu_n$을 포함한다는 것이다. 예를 들어 $\Q(\sqrt[3]{2})/\Q$는 갈루아가 아니지만
+\[
+  \Q(\zeta_3,\sqrt[3]{2})/\Q(\zeta_3)
+\]
+는 순환확장이다.
+\end{pitfall}
+
+\begin{keyidea}
+근호의 독립성은 숫자 자체가 아니라 제곱류 또는 $n$제곱류의 독립성이다.
+\[
+  \boxed{
+  \text{근호를 붙여 생기는 차수}
+  =\bigl|\langle[c_1],\dots,[c_r]\rangle
+  \subseteq K^\times/K^{\times n}\bigr|.}
+\]
+갈루아군은 이 유한군에서 $\mu_n$으로 가는 문자들의 군이다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Q(\sqrt2,\sqrt3,\sqrt5)$의 차수와 갈루아군을 구하라.
+  \item $K=\Q(i)$에서 $K(\sqrt[4]{2})/K$가 순환 사차확장임을 보여라.
+  \item Kummer 쌍의 둘째 변수에서 $K^{\times n}$으로 나누어야 하는 이유를 설명하라.
+\end{enumerate}
+\end{checkpoint}
