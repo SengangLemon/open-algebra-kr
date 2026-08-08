@@ -1,0 +1,233 @@
+\clearpage
+\section{중간체와 최대 실부분체}
+\label{sec:cyclotomic-intermediate-real}
+
+\begin{learninggoal}
+원분체의 중간체를 $(\Z/n\Z)^\times$의 부분군으로 읽는다. 복소켤레가 만드는 최대 실부분체를 구하고, 작은 도수의 원분체에서 중간체 격자를 구체적으로 계산한다.
+\end{learninggoal}
+
+원분체 $L=\Q(\zeta_n)$의 갈루아군을
+\[
+  G=(\Z/n\Z)^\times
+\]
+로 식별하자. 부분군 $H\le G$에 대응하는 중간체는
+\[
+  L^H
+  =\{x\in L:\sigma_a(x)=x\text{ for all }a\in H\}
+\]
+이다. 따라서 원분체의 중간체 계산은 단위원군의 부분군 계산과 고정원소 찾기의 결합이다.
+
+\subsection{복소켤레와 실부분체}
+
+복소켤레는
+\[
+  \zeta_n\longmapsto\zeta_n^{-1}
+\]
+로 작용하므로 합동류 $-1\in(\Z/n\Z)^\times$에 대응한다.
+
+\begin{theorem}[최대 실부분체]
+\label{thm:maximal-real-cyclotomic-subfield}
+$n>2$라 하고
+\[
+  \Q(\zeta_n)^+
+  :=\Q(\zeta_n+\zeta_n^{-1})
+\]
+라 하자. 그러면
+\[
+  \Q(\zeta_n)^+
+  =\Q(\zeta_n)^{\langle-1\rangle}
+  =\Q(\zeta_n)\cap\R.
+\]
+또한
+\[
+  [\Q(\zeta_n):\Q(\zeta_n)^+]=2,
+  \qquad
+  [\Q(\zeta_n)^+:\Q]=\frac{\varphi(n)}2.
+\]
+\end{theorem}
+
+\begin{proof}
+$t=\zeta_n+\zeta_n^{-1}$는 복소켤레에 고정되므로
+\[
+  \Q(t)\subseteq\Q(\zeta_n)^{\langle-1\rangle}.
+\]
+한편 $\zeta_n$은 $\Q(t)$ 위에서
+\[
+  X^2-tX+1=0
+\]
+을 만족하므로
+\[
+  [\Q(\zeta_n):\Q(t)]\le2.
+\]
+$n>2$이면 $\zeta_n$은 실수가 아니므로 복소켤레는 비자명하고, 그 고정체의 지수는 정확히 $2$이다. 따라서 포함된 두 중간체의 차수가 같아
+\[
+  \Q(t)=\Q(\zeta_n)^{\langle-1\rangle}.
+\]
+복소켤레의 고정원소는 정확히 실수인 원소이므로 마지막 등식도 따른다.
+\end{proof}
+
+\begin{remark}
+$\zeta_n+\zeta_n^{-1}=2\cos(2\pi/n)$이므로 최대 실부분체는 정다각형의 삼각함수 값들이 사는 체이다. 이 관찰은 뒤의 작도가능 정다각형 문제와 직접 연결된다.
+\end{remark}
+
+\subsection{작은 원분체의 실부분체}
+
+\begin{example}[$5$차 원분체]
+$t=\zeta_5+\zeta_5^{-1}$라 하자. 관계
+\[
+  1+\zeta_5+\zeta_5^2+\zeta_5^3+\zeta_5^4=0
+\]
+을 $\zeta_5^2$로 나누면
+\[
+  (\zeta_5^2+\zeta_5^{-2})
+  +(\zeta_5+\zeta_5^{-1})+1=0.
+\]
+그런데 $\zeta_5^2+\zeta_5^{-2}=t^2-2$이므로
+\[
+  t^2+t-1=0.
+\]
+따라서
+\[
+  \Q(\zeta_5)^+=\Q(t)=\Q(\sqrt5),
+  \qquad
+  t=\frac{-1+\sqrt5}{2}.
+\]
+갈루아군이 $C_4$이므로 이는 유일한 이차 중간체이다.
+\end{example}
+
+\begin{example}[$8$차와 $12$차 원분체]
+\[
+  \zeta_8+\zeta_8^{-1}=\sqrt2,
+  \qquad
+  \zeta_{12}+\zeta_{12}^{-1}=\sqrt3.
+\]
+따라서
+\[
+  \Q(\zeta_8)^+=\Q(\sqrt2),
+  \qquad
+  \Q(\zeta_{12})^+=\Q(\sqrt3).
+\]
+\end{example}
+
+\begin{example}[$7$차 원분체의 실삼차부분체]
+$t=\zeta_7+\zeta_7^{-1}$라 하자. 재귀
+\[
+  u_0=2,\quad u_1=t,\quad
+  u_{k+1}=tu_k-u_{k-1},
+  \qquad
+  u_k=\zeta_7^k+\zeta_7^{-k}
+\]
+를 사용하면
+\[
+  1+u_1+u_2+u_3=0
+\]
+에서
+\[
+  t^3+t^2-2t-1=0
+\]
+을 얻는다. 정리 \ref{thm:maximal-real-cyclotomic-subfield}에 의해 차수는 $3$이므로 이 삼차식은 $t$의 최소다항식이다.
+\end{example}
+
+\subsection{중간체 격자의 계산}
+
+\begin{example}[$8$차 원분체의 세 이차부분체]
+\[
+  L=\Q(\zeta_8)=\Q(i,\sqrt2),
+  \qquad
+  G\cong C_2\times C_2.
+\]
+$G$는 위수 $2$인 부분군을 세 개 가지므로 이차 중간체도 세 개이다. 구체적으로
+\[
+  \Q(i),\qquad
+  \Q(\sqrt2),\qquad
+  \Q(\sqrt{-2})
+\]
+이다. 이들은 각각
+\[
+  \zeta_8^2=i,
+  \qquad
+  \zeta_8+\zeta_8^{-1}=\sqrt2,
+  \qquad
+  i\sqrt2=\sqrt{-2}
+\]
+로 얻어진다.
+\end{example}
+
+\begin{example}[$12$차 원분체]
+\[
+  \Q(\zeta_{12})=\Q(i,\sqrt3),
+  \qquad
+  \Gal(\Q(\zeta_{12})/\Q)\cong V_4.
+\]
+세 이차 중간체는
+\[
+  \Q(i),\qquad
+  \Q(\sqrt3),\qquad
+  \Q(\sqrt{-3})
+\]
+이다. 마지막 체는 $\Q(\zeta_3)$과 같다.
+\end{example}
+
+\begin{example}[$7$차 원분체의 유일한 이차부분체]
+\[
+  G=(\Z/7\Z)^\times\cong C_6
+\]
+이므로 위수 $3$인 부분군과 위수 $2$인 부분군이 각각 하나뿐이다. 위수 $2$ 부분군 $\langle-1\rangle$의 고정체는 실삼차부분체이다.
+
+위수 $3$ 부분군은 $\langle2\rangle=\{1,2,4\}$이다. 가우스 주기
+\[
+  \eta=\zeta_7+\zeta_7^2+\zeta_7^4
+\]
+는 이 부분군에 고정된다. 그 켤레는
+\[
+  \eta'=\zeta_7^3+\zeta_7^5+\zeta_7^6
+\]
+이고 직접 계산하면
+\[
+  \eta+\eta'=-1,
+  \qquad
+  \eta\eta'=2.
+\]
+따라서
+\[
+  \eta^2+\eta+2=0
+\]
+이고 유일한 이차 중간체는
+\[
+  \Q(\eta)=\Q(\sqrt{-7})
+\]
+이다.
+\end{example}
+
+\begin{proposition}[순환 원분체의 중간체 수]
+\label{prop:cyclic-cyclotomic-subfield-count}
+$\Gal(\Q(\zeta_n)/\Q)$가 위수 $N=\varphi(n)$인 순환군이면, 중간체는 $N$의 양의 약수와 일대일로 대응한다. 특히 중간체의 총수는 약수함수 $\tau(N)$이다.
+\end{proposition}
+
+\begin{proof}
+위수 $N$인 순환군은 각 약수 $d\mid N$에 대해 위수 $d$인 부분군을 정확히 하나 갖는다. 유한 갈루아 대응을 적용한다.
+\end{proof}
+
+\begin{corollary}
+$p$가 소수이고
+\[
+  p-1=\ell_1^{e_1}\cdots\ell_r^{e_r}
+\]
+이면 $\Q(\zeta_p)/\Q$의 중간체 수는
+\[
+  (e_1+1)\cdots(e_r+1)
+\]
+이다. 특히 $p-1$이 서로 다른 $r$개 소수의 곱이면 중간체는 $2^r$개이다.
+\end{corollary}
+
+\begin{pitfall}
+중간체의 차수만으로 체를 곧바로 식별할 수 있는 것은 아니다. 순환군에서는 각 차수의 중간체가 유일하지만, $V_4$처럼 같은 위수의 부분군이 여러 개이면 같은 차수의 중간체도 여러 개 생긴다. 반드시 해당 부분군이 어떤 원소를 고정하는지 확인해야 한다.
+\end{pitfall}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Q(\zeta_5)$의 중간체 격자를 그리고 포함차수를 표시하라.
+  \item $\Q(\zeta_8)$에서 각 위수 $2$ 부분군이 세 이차부분체 중 어느 것을 고정하는지 계산하라.
+  \item $\Q(\zeta_{11})^+$의 차수와 갈루아군을 구하라.
+\end{enumerate}
+\end{checkpoint}
