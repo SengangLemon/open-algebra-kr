@@ -1,0 +1,314 @@
+\clearpage
+\section{선별 문제 풀이 II}
+\label{sec:cyclotomic-cyclic-solutions-b}
+
+\subsection*{문제 \thechapter.16: 최대 실부분체}
+
+\begin{solution}
+$L=\Q(\zeta_n)$, $t=\zeta_n+\zeta_n^{-1}$라 하자. 복소켤레 $c$는
+\[
+  c(\zeta_n)=\zeta_n^{-1}
+\]
+로 작용하므로 $c(t)=t$이고
+\[
+  \Q(t)\subseteq L^{\langle c\rangle}.
+\]
+한편 $\zeta_n$은 $\Q(t)$ 위에서
+\[
+  X^2-tX+1=0
+\]
+을 만족하므로
+\[
+  [L:\Q(t)]\le2.
+\]
+$n>2$이면 $\zeta_n$은 실수가 아니어서 $c$는 비자명하다. 따라서 유한 갈루아 대응에서
+\[
+  [L:L^{\langle c\rangle}]=2.
+\]
+포함된 두 중간체의 지수가 같으므로
+\[
+  L^{\langle c\rangle}=\Q(t).
+\]
+
+$L$ 안에서 복소켤레에 고정되는 원소는 정확히 실수인 원소이므로
+\[
+  L^{\langle c\rangle}=L\cap\R.
+\]
+마지막으로
+\[
+  [L:\Q]=\varphi(n)
+\]
+이므로 탑 법칙에서
+\[
+  [\Q(t):\Q]=\frac{\varphi(n)}2.
+\]
+따라서
+\[
+  \boxed{
+  \Q(\zeta_n)^+
+  =\Q(\zeta_n+\zeta_n^{-1})
+  =\Q(\zeta_n)\cap\R.}
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.18: 유한체 위 원분다항식의 인수 차수}
+
+\begin{solution}
+원시 $n$차 단위근 $\alpha$를 택하고
+\[
+  d=\operatorname{ord}_n(q)
+\]
+라 하자. 상대 프로베니우스는
+\[
+  \Frob_q(\alpha)=\alpha^q
+\]
+로 작용한다. 따라서
+\[
+  \Frob_q^e(\alpha)=\alpha
+  \quad\Longleftrightarrow\quad
+  \alpha^{q^e-1}=1
+  \quad\Longleftrightarrow\quad
+  q^e\equiv1\pmod n.
+\]
+가장 작은 양의 $e$는 $d$이므로 $\alpha$의 프로베니우스 궤도는
+\[
+  \alpha,\alpha^q,\dots,\alpha^{q^{d-1}}
+\]
+이고 길이는 $d$이다. 유한체 위 최소다항식의 근들은 정확히 하나의 프로베니우스 궤도이므로 $\alpha$의 최소다항식 차수는 $d$이다.
+
+다른 원시근 $\alpha^a$, $\gcd(a,n)=1$에 대해서도
+\[
+  q^e a\equiv a\pmod n
+  \quad\Longleftrightarrow\quad
+  q^e\equiv1\pmod n
+\]
+이므로 궤도길이는 똑같이 $d$이다. $\Phi_n$의 $\varphi(n)$개 근이 길이 $d$인 궤도들로 분할되므로
+\[
+  \Phi_n
+\]
+은 $\varphi(n)/d$개의 서로 다른 기약다항식의 곱이고 각 인수의 차수는 $d$이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.20: 유리점으로 이루어진 단위원}
+
+\begin{solution}
+$x,y\in\Q$이고 $x^2+y^2=1$이라 하자. $z=x+iy\in\Q(i)$라 두면
+\[
+  z\overline z=1.
+\]
+확장 $\Q(i)/\Q$에 대한 힐베르트 정리 90에서 어떤
+\[
+  a=m+ni\in\Q(i)^\times
+  \qquad(m,n\in\Q)
+\]
+가 존재하여
+\[
+  z=\frac{a}{\overline a}
+  =\frac{m+ni}{m-ni}
+\]
+이다. 분모의 켤레를 곱하면
+\[
+\begin{aligned}
+  z
+  &=\frac{(m+ni)^2}{m^2+n^2}\\
+  &=\frac{m^2-n^2}{m^2+n^2}
+    +i\frac{2mn}{m^2+n^2}.
+\end{aligned}
+\]
+따라서
+\[
+  x=\frac{m^2-n^2}{m^2+n^2},
+  \qquad
+  y=\frac{2mn}{m^2+n^2}.
+\]
+
+반대로 이 식으로 정의된 $x,y$에 대해
+\[
+\begin{aligned}
+ x^2+y^2
+ &=\frac{(m^2-n^2)^2+4m^2n^2}
+ {(m^2+n^2)^2}\\
+ &=1.
+\end{aligned}
+\]
+$m=0$은 점 $(-1,0)$을, $n=0$은 점 $(1,0)$을 포함하므로 모든 유리점을 얻는다.
+\end{solution}
+
+\subsection*{문제 \thechapter.22: 순환확장의 근호 표현}
+
+\begin{solution}
+(a) $L/K$가 차수 $n$의 순환 갈루아 확장이고
+\[
+  \Gal(L/K)=\langle\sigma\rangle
+\]
+라 하자. $K$가 원시 $n$차 단위근 $\zeta_n$을 포함하므로
+\[
+  \operatorname N_{L/K}(\zeta_n^{-1})
+  =\zeta_n^{-n}=1.
+\]
+힐베르트 정리 90에 의해 어떤 $a\in L^\times$가 존재하여
+\[
+  \zeta_n^{-1}=\frac{a}{\sigma(a)},
+  \qquad
+  \sigma(a)=\zeta_n a
+\]
+이다. 따라서
+\[
+  a,\zeta_na,\dots,\zeta_n^{n-1}a
+\]
+는 서로 다른 $n$개의 켤레이고 $[K(a):K]\ge n$이다. $K(a)\subseteq L$이므로 $L=K(a)$이다. 또한
+\[
+  \sigma(a^n)=a^n
+\]
+이므로 $c=a^n\in K$이다. $a$의 차수가 $n$이므로 최소다항식은 $X^n-c$이다.
+
+(b) $a^n=c\in K^\times$이고 $L=K(a)$라 하자. $K$가 $\mu_n$을 포함하므로 $X^n-c$의 모든 근
+\[
+  a,\zeta_na,\dots,\zeta_n^{n-1}a
+\]
+가 $L$에 속한다. $\charac K\nmid n$이므로 이 다항식은 분리이고 $L/K$는 갈루아 확장이다.
+
+모든 $\tau\in\Gal(L/K)$에 대해
+\[
+  \tau(a)=w_\tau a
+\]
+인 $w_\tau\in\mu_n$이 존재한다. 사상 $\tau\mapsto w_\tau$는 단사군준동형이므로 갈루아군은 $\mu_n$의 부분군이고 따라서 순환군이다. 그 위수
+\[
+  d=[L:K]
+\]
+는 $n$을 나눈다. 생성원에 대응하는 단위근의 위수도 $d$이므로 $a^d$가 모든 자동동형에 고정된다. 따라서 $a^d\in K$이고 최소다항식은 $X^d-a^d$이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.23: 아르틴--슈라이어 정리}
+
+\begin{solution}
+(a) $L/K$가 표수 $p$의 차수 $p$ 순환 갈루아 확장이고
+\[
+  \Gal(L/K)=\langle\sigma\rangle
+\]
+라 하자. $-1\in K$의 대각합은
+\[
+  \Tr_{L/K}(-1)=-p=0.
+\]
+가법형 힐베르트 정리 90에 의해 어떤 $a\in L$가 존재하여
+\[
+  -1=a-\sigma(a),
+  \qquad
+  \sigma(a)=a+1
+\]
+이다. 따라서
+\[
+  \sigma^j(a)=a+j
+  \qquad(0\le j<p)
+\]
+가 서로 다르고 $L=K(a)$이다. 또한
+\[
+  \sigma(a^p-a)=(a+1)^p-(a+1)=a^p-a
+\]
+이므로 $c=a^p-a\in K$이다.
+
+(b) $f=X^p-X-c$의 한 근을 $a$라 하면 모든 근은
+\[
+  a,a+1,\dots,a+p-1
+\]
+이다. $f$가 $K$에 한 근을 가지면 이 근들이 모두 $K$에 속하여 완전히 분해된다.
+
+이제 $K$에 근이 없다고 하자. $f$가 기약이 아니면 차수 $1\le d<p$인 일계수 인수 $g$가 존재한다. 분해체에서 $g$는 위 근들 중 $d$개의 곱이므로 $X^{d-1}$의 계수는
+\[
+  -da+j
+  \qquad(j\in\F_p)
+\]
+꼴이다. 이 계수가 $K$에 속하고 $d\ne0$ in $K$이므로 $a\in K$가 되어 모순이다. 따라서 $f$는 기약이다.
+
+(c) 기약인 경우 $[K(a):K]=p$이다. 모든 근이 $K(a)$ 안에 있고 $f'=-1$이므로 $K(a)/K$는 갈루아 확장이다. 사상
+\[
+  a\longmapsto a+1
+\]
+은 위수 $p$인 $K$-자동동형을 주므로
+\[
+  \Gal(K(a)/K)\cong C_p.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.25: $\Q(\zeta_5)$ 위의 순수 오차식}
+
+\begin{solution}
+$F=\Q(a)$, $a^5=2$라 하자. $X^5-2$는 소수 $2$에 대한 아이젠슈타인 판정법으로 기약이므로
+\[
+  [F:\Q]=5.
+\]
+한편
+\[
+  [K:\Q]=[\Q(\zeta_5):\Q]=4.
+\]
+교집합 $F\cap K$의 차수는 $5$와 $4$를 모두 나누므로
+\[
+  F\cap K=\Q.
+\]
+따라서 합성체 차수 공식에서
+\[
+  [K(a):K]=[F:\Q]=5.
+\]
+
+$K$는 모든 $5$차 단위근을 포함하므로 $K(a)$는 $X^5-2$의 모든 근
+\[
+  a,\zeta_5a,\zeta_5^2a,
+  \zeta_5^3a,\zeta_5^4a
+\]
+를 포함한다. 따라서 $K(a)/K$는 갈루아 확장이고
+\[
+  \sigma(a)=\zeta_5a,
+  \qquad
+  \sigma(\zeta_5)=\zeta_5
+\]
+로 정의되는 자동동형이 갈루아군을 생성한다. 결론적으로
+\[
+  \Gal(K(a)/K)\cong C_5.
+\]
+\end{solution}
+
+\subsection*{문제 \thechapter.30: $15$차 원분체의 이차부분체}
+
+\begin{solution}
+(a) 중국인의 나머지 정리로
+\[
+\begin{aligned}
+  (\Z/15\Z)^\times
+  &\cong(\Z/3\Z)^\times
+     \times(\Z/5\Z)^\times\\
+  &\cong C_2\times C_4.
+\end{aligned}
+\]
+따라서
+\[
+  \Gal(L/\Q)\cong C_4\times C_2.
+\]
+
+(b) 이차 중간체는 지수 $2$, 즉 위수 $4$인 부분군에 대응한다. 군 $C_4\times C_2$에서 $C_2$로 가는 비자명한 준동형은 세 개이고, 각각의 핵은 서로 다른 위수 $4$ 부분군이다. 따라서 이차 중간체는 정확히 세 개이다.
+
+(c) $\zeta_3=\zeta_{15}^5$와 $\zeta_5=\zeta_{15}^3$이므로
+\[
+  \Q(\zeta_3),\qquad\Q(\zeta_5)
+\]
+는 $L$의 부분체이다. 앞의 계산에서
+\[
+  \Q(\zeta_3)=\Q(\sqrt{-3})
+\]
+이고 $\Q(\zeta_5)$의 유일한 이차부분체는
+\[
+  \Q(\sqrt5)
+\]
+이다. 따라서 두 이차체가 생성하는 이중 이차체
+\[
+  \Q(\sqrt{-3},\sqrt5)
+\]
+도 $L$ 안에 들어간다. 이 체의 세 이차부분체는
+\[
+  \Q(\sqrt{-3}),
+  \qquad
+  \Q(\sqrt5),
+  \qquad
+  \Q(\sqrt{-15})
+\]
+이다. $L$에 이차 중간체가 정확히 세 개뿐이므로 이것들이 전부이다.
+\end{solution}
