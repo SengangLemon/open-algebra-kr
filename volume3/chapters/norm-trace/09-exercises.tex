@@ -1,0 +1,328 @@
+\clearpage
+\section{연습문제}
+\label{sec:norm-trace-exercises}
+
+문제는 A, B, C의 세 단계로 나뉜다. 별표 문제는 다음 두 절에 상세 풀이가 있다. 계산 문제에서는 가능한 경우 행렬·최소다항식·체매장·확장탑 가운데 두 가지 방법으로 검산하라.
+
+\subsection*{A. 계산과 기본 판정}
+
+\begin{exercise}[*]
+\label{ex:norm-trace-quadratic-matrix}
+$L=\Q(\sqrt5)$, $\alpha=3+2\sqrt5$라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item 기저 $(1,\sqrt5)$에 대한 $m_\alpha$의 행렬을 구하라.
+  \item $\Tr_{L/\Q}(\alpha)$와 $\operatorname N_{L/\Q}(\alpha)$를 구하라.
+  \item $\alpha^{-1}$을 구하고 노름의 곱셈성으로 답을 검산하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+\label{ex:norm-trace-pure-cubic}
+$\theta^3=2$, $L=\Q(\theta)$라 하자. 다음 값을 구하라.
+\[
+\begin{gathered}
+  \Tr(\theta),\quad \operatorname N(\theta),\quad
+  \Tr(\theta^2),\quad \operatorname N(\theta^2),\\
+  \Tr(1+\theta),\quad \operatorname N(1+\theta),\quad
+  \operatorname N(2-\theta).
+\end{gathered}
+\]
+최소다항식과 종결식 공식을 사용하라.
+\end{exercise}
+
+\begin{exercise}[*]
+\label{ex:characteristic-polynomial-repeated}
+$L=\Q(\sqrt2,\sqrt3)$, $\alpha=\sqrt2$라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item $P_{\alpha,L/\Q}(T)$를 구하라.
+  \item $\Tr_{L/\Q}(\alpha)$와 $\operatorname N_{L/\Q}(\alpha)$를 구하라.
+  \item $\Q(\sqrt2)/\Q$에서 계산한 값과 비교하고 차이가 생기는 이유를 설명하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$\F_9=\F_3(u)$, $u^2=-1$이라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item $\Tr_{\F_9/\F_3}(a+bu)$와 $\operatorname N_{\F_9/\F_3}(a+bu)$를 구하라.
+  \item 대각합이 $1$인 원소를 모두 구하라.
+  \item 노름이 $1$인 영이 아닌 원소를 모두 구하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+\label{ex:finite-field-f8-trace-norm}
+$\F_8=\F_2(\theta)$, $\theta^3+\theta+1=0$이라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item $\Tr(1)$, $\Tr(\theta)$, $\Tr(\theta^2)$을 계산하라.
+  \item $\Tr(a+b\theta+c\theta^2)$을 구하고 대각합의 핵을 적어라.
+  \item 모든 $x\in\F_8^\times$의 노름을 구하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$f(T)=T^3-T-1$의 한 근을 $\alpha$라 하고 $L=\Q(\alpha)$라 하자. 다음을 계산하라.
+\[
+  \Tr(\alpha^2),
+  \qquad
+  \operatorname N(1+\alpha),
+  \qquad
+  \operatorname N(\alpha-2),
+  \qquad
+  \operatorname N(2-\alpha).
+\]
+\end{exercise}
+
+\begin{exercise}
+$L/K$가 차수 $n$의 유한확장이고 $c\in K$라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item $m_c$의 행렬을 임의의 기저에서 적어라.
+  \item $\Tr_{L/K}(c)$와 $\operatorname N_{L/K}(c)$를 구하라.
+  \item $K=\F_5$, $L=\F_{25}$일 때 $c=2,3,4$에 대해 값을 계산하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+\label{ex:norm-trace-tower-sqrt2-sqrt3}
+$K=\Q$, $M=\Q(\sqrt2)$, $L=\Q(\sqrt2,\sqrt3)$, $\alpha=\sqrt2+\sqrt3$라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item $\Tr_{L/M}(\alpha)$와 $\operatorname N_{L/M}(\alpha)$를 구하라.
+  \item 추이성을 사용해 $\Tr_{L/K}(\alpha)$와 $\operatorname N_{L/K}(\alpha)$를 구하라.
+  \item 네 켤레를 직접 사용해 검산하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+\label{ex:cyclotomic-zeta5-norm-trace}
+$L=\Q(\zeta_5)$라 하자. 다음 값을 구하라.
+\[
+  \Tr_{L/\Q}(\zeta_5),
+  \qquad
+  \operatorname N_{L/\Q}(\zeta_5),
+  \qquad
+  \Tr_{L/\Q}(1-\zeta_5),
+  \qquad
+  \operatorname N_{L/\Q}(1-\zeta_5).
+\]
+\end{exercise}
+
+\begin{exercise}
+다음 명제가 항상 참인지 판정하라. 거짓이면 가장 간단한 반례를 제시하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $\Tr(\alpha\beta)=\Tr(\alpha)\Tr(\beta)$.
+  \item $\operatorname N(\alpha+\beta)=\operatorname N(\alpha)+\operatorname N(\beta)$.
+  \item $\operatorname N(\alpha)=0$이면 $\alpha=0$.
+  \item $\Tr(1)=0$이면 $L/K$는 비분리이다.
+  \item 유한 분리확장의 노름 사상은 전사이다.
+\end{enumerate}
+\end{exercise}
+
+\subsection*{B. 정리의 증명}
+
+\begin{exercise}[*]
+\label{ex:prove-artin-independence}
+서로 다른 캐릭터 $\chi_1,\dots,\chi_r:G\to\Omega^\times$가 함수공간에서 선형독립임을 가장 짧은 비자명한 관계를 택하는 방법으로 증명하라. 각 단계에서 왜 더 짧은 관계가 실제로 비자명한지 명시하라.
+\end{exercise}
+
+\begin{exercise}
+$L/K$가 유한확장이고 $\alpha\in L$라 하자. $f_\alpha$를 최소다항식, $r=[L:K(\alpha)]$라 할 때
+\[
+  P_{\alpha,L/K}=f_\alpha^r
+\]
+임을 결합기저
+\[
+  \{\alpha^iv_j:0\le i<\deg f_\alpha,\ 1\le j\le r\}
+\]
+를 사용해 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+\label{ex:prove-embedding-formulas}
+$L/K$가 유한 분리확장이고 $\sigma_1,\dots,\sigma_n$이 모든 $K$-매장일 때
+\[
+  P_{\alpha,L/K}(T)
+  =\prod_{i=1}^n(T-\sigma_i(\alpha))
+\]
+임을 증명하라. $K(\alpha)$의 각 매장이 $L$의 매장으로 몇 번 연장되는지 정확히 세어라.
+\end{exercise}
+
+\begin{exercise}[*]
+\label{ex:prove-norm-trace-transitivity}
+유한확장 탑 $K\subseteq M\subseteq L$에서
+\[
+  \Tr_{L/K}=\Tr_{M/K}\circ\Tr_{L/M},
+  \qquad
+  \operatorname N_{L/K}
+  =\operatorname N_{M/K}\circ\operatorname N_{L/M}
+\]
+임을 증명하라. 먼저 분리인 경우에 매장들을 제한사상에 따라 묶고, 비분리차수의 곱셈성을 사용해 일반 경우로 확장하라.
+\end{exercise}
+
+\begin{exercise}[*]
+\label{ex:prove-trace-pairing-criterion}
+유한확장 $L/K$에 대해 대각합 쌍
+\[
+  (x,y)\longmapsto\Tr_{L/K}(xy)
+\]
+이 비퇴화일 필요충분조건이 $L/K$의 분리성임을 증명하라. 분리인 경우 체매장의 선형독립을 사용하고, 비분리인 경우 대각합 사상이 영임을 사용하라.
+\end{exercise}
+
+\begin{exercise}
+$L/K$가 유한 분리확장이고 $b_1,\dots,b_n$이 $K$-기저라 하자. 선형사상
+\[
+  L\longrightarrow\operatorname{Hom}_K(L,K),
+  \qquad
+  y\longmapsto(x\mapsto\Tr(xy))
+\]
+이 동형임을 보이고, 대각합 쌍대기저의 존재와 유일성을 증명하라.
+\end{exercise}
+
+\begin{exercise}[*]
+\label{ex:finite-field-norm-trace-surjectivity}
+$L=\F_{q^n}$, $K=\F_q$에 대해 다음을 증명하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $\Tr(x)=\sum_{j=0}^{n-1}x^{q^j}$이고 $\operatorname N(x)=x^{(q^n-1)/(q-1)}$이다.
+  \item 대각합과 노름은 각각 $L\to K$, $L^\times\to K^\times$의 전사사상이다.
+  \item 두 핵의 크기는 각각 $q^{n-1}$과 $(q^n-1)/(q-1)$이다.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[*]
+\label{ex:prove-norm-resultant}
+$L=K(\alpha)$이고 $f$가 $\alpha$의 일계수 최소다항식일 때 모든 $g\in K[T]$에 대해
+\[
+  \operatorname N_{L/K}(g(\alpha))=\Res(f,g)
+\]
+임을 증명하라. 이어서
+\[
+  \operatorname N_{L/K}(\alpha-c)=(-1)^n f(c)
+\]
+를 도출하라.
+\end{exercise}
+
+\begin{exercise}[*]
+\label{ex:purely-inseparable-trace-norm}
+$L/K$가 차수 $q=p^r$의 유한 순수비분리확장이라고 하자. 유일한 $K$-매장과 비분리 중복도를 사용해 모든 $\alpha\in L$에 대해
+\[
+  P_{\alpha,L/K}(T)=(T-\alpha)^q,
+  \qquad
+  \Tr_{L/K}(\alpha)=0,
+  \qquad
+  \operatorname N_{L/K}(\alpha)=\alpha^q
+\]
+임을 증명하라.
+\end{exercise}
+
+\begin{exercise}
+$L=\F_{p^p}$, $K=\F_p$라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item $\Tr_{L/K}(1)=0$임을 보여라.
+  \item 그럼에도 $\Tr_{L/K}$가 영사상이 아니고 전사임을 보여라.
+  \item 대각합이 $0$인 원소와 $1$인 원소의 개수를 각각 구하라.
+\end{enumerate}
+\end{exercise}
+
+\subsection*{C. 구조와 종합}
+
+\begin{exercise}[*]
+\label{ex:hilbert90-exact-sequences}
+$L/K$가 유한 순환 갈루아 확장이고 $\Gal(L/K)=\langle\sigma\rangle$라 하자. 곱셈형·가법형 힐베르트 정리 90을 사용해 다음 두 열의 완전성을 증명하라.
+\[
+  1\to K^\times\to L^\times
+  \xrightarrow{a\mapsto a/\sigma(a)}
+  \ker\operatorname N_{L/K}\to1,
+\]
+\[
+  0\to K\to L
+  \xrightarrow{a\mapsto a-\sigma(a)}
+  \ker\Tr_{L/K}\to0.
+\]
+\end{exercise}
+
+\begin{exercise}
+$\charac K\ne2$이고 $d\in K^\times$가 제곱이 아니라고 하자. 곡선
+\[
+  x^2-dy^2=1
+\]
+위의 $K$-점 중 $(-1,0)$을 제외한 모든 점이 어떤 $t\in K$에 대해
+\[
+  x=\frac{1+dt^2}{1-dt^2},
+  \qquad
+  y=\frac{2t}{1-dt^2}
+\]
+로 나타남을 증명하라. 이를 $K(\sqrt d)/K$의 힐베르트 정리 90과 연결하라.
+\end{exercise}
+
+\begin{exercise}
+$L=K(\sqrt d)$, $\charac K\ne2$라 하자. 기저 $(1,\sqrt d)$의 대각합 쌍대기저를 구하고 직접 검산하라. 이어서 기저 $(1,1+\sqrt d)$의 쌍대기저를 구하라.
+\end{exercise}
+
+\begin{exercise}[*]
+\label{ex:power-basis-trace-discriminant}
+$L=K(\alpha)$가 차수 $n$의 분리 단순확장이고 $\alpha_1,\dots,\alpha_n$이 $\alpha$의 켤레라 하자. 체매장 행렬
+\[
+  A=(\alpha_i^{j-1})_{1\le i,j\le n}
+\]
+를 사용해
+\[
+  \det\bigl(\Tr(\alpha^{i+j-2})\bigr)_{i,j}
+  =\prod_{i<j}(\alpha_i-\alpha_j)^2
+\]
+임을 증명하라. 이 식을 최소다항식의 판별식과 연결하라.
+\end{exercise}
+
+\begin{exercise}
+$\zeta=\zeta_5$, $t=\zeta+\zeta^{-1}$, $E=\Q(t)$라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item $t$의 최소다항식이 $T^2+T-1$임을 보여라.
+  \item $\Tr_{E/\Q}(t)$와 $\operatorname N_{E/\Q}(t)$를 구하라.
+  \item $\Tr_{E/\Q}(2-t)$와 $\operatorname N_{E/\Q}(2-t)$를 구하라.
+  \item $\Q\subset E\subset\Q(\zeta)$의 추이성으로 관련 값을 검산하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$L/K$가 유한 갈루아 확장이고 $H\le G=\Gal(L/K)$, $E=L^H$라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item $\Tr_{L/E}(x)=\sum_{h\in H}h(x)$, $\operatorname N_{L/E}(x)=\prod_{h\in H}h(x)$임을 보여라.
+  \item $G/H$의 왼쪽 잉여류 대표들을 사용해 $L/E/K$에 대한 추이식을 다시 증명하라. $H$가 정규일 필요가 없는 이유도 설명하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$L/K$가 차수 $n$의 유한 분리확장이라고 하자. $\Tr(u)=1$인 $u\in L$를 택하여
+\[
+  L=Ku\oplus\ker\Tr
+\]
+임을 증명하라. 이 분해를 사용해 모든 $b\in K$에 대한 방정식 $\Tr(x)=b$의 해를 서술하라.
+\end{exercise}
+
+\begin{exercise}
+$f(T)=T^n+a_1T^{n-1}+\cdots+a_n$의 근 $\alpha$가 생성하는 분리확장에서
+\[
+  s_m=\Tr(\alpha^m)
+\]
+라 하자. 뉴턴 항등식으로
+\[
+  s_m+a_1s_{m-1}+\cdots+a_{m-1}s_1+ma_m=0
+  \quad(1\le m\le n)
+\]
+을 증명하라. 이를 사용해 사차식의 근에 대해 $s_1,s_2,s_3,s_4$를 계수로 나타내라.
+\end{exercise}
+
+\begin{exercise}
+다음을 비교하여 노름 사상의 전사성이 체의 산술에 의존함을 설명하라.
+\begin{enumerate}[label=(\alph*)]
+  \item $\operatorname N_{\Q(i)/\Q}(x+yi)=x^2+y^2$이므로 $-1$은 노름이 아니다.
+  \item 모든 유한체 확장 $\F_{q^n}/\F_q$의 노름은 전사이다.
+  \item 두 경우의 곱셈군 구조가 어떻게 다른지 서술하라.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+$L=\Q(\zeta_8)=\Q(i,\sqrt2)$, $M=\Q(i)$라 하자.
+\begin{enumerate}[label=(\alph*)]
+  \item 최소다항식 $\Phi_8(T)=T^4+1$로 $\Tr_{L/\Q}(1+\zeta_8)$와 $\operatorname N_{L/\Q}(1+\zeta_8)$를 구하라.
+  \item $L/M$에서 $\zeta_8$의 두 켤레가 $\zeta_8,-\zeta_8$임을 이용해 상대 노름과 상대 대각합을 구하라.
+  \item $M/\Q$를 거쳐 추이성으로 (a)를 검산하라.
+\end{enumerate}
+\end{exercise}
