@@ -1,0 +1,204 @@
+\clearpage
+\section{대각합 쌍, 쌍대기저와 분리성}
+\label{sec:trace-pairing-separability}
+
+\begin{learninggoal}
+대각합으로부터 대칭 쌍선형형을 만들고, 그 비퇴화성이 체확장의 분리성과 정확히 일치함을 증명한다. 쌍대기저와 기저 판별식을 계산하며 Chapter 2의 판별식 이론과 연결한다.
+\end{learninggoal}
+
+유한확장 $L/K$에 대해
+\[
+  \langle x,y\rangle_{L/K}
+  :=\Tr_{L/K}(xy)
+\]
+로 두자. 대각합의 선형성 때문에 이는 $K$-쌍선형이고,
+체의 곱셈이 가환이므로 대칭이다.
+
+\begin{definition}[대각합 쌍]
+\label{def:trace-pairing}
+쌍선형형
+\[
+  L\times L\longrightarrow K,
+  \qquad
+  (x,y)\longmapsto\Tr_{L/K}(xy)
+\]
+를 $L/K$의 \emph{대각합 쌍}(trace pairing)이라 한다.
+\end{definition}
+
+\begin{theorem}[분리성의 대각합 판정]
+\label{thm:trace-pairing-separability}
+유한확장 $L/K$에 대해 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $L/K$는 분리확장이다.
+  \item $\Tr_{L/K}:L\to K$는 영사상이 아니다.
+  \item 대각합 쌍은 비퇴화이다.
+  \item $L$의 어떤 $K$-기저 $x_1,\dots,x_n$에 대해
+  \[
+    \det\bigl(\Tr_{L/K}(x_ix_j)\bigr)\ne0.
+  \]
+  \item $L$의 모든 $K$-기저에 대해 위 행렬식이 영이 아니다.
+\end{enumerate}
+\end{theorem}
+
+\begin{proofidea}
+비분리확장에서는 대각합 자체가 영이다. 분리확장에서는
+\[
+  \Tr_{L/K}=\sigma_1+\cdots+\sigma_n
+\]
+이고 서로 다른 체매장의 선형독립 때문에 이 합은 영사상이 아니다.
+영이 아닌 $x$가 대각합 쌍의 왼쪽 핵에 들어가면 $xL=L$이므로
+대각합 전체가 영이 되는 모순이 생긴다.
+\end{proofidea}
+
+\begin{proof}
+(i)$\Rightarrow$(ii)를 보자. 분리확장이므로
+\[
+  \Tr_{L/K}=\sigma_1+\cdots+\sigma_n
+\]
+이다. 서로 다른 체매장은 따름정리
+\ref{cor:field-homomorphism-independence}에 의해 선형독립이므로
+이 합은 영사상이 아니다.
+
+(ii)$\Rightarrow$(iii)를 보자. 어떤 $x\in L$가
+\[
+  \Tr_{L/K}(xy)=0\qquad(y\in L)
+\]
+을 만족한다고 하자. $x\ne0$이면 $xL=L$이므로
+$\Tr_{L/K}$가 $L$ 전체에서 영이 되어 (ii)에 모순이다.
+따라서 $x=0$이고 쌍은 비퇴화이다.
+
+(iii), (iv), (v)의 동치는 쌍선형형의 그람행렬에 대한 표준 선형대수이다.
+기저변환행렬이 $C$이면 그람행렬은
+\[
+  G\longmapsto C^{\mathsf T}GC
+\]
+로 바뀌므로 행렬식은 $\det(C)^2$배만큼 변한다.
+
+마지막으로 $L/K$가 비분리확장이면
+따름정리 \ref{cor:inseparable-trace-zero}에서 대각합이 영이므로
+(ii)--(v)는 모두 성립하지 않는다. 따라서 동치가 완성된다.
+\end{proof}
+
+\begin{corollary}[대각합의 상과 핵]
+\label{cor:trace-kernel-dimension}
+$n=[L:K]$라 하자.
+\begin{enumerate}[label=(\roman*)]
+  \item $L/K$가 분리이면 $\Tr_{L/K}$는 전사이고
+  \[
+    \dim_K\ker\Tr_{L/K}=n-1.
+  \]
+  \item $L/K$가 비분리이면
+  \[
+    \ker\Tr_{L/K}=L.
+  \]
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+분리인 경우 대각합은 영이 아닌 $K$-선형함수이고 공역 $K$는
+$1$차원이므로 전사이다. 차원정리를 적용한다. 비분리인 경우는
+따름정리 \ref{cor:inseparable-trace-zero}이다.
+\end{proof}
+
+\subsection{쌍대기저}
+
+\begin{corollary}[대각합 쌍대기저]
+\label{cor:trace-dual-basis}
+$L/K$가 유한 분리확장이고 $x_1,\dots,x_n$이 $K$-기저라 하자.
+그러면 유일한 $K$-기저 $y_1,\dots,y_n$이 존재하여
+\[
+  \boxed{
+  \Tr_{L/K}(x_i y_j)=\delta_{ij}}
+  \qquad(1\le i,j\le n)
+\]
+을 만족한다. 이를 $(x_i)$의 \emph{대각합 쌍대기저}라 한다.
+\end{corollary}
+
+\begin{proof}
+비퇴화 쌍은 사상
+\[
+  L\longrightarrow L^\vee,
+  \qquad
+  x\longmapsto\bigl(y\mapsto\Tr_{L/K}(xy)\bigr)
+\]
+을 동형으로 만든다. $L^\vee$에서 $(x_i)$에 대한 표준 쌍대기저를
+역상으로 옮기면 원하는 $y_j$를 얻고 유일성도 따른다.
+\end{proof}
+
+\begin{example}[이차확장의 쌍대기저]
+$\charac K\ne2$, $L=K(\sqrt d)$라 하자. 기저
+\[
+  x_1=1,\qquad x_2=\sqrt d
+\]
+의 대각합 그람행렬은
+\[
+  G=
+  \begin{pmatrix}
+    \Tr(1)&\Tr(\sqrt d)\\
+    \Tr(\sqrt d)&\Tr(d)
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    2&0\\
+    0&2d
+  \end{pmatrix}.
+\]
+따라서 쌍대기저는
+\[
+  \boxed{
+  \frac12,\qquad
+  \frac{\sqrt d}{2d}}
+\]
+이고 기저의 판별식은
+\[
+  \det G=4d.
+\]
+\end{example}
+
+\subsection{판별식과의 연결}
+
+$K$-기저 $\mathbf x=(x_1,\dots,x_n)$의 판별식을
+\[
+  D_{L/K}(\mathbf x)
+  :=\det\bigl(\Tr_{L/K}(x_ix_j)\bigr)
+\]
+로 쓴다. 정리 \ref{thm:trace-pairing-separability}에서
+\[
+  L/K\text{가 분리}
+  \quad\Longleftrightarrow\quad
+  D_{L/K}(\mathbf x)\ne0
+\]
+이다.
+
+특히 $L=K(\alpha)$가 분리 단순확장이고
+$\mathbf x=(1,\alpha,\dots,\alpha^{n-1})$이면 Chapter 2의
+정리 \ref{thm:power-basis-discriminant}에 의해
+\[
+  D_{L/K}(1,\alpha,\dots,\alpha^{n-1})
+  =\Disc(m_{\alpha,K}).
+\]
+따라서 최소다항식의 판별식이 영이 아닌 것, 거듭제곱기저의
+대각합 행렬이 가역인 것, $\alpha$가 분리원소인 것은 같은 현상이다.
+
+\begin{keyidea}
+분리성은 ``서로 다른 켤레가 충분히 많다''는 조건이고,
+대각합 쌍의 비퇴화성은 그 켤레들이 선형대수적으로 서로를 구별할 수 있다는 조건이다.
+\[
+  \boxed{
+  \text{분리확장}
+  \Longleftrightarrow
+  \text{대각합 쌍 비퇴화}
+  \Longleftrightarrow
+  \text{기저 판별식}\ne0.}
+\]
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $\Q(\sqrt5)/\Q$의 기저
+  $(1,\sqrt5)$에 대한 대각합 행렬과 판별식을 구하라.
+  \item 같은 체의 기저
+  $\left(1,\frac{1+\sqrt5}{2}\right)$의 판별식을 구하라.
+  \item 비분리확장에서 쌍대기저가 존재할 수 없는 이유를 설명하라.
+\end{enumerate}
+\end{checkpoint}
