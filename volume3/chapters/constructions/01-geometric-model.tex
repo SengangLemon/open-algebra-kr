@@ -1,0 +1,168 @@
+\clearpage
+\section{자와 컴퍼스를 체의 언어로 번역하기}
+\label{sec:construction-geometric-model}
+
+\begin{learninggoal}
+복소평면에서 자와 컴퍼스 작도의 기본 단계를 정의한다. 직선과 원의 교점 계산이 왜 일차방정식 또는 이차방정식으로 환원되는지 설명한다.
+\end{learninggoal}
+
+고전 작도문제는 그림을 그리는 기술처럼 보이지만, 그 배후에는 매우 제한된 대수연산이 있다. 자는 두 점을 지나는 직선을 만들고, 컴퍼스는 이미 얻은 두 점 사이의 거리를 반지름으로 옮긴다. 새로운 점은 언제나 두 직선, 직선과 원, 또는 두 원의 교점으로 얻어진다. 이 장의 목적은 이 세 종류의 교점이 체확장론에서 정확히 무엇을 뜻하는지 밝히는 것이다.
+
+복소평면 $\C$를 유클리드 평면과 동일시한다. 복소수
+\[
+  z=x+iy
+\]
+는 점 $(x,y)$를 나타내며, 두 점 사이의 거리는 $|z-w|$이다.
+
+\begin{definition}[기본 작도 단계]
+$M\subseteq\C$가 이미 얻어진 점들의 집합이라 하자. 다음 세 조작으로 얻은 교점을 $M$에 추가할 수 있다.
+\begin{enumerate}[label=(\roman*)]
+  \item $M$의 두 점씩으로 정해지는 서로 평행하지 않은 두 직선의 교점,
+  \item 중심이 $M$에 있고 반지름이 $M$의 두 점 사이 거리인 원과, $M$의 두 점으로 정해지는 직선의 교점,
+  \item 중심과 반지름이 위와 같은 두 서로 다른 원의 교점.
+\end{enumerate}
+$0,1\in M$이라 가정하고, 유한번의 기본 작도 단계로 얻을 수 있는 모든 점의 집합을
+\[
+  \mathcal C(M)
+\]
+이라 한다. 특히
+\[
+  \mathcal C_0:=\mathcal C(\{0,1\})
+\]
+을 표준 작도가능체라 부른다.
+\end{definition}
+
+정확히 말하면 $\mathcal C(M)$이 체라는 사실은 아직 증명하지 않았다. 현재는 단지 작도로 얻어지는 점들의 집합을 나타내는 기호이다. 곧 이 집합이 실제로 부분체가 되고 제곱근 연산에 닫혀 있음을 보일 것이다.
+
+\subsection{복소켤레와 실수축}
+
+\begin{proposition}
+$z\in\mathcal C(M)$이면 복소켤레 $\overline z$도 $\mathcal C(M)$에 속한다. 따라서
+\[
+  \mathcal C(M)=\mathcal C(M\cup\overline M),
+  \qquad
+  \overline M=\{\overline z:z\in M\}.
+\]
+\end{proposition}
+
+\begin{proofidea}
+실수축에 대한 대칭은 직선과 원의 교점만으로 구현할 수 있다.
+\end{proofidea}
+
+\begin{proof}
+$z\notin\R$라 하자. $z$를 중심으로 하고 반지름 $|z|$인 원을 그리면 실수축과 만나는 두 점을 얻는다. 이 두 점을 중심으로 하고 $z$까지의 거리를 반지름으로 하는 두 원의 다른 교점이 $\overline z$이다. $z$가 순허수인 경우에는 원점 중심의 원과 허수축의 다른 교점을 취하면 된다. 이미 작도한 점에 같은 과정을 적용할 수 있으므로 결론이 따른다.
+\end{proof}
+
+복소켤레를 사용할 수 있으므로 체 계산에서는
+\[
+  \Re z=\frac{z+\overline z}{2},
+  \qquad
+  \Im z=\frac{z-\overline z}{2i},
+  \qquad
+  |z|^2=z\overline z
+\]
+를 자연스럽게 사용하게 된다.
+
+\subsection{두 직선의 교점은 일차방정식이다}
+
+체 $F\subseteq\C$가 복소켤레에 닫혀 있고 $i\in F$라 하자. $F$의 점들로 정해지는 직선을 생각하자. 서로 다른 $z_1,z_2\in F$를 지나는 직선은
+\[
+  z_1+t(z_2-z_1),
+  \qquad t\in\R
+\]
+로 매개화된다.
+
+\begin{proposition}[직선--직선 교점]
+$F$의 점들로 정해지는 서로 평행하지 않은 두 직선의 교점은 $F$에 속한다.
+\end{proposition}
+
+\begin{proof}
+두 직선을
+\[
+  z_1+t(z_2-z_1),
+  \qquad
+  z_3+s(z_4-z_3)
+\]
+로 쓴다. 교점에서는
+\[
+  z_1+t(z_2-z_1)=z_3+s(z_4-z_3)
+\]
+이다. 실수부와 허수부를 비교하면 미지수 $t,s$에 대한 $2\times2$ 일차연립방정식을 얻는다. 계수는 $F\cap\R$에 있고 두 직선이 평행하지 않으므로 행렬식이 $0$이 아니다. 크래머 공식으로 $t,s\in F\cap\R$이고, 따라서 교점도 $F$에 속한다.
+\end{proof}
+
+이 단계에서는 새로운 대수적 원소가 필요하지 않다. 덧셈, 뺄셈, 곱셈과 나눗셈만 사용한다.
+
+\subsection{직선과 원의 교점은 이차방정식이다}
+
+중심 $a\in F$이고 반지름이 $|u-v|$인 원과, $b,c\in F$를 지나는 직선을 생각하자. 직선 위의 점을
+\[
+  z=b+t(c-b),
+  \qquad t\in\R
+\]
+로 놓으면 원의 방정식은
+\[
+  |b+t(c-b)-a|^2=|u-v|^2
+\]
+가 된다.
+
+\begin{proposition}[직선--원 교점]
+위 교점의 매개변수 $t$는
+\[
+  At^2+Bt+C=0
+\]
+꼴의 이차방정식을 만족하며 $A,B,C\in F\cap\R$이다. 실교점이 존재한다면 각 교점은
+\[
+  F(\sqrt\Delta),
+  \qquad
+  \Delta=B^2-4AC\in F\cap\R,\quad \Delta\ge0
+\]
+에 속한다.
+\end{proposition}
+
+\begin{proof}
+절댓값 제곱을 복소켤레의 곱으로 전개하면
+\[
+  (b-a+t(c-b))(\overline b-\overline a+t(\overline c-\overline b))
+  =|u-v|^2
+\]
+이다. $t$에 관하여 정리하면 계수가 $F\cap\R$인 이차방정식을 얻는다. 이차공식에 의해 $t$는 $F(\sqrt\Delta)$에 있고, 따라서 $z=b+t(c-b)$도 같은 체에 속한다.
+\end{proof}
+
+\subsection{두 원의 교점도 이차방정식이다}
+
+두 원을
+\[
+  |z-a|^2=r^2,
+  \qquad
+  |z-b|^2=s^2
+\]
+로 쓰자. 두 식을 빼면 $z\overline z$항이 사라지고
+\[
+  2\Re((b-a)\overline z)+\gamma=0
+\]
+꼴의 실선형 방정식을 얻는다. 즉 두 원의 공통현은 이미 $F$의 점들로 정해지는 직선 위에 있다. 그러므로 두 원의 교점 계산은 직선과 원의 교점 계산으로 환원된다.
+
+\begin{corollary}[한 번의 작도 단계가 만드는 체확장]
+$F\subseteq\C$가 복소켤레에 닫힌 체이고 $i\in F$라 하자. $F$의 점들에서 한 번의 기본 작도 단계로 얻은 점 $z$에 대해 다음 중 하나가 성립한다.
+\[
+  z\in F
+  \qquad\text{또는}\qquad
+  z\in F(\sqrt\Delta)
+\]
+여기서 $\Delta\in F\cap\R$이고 $\Delta\ge0$이다. 따라서
+\[
+  [F(z):F]\le2.
+\]
+\end{corollary}
+
+\begin{keyidea}
+자와 컴퍼스는 임의 차수의 방정식을 풀지 않는다. 한 작도 단계는 일차방정식 또는 이차방정식만 풀며, 새로운 체가 생기더라도 차수는 많아야 $2$이다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 두 원의 방정식을 빼면 왜 직선의 방정식이 되는가?
+  \item 직선과 원이 접하면 판별식 $\Delta$는 어떤 값을 갖는가?
+  \item 기본 작도에서 복소켤레에 닫힌 체를 사용하면 어떤 계산이 편리해지는가?
+\end{enumerate}
+\end{checkpoint}

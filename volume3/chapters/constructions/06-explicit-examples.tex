@@ -1,0 +1,217 @@
+\clearpage
+\section{구체적 계산과 작도 예제}
+\label{sec:construction-explicit-examples}
+
+\begin{learninggoal}
+최소다항식과 갈루아군을 사용하여 실제 수와 정다각형의 작도가능성을 계산한다. 정오각형의 좌표를 중첩 제곱근으로 나타낸다.
+\end{learninggoal}
+
+\subsection{정오각형과 황금비}
+
+원시 $5$차 단위근을 $\zeta=\zeta_5$라 하고
+\[
+  x=\zeta+\zeta^{-1}=2\cos\frac{2\pi}{5}
+\]
+라 두자. 관계
+\[
+  1+\zeta+\zeta^2+\zeta^3+\zeta^4=0
+\]
+를 $\zeta^2$로 나누면
+\[
+  (\zeta^2+\zeta^{-2})+(\zeta+\zeta^{-1})+1=0.
+\]
+그런데
+\[
+  \zeta^2+\zeta^{-2}=x^2-2
+\]
+이므로
+\[
+  x^2+x-1=0.
+\]
+$x>0$이어서
+\[
+  x=\frac{\sqrt5-1}{2}
+\]
+이고 따라서
+\[
+  \boxed{
+  \cos\frac{2\pi}{5}=\frac{\sqrt5-1}{4}
+  }.
+\]
+또한
+\[
+  \cos\frac{\pi}{5}
+  =\frac{\sqrt5+1}{4}
+\]
+이다.
+
+\begin{example}[정오각형의 한 작도 절차]
+단위 원에서 다음 순서로 정오각형을 작도할 수 있다.
+\begin{enumerate}
+  \item 길이 $\sqrt5$를 반원과 높이정리로 작도한다.
+  \item 길이 $(\sqrt5-1)/4$를 닮은삼각형과 이등분으로 작도한다.
+  \item 실수축에서 $x$좌표가 $(\sqrt5-1)/4$인 수직선을 세우고 단위원과의 교점을 취한다.
+  \item 이 교점은 편각 $72^\circ$의 점 $\zeta_5$이다. 복소수 곱셈 또는 같은 현 길이를 원 위에 반복해서 옮겨 나머지 꼭짓점을 얻는다.
+\end{enumerate}
+정오각형의 대각선과 변의 비는 황금비
+\[
+  \phi=\frac{1+\sqrt5}{2}
+\]
+이며, 이 역시 한 번의 제곱근 첨가로 작도가능하다.
+\end{example}
+
+\subsection{정칠각형과 정구각형}
+
+정칠각형에서는
+\[
+  [\Q(\zeta_7):\Q]=\varphi(7)=6
+\]
+이고, 정구각형에서는
+\[
+  [\Q(\zeta_9):\Q]=\varphi(9)=6.
+\]
+두 수 모두 $2$의 거듭제곱이 아니므로 두 정다각형은 작도가능하지 않다.
+
+실부분체만 보아도 같은 장애가 나타난다. 예를 들어
+\[
+  u=2\cos\frac{2\pi}{7}
+\]
+는
+\[
+  u^3+u^2-2u-1=0
+\]
+을 만족하고 이 다항식은 유리근이 없어 기약이다. 따라서 $u$의 차수는 $3$이다. 정칠각형을 작도할 수 있었다면 $u$도 작도가능해야 하므로 모순이다.
+
+마찬가지로
+\[
+  v=2\cos\frac{2\pi}{9}
+\]
+는
+\[
+  v^3-3v+1=0
+\]
+을 만족하는 차수 $3$의 수이다. 이는 $40^\circ$와 $20^\circ$의 작도 불가능성을 다시 보여준다.
+
+\subsection{사차방정식과 작도}
+
+차수 $4$의 대수적 수는 두 번의 이차확장으로 얻어질 수도 있고, 정상폐포에 $3$의 인수가 나타나 작도 불가능할 수도 있다.
+
+\begin{example}[작도가능한 사차근]
+\[
+  f=X^4-2
+\]
+의 양의 실근은
+\[
+  \sqrt[4]2=\sqrt{\sqrt2}
+\]
+이므로 직접 작도가능하다. 갈루아군은 $D_4$이고 분해체 차수는 $8$이다.
+\end{example}
+
+\begin{example}[또 다른 작도가능한 사차식]
+\[
+  f=X^4-5X^2+6=(X^2-2)(X^2-3)
+\]
+의 모든 근은
+\[
+  \pm\sqrt2,\qquad \pm\sqrt3
+\]
+이며 작도가능하다. 이 다항식은 기약이 아니지만 분해체
+\[
+  \Q(\sqrt2,\sqrt3)
+\]
+의 갈루아군은 $V_4$이다.
+\end{example}
+
+\begin{example}[차수 $4$의 비작도가능근]
+앞 절의
+\[
+  X^4-X-1
+\]
+은 기약이고 갈루아군이 $S_4$이다. 각 근의 차수는 $4$이지만 분해체 차수는 $24$이므로 작도가능하지 않다.
+\end{example}
+
+이 세 예제는 다음 구분을 보여준다.
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{cccc}
+\toprule
+다항식 & 한 근의 차수 & 분해체 갈루아군 & 작도 \\
+\midrule
+$X^4-2$ & $4$ & $D_4$ & 가능 \\
+$X^4-5X^2+6$ & $2$ & $V_4$ & 가능 \\
+$X^4-X-1$ & $4$ & $S_4$ & 불가능 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{거듭제곱근의 빠른 판정}
+
+\begin{proposition}
+정수 $m\ge2$와 양의 유리수 $a$에 대해, $X^m-a$가 $\Q$ 위에서 기약이라고 하자. 그러면 $a^{1/m}$이 작도가능하려면 $m$이 $2$의 거듭제곱이어야 한다.
+\end{proposition}
+
+\begin{proof}
+기약성이 주어졌으므로
+\[
+  [\Q(a^{1/m}):\Q]=m.
+\]
+작도가능성의 차수 필요조건에 의해 $m$은 $2$의 거듭제곱이어야 한다.
+\end{proof}
+
+역으로 $m=2^r$이면
+\[
+  a^{1/m}
+  =\sqrt{\sqrt{\cdots\sqrt a}}
+\]
+로 $r$번 제곱근을 취하여 작도할 수 있다. 따라서 $X^m-a$가 기약인 전형적인 경우에는
+\[
+  a^{1/m}\text{가 작도가능}
+  \quad\Longleftrightarrow\quad
+  m\text{이 }2\text{의 거듭제곱}
+\]
+이다.
+
+\begin{example}
+\[
+  \sqrt[8]2
+\]
+는 세 번의 제곱근으로 작도가능하지만,
+\[
+  \sqrt[6]2
+\]
+는 최소다항식 $X^6-2$가 아이젠슈타인 판정법으로 기약이고 차수가 $6$이므로 작도가능하지 않다.
+\end{example}
+
+\subsection{실수 작도가능체}
+
+\begin{definition}
+\[
+  \mathcal C_{\R}:=\mathcal C_0\cap\R
+\]
+를 실수 작도가능체라 한다.
+\end{definition}
+
+\begin{proposition}
+$\mathcal C_{\R}$는 $\Q$를 포함하는 $\R$의 가장 작은 부분체이며, 양의 원소의 제곱근에 닫혀 있다.
+\end{proposition}
+
+\begin{proof}
+앞에서 $\mathcal C_0$가 체이고 제곱근에 닫혀 있음을 보였다. 따라서 그 실수 부분은 양의 원소의 양의 제곱근을 포함한다. 반대로 $F\subseteq\R$가 $\Q$를 포함하고 양의 제곱근에 닫혀 있다고 하자. 직선과 원의 교점 계산에서 나타나는 실수 판별식의 제곱근을 모두 $F$ 안에서 취할 수 있으므로 모든 실수 작도가능점은 $F$에 속한다.
+\end{proof}
+
+\begin{keyidea}
+구체적 작도문제는 다음 두 방식으로 푼다.
+\begin{enumerate}
+  \item 목표수를 실제로 사칙연산과 중첩 제곱근으로 표현하여 가능성을 증명한다.
+  \item 최소다항식과 정상폐포의 갈루아군을 계산하여 불가능성을 증명한다.
+\end{enumerate}
+두 방법은 작도가능성의 기본정리에 의해 같은 이론의 양면이다.
+\end{keyidea}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item $2\cos(2\pi/5)$의 최소다항식을 구하라.
+  \item $2\cos(2\pi/7)$의 차수가 $3$이라는 사실이 정칠각형에 어떤 장애를 주는가?
+  \item $\sqrt[12]2$와 $\sqrt[16]2$의 작도가능성을 각각 판정하라.
+\end{enumerate}
+\end{checkpoint}

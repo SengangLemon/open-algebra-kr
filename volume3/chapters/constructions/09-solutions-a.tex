@@ -1,0 +1,210 @@
+\clearpage
+\section{선별 문제 풀이 I}
+\label{sec:construction-solutions-a}
+
+\subsection*{문제 \thechapter.1: 기본 작도가능수}
+
+\begin{solution}
+작도가능점들은 $\Q$를 포함하는 체이고 제곱근에 닫혀 있다. 따라서
+\[
+  \frac37\in\Q\subset\mathcal C_0.
+\]
+또한 $3>0$이므로 $\sqrt3$을 작도할 수 있고,
+\[
+  \frac{1+\sqrt5}{2}
+\]
+는 $1,2,5$와 $\sqrt5$에 사칙연산을 적용한 수이므로 작도가능하다. 마지막으로 $2+\sqrt3>0$이고 이미 작도가능하므로
+\[
+  \sqrt{2+\sqrt3}
+\]
+도 작도가능하다.
+
+체확장 탑으로 쓰면 예를 들어
+\[
+  \Q\subset\Q(\sqrt3)
+  \subset\Q(\sqrt3,\sqrt{2+\sqrt3})
+\]
+이고 각 비자명한 단계의 차수는 $2$ 이하이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.3: 세제곱근과 정육면체 배적}
+
+\begin{solution}
+$X^3-2$는 소수 $2$에 대한 아이젠슈타인 판정법으로 기약이다. 따라서
+\[
+  [\Q(\sqrt[3]2):\Q]=3.
+\]
+작도가능한 대수적 수의 차수는 $2$의 거듭제곱이어야 하므로 $\sqrt[3]2$는 작도가능하지 않다.
+
+$X^3-16$에는 같은 아이젠슈타인 판정법을 그대로 적용할 수 없다. 상수항 $-16$이 $4$로도 나누어지기 때문이다. 그러나 유리근 정리에 의해 $X^3-16$은 유리근을 갖지 않으므로 기약인 삼차다항식이다. 따라서 $\sqrt[3]{16}$의 차수도 $3$이다. 또는
+\[
+  \sqrt[3]{16}=2\sqrt[3]2
+\]
+이므로 이것이 작도가능하다면 $\sqrt[3]2$도 작도가능해져 모순이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.5: $60^\circ$의 삼등분}
+
+\begin{solution}
+$y=2\cos20^\circ$라 하자. 삼중각 공식
+\[
+  (2\cos\theta)^3-3(2\cos\theta)=2\cos3\theta
+\]
+에 $\theta=20^\circ$를 대입하면
+\[
+  y^3-3y=2\cos60^\circ=1.
+\]
+따라서
+\[
+  y^3-3y-1=0.
+\]
+유리근 후보는 $\pm1$뿐인데 둘 다 근이 아니므로 이 삼차다항식은 기약이다. 그러므로
+\[
+  [\Q(y):\Q]=3.
+\]
+$60^\circ$를 삼등분할 수 있었다면 단위원에서 $20^\circ$의 점을 얻고 그 실수부와 두 배 $y$도 작도할 수 있어야 한다. 이는 차수 조건과 모순이다.
+\end{solution}
+
+\subsection*{문제 \thechapter.7: 정오각형의 좌표}
+
+\begin{solution}
+$\zeta^5=1$, $\zeta\ne1$이므로
+\[
+  1+\zeta+\zeta^2+\zeta^3+\zeta^4=0.
+\]
+$\zeta^2$로 나누고 $x=\zeta+\zeta^{-1}$라 두면
+\[
+  \zeta^2+\zeta^{-2}+\zeta+\zeta^{-1}+1=0.
+\]
+또한
+\[
+  \zeta^2+\zeta^{-2}=x^2-2
+\]
+이므로
+\[
+  x^2+x-1=0.
+\]
+$x=2\cos72^\circ>0$이어서
+\[
+  x=\frac{-1+\sqrt5}{2}.
+\]
+따라서
+\[
+  \cos72^\circ=\frac{\sqrt5-1}{4}.
+\]
+마지막으로 $36^\circ=180^\circ-144^\circ$를 쓰거나 반각공식을 적용하면
+\[
+  \cos36^\circ=\frac{\sqrt5+1}{4}
+\]
+를 얻는다. 두 값 모두 $\Q(\sqrt5)$에 있으므로 작도가능하다.
+\end{solution}
+
+\subsection*{문제 \thechapter.9: $X^4-2$의 분해체}
+
+\begin{solution}
+$\alpha=\sqrt[4]2$와 $i=\sqrt{-1}$라 하자. 네 근은
+\[
+  \alpha,-\alpha,i\alpha,-i\alpha
+\]
+이고 분해체는
+\[
+  L=\Q(\alpha,i)
+\]
+이다. 아이젠슈타인 판정법으로 $X^4-2$가 기약이므로
+\[
+  [\Q(\alpha):\Q]=4.
+\]
+$\Q(\alpha)\subset\R$이지만 $i\notin\R$이므로
+\[
+  [L:\Q(\alpha)]=2,
+  \qquad [L:\Q]=8.
+\]
+자동동형
+\[
+  \sigma:\alpha\mapsto i\alpha,\quad i\mapsto i,
+\]
+\[
+  \tau:\alpha\mapsto\alpha,\quad i\mapsto-i
+\]
+는
+\[
+  \sigma^4=\tau^2=1,
+  \qquad \tau\sigma\tau=\sigma^{-1}
+\]
+을 만족하므로
+\[
+  \Gal(L/\Q)\cong D_4.
+\]
+이는 $2$-군이므로 모든 근이 작도가능하다.
+
+직접적으로도
+\[
+  \alpha=\sqrt{\sqrt2}
+\]
+는 두 번의 제곱근으로 얻고, $i$는 원점에서 실수축에 수직선을 세워 단위원과 만나게 하여 얻는다. 따라서 $\pm\alpha,\pm i\alpha$를 모두 작도할 수 있다.
+\end{solution}
+
+\subsection*{문제 \thechapter.11: 작도가능점의 체 연산}
+
+\begin{solution}
+$z,w$를 원점에서 출발하는 벡터로 보면 $z+w$는 평행사변형의 네 번째 꼭짓점이다. $-z$는 원점에 대한 점대칭으로 얻으므로 $z-w$도 작도가능하다.
+
+양의 실수 $a,b$에 대해서는 한 반직선 위에 길이 $1,a$를, 다른 반직선 위에 길이 $b$를 놓는다. 대응하는 점을 잇고 평행선을 그으면 닮은삼각형의 비례식에서 길이 $ab$를 얻는다. 같은 구성에서 비례식을 뒤집으면 $a^{-1}$도 얻는다.
+
+일반 복소수는 극형식
+\[
+  z=|z|e^{i\theta},\qquad w=|w|e^{i\phi}
+\]
+으로 생각한다. 절댓값의 곱 $|z||w|$를 위 구성으로 만들고, 각을 복사하여 $\theta+\phi$를 만들면 $zw$를 얻는다. $z^{-1}$은 절댓값 $|z|^{-1}$과 각 $-\theta$로 얻는다. 모든 단계는 직선과 원의 교점만 사용한다.
+\end{solution}
+
+\subsection*{문제 \thechapter.13: 작도와 이차확장 탑}
+
+\begin{solution}
+먼저 $z$가 작도가능하다고 하자. 작도순서에서 현재까지 얻은 좌표들이 들어 있는 체를 $F$라 두면, 두 직선의 교점은 $F$ 안에 있고 직선--원 또는 원--원 교점은 $F(\sqrt\Delta)$ 안에 있다. 유한번의 작도이므로
+\[
+  K_M=L_0\subseteq L_1\subseteq\cdots\subseteq L_r,
+  \qquad [L_j:L_{j-1}]\le2,\quad z\in L_r
+\]
+인 탑을 얻는다.
+
+반대로 이런 탑이 주어졌다고 하자. 차수 $2$인 단계는
+\[
+  L_j=L_{j-1}(\alpha_j)
+\]
+이고 $\alpha_j$는 어떤 이차식
+\[
+  X^2+bX+c
+\]
+의 근이다. 따라서
+\[
+  \alpha_j=\frac{-b\pm\sqrt{b^2-4c}}2.
+\]
+사칙연산과 제곱근을 자와 컴퍼스로 구현할 수 있으므로 $L_{j-1}$의 작도가능성에서 $L_j$의 모든 원소의 작도가능성이 따른다. 탑에 대한 귀납법으로 $z$가 작도가능하다.
+\end{solution}
+
+\subsection*{문제 \thechapter.15: 유한 $2$-군과 이차확장 탑}
+
+\begin{solution}
+$|G|=2^r$에 대해 귀납한다. $r=0$이면 자명하다. $r>0$일 때 유한 $2$-군의 최대부분군 $H$를 하나 택한다. 유한 $p$-군의 최대부분군은 지수 $p$이고 정규부분군이므로
+\[
+  [G:H]=2,
+  \qquad H\triangleleft G.
+\]
+$H$도 $2$-군이므로 귀납가정에 의해
+\[
+  H=G_1\trianglerighteq G_2\trianglerighteq\cdots
+  \trianglerighteq G_r=1
+\]
+인 지수 $2$ 정규열을 갖는다. 앞에 $G_0=G$를 붙이면 원하는 열을 얻는다.
+
+이제 $N/K$가 갈루아 확장이고 $G=\Gal(N/K)$가 $2$-군이라 하자. 고정체를 취하면 포함관계가 뒤집혀
+\[
+  K=N^{G_0}\subset N^{G_1}\subset\cdots\subset N^{G_r}=N
+\]
+이고 갈루아 대응에서
+\[
+  [N^{G_{j+1}}:N^{G_j}]=[G_j:G_{j+1}]=2.
+\]
+따라서 $N/K$는 이차확장들의 탑으로 분해된다.
+\end{solution}

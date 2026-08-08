@@ -1,0 +1,123 @@
+\clearpage
+\section{작도가능성 판정 절차와 장 요약}
+\label{sec:construction-workflow-review}
+
+\begin{learninggoal}
+대수적 수, 각과 정다각형의 작도가능성을 재현 가능한 절차로 판정한다. 차수 판정과 갈루아군 판정이 각각 어디까지 결론을 주는지 구분한다.
+\end{learninggoal}
+
+\subsection{대수적 수의 판정 절차}
+
+$\alpha\in\overline\Q$가 주어졌다고 하자.
+
+\begin{enumerate}[label=\textbf{단계 \arabic*.},leftmargin=28mm]
+  \item \textbf{최소다항식을 구한다.}
+  \[
+    m_\alpha(X)\in\Q[X].
+  \]
+  기약성을 확인하여 $[\Q(\alpha):\Q]$를 결정한다.
+
+  \item \textbf{차수의 필요조건을 검사한다.}
+  \[
+    \deg m_\alpha\ne2^r
+  \]
+  이면 즉시 작도 불가능이다.
+
+  \item \textbf{차수가 $2$의 거듭제곱이어도 멈추지 않는다.}
+  최소다항식의 분해체 $N$ 또는 갈루아군
+  \[
+    G=\Gal(N/\Q)
+  \]
+  을 계산한다.
+
+  \item \textbf{$2$-군 여부를 판정한다.}
+  \[
+    \alpha\text{가 작도가능}
+    \quad\Longleftrightarrow\quad
+    |G|=2^s.
+  \]
+
+  \item \textbf{가능한 경우 이차확장 탑을 복원한다.}
+  $G$의 지수 $2$ 부분군열을 갈루아 대응으로 뒤집어
+  \[
+    \Q=K_0\subset K_1\subset\cdots\subset K_s=N
+  \]
+  을 얻고, 각 단계를 제곱근 첨가로 표현한다.
+\end{enumerate}
+
+\begin{example}[절차의 비교]
+\begin{itemize}
+  \item $\sqrt[3]2$: 최소다항식 차수가 $3$이므로 단계 2에서 종료한다.
+  \item $\sqrt[4]2$: 차수는 $4$이고 정상폐포 갈루아군은 $D_4$이므로 작도가능하다.
+  \item $X^4-X-1$의 근: 차수는 $4$이지만 갈루아군이 $S_4$이므로 단계 4에서 불가능 판정이 난다.
+\end{itemize}
+\end{example}
+
+\subsection{각의 판정 절차}
+
+각 $\theta$가 주어졌을 때 다음 수들은 서로 연결된다.
+\[
+  e^{i\theta},\qquad \cos\theta,\qquad \sin\theta.
+\]
+각을 작도할 수 있다는 것은 단위원 위의 점 $e^{i\theta}$를 작도할 수 있다는 뜻이다. 보통 삼각함수 항등식으로 $2\cos\theta$ 또는 $\cos\theta$의 최소다항식을 구한다.
+
+\begin{enumerate}[label=\textbf{단계 \arabic*.},leftmargin=28mm]
+  \item 목표각의 삼각함수 값을 미지수로 둔다.
+  \item 배각·삼중각 공식으로 유리계수 다항식을 만든다.
+  \item 다항식의 기약인수를 찾아 최소다항식을 결정한다.
+  \item 차수와 정상폐포의 갈루아군으로 작도가능성을 판정한다.
+\end{enumerate}
+
+$60^\circ$의 삼등분에서는 $y=2\cos20^\circ$가 기약 삼차식
+\[
+  y^3-3y-1=0
+\]
+을 만족하므로 불가능하다.
+
+\subsection{정다각형의 판정 절차}
+
+정$n$각형은 두 방법 중 편한 것을 사용한다.
+
+\begin{description}[leftmargin=34mm,style=nextline]
+  \item[오일러 함수 방법]
+  $\varphi(n)$을 계산한다. 이것이 $2$의 거듭제곱이면 가능하고, 아니면 불가능하다.
+
+  \item[소인수분해 방법]
+  $n$을 소인수분해한다. 홀수 부분이 서로 다른 페르마 소수들의 곱이면 가능하다.
+\end{description}
+
+예를 들어
+\[
+  255=3\cdot5\cdot17
+\]
+이므로 정$255$각형은 작도가능하지만,
+\[
+  45=3^2\cdot5
+\]
+는 홀수 소수 $3$이 반복되므로 정$45$각형은 작도가능하지 않다.
+
+\begin{chapterreview}
+\begin{itemize}
+  \item 자와 컴퍼스의 교점 계산은 일차 또는 이차방정식으로 환원된다.
+  \item 작도가능점은 정확히 유한 이차확장 탑 안에 놓이는 점이다.
+  \item 동치로, 작도가능한 대수적 수는 유한 갈루아 $2$-확장 안에 들어간다.
+  \item 작도가능한 원소의 차수는 $2$의 거듭제곱이지만, 이 조건만으로는 충분하지 않다.
+  \item 최소다항식의 분해체 갈루아군이 $2$-군일 때 정확히 작도가능하다.
+  \item 정육면체 배적과 $60^\circ$ 삼등분은 차수 $3$ 때문에 불가능하다.
+  \item 원적문제는 $\pi$의 초월성 때문에 불가능하다.
+  \item 정$n$각형은 $\varphi(n)$이 $2$의 거듭제곱일 때 정확히 작도가능하다.
+  \item 동치로 $n=2^m p_1\cdots p_r$이고 $p_i$들이 서로 다른 페르마 소수일 때 정확히 가능하다.
+\end{itemize}
+\end{chapterreview}
+
+\subsection*{복습 카드}
+
+\begin{itemize}
+  \item \textbf{한 번의 작도 단계가 요구하는 방정식 차수는?} 많아야 $2$.
+  \item \textbf{작도가능성의 체확장 판정은?} 이차확장 탑 안에 포함되는가를 본다.
+  \item \textbf{완전한 갈루아군 판정은?} 최소다항식의 분해체 갈루아군이 $2$-군인가를 본다.
+  \item \textbf{차수가 $2^r$이면 충분한가?} 아니다. 정상폐포도 검사해야 한다.
+  \item \textbf{정$n$각형의 판정은?} $\varphi(n)$이 $2$의 거듭제곱인가를 본다.
+  \item \textbf{가우스--방첼 꼴은?} $n=2^m$ 곱하기 서로 다른 페르마 소수들의 곱.
+  \item \textbf{세 고전 불가능 문제의 장애는?} 차수 $3$, 차수 $3$, 초월성.
+\end{itemize}
