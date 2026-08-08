@@ -1,0 +1,163 @@
+\clearpage
+\section{작도가능점과 이차확장 탑}
+\label{sec:construction-quadratic-towers}
+
+\begin{learninggoal}
+작도가능점이 정확히 연속적인 이차확장 안에 놓이는 점임을 증명한다. 유한 $2$-군과 작도가능성의 관계를 갈루아 대응으로 해석한다.
+\end{learninggoal}
+
+앞 절은 작도에서 체확장으로 가는 방향을 설명했다. 이제 역방향, 즉 체의 사칙연산과 제곱근 첨가를 실제 작도로 구현할 수 있음을 보인다.
+
+\subsection{작도가능점들은 체를 이룬다}
+
+\begin{proposition}
+$0,1\in M\subseteq\C$라 하자. 집합 $\mathcal C(M)$은 다음 성질을 갖는다.
+\begin{enumerate}[label=(\roman*)]
+  \item $M\cup\overline M\subseteq\mathcal C(M)$이다.
+  \item $z,w\in\mathcal C(M)$이면 $z\pm w,zw\in\mathcal C(M)$이다.
+  \item $z\in\mathcal C(M)$이고 $z\ne0$이면 $z^{-1}\in\mathcal C(M)$이다.
+  \item $z\in\mathcal C(M)$이면 $z$의 두 제곱근도 $\mathcal C(M)$에 속한다.
+\end{enumerate}
+따라서 $\mathcal C(M)$은 $\Q(M\cup\overline M)$을 포함하는 $\C$의 부분체이며 제곱근 추출에 닫혀 있다.
+\end{proposition}
+
+\begin{proofidea}
+복소수의 덧셈은 평행사변형, 곱셈과 역수는 닮은삼각형, 양의 실수의 제곱근은 탈레스의 반원과 직각삼각형의 높이정리로 구현한다. 복소수의 제곱근은 절댓값의 제곱근과 각의 이등분을 결합한다.
+\end{proofidea}
+
+\begin{proof}
+복소켤레는 앞 절에서 작도할 수 있음을 보였다.
+
+덧셈 $z+w$는 벡터 $z,w$가 만드는 평행사변형의 대각선 끝점으로 얻고, $-z$는 원점에 대한 점대칭으로 얻는다. 따라서 뺄셈도 가능하다.
+
+곱셈과 역수는 닮은삼각형으로 구성한다. 먼저 양의 실수 $a,b$가 주어졌다고 하자. 한 직선 위에 길이 $1,a$를 표시하고 다른 반직선 위에 길이 $b$를 표시한 뒤 평행선을 사용하면 비례식
+\[
+  \frac{x}{b}=\frac{a}{1}
+\]
+을 만족하는 길이 $x=ab$를 얻는다. 같은 그림에서
+\[
+  \frac{x}{1}=\frac{1}{a}
+\]
+를 사용하면 $a^{-1}$을 얻는다. 일반 복소수의 곱에서는 절댓값을 곱하고 편각을 더하면 되고, 역수에서는 절댓값의 역수를 취하고 편각의 부호를 바꾸면 된다. 각의 복사, 덧셈과 대칭은 자와 컴퍼스로 가능하다.
+
+이제 $a>0$인 실수 $a$의 제곱근을 구성하자. 실수축 위에 $-a,0,1$을 놓고 지름이 $[-a,1]$인 반원을 그린다. $0$에서 실수축에 수직선을 세워 반원과 만나는 점을 $P$라 하면 직각삼각형의 높이정리에 의해
+\[
+  |P|^2=a\cdot1=a.
+\]
+따라서 길이 $\sqrt a$를 얻는다.
+
+마지막으로 $z\ne0$을
+\[
+  z=|z|e^{i\theta}
+\]
+로 쓰자. 앞에서 $|z|$와 $\sqrt{|z|}$을 작도할 수 있고, 각 $\theta$를 이등분할 수 있으므로
+\[
+  \sqrt{|z|}e^{i\theta/2}
+\]
+를 작도할 수 있다. 그 반대점이 다른 제곱근이다. $z=0$은 자명하다.
+\end{proof}
+
+\subsection{작도가능성의 체론적 특징짓기}
+
+기준체를
+\[
+  K_M:=\Q(M\cup\overline M)
+\]
+로 둔다.
+
+\begin{theorem}[작도가능성의 기본정리]
+\label{thm:constructibility-characterization}
+$0,1\in M\subseteq\C$이고 $z\in\C$라 하자. 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $z\in\mathcal C(M)$이다.
+  \item 다음과 같은 체확장 탑이 존재한다.
+  \[
+    K_M=L_0\subseteq L_1\subseteq\cdots\subseteq L_r\subseteq\C,
+    \qquad z\in L_r,
+  \]
+  \[
+    [L_j:L_{j-1}]\le2
+    \qquad(1\le j\le r).
+  \]
+  \item $z$를 포함하는 유한 갈루아 확장 $N/K_M$가 존재하고
+  \[
+    [N:K_M]=2^s
+  \]
+  인 어떤 $s\ge0$가 존재한다.
+\end{enumerate}
+차수가 $1$인 불필요한 단계를 제거하면 (ii)의 각 비자명한 단계는 차수 $2$로 둘 수 있다.
+\end{theorem}
+
+\begin{proof}
+(i)$\Rightarrow$(ii)를 보자. 작도 순서에 따라 점들을 하나씩 첨가한다. 먼저 필요하다면 $i$를 첨가한다. 이는 $X^2+1$의 근을 첨가하는 차수 많아야 $2$의 단계이다. 이후 앞 절의 교점 계산에 의해 새 점은 현재 체 안에 있거나 어떤 제곱근 하나를 첨가한 이차확장 안에 있다. 유한번의 작도만 사용하므로 원하는 유한 탑을 얻는다.
+
+(ii)$\Rightarrow$(i)를 보자. 차수 $2$인 단계 $L_j/L_{j-1}$를 생각하자. 어떤 $\alpha_j\in L_j$에 대해
+\[
+  L_j=L_{j-1}(\alpha_j)
+\]
+이고 $\alpha_j$의 최소다항식을
+\[
+  X^2+bX+c
+\]
+로 쓸 수 있다. 이차공식에서
+\[
+  \alpha_j=\frac{-b+\sqrt{b^2-4c}}2
+\]
+이므로 $L_j$의 모든 원소는 $L_{j-1}$의 원소들과 한 제곱근에서 사칙연산으로 얻어진다. 앞의 명제에 의해 이 과정은 작도로 구현된다. 탑에 대한 귀납법으로 $z$가 작도가능하다.
+
+(ii)$\Rightarrow$(iii)를 보자. $L_r/K_M$의 정상폐포 $N$을 $\C$ 안에서 취한다. 각 단계가 제곱근 첨가로 이루어졌으므로 $L_r$의 모든 $K_M$-켤레도 유한개의 제곱근 첨가로 얻어진다. 이 켤레체들의 합성체인 $N$ 역시 유한개의 이차확장을 합성하여 얻어지고, 따라서
+\[
+  [N:K_M]\mid 2^t
+\]
+인 어떤 $t$가 존재한다. 즉 $[N:K_M]$는 $2$의 거듭제곱이다. 표수 $0$이므로 $N/K_M$는 분리이고, 정상폐포이므로 갈루아 확장이다.
+
+(iii)$\Rightarrow$(ii)를 보자. $G=\Gal(N/K_M)$는 유한 $2$-군이다. 유한 $2$-군은
+\[
+  G=G_0\trianglerighteq G_1\trianglerighteq\cdots\trianglerighteq G_s=1,
+  \qquad [G_j:G_{j+1}]=2
+\]
+인 정규열을 갖는다. 예를 들어 매 단계에서 지수 $2$인 최대부분군을 택하면 된다. 갈루아 대응으로 고정체를 취하면
+\[
+  K_M=N^{G_0}\subseteq N^{G_1}\subseteq\cdots\subseteq N^{G_s}=N
+\]
+이고 각 단계의 차수는 $2$이다. $z\in N$이므로 (ii)가 성립한다.
+\end{proof}
+
+\begin{corollary}[차수의 필요조건]
+\label{cor:constructible-degree-power-two}
+$z\in\mathcal C(M)$가 $K_M$ 위에서 대수적이면
+\[
+  [K_M(z):K_M]
+\]
+는 $2$의 거듭제곱이다.
+\end{corollary}
+
+\begin{proof}
+정리의 (iii)에서 $K_M(z)$는 $N/K_M$의 중간체이다. 탑 법칙에 의해 그 차수는 $2^s$의 약수이므로 역시 $2$의 거듭제곱이다.
+\end{proof}
+
+\begin{corollary}[최소다항식의 분해체 판정]
+\label{cor:constructible-splitting-field-two-group}
+$\alpha$가 $K_M$ 위에서 대수적이고 $f$가 그 최소다항식이며 $N$이 $f$의 분해체라 하자. 다음은 동치이다.
+\begin{enumerate}[label=(\roman*)]
+  \item $\alpha$는 $M$에서 작도가능하다.
+  \item $N/K_M$의 차수는 $2$의 거듭제곱이다.
+  \item $\Gal(N/K_M)$는 $2$-군이다.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+정리의 (iii)에서 얻은 갈루아 $2$-확장 안에는 $\alpha$의 모든 켤레가 들어가므로 최소다항식의 분해체 $N$도 들어간다. 따라서 $[N:K_M]$는 $2$의 거듭제곱이다. 역방향은 $N$ 자체를 정리의 (iii)에 사용하면 된다. 마지막 두 조건은 유한 갈루아 확장에서 차수와 갈루아군의 위수가 같다는 사실로 동치이다.
+\end{proof}
+
+\begin{pitfall}
+최소다항식의 차수가 $2$의 거듭제곱이라는 조건은 필요조건일 뿐 충분조건이 아니다. 충분조건은 그 최소다항식의 \emph{분해체}가 $2$-확장이라는 것이다. 차수 $4$의 원소라도 정상폐포의 갈루아군이 $S_4$이면 작도할 수 없다.
+\end{pitfall}
+
+\begin{checkpoint}
+\begin{enumerate}[label=(\alph*)]
+  \item 왜 이차확장 $L/F$는 항상 한 원소의 제곱근을 첨가한 꼴로 쓸 수 있는가?
+  \item 유한 $2$-군에서 지수 $2$인 부분군은 왜 정규부분군인가?
+  \item 작도가능한 원소의 최소다항식 차수만으로 충분조건을 얻지 못하는 이유는 무엇인가?
+\end{enumerate}
+\end{checkpoint}
